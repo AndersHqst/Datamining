@@ -1,0 +1,14 @@
+http://awis.amazonaws.com/?
+AWSAccessKeyId=AKIAJFMSXA4TJN2S3DCA
+&Action=UrlInfo&ResponseGroup=Rank%2CContactInfo%2CLinksInCount
+&SignatureMethod=HmacSHA256
+&SignatureVersion=2
+&Timestamp=2013-04-17T16%3A31%3A34.864Z
+
+&Url=www.dr.dk
+
+&Signature=0Ou3xH8oakYgudWCwYnEfrApU8r4Bpn775ZMlgWs6%2FQ%3D
+&Signature=0Ou3xH8oakYgudWCwYnEfrApU8r4Bpn775ZMlgWs6%2FQ%3D
+
+uri: http://awis.amazonaws.com/?AWSAccessKeyId=AKIAJFMSXA4TJN2S3DCA&Action=UrlInfo&ResponseGroup=Rank%2CContactInfo%2CLinksInCount&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2013-04-17T16%3A31%3A34.864Z&Url=www.dr.dk&Signature=0Ou3xH8oakYgudWCwYnEfrApU8r4Bpn775ZMlgWs6%2FQ%3D
+[Finished in 0.1s]

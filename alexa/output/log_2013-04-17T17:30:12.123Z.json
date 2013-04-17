@@ -1,0 +1,6 @@
+{
+    "query": "AWSAccessKeyId=AKIAJFMSXA4TJN2S3DCA&Action=UrlInfo&ResponseGroup=RelatedLinks%2CCategories%2CRank%2CRankByCountry%2CRankByCity%2CUsageStats%2CContactInfo%2CAdultContent%2CSpeed%2CLanguage%2CKeywords%2COwnedDomains%2CLinksInCount%2CSiteData%2CLinksInCount&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2013-04-17T17%3A30%3A12.123Z&Url=www.webcoders.dk",
+    "sign": "GET\nawis.amazonaws.com\n/\nAWSAccessKeyId=AKIAJFMSXA4TJN2S3DCA&Action=UrlInfo&ResponseGroup=RelatedLinks%2CCategories%2CRank%2CRankByCountry%2CRankByCity%2CUsageStats%2CContactInfo%2CAdultContent%2CSpeed%2CLanguage%2CKeywords%2COwnedDomains%2CLinksInCount%2CSiteData%2CLinksInCount&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2013-04-17T17%3A30%3A12.123Z&Url=www.webcoders.dk",
+    "signature": "g08/DzrjeYduaBVh8qyKww7x3OWA9wasqsIZ0lpqlKw=",
+    "uri": "http://awis.amazonaws.com/?AWSAccessKeyId=AKIAJFMSXA4TJN2S3DCA&Action=UrlInfo&ResponseGroup=RelatedLinks%2CCategories%2CRank%2CRankByCountry%2CRankByCity%2CUsageStats%2CContactInfo%2CAdultContent%2CSpeed%2CLanguage%2CKeywords%2COwnedDomains%2CLinksInCount%2CSiteData%2CLinksInCount&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2013-04-17T17%3A30%3A12.123Z&Url=www.webcoders.dk&Signature=g08%2FDzrjeYduaBVh8qyKww7x3OWA9wasqsIZ0lpqlKw%3D"
+}

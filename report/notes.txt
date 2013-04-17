@@ -1,0 +1,8 @@
+Alexa
+- Queries with up to 10 million results (source: http://aws.amazon.com/articles/1632)
+- Non-trivial, querying with ex regex could retrieve hundreds of terrabytes.
+
+Statistico
+- 2.5 million websites
+- 600GB per month
+- solr index
