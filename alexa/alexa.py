@@ -26,18 +26,6 @@ def generate_signature(data):
     dig = hmac.new(b'' + SECRET_ACCESS_KEY, msg=data, digestmod=hashlib.sha256).digest()
     return base64.b64encode(dig).decode()
 
-def build_query2(time_stamp, action, response_group_name, url):
-    return urllib.urlencode(
-    {
-        "AWSAccessKeyId": ACCESS_KEY,
-        "Action": action,
-        "ResponseGroup": response_group_name,
-        "SignatureMethod": HASH_ALGORITHM,
-        "SignatureVersion": "2",
-        "Timestamp": time_stamp,
-        "Url": url
-    })
-
 def build_query(time_stamp, action, response_group_name, url):
     """Builds the query. Not all orders are valid."""
     query = "AWSAccessKeyId=" + ACCESS_KEY
@@ -84,5 +72,6 @@ def execute(site, action=ACTION_NAME, response_group_name=RESPONSE_GROUP_NAME):
                      separators=(',', ': '))
     log_file.write(log)
     log_file.close()
+
 
 # execute('www.webcoders.dk')
