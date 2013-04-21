@@ -47,7 +47,6 @@ def execute(site, action=ACTION_NAME, response_group_name=RESPONSE_GROUP_NAME):
     uri = AWS_BASE_URL + query + "&" + urllib.urlencode({"Signature": signature});
     print 'uri: ' + uri
 
-    # uri = 'http://awis.amazonaws.com/?AWSAccessKeyId=AKIAJFMSXA4TJN2S3DCA&Action=UrlInfo&ResponseGroup=Rank%2CContactInfo%2CLinksInCount&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2013-04-17T16%3A29%3A14.429Z&Url=www.dr.dk&Signature=5jj4eLkbXa4C7lIEcKp%2BL7DbZVLorNossyEhFFwWMJc%3D'
     #Send request
     try:
         resp = urllib2.urlopen(uri)
