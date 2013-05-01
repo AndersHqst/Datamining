@@ -18,7 +18,6 @@ class DataFetcher:
 
         for i in range(start, stop):
             url = self.sites[i]
-            rank = str(i + 1)
             name = self.get_filename(url)
 
             # Build data output
@@ -30,7 +29,7 @@ class DataFetcher:
             self.fetch_pagerank(builder, url)
 
             self.write_output_file(name, builder.generate())
-            self.log_output('Fetched (%s in range %i to %i): %s' % (rank, start, stop, url))
+            self.log_output('Fetched (%s in range %i to %i): %s' % (str(i + 1), start, stop, url))
 
     def fetch_site(self, builder, url):
         try:
