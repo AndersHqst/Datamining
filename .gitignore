@@ -1,4 +1,5 @@
 *.py[cod]
+*.dat
 
 # C extensions
 *.so

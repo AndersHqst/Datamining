@@ -38,12 +38,3 @@ class Website():
                 print 'Exception parsing .dat file: ', self.dat_file.name
                 print 'Exception: ', e
                 return
-
-fd = open('1.dat', 'r')
-ws = Website(fd)
-
-print 'url: ', ws.url
-print 'headers: ', ws.headers
-print 'alexs: ', ws.alexa_rank
-print 'response_time', ws.response_time
-print 'html len', len(ws.html)
