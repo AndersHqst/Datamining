@@ -26,6 +26,7 @@ for fn in files_names:
     with open(fn) as f:
         website = Website(f)
         websites.append(website)
+    print 'Analyzed: %s' % fn
 
 # Scan attributes 
 attribute_rows = [analyze(website, scanners) for website in websites]

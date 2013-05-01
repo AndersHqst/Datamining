@@ -30,7 +30,7 @@ def bins():
 def title_scanner(website):
     parser = TitleHTMLParser()
     parser.feed(website.html)
-    key = 'has_attr'
+    key = 'title_tag'
     if not parser.title.isspace():
         return (key, 1)
     return (key, 0)

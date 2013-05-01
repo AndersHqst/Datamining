@@ -1,5 +1,6 @@
-from urlparse import urlparse
+import sys
 from HTMLParser import HTMLParser
+from urlparse import urlparse
 from utils.url_helper import strip_web_prefix
 from utils.preprocessing_helper import index_of_bin
 
