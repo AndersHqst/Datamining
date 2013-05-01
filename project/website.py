@@ -57,7 +57,7 @@ class Website():
 
                 elif line.startswith('### ROBOTS:'):
                     line = self.dat_file.readline().decode('utf-8')
-                    while not html_line.startswith('###'):
+                    while not line.startswith('###'):
                         self.robots += line
                         line = self.dat_file.readline().decode('utf-8')
                 elif line.startswith('### ALEXA_LOAD_TIME'):

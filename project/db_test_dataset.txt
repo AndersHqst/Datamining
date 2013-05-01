@@ -1,4 +1,0 @@
-INSERT INTO dataset (url, img_count, has_description, title_tag, has_keywords, cms, internal_links_count, external_links_count) VALUES ('http://www.118.dk', 1, 0, 1, 0, UNKNOWN, 1, 1);
-INSERT INTO dataset (url, img_count, has_description, title_tag, has_keywords, cms, internal_links_count, external_links_count) VALUES ('http://www.123games.dk', 0, 0, 1, 0, UNKNOWN, 0, 0);
-INSERT INTO dataset (url, img_count, has_description, title_tag, has_keywords, cms, internal_links_count, external_links_count) VALUES ('http://www.123hjemmeside.dk', 4, 0, 1, 1, UNKNOWN, 1, 2);
-INSERT INTO dataset (url, img_count, has_description, title_tag, has_keywords, cms, internal_links_count, external_links_count) VALUES ('http://www.123nu.dk', 0, 0, 1, 0, UNKNOWN, 0, 0);
