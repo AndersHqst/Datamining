@@ -25,7 +25,7 @@ class Website():
         self.parse()
 
     def parse(self):
-        line = self.dat_file.readline()
+        line = self.dat_file.readline().decode('utf-8')
         while line:
             try:
                 if line.startswith('### URL:'):
@@ -37,22 +37,22 @@ class Website():
                 elif line.startswith('### MEASURED_TIME:'):
                     self.measured_response_time = float(line.strip('### MEASURED_TIME:').strip())
                 elif line.startswith('### HEADERS:'):
-                    header_line = self.dat_file.readline()
+                    header_line = self.dat_file.readline().decode('utf-8')
                     while not header_line.isspace():
                         # print 'header line: ', header_line
                         chunks = header_line.split(':')
                         self.headers[chunks[0]] = ''.join(chunks[1:])
-                        header_line = self.dat_file.readline()
+                        header_line = self.dat_file.readline().decode('utf-8')
                 elif line.startswith('### HTML:'):
-                    html_line = self.dat_file.readline()
+                    html_line = self.dat_file.readline().decode('utf-8')
                     while not html_line.startswith('###'):
                         self.html += html_line
-                        html_line = self.dat_file.readline()
+                        html_line = self.dat_file.readline().decode('utf-8')
                 elif line.startswith('### ROBOTS:'):
-                    robots_line = self.dat_file.readline()
+                    robots_line = self.dat_file.readline().decode('utf-8')
                     while not html_line.startswith('###'):
                         self.robots += robots_line
-                        robots_line = self.dat_file.readline()
+                        robots_line = self.dat_file.readline().decode('utf-8')
                 elif line.startswith('### ALEXA_LOAD_TIME'):
                     self.alexa_load_time = int(line.strip('### ALEXA_LOAD_TIME:').strip())
                 elif line.startswith('### GOOGLE_PAGE_RANK'):
@@ -67,7 +67,7 @@ class Website():
                     self.alexa_lang = line.strip('### ALEXA_LANG:').strip()
                 elif line.startswith('### ALEXA_LINKS_IN'):
                     self.alexa_links_in = int(line.strip('### ALEXA_LINKS_IN:').strip())
-                line = self.dat_file.readline()
+                line = self.dat_file.readline().decode('utf-8')
 
             except Exception, e:
                 print 'Exception parsing .dat file: ', self.dat_file.name
