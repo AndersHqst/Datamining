@@ -1,8 +1,14 @@
+import sys
 from HTMLParser import HTMLParser
-import urllib2
 from urlparse import urlparse
+<<<<<<< HEAD
 from preprocessing_helper import index_of_interval_bin
 import sys
+=======
+from utils.url_helper import strip_web_prefix
+from utils.preprocessing_helper import index_of_bin
+
+>>>>>>> 929935540c0fdfa123e52256b9e65467f302d48c
 
 class InternalLinksHTMLParser(HTMLParser):
     def __init__(self, website):
