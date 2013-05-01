@@ -1,6 +1,9 @@
 import re
 import time
 import urllib2
+import gzip
+from StringIO import StringIO
+from pagerank import GooglePageRank
 from alexa import get_alexa_data
 from data_builder import DataBuilder
 
@@ -38,12 +41,27 @@ class DataFetcher:
 
             # Simulate browser
             opener = urllib2.build_opener()
-            opener.addheaders = [('User-agent', 'Mozilla/5.0')]
+            opener.addheaders = [
+                ('User-agent', 'Mozilla/5.0'),
+                ('Accept-Charset', 'utf-8'),
+                ('Accept-encoding', 'gzip')
+            ]
 
             # Get response
             response = opener.open(request, timeout = 20)
+
+            # Headers
             headers = '\n'.join(['%s: %s' % (h, response.headers.get(h)) for h in response.headers])
-            page_contents = response.read().decode('utf-8')
+
+            encoding = 'latin-1' if response.info().get('Content-Type').find('8859-1') >= 0 else 'utf-8'
+
+            # Contents
+            if response.info().get('Content-Encoding') == 'gzip':
+                buf = StringIO( response.read())
+                f = gzip.GzipFile(fileobj=buf)
+                page_contents = f.read().decode(encoding)
+            else:
+                page_contents = response.read().decode(encoding)
 
             download_time = time.time() - start_time
         except Exception as e:
@@ -71,10 +89,21 @@ class DataFetcher:
             self.log_error(url, e)
 
     def fetch_robots(self, builder, url):
-        pass
+        try:
+            request = urllib2.Request(url + '/robots.txt')
+            response = urllib2.urlopen(request, timeout = 20)
+            robots = response.read().decode('utf-8')
+        except Exception as e:
+            robots = ''
+            self.log_error(url, 'Error when fetching robots.txt: %s' % e)
+        
+        builder.append('ROBOTS', robots, multiline=True)
 
     def fetch_pagerank(self, builder, url):
-        pass
+        gpr = GooglePageRank()
+        rank = gpr.get_rank(url)
+        rank = (rank if rank is not None else -1)
+        builder.append('GOOGLE_PAGE_RANK', rank)
 
     def get_filename(self, url):
         url = url.replace('http://', '').replace('www', '')

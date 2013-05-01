@@ -78,7 +78,7 @@ def get_alexa_data(url):
     description = get_xml_value_or_default(description_elem, '')
 
     load_time_elem = content_data.find('Speed/MedianLoadTime')
-    load_time = int(get_xml_value_or_default(load_time_elem, 0))
+    load_time = int(get_xml_value_or_default(load_time_elem, -1))
 
     has_adult_content_elem = content_data.find('AdultContent')
     has_adult_content = get_xml_value_or_default(has_adult_content_elem, 'no') == 'yes'
@@ -87,13 +87,13 @@ def get_alexa_data(url):
     langauge = get_xml_value_or_default(langauge_elem, '')
 
     links_in_elem = content_data.find('LinksInCount')
-    links_in = int(get_xml_value_or_default(links_in_elem, 0))
+    links_in = int(get_xml_value_or_default(links_in_elem, -1))
 
     total_rank_elem = traffic_data.find('Rank')
-    total_rank = int(get_xml_value_or_default(total_rank_elem, 0))
+    total_rank = int(get_xml_value_or_default(total_rank_elem, -1))
 
     dk_rank_elem = traffic_data.find("RankByCountry/Country[@Code='DK']/Rank")
-    dk_rank = int(get_xml_value_or_default(dk_rank_elem, 0))
+    dk_rank = int(get_xml_value_or_default(dk_rank_elem, -1))
 
     return {
         'title': title,
