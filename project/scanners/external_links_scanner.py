@@ -1,11 +1,9 @@
 import sys
 from HTMLParser import HTMLParser
-from url_helper import strip_web_prefix
-from preprocessing_helper import index_of_interval_bin
 import sys
 from urlparse import urlparse
 from utils.url_helper import strip_web_prefix
-from utils.preprocessing_helper import index_of_bin
+from utils.preprocessing_helper import index_of_interval_bin
 
 class ExternalLinksHTMLParser(HTMLParser):
     def __init__(self, website):

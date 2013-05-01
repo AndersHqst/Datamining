@@ -1,7 +1,7 @@
-from HTMLParser import HTMLParser
-from preprocessing_helper import index_of_interval_bin
 import urllib2
 import sys
+from HTMLParser import HTMLParser
+from utils.preprocessing_helper import index_of_interval_bin
 
 class ImgHTMLParser(HTMLParser):
     def __init__(self):

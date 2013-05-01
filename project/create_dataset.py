@@ -15,21 +15,25 @@ scanners = [
     image_count_scanner,
     external_links_scanner,
     internal_links_scanner,
-    title_scanner
+    title_scanner,
+    cms_scanner
 ]
 
 # Get all websites
 files_names = [join(website_dir,fn) for fn in listdir(website_dir) if isfile(join(website_dir,fn))]
 websites = []
 
-for fn in files_names:
+for fn in files_names[:100]:
     with open(fn) as f:
         website = Website(f)
         websites.append(website)
-    print 'Analyzed: %s' % fn
 
 # Scan attributes 
-attribute_rows = [analyze(website, scanners) for website in websites]
+attribute_rows = []
+for website in websites:
+    attributes = analyze(website, scanners) 
+    attribute_rows.append(attributes)
+    print 'Analyzed: %s' % website.url
 
 # Write to database
 writer = TestDatabaseWriter(db_connection_string, db_table)
