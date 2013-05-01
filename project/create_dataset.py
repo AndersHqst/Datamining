@@ -16,22 +16,24 @@ scanners = [
     external_links_scanner,
     internal_links_scanner,
     title_scanner,
-    cms_scanner
+    cms_scanner,
+    description_scanner,
+    keyword_scanner
 ]
 
 # Get all websites
 files_names = [join(website_dir,fn) for fn in listdir(website_dir) if isfile(join(website_dir,fn))]
 websites = []
-
-for fn in files_names[:100]:
+for fn in files_names[:4]:
+    print fn
     with open(fn) as f:
         website = Website(f)
         websites.append(website)
 
-# Scan attributes 
+# Scan attributes
 attribute_rows = []
 for website in websites:
-    attributes = analyze(website, scanners) 
+    attributes = analyze(website, scanners)
     attribute_rows.append(attributes)
     print 'Analyzed: %s' % website.url
 

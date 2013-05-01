@@ -32,7 +32,6 @@ class CMSHTMLParser(HTMLParser):
         HTMLParser.__init__(self)
         self.website = website
         self.cms = 'UNKNOWN'
-        self.parsing_script = False
 
         self.wp_verbs = set(['wp-content', 'wp-include'])
 
@@ -85,7 +84,6 @@ class CMSHTMLParser(HTMLParser):
 
 
     def handle_starttag(self, tag, attrs):
-        self.parsing_script = False
         href = next((b for a,b in attrs if a == 'href'), '')
         src = next((b for a,b in attrs if a == 'src'), '')
 
@@ -96,7 +94,6 @@ class CMSHTMLParser(HTMLParser):
 
         #Script
         if tag == 'script':
-            self.parsing_script = True
             src = next((b for a,b in attrs if a == 'src'), '')
 
             #Joomal
@@ -157,10 +154,9 @@ class CMSHTMLParser(HTMLParser):
 
 
     def handle_data(self, data):
-        if self.parsing_script == True:
-            if 'var Drupal = Drupal' in data:
-                self.cms = DRUPAL
-                raise CMSHTMLParserStopException()
+        if 'var Drupal = Drupal' in data:
+            self.cms = DRUPAL
+            raise CMSHTMLParserStopException()
 
 
 def bins():
