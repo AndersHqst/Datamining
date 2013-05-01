@@ -1,6 +1,6 @@
 import sys
 
-def index_of_bin(bins, val):
+def index_of_interval_bin(bins, val):
     """
     Returns index of the bin that the values should be binned to.
     Values are binned in range: [a,b)

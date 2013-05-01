@@ -1,6 +1,7 @@
 from HTMLParser import HTMLParser
 from url_helper import strip_web_prefix
-from preprocessing_helper import index_of_bin
+from preprocessing_helper import index_of_interval_bin
+import sys
 
 class ExternalLinksHTMLParser(HTMLParser):
     def __init__(self, website):
@@ -35,4 +36,4 @@ def external_links_scanner(website):
     parser = ExternalLinksHTMLParser(website)
     parser.feed(website.html)
     result = parser.external_links_count
-    return ('external_links_count', index_of_bin(bins(), result))
+    return ('external_links_count', index_of_interval_bin(bins(), result))

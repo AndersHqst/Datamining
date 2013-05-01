@@ -1,4 +1,5 @@
 from HTMLParser import HTMLParser
+from preprocessing_helper import index_of_interval_bin
 import urllib2
 import sys
 
@@ -23,4 +24,5 @@ def bins():
 def image_count_scanner(website):
     parser = ImgHTMLParser()
     parser.feed(website.html)
-    return ('img_count', parser.img_tags)
+    result = parser.img_tags
+    return ('img_count', index_of_interval_bin(bins(), result))

@@ -16,22 +16,28 @@ class Website():
             try:
                 if line.startswith('### URL:'):
                     self.url = line.strip('### URL:').strip()
-                elif line.startswith('### RANK:'):
+                if line.startswith('### RANK:'):
                     self.alexa_rank = int(line.strip('### RANK:').strip())
-                elif line.startswith('### TIME:'):
+                if line.startswith('### TIME:'):
                     self.response_time = float(line.strip('### TIME:').strip())
-                elif line.startswith('### HEADERS:'):
-                    header_line = self.dat_file.readline()
-                    while not header_line.isspace():
-                        # print 'header line: ', header_line
-                        chunks = header_line.split(':')
-                        self.headers[chunks[0]] = ''.join(chunks[1:])
-                        header_line = self.dat_file.readline()
-                elif line.startswith('### HTML:'):
-                    html_line = self.dat_file.readline()
-                    while not html_line.isspace():
-                        self.html += html_line
-                        html_line = self.dat_file.readline()
+
+                if line.startswith('### HEADERS:'):
+                    line = self.dat_file.readline()
+                    while not line.startswith('###'):
+                        if not line.isspace():
+                            chunks = line.split(':')
+                            self.headers[chunks[0]] = ''.join(chunks[1:])
+                        # print 'Header line: ', line
+                        line = self.dat_file.readline()
+
+                if line.startswith('### HTML:'):
+                    # print 'Html first line: ', line
+                    line = self.dat_file.readline()
+                    while not line.startswith('###'):
+                        if not line.isspace():
+                            self.html += line
+                        line = self.dat_file.readline()
+                        # print 'Html line: ', line
                 line = self.dat_file.readline()
 
             except Exception, e:

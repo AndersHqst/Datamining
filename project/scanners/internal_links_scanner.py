@@ -1,7 +1,7 @@
 from HTMLParser import HTMLParser
 import urllib2
 from urlparse import urlparse
-from preprocessing_helper import index_of_bin
+from preprocessing_helper import index_of_interval_bin
 import sys
 
 class InternalLinksHTMLParser(HTMLParser):
@@ -37,4 +37,4 @@ def internal_links_scanner(website):
     parser = InternalLinksHTMLParser(website)
     parser.feed(website.html)
     result = parser.internal_links_count
-    return ('internal_links_count', index_of_bin(bins(), result))
+    return ('internal_links_count', index_of_interval_bin(bins(), result))
