@@ -10,3 +10,12 @@ def index_of_interval_bin(bins, val):
         if bin[0] <= val and val < bin[1]:
             return index
     raise ValueError
+
+def index_of_discrete_bin(bins, val):
+    """
+    Returns index of the bin string exists in value provided, or -1 if not found.
+    """
+    for index, bin in enumerate(bins):
+        if bin in val:
+            return index
+    return -1
