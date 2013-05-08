@@ -7,3 +7,4 @@ from cms_scanner import cms_scanner
 from description_scanner import description_scanner
 from keyword_scanner import keyword_scanner
 from alexa_scanners import alexa_rank_scanner, alexa_rank_dk_scanner, alexa_load_time_scanner, alexa_links_ins_scanner, alexa_lang_scanner
+from html_scanners import html5_scanner, html5_tag_scanner

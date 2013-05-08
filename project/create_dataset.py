@@ -24,14 +24,16 @@ scanners = [
     alexa_rank_dk_scanner,
     alexa_load_time_scanner,
     alexa_links_ins_scanner,
-    alexa_lang_scanner
+    alexa_lang_scanner,
+    html5_scanner,
+    html5_tag_scanner
 ]
 
 # Get all websites
 files_names = [join(website_dir,fn) for fn in listdir(website_dir) if isfile(join(website_dir,fn))]
 websites = []
 
-for fn in files_names[]:
+for fn in files_names[:100]:
     with open(fn) as f:
         website = Website(f)
         websites.append(website)

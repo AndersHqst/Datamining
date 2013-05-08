@@ -1,3 +1,4 @@
+from bs4 import BeautifulSoup
 
 class Website():
 
@@ -21,6 +22,7 @@ class Website():
         self.robots = ''
 
         self.html = ''
+        self.soup = None
         self.dat_file = dat_file
         self.parse()
 
@@ -54,6 +56,7 @@ class Website():
                         if not line.isspace():
                             self.html += line
                         line = self.dat_file.readline().decode('utf-8')
+                    self.soup = BeautifulSoup(self.html)
 
                 elif line.startswith('### ROBOTS:'):
                     line = self.dat_file.readline().decode('utf-8')
