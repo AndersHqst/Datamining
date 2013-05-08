@@ -1,13 +1,18 @@
 from os import listdir
 from os.path import isfile, join
 from csv_writer import CsvWriter
-from database_writer import DatabaseWriter, TestDatabaseWriter
 from website import Website
 from website_analyzer import analyze
 from scanners import *
 
 # Settings
+<<<<<<< HEAD
 website_dir = 'top_sites'
+=======
+
+website_dir = 'top_sites'
+website_dump_file = 'websites.dat'
+>>>>>>> 348c4d74bfb2c2e2be4b157f88c826e0d1378634
 
 scanners = [
     # url_scanner,
