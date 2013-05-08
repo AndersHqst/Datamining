@@ -11,37 +11,46 @@ db_connection_string = """host='web331.webfaction.com' dbname='datamining' user=
 db_table = 'dataset'
 
 scanners = [
-    url_scanner,
-    image_count_scanner,
-    external_links_scanner,
-    internal_links_scanner,
-    title_scanner,
-    cms_scanner,
-    description_scanner,
-    keyword_scanner,
-    alexa_rank_scanner,
-    alexa_rank_dk_scanner,
-    alexa_load_time_scanner,
-    alexa_links_ins_scanner,
-    alexa_lang_scanner
+    # url_scanner,
+    # image_count_scanner,
+    # external_links_scanner,
+    # internal_links_scanner,
+    # title_scanner,
+    # cms_scanner,
+    # description_scanner,
+    # keyword_scanner,
+    # alexa_rank_scanner,
+    # alexa_rank_dk_scanner,
+    # alexa_load_time_scanner,
+    # alexa_links_ins_scanner,
+    # alexa_lang_scanner,
+    # server_scanner
+    analytics_scanner
 ]
 
 # Get all websites
 files_names = [join(website_dir,fn) for fn in listdir(website_dir) if isfile(join(website_dir,fn))]
 websites = []
 
+print 'Files loaded: ', len(files_names)
+
 for fn in files_names:
     with open(fn) as f:
         website = Website(f)
         websites.append(website)
-        print 'Parsed: %s' % website.url
+        # print 'Parsed: %s' % website.url
+
+print 'Websites parsed'
 
 # Scan attributes
 attribute_rows = []
 for website in websites:
     attributes = analyze(website, scanners)
     attribute_rows.append(attributes)
-    print 'Analyzed: %s' % website.url
+    # print 'Analyzed: %s' % website.url
+
+print 'attr rows. has analytics'
+print sum(a['has_analytics'] == 1 for a in attribute_rows)
 
 # Write to database
 writer = TestDatabaseWriter(db_connection_string, db_table)

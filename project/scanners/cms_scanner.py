@@ -184,5 +184,11 @@ def cms_scanner(website):
             if hasattr(e, 'read'):
                 print e.read()
     result = parser.cms
-    #TODO bin result to bin index
+
+    index = index_of_discrete_bin(bins(), result)
+    if index == -1:
+        index = bins().index('unknown')
+    else:
+        pass
+
     return ('cms', result)
