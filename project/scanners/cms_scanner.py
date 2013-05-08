@@ -2,6 +2,8 @@ from HTMLParser import HTMLParser
 import urllib2
 from urlparse import urlparse
 from utils.preprocessing_helper import index_of_discrete_bin
+import re
+from bs4 import Comment
 
 """
     Parse CMS system for a website
@@ -22,142 +24,9 @@ DRUPAL     = 'DRUPAL'
 JOOMLA     = 'JOOMLA'
 UNKNOWN    = 'UNKNOWN'
 
-class CMSHTMLParserStopException(Exception):
-
+class CMSScannerException(Exception):
     def __init__(self, *args, **kwargs):
         super(Exception, self).__init__(*args, **kwargs)
-
-class CMSHTMLParser(HTMLParser):
-
-    def __init__(self, website):
-        HTMLParser.__init__(self)
-        self.website = website
-        self.cms = 'UNKNOWN'
-
-        self.wp_verbs = set(['wp-content', 'wp-include'])
-
-        self.type3_comment_text = ['This website is powered by TYPO3',
-        'TYPO3 is a free open source Content Management Framework']
-
-
-    def feed(self, data):
-        """Overrides feed. Some CMS we will just find by searching for a string in the HTML"""
-        if data == None or data.isspace():
-            print 'CMS parser data was not there'
-            raise CMSHTMLParserStopException()
-
-        #See if some cms is simply mentioned in the header
-        drupal = 'drupal'
-        umbraco = 'umbraco'
-        for key in self.website.headers.keys():
-
-            #Drupal
-            if drupal in self.website.headers[key].lower() or drupal in key.lower():
-                self.cms = DRUPAL
-                raise CMSHTMLParserStopException()
-
-            #Umbraco
-            if umbraco in self.website.headers[key].lower() or umbraco in key.lower():
-                self.cms = UMBRACO
-                raise CMSHTMLParserStopException()
-
-
-        #See if a certain path name occurs
-        dnn_path = '/Portals/_default/'
-        if dnn_path in self.website.html:
-            self.cms = DOTNETNUKE
-            raise CMSHTMLParserStopException()
-
-        #Umbraco
-        umbraco_path = '/umbraco/'
-        if umbraco_path in self.website.html:
-            self.cms = DOTNETNUKE
-            raise CMSHTMLParserStopException()
-
-        #Sitecore
-        sitecore_content_path = 'sitecore/content/'
-        sitecore_util_path = 'http://www.sitecore.net/webutil'
-        if sitecore_content_path in self.website.html or sitecore_util_path in self.website.html:
-            self.cms = SITECORE
-            raise CMSHTMLParserStopException()
-
-        HTMLParser.feed(self, data)
-
-
-    def handle_starttag(self, tag, attrs):
-        href = next((b for a,b in attrs if a == 'href'), '')
-        src = next((b for a,b in attrs if a == 'src'), '')
-
-        #Wordpress
-        if href in self.wp_verbs or src in self.wp_verbs:
-            self.cms = WORDPRESS
-            raise CMSHTMLParserStopException()
-
-        #Script
-        if tag == 'script':
-            src = next((b for a,b in attrs if a == 'src'), '')
-
-            #Joomal
-            if 'typo3' in src:
-                self.cms = TYPO3
-                raise CMSHTMLParserStopException()
-
-            #Joomla
-            if 'joomla' in src:
-                self.cms = JOOMLA
-                raise CMSHTMLParserStopException()
-
-            #DotNetNuke
-            if 'dnn.js' in src or 'dnncore.js' in src:
-                self.cms = DOTNETNUKE
-                raise CMSHTMLParserStopException()
-
-            #Sharepoint
-            if 'init.js' in src or 'core.js' in src or 'msstring.js' in src:
-                self.cms = SHAREPOINT
-                raise CMSHTMLParserStopException()
-
-        #Meta tag
-        if tag == 'meta':
-            content = next((b for a,b in attrs if a == 'content'), '')
-            name = next((b for a,b in attrs if a == 'name'), '')
-
-            #PHP-Nuke
-            if name.lower() == 'generator' and 'PHP-Nuke' in content:
-                self.cms = PHPNUKE
-                raise CMSHTMLParserStopException()
-
-            #EpiServer
-            if content.lower() == 'episerver' and name.lower() == 'generator':
-                self.cms = EPISERVER
-                raise CMSHTMLParserStopException()
-
-            #SharePoint
-            if content.lower() == 'microsoft sharepoint' and name.lower() == 'generator':
-                self.cms = SHAREPOINT
-                raise CMSHTMLParserStopException()
-
-            #Dynamic web
-            if 'dynamicweb' in content.lower() and name.lower() == 'generator':
-                self.cms = DYNAMICWEB
-                raise CMSHTMLParserStopException()
-
-
-    def handle_comment(self, data):
-        for string in self.type3_comment_text:
-            if string in data:
-                self.cms = TYPO3
-                raise CMSHTMLParserStopException()
-
-
-    def handle_endtag(self, tag):
-        pass
-
-
-    def handle_data(self, data):
-        if 'var Drupal = Drupal' in data:
-            self.cms = DRUPAL
-            raise CMSHTMLParserStopException()
 
 
 def bins():
@@ -176,22 +45,109 @@ def bins():
         UNKNOWN
     ]
 
+def found(cms):
+    return ('cms', index_of_discrete_bin(bins(), cms))
+
 def cms_scanner(website):
-    parser = CMSHTMLParser(website)
+    soup = website.soup
+
     try:
-        parser.feed(website.html)
+        if website == None:
+            print 'CMS scanner. Website was: ', website
+
+
+        #Assert that data is there
+        if soup == None or soup.get_text().isspace():
+            print 'CMS scanner. soup was: ', soup
+            raise CMSScannerException()
+
+        #See if some cms is simply mentioned in the header
+        drupal = 'drupal'
+        umbraco = 'umbraco'
+        for key in website.headers.keys():
+
+            #Drupal
+            if drupal in website.headers[key].lower() or drupal in key.lower():
+                return found(DRUPAL)
+
+            #Umbraco
+            if umbraco in website.headers[key].lower() or umbraco in key.lower():
+                return found(UMBRACO)
+        # return ('cms', -1)
+
+        #See if a certain path name occurs
+        #DotNetNuke
+        dnn_path = '/Portals/_default/'
+        if dnn_path in soup.get_text():
+            return found(DOTNETNUKE)
+
+        #Umbraco
+        umbraco_path = '/umbraco/'
+        if umbraco_path in soup.get_text():
+            return found(UMBRACO)
+
+        #Drupal
+        if 'var Drupal = Drupal' in soup.get_text():
+            return found(DRUPAL)
+
+        #Sitecore
+        #TODO does this need to be on the entire source? Why not just do it onr src|href like below?
+        sitecore_content_path = 'sitecore/content/'
+        sitecore_util_path = 'http://www.sitecore.net/webutil'
+        if sitecore_content_path in soup.get_text() or sitecore_util_path in soup.get_text():
+            return found(SITECORE)
+
+
+        #Wordpress url in any href or src
+        if soup.find_all(href=re.compile('wp-content', re.IGNORECASE)) or soup.find_all(href=re.compile('wp-include', re.IGNORECASE)):
+            return found(WORDPRESS)
+
+        #Type3 in script source
+        if soup.find_all('script', scr=re.compile('typo3', re.IGNORECASE)):
+            return found(TYPO3)
+
+        #Joomla in script source
+        if soup.find_all('script', scr=re.compile('joomla', re.IGNORECASE)):
+            return found(JOOMLA)
+
+        #DotNetNuke in script source
+        if soup.find_all('script', scr=re.compile('(dnn.js|dnncore.js)', re.IGNORECASE)):
+            return found(DOTNETNUKE)
+
+        #SharePoint in script source
+        if soup.find_all('script', scr=re.compile('(core.js|msstring.js)', re.IGNORECASE)):
+            return found(SHAREPOINT)
+
+        comments = soup.find_all(text=lambda text:isinstance(text, Comment))
+
+        #Check for Typo3 in comment text
+        txt = ['This website is powered by TYPO3', 'TYPO3 is a free open source Content Management Framework']
+        if any(txt[0].lower() in x.lower() or txt[1].lower() in x.lower() for x in comments):
+            return found(TYPO3)
+
+
+        #Meta tags
+        #PHP-Nuke
+        if soup.find_all('meta', attrs={'name': re.compile('generator', re.IGNORECASE),'content': re.compile('PHP-Nuke', re.IGNORECASE)}):
+            return found(PHPNUKE)
+
+        #EpiServer
+        if soup.find_all('meta', attrs={'name': re.compile('generator', re.IGNORECASE),'content': re.compile('episerver', re.IGNORECASE)}):
+            return found(EPISERVER)
+
+        #SharePoint
+        if soup.find_all('meta', attrs={'name': re.compile('generator', re.IGNORECASE),'content': re.compile('microsoft sharepoint', re.IGNORECASE)}):
+            return found(SHAREPOINT)
+
+        #Dynamic web
+        if soup.find_all('meta', attrs={'name': re.compile('generator', re.IGNORECASE),'content': re.compile('dynamicweb', re.IGNORECASE)}):
+            return found(DYNAMICWEB)
+
     except Exception as e:
-        if not isinstance(e, CMSHTMLParserStopException):
-            print 'CMSHTMLParser Exception: ', e
-            print 'site: ', parser.website.url
+        if not isinstance(e, CMSScannerException):
+            print 'CMSScannerException: ', e
+            print 'site: ', website.url
             if hasattr(e, 'read'):
                 print e.read()
-    result = parser.cms
 
-    index = index_of_discrete_bin(bins(), result)
-    if index == -1:
-        index = bins().index('unknown')
-    else:
-        pass
-
-    return ('cms', index)
+    return found(UNKNOWN)

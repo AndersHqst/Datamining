@@ -2,45 +2,19 @@ from HTMLParser import HTMLParser
 
 """A website is considered to have a keyword, if the tag is present, and it contains text."""
 
-class KeywordsStopException(Exception):
-    def __init__(self, *args, **kwargs):
-        super(Exception, self).__init__(*args, **kwargs)
-
-class KeywordsHTMLParser(HTMLParser):
-
-    def __init__(self):
-        HTMLParser.__init__(self)
-        self.keywords = ''
-
-    def handle_starttag(self, tag, attrs):
-        if tag == 'meta':
-            name = next((b for a, b in attrs if a == 'name'), '')
-            content = next((b for a, b in attrs if a == 'content'), '')
-            if name == 'keywords':
-                 self.keywords = content
-                 raise KeywordsStopException()
-
-    def handle_endtag(self, tag):
-        pass
-
-
-    def handle_data(self, data):
-        pass
-
-
 def bins():
     return [0, 1]
 
 def keyword_scanner(website):
-    parser = KeywordsHTMLParser()
-    try:
-        parser.feed(website.html)
-    except Exception as e:
-        if not isinstance(e, KeywordsStopException):
-            print 'KeywordsScanner Exception: ', e
-            print 'site: ', website.url
-            if hasattr(e, 'read'):
-                print e.read()
-
-    result = 0 < len(parser.keywords) and not parser.keywords.isspace()
-    return ('has_keywords', int(result))
+    has_keywords = False
+    meta_tags = website.soup.find_all('meta')
+    for meta_tag in meta_tags:
+        if meta_tag.has_key('name') and meta_tag.has_key('content'):
+            #Keys exist, get the values
+            name = meta_tag['name']
+            content = meta_tag['content']
+            if 'keywords' in name.lower():
+                has_keywords = 0 < len(content)
+        if has_keywords:
+            break
+    return ('has_keywords', int(has_keywords))
