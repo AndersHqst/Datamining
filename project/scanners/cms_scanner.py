@@ -1,6 +1,7 @@
 from HTMLParser import HTMLParser
 import urllib2
 from urlparse import urlparse
+from utils.preprocessing_helper import index_of_discrete_bin
 
 """
     Parse CMS system for a website
@@ -160,18 +161,20 @@ class CMSHTMLParser(HTMLParser):
 
 
 def bins():
-    return [DOTNETNUKE,
-    UMBRACO,
-    EPISERVER,
-    SHAREPOINT,
-    SITECORE,
-    DYNAMICWEB,
-    WORDPRESS,
-    TYPO3,
-    PHPNUKE,
-    DRUPAL,
-    JOOMLA,
-    UNKNOWN]
+    return [
+        DOTNETNUKE,
+        UMBRACO,
+        EPISERVER,
+        SHAREPOINT,
+        SITECORE,
+        DYNAMICWEB,
+        WORDPRESS,
+        TYPO3,
+        PHPNUKE,
+        DRUPAL,
+        JOOMLA,
+        UNKNOWN
+    ]
 
 def cms_scanner(website):
     parser = CMSHTMLParser(website)
@@ -191,4 +194,4 @@ def cms_scanner(website):
     else:
         pass
 
-    return ('cms', result)
+    return ('cms', index)

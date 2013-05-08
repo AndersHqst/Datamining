@@ -7,9 +7,7 @@ from website_analyzer import analyze
 from scanners import *
 
 # Settings
-website_dir = 'top_sites'
-db_connection_string = """host='web331.webfaction.com' dbname='datamining' user='datamining_admin' password='P@ssword'"""
-db_table = 'dataset'
+website_dir = 'top_sites_2'
 
 scanners = [
     url_scanner,
@@ -57,7 +55,7 @@ for fn in files_names:
     with open(fn) as f:
         website = Website(f)
         websites.append(website)
-        print 'Parsed: %s' % website.url
+        # print 'Parsed: %s' % website.url
 
 print 'Websites parsed'
 
@@ -66,7 +64,7 @@ attribute_rows = []
 for website in websites:
     attributes = analyze(website, scanners)
     attribute_rows.append(attributes)
-    print 'Analyzed: %s' % website.url
+    # print 'Analyzed: %s' % website.url
 
 print 'attr rows. has analytics'
 print sum(a['has_analytics'] == 1 for a in attribute_rows)
