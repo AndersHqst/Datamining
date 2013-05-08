@@ -1,4 +1,5 @@
 import sys
+from lxml import etree
 from utils.bin_helper import bin_numeric
 
 html5_tags = [
@@ -27,3 +28,10 @@ def html5_tag_scanner(website):
 
     bins = [1, 10, 50, sys.maxsize]
     return 'html5_tags', bin_numeric(bins, count)
+
+def xhtml_scanner(website):
+    try:
+        etree.XML(website.html)
+        return 'xhtml', 1
+    except:
+        return 'xhtml', 0

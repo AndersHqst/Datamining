@@ -27,8 +27,11 @@ class CsvWriter:
         return self.separator.join(keys) + '\n'
 
     def create_row(self, attributes):
+        values_to_remove = ['-1', 'UNKNOWN']
+
         keys = sorted(attributes.keys())
         values = [self.surround(str(attributes[key])) for key in keys]
+        values = [val if not val in values_to_remove else '' for val in values]
 
         return self.separator.join(values) + '\n'
 
