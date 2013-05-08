@@ -1,5 +1,6 @@
 from os import listdir
 from os.path import isfile, join
+from csv_writer import CsvWriter
 from database_writer import DatabaseWriter, TestDatabaseWriter
 from website import Website
 from website_analyzer import analyze
@@ -11,21 +12,36 @@ db_connection_string = """host='web331.webfaction.com' dbname='datamining' user=
 db_table = 'dataset'
 
 scanners = [
-    # url_scanner,
-    # image_count_scanner,
-    # external_links_scanner,
-    # internal_links_scanner,
-    # title_scanner,
-    # cms_scanner,
-    # description_scanner,
-    # keyword_scanner,
-    # alexa_rank_scanner,
-    # alexa_rank_dk_scanner,
-    # alexa_load_time_scanner,
-    # alexa_links_ins_scanner,
-    # alexa_lang_scanner,
-    # server_scanner
+    url_scanner,
+    image_count_scanner,
+    external_links_scanner,
+    internal_links_scanner,
+    title_scanner,
+    cms_scanner,
+    description_scanner,
+    keyword_scanner,
+    alexa_rank_scanner,
+    alexa_rank_dk_scanner,
+    alexa_load_time_scanner,
+    alexa_links_ins_scanner,
+    alexa_lang_scanner,
+    server_scanner
     analytics_scanner
+    url_scanner,
+    image_count_scanner,
+    external_links_scanner,
+    internal_links_scanner,
+    title_scanner,
+    cms_scanner,
+    description_scanner,
+    keyword_scanner,
+    alexa_rank_scanner,
+    alexa_rank_dk_scanner,
+    alexa_load_time_scanner,
+    alexa_links_ins_scanner,
+    alexa_lang_scanner,
+    html5_scanner,
+    html5_tag_scanner
 ]
 
 # Get all websites
@@ -52,13 +68,6 @@ for website in websites:
 print 'attr rows. has analytics'
 print sum(a['has_analytics'] == 1 for a in attribute_rows)
 
-# Write to database
-writer = TestDatabaseWriter(db_connection_string, db_table)
-writer.connect()
-
-for attributes in attribute_rows:
-    writer.write_row(attributes)
-
-writer.commit()
-writer.disconnect()
-
+# Write to CSV
+writer = CsvWriter(attribute_rows, separator=',', include_header=True, surround_symbol='')
+writer.write()
