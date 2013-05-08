@@ -1,13 +1,14 @@
 from os import listdir
 from os.path import isfile, join
 from csv_writer import CsvWriter
-from database_writer import DatabaseWriter, TestDatabaseWriter
 from website import Website
 from website_analyzer import analyze
 from scanners import *
 
 # Settings
-website_dir = 'top_sites_2'
+
+website_dir = 'top_sites'
+website_dump_file = 'websites.dat'
 
 scanners = [
     url_scanner,
@@ -51,11 +52,11 @@ websites = []
 
 print 'Files loaded: ', len(files_names)
 
-for fn in files_names:
+for fn in files_names[0:25]:
     with open(fn) as f:
         website = Website(f)
         websites.append(website)
-        # print 'Parsed: %s' % website.url
+        print 'Parsed: %s' % website.url
 
 print 'Websites parsed'
 
@@ -64,7 +65,7 @@ attribute_rows = []
 for website in websites:
     attributes = analyze(website, scanners)
     attribute_rows.append(attributes)
-    # print 'Analyzed: %s' % website.url
+    print 'Analyzed: %s' % website.url
 
 print 'attr rows. has analytics'
 print sum(a['has_analytics'] == 1 for a in attribute_rows)
