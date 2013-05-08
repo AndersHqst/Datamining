@@ -1,5 +1,6 @@
 from os import listdir
 from os.path import isfile, join
+from csv_writer import CsvWriter
 from database_writer import DatabaseWriter, TestDatabaseWriter
 from website import Website
 from website_analyzer import analyze
@@ -30,7 +31,7 @@ scanners = [
 files_names = [join(website_dir,fn) for fn in listdir(website_dir) if isfile(join(website_dir,fn))]
 websites = []
 
-for fn in files_names:
+for fn in files_names[]:
     with open(fn) as f:
         website = Website(f)
         websites.append(website)
@@ -43,13 +44,6 @@ for website in websites:
     attribute_rows.append(attributes)
     print 'Analyzed: %s' % website.url
 
-# Write to database
-writer = TestDatabaseWriter(db_connection_string, db_table)
-writer.connect()
-
-for attributes in attribute_rows:
-    writer.write_row(attributes)
-
-writer.commit()
-writer.disconnect()
-
+# Write to CSV
+writer = CsvWriter(attribute_rows, separator=',', include_header=True, surround_symbol='')
+writer.write()
