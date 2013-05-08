@@ -1,0 +1,29 @@
+\section{Background}
+\label{sec:background}
+In this section we present the problem statement, which addresses question relevant to Statistico, combined with our own interest in experimenting with certain data mining techniques. We also provide a short introduction to Alexa, Solr, and some of the technologies used in the solution
+
+\subsection{Problem Statement}
+\label{subsec:problem_statement}
+Based on the interests and data of Statistico introduced in secton \ref{sec:introduction}, we want to find out how well we can extract general statistics on websites in the .dk domain. We want to be able to give an overview of the distribution of CMS, server software, and SEO related figures. SEO related data could be related to link counts or presence of certain HTML tags.
+In addition, we want to investigate if it is possible to derive interesting correlations or patterns in the meta-data.With Aprior we can try and detect frequent patterns in the meta-data, and we will try to answer if there is anything interesting to say about the frequent patterns that we can get from the scraped data.
+A very important measure for any website is its Alexa-rank or page-rank on Google. We will see if we can predict these values based on the limited data we get. It seems unlikely, or at least not intuitive, that we should be able to derive these numbers from a data mining process that is essentially a simplification of what Alexa and Google's crawlers do, but non the less, the results could be interesting in that it could indicate a small set of parameters to be important for getting a high rank.
+
+\subsection{Meta data}
+\label{subsec:meta_data}
+Present meta data. What are we collecting and why. Justify these with either interest in SEO, or web statistics in general.
+
+\subsection{Alexa}
+\label{subsec:alexa}
+Describe Alexa, grep the web, Statistico's \'big brother\', what data does Alexa provide.
+
+\subsection{Solr}
+\label{subsec:solr}
+Statistico uses Solr. How it is used - ie their idea. Why we probably do not want to go that way. Solr is a search engine - schema layer just adds extra layer of complexity.
+
+\subsection{Scraping}
+\label{subsec:scraping}
+HTML parser in Python is crap. Explain issue - HTML is extremely noisy. Present beautiful soup with lxml, our contribution to others trying to do the same.
+
+
+
+
