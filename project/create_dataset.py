@@ -50,7 +50,7 @@ scanners = [
 start_time = time.time()
 
 filenames = [join(website_dir,fn) for fn in listdir(website_dir) if isfile(join(website_dir,fn))]
-filenames = filenames[700:800]
+#filenames = filenames[700:800]
 websites = []
 
 print 'Files loaded: ', len(filenames)
