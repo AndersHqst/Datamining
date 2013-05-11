@@ -1,3 +1,4 @@
+from scanner_attribute import ScannerAttribute
 
 def twitter_share_scanner(website):
     key = 'twitter_share'
@@ -9,8 +10,8 @@ def twitter_share_scanner(website):
     ]
     for tw_class in tw_classes:
         if len(website.soup.find_all('a', { 'class' : tw_class })) > 0:
-            return key, 1
-    return key, 0
+            return ScannerAttribute(key, 1, 1, [0, 1])
+    return ScannerAttribute(key, 0, 0, [0, 1])
 
 def facebook_share_scanner(website):
     key = 'facebook_share'
@@ -27,5 +28,5 @@ def facebook_share_scanner(website):
     ]
     for fb_class in fb_classes:
         if len(website.soup.find_all('div', { 'class' : fb_class })) > 0:
-            return key, 1
-    return key, 0
+            return ScannerAttribute(key, 1, 1, [0, 1])
+    return ScannerAttribute(key, 0, 0, [0, 1])

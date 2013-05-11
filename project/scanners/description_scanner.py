@@ -1,4 +1,4 @@
-from HTMLParser import HTMLParser
+from scanner_attribute import ScannerAttribute
 
 """A website is considered to have a description, if the tag is present, and it contains text."""
 
@@ -17,5 +17,5 @@ def description_scanner(website):
                 has_description = 0 < len(content)
         if has_description:
             break
-
-    return ('has_description', int(has_description))
+            
+    return ScannerAttribute('has_description', int(has_description), int(has_description), [0, 1])

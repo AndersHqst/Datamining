@@ -1,9 +1,9 @@
-from HTMLParser import HTMLParser
 import urllib2
 from urlparse import urlparse
 from utils.preprocessing_helper import index_of_discrete_bin
 import re
 from bs4 import Comment
+from scanner_attribute import ScannerAttribute
 
 """
     Parse CMS system for a website
@@ -46,7 +46,7 @@ def bins():
     ]
 
 def found(cms):
-    return ('cms', index_of_discrete_bin(bins(), cms))
+    return ScannerAttribute('cms', cms, index_of_discrete_bin(bins(), cms), bins())
 
 def cms_scanner(website):
     soup = website.soup

@@ -2,6 +2,7 @@ import sys
 from urlparse import urlparse
 from utils.url_helper import strip_web_prefix
 from utils.preprocessing_helper import index_of_interval_bin
+from scanner_attribute import ScannerAttribute
 
 def links_count(website):
     internal_count = 0
@@ -24,8 +25,8 @@ def bins():
 
 def external_links_scanner(website):
     internal_count, external_count = links_count(website)
-    return 'external_links_count', index_of_interval_bin(bins(), external_count)
+    return ScannerAttribute('external_links_count', external_count, index_of_interval_bin(bins(), external_count), bins())
 
 def internal_links_scanner(website):
     internal_count, external_count = links_count(website)
-    return ('internal_links_count', index_of_interval_bin(bins(), internal_count))
+    return ScannerAttribute('internal_links_count', internal_count, index_of_interval_bin(bins(), internal_count), bins())

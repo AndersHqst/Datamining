@@ -1,0 +1,49 @@
+@RELATION data
+
+@ATTRIBUTE alexa_lang string
+@ATTRIBUTE alexa_links_in string
+@ATTRIBUTE alexa_load_time string
+@ATTRIBUTE alexa_rank string
+@ATTRIBUTE alexa_rank_dk string
+@ATTRIBUTE cms string
+@ATTRIBUTE external_links_count string
+@ATTRIBUTE facebook_share string
+@ATTRIBUTE has_analytics string
+@ATTRIBUTE has_description string
+@ATTRIBUTE has_keywords string
+@ATTRIBUTE html5 string
+@ATTRIBUTE html5_tags string
+@ATTRIBUTE img_count string
+@ATTRIBUTE internal_links_count string
+@ATTRIBUTE server string
+@ATTRIBUTE title_tag string
+@ATTRIBUTE twitter_share string
+@ATTRIBUTE url string
+@ATTRIBUTE xhtml string
+
+@DATA
+?,41,?,414091,1114,UNKNOWN,90,0,0,1,0,0,0,25,7,MICROSOFT-IIS/8.0,1,0,http://www.fusionsport.dk,0
+en,8369,1469,430900,?,UNKNOWN,42,1,1,1,1,1,0,7,1,APACHE,1,0,http://www.cmsimple.dk,0
+?,681,1420,260385,878,UNKNOWN,81,0,1,0,1,0,0,18,5,MICROSOFT-IIS/6.0,1,0,http://www.naturstyrelsen.dk,0
+da-DK,429,1977,458378,1966,TYPO3,25,0,1,1,0,0,0,4,0,'APACHE/2.0.63 (CENTOS)',1,0,http://www.goldenplanet.dk,0
+?,180,?,532203,?,WORDPRESS,37,0,1,1,0,1,0,24,28,APACHE,1,1,http://www.tedxcopenhagen.dk,0
+da-DK,114,916,436367,1730,UNKNOWN,0,0,0,0,0,0,0,0,0,?,0,0,http://www.diba.dk,0
+?,35,1231,212972,827,UNKNOWN,136,0,1,1,1,0,0,17,3,MICROSOFT-IIS/6.0,1,0,http://www.just-half-price.dk,0
+?,64,1228,29156,262,UNKNOWN,0,0,1,1,1,1,1,0,0,MICROSOFT-IIS/7.5,1,0,http://www.moviestarplanet.dk,0
+?,27,?,290577,1238,WORDPRESS,16,0,1,0,0,1,1,14,17,LITESPEED,1,0,http://www.babyalarm-test.dk,0
+?,92,492,60554,135,UNKNOWN,20,0,0,1,0,0,0,12,6,NGINX,1,0,http://www.travian.dk,0
+da,54,210,160539,545,UNKNOWN,0,0,0,0,0,0,0,0,0,?,0,0,http://www.danlon.dk,0
+?,32,?,723431,2829,TYPO3,80,0,1,1,1,0,0,1,0,'APACHE/2.2.23 (UNIX) MOD_SSL/2.2.23 OPENSSL/1.0.1E MOD_AUTH_PASSTHROUGH/2.1 MOD_BWLIMITED/1.4 FRONTPAGE/5.0.2.2635',1,0,http://www.dentalklinikken.dk,0
+?,458,3057,77703,314,UNKNOWN,13,1,1,1,0,0,0,12,155,MICROSOFT-IIS/7.5,1,0,http://www.miinto.dk,0
+da-DK,499,1576,166580,1241,UNKNOWN,113,0,1,0,0,0,0,31,22,MICROSOFT-IIS/7.5,1,0,http://www.gyldendal.dk,0
+da-DK,192,4235,137068,521,DRUPAL,270,0,1,0,0,1,1,64,7,'APACHE/2.2.22 (EL)',1,0,http://www.folketidende.dk,0
+da-DK,671,898,61786,275,UNKNOWN,148,0,1,0,0,0,0,36,11,'CONCEALED BY JUNIPER NETWORKS DX',1,0,http://www.comon.dk,0
+da-DK,317,1829,92311,327,UNKNOWN,52,0,1,1,1,0,0,14,70,APACHE,1,0,http://www.stepstone.dk,0
+da-DK,147,1652,321824,1894,UNKNOWN,57,0,0,1,0,0,0,21,4,?,1,0,http://www.rd.dk,0
+?,45,1968,133705,757,WORDPRESS,31,0,1,1,1,1,32,8,132,APACHE,1,0,http://www.techmind.dk,0
+?,57,?,335146,3051,UNKNOWN,19,0,0,1,0,1,5,4,4,MICROSOFT-IIS/7.5,1,0,http://www.cmore.dk,0
+en,492,1079,73225,290,UNKNOWN,49,0,0,1,1,0,0,16,57,MICROSOFT-IIS/6.0,1,0,http://www.sas.dk,0
+da-DK,245,2227,122650,348,UNKNOWN,0,0,0,0,0,0,0,0,0,?,0,0,http://www.mobilsiden.dk,0
+?,215,1218,45761,151,UNKNOWN,115,0,1,1,1,1,3,6,21,MICROSOFT-IIS/7.5,1,0,http://www.momondo.dk,0
+?,131,4119,271222,1772,UNKNOWN,0,0,0,0,0,0,0,0,0,?,0,0,http://www.multikoeb.dk,0
+da-DK,121,313,550905,2832,UNKNOWN,20,0,1,0,0,0,0,32,0,MICROSOFT-IIS/7.5,1,0,http://www.bornholm.dk,0
