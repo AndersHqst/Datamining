@@ -43,14 +43,53 @@ scanners = [
     twitter_share_scanner,
     facebook_share_scanner,
     page_rank_scanner,
-    alexa_has_adult_content
+    alexa_has_adult_content,
+    jquery_scanner,
+    prototype_scanner,
+    dojo_scanner,
+    mootools_scanner,
+    modernizr_scanner,
+    underscore_scanner,
+    handlebars_scanner,
+    knockout_scanner,
+    ember_scanner,
+    angular_scanner,
+    backbone_scanner,
+    content_news_scanner,
+    content_sport_scanner,
+    content_games_scanner,
+    content_technology_scanner,
+    content_xxx_scanner,
+    content_music_scanner,
+    content_shop_scanner,
+    content_transport_scanner,
+    content_food_scanner,
+    content_film_scanner,
+    content_health_scanner,
+    content_business_scanner
 ]
+
+# Test
+# scanners = [
+#     content_news_scanner,
+#     content_sport_scanner,
+#     content_games_scanner,
+#     content_technology_scanner,
+#     content_xxx_scanner,
+#     content_music_scanner,
+#     content_shop_scanner,
+#     content_transport_scanner,
+#     content_food_scanner,
+#     content_film_scanner,
+#     content_health_scanner,
+#     content_business_scanner
+# ]
 
 # Get all websites
 start_time = time.time()
 
 filenames = [join(website_dir,fn) for fn in listdir(website_dir) if isfile(join(website_dir,fn))]
-#filenames = filenames[700:800]
+#filenames = filenames[:50]
 websites = []
 
 print 'Files loaded: ', len(filenames)
@@ -81,14 +120,14 @@ print 'Websites analyzed'
 analyze_time = time.time()
 
 # Write to ARFF
-writer = ArffWriter(attribute_rows, filename='data_binned.arff')
+writer = ArffWriter(attribute_rows, filename='dataset/data_binned.arff')
 writer.write()
 
-writer = ArffWriter(attribute_rows, filename='data_raw.arff', output_raw=True)
+writer = ArffWriter(attribute_rows, filename='dataset/data_raw.arff', output_raw=True)
 writer.write()
 
 # Write stats
-with open('stats.log', 'w') as f:
+with open('dataset/stats.log', 'w') as f:
     time_to_load = 'Time, loading: %s' % str(load_time - start_time)
     time_to_parse = 'Time, parsing: %s' % str(parse_time - load_time)
     time_to_analyze = 'Time, analyzing: %s' % str(analyze_time - parse_time)
