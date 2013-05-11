@@ -1,3 +1,4 @@
+import time
 from os import listdir
 from os.path import isfile, join
 from arff_writer import ArffWriter
@@ -6,7 +7,7 @@ from website_analyzer import analyze
 from scanners import *
 
 # Settings
-website_dir = 'top_sites'
+website_dir = 'top_sites_all'
 
 scanners = [
     url_scanner,
@@ -44,25 +45,38 @@ scanners = [
 ]
 
 # Get all websites
-files_names = [join(website_dir,fn) for fn in listdir(website_dir) if isfile(join(website_dir,fn))]
+start_time = time.time()
+
+filenames = [join(website_dir,fn) for fn in listdir(website_dir) if isfile(join(website_dir,fn))]
+#filenames = filenames[0:25]
 websites = []
 
-print 'Files loaded: ', len(files_names)
+print 'Files loaded: ', len(filenames)
 
-for fn in files_names[:25]:
+load_time = time.time()
+
+for i in range(len(filenames)):
+    fn = filenames[i]
     with open(fn) as f:
         website = Website(f)
         websites.append(website)
-        print 'Parsed: %s' % website.url
+    print 'Parsed (%i of %i): %s' % (i, len(filenames), website.url)
 
 print 'Websites parsed'
 
+parse_time = time.time()
+
 # Scan attributes
 attribute_rows = []
-for website in websites:
+for i in range(len(websites)):
+    website = websites[i]
     attributes = analyze(website, scanners)
     attribute_rows.append(attributes)
-    print 'Analyzed: %s' % website.url
+    print 'Analyzed (%i of %i): %s' % (i, len(websites), website.url)
+
+print 'Websites analyzed'
+
+analyze_time = time.time()
 
 # Write to ARFF
 writer = ArffWriter(attribute_rows, filename='data_binned.arff')
@@ -70,3 +84,13 @@ writer.write()
 
 writer = ArffWriter(attribute_rows, filename='data_raw.arff', output_raw=True)
 writer.write()
+
+# Write stats
+with open('stats.log', 'w') as f:
+    time_to_load = 'Time, loading: %s' % str(load_time - start_time)
+    time_to_parse = 'Time, parsing: %s' % str(parse_time - load_time)
+    time_to_analyze = 'Time, analyzing: %s' % str(analyze_time - parse_time)
+    time_total = 'Time, total: %s' % str(analyze_time - start_time)
+    output = '%s\n%s\n%s\n%s' % (time_to_load, time_to_parse, time_to_analyze, time_total)
+    print output
+    f.write(output)
