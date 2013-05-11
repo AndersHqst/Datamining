@@ -1,6 +1,6 @@
 from os import listdir
 from os.path import isfile, join
-from csv_writer import CsvWriter
+from arff_writer import ArffWriter
 from website import Website
 from website_analyzer import analyze
 from scanners import *
@@ -64,9 +64,9 @@ for website in websites:
     attribute_rows.append(attributes)
     print 'Analyzed: %s' % website.url
 
-print 'attr rows. has cms'
-print attribute_rows
+# Write to ARFF
+writer = ArffWriter(attribute_rows, filename='data_binned.arff')
+writer.write()
 
-# Write to CSV
-writer = CsvWriter(attribute_rows, separator=',', include_header=True, surround_symbol='')
+writer = ArffWriter(attribute_rows, filename='data_raw.arff', output_raw=True)
 writer.write()

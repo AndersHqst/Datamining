@@ -1,2 +1,4 @@
+from scanner_attribute import ScannerAttribute
+
 def url_scanner(website):
-    return 'url', website.url
+    return ScannerAttribute('url', website.url)

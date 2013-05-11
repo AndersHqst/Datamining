@@ -1,6 +1,7 @@
 import sys
 from lxml import etree
 from utils.bin_helper import bin_numeric
+from scanner_attribute import ScannerAttribute
 
 html5_tags = [
     'audio', 'video', 'source', 'embed', 'track', 'datalist', 
@@ -19,7 +20,7 @@ def html5_scanner(website):
     if '<!DOCTYPE html>' in website.html:
         is_found = True
 
-    return 'html5',  int(is_found)
+    return ScannerAttribute('html5', int(is_found), int(is_found), [0, 1])
 
 def html5_tag_scanner(website):
     count = 0
@@ -27,11 +28,11 @@ def html5_tag_scanner(website):
         count += len(website.soup.find_all(tag))
 
     bins = [1, 10, 50, sys.maxsize]
-    return 'html5_tags', bin_numeric(bins, count)
+    return ScannerAttribute('html5_tags', count, bin_numeric(bins, count), bins)
 
 def xhtml_scanner(website):
     try:
         etree.XML(website.html)
-        return 'xhtml', 1
+        return ScannerAttribute('xhtml', 1, 1, [0, 1])
     except:
-        return 'xhtml', 0
+        return ScannerAttribute('xhtml', 0, 0, [0, 1])

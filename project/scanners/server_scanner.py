@@ -1,5 +1,5 @@
-from HTMLParser import HTMLParser
 from utils.preprocessing_helper import index_of_discrete_bin
+from scanner_attribute import ScannerAttribute
 
 """Find server type from the HTTP header."""
 
@@ -21,4 +21,4 @@ def server_scanner(website):
         index = bins().index('UNKNOWN')
     else:
         pass
-    return 'server', index
+    return ScannerAttribute('server', server, index, bins())

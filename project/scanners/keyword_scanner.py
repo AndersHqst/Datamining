@@ -1,4 +1,4 @@
-from HTMLParser import HTMLParser
+from scanner_attribute import ScannerAttribute
 
 """A website is considered to have a keyword, if the tag is present, and it contains text."""
 
@@ -17,4 +17,4 @@ def keyword_scanner(website):
                 has_keywords = 0 < len(content)
         if has_keywords:
             break
-    return ('has_keywords', int(has_keywords))
+    return ScannerAttribute('has_keywords', int(has_keywords), int(has_keywords), [0, 1])
