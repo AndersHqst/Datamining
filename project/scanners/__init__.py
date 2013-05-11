@@ -11,3 +11,9 @@ from social_scanners import twitter_share_scanner, facebook_share_scanner
 from server_scanner import server_scanner
 from analytics_scanner import analytics_scanner
 from page_rank_scanner import page_rank_scanner
+
+from javascript_scanners import jquery_scanner, prototype_scanner, dojo_scanner, mootools_scanner, modernizr_scanner, underscore_scanner
+from javascript_scanners import handlebars_scanner, knockout_scanner, ember_scanner, angular_scanner, backbone_scanner
+
+from content_scanners import content_news_scanner, content_sport_scanner, content_games_scanner, content_technology_scanner, content_xxx_scanner, content_music_scanner
+from content_scanners import content_shop_scanner, content_transport_scanner, content_food_scanner, content_film_scanner, content_health_scanner, content_business_scanner

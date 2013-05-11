@@ -103,19 +103,19 @@ def cms_scanner(website):
             return found(WORDPRESS)
 
         #Type3 in script source
-        if soup.find_all('script', scr=re.compile('typo3', re.IGNORECASE)):
+        if soup.find_all('script', src=re.compile('typo3', re.IGNORECASE)):
             return found(TYPO3)
 
         #Joomla in script source
-        if soup.find_all('script', scr=re.compile('joomla', re.IGNORECASE)):
+        if soup.find_all('script', src=re.compile('joomla', re.IGNORECASE)):
             return found(JOOMLA)
 
         #DotNetNuke in script source
-        if soup.find_all('script', scr=re.compile('(dnn.js|dnncore.js)', re.IGNORECASE)):
+        if soup.find_all('script', src=re.compile('(dnn.js|dnncore.js)', re.IGNORECASE)):
             return found(DOTNETNUKE)
 
         #SharePoint in script source
-        if soup.find_all('script', scr=re.compile('(core.js|msstring.js)', re.IGNORECASE)):
+        if soup.find_all('script', src=re.compile('(core.js|msstring.js)', re.IGNORECASE)):
             return found(SHAREPOINT)
 
         comments = soup.find_all(text=lambda text:isinstance(text, Comment))
