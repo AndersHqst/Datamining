@@ -41,14 +41,16 @@ scanners = [
     html5_tag_scanner,
     xhtml_scanner,
     twitter_share_scanner,
-    facebook_share_scanner
+    facebook_share_scanner,
+    page_rank_scanner,
+    alexa_has_adult_content
 ]
 
 # Get all websites
 start_time = time.time()
 
 filenames = [join(website_dir,fn) for fn in listdir(website_dir) if isfile(join(website_dir,fn))]
-#filenames = filenames[0:25]
+filenames = filenames[700:800]
 websites = []
 
 print 'Files loaded: ', len(filenames)
@@ -60,7 +62,7 @@ for i in range(len(filenames)):
     with open(fn) as f:
         website = Website(f)
         websites.append(website)
-    print 'Parsed (%i of %i): %s' % (i, len(filenames), website.url)
+    print 'Parsed (%i of %i): %s' % (i+1, len(filenames), website.url)
 
 print 'Websites parsed'
 
@@ -72,7 +74,7 @@ for i in range(len(websites)):
     website = websites[i]
     attributes = analyze(website, scanners)
     attribute_rows.append(attributes)
-    print 'Analyzed (%i of %i): %s' % (i, len(websites), website.url)
+    print 'Analyzed (%i of %i): %s' % (i+1, len(websites), website.url)
 
 print 'Websites analyzed'
 

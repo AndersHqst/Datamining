@@ -28,9 +28,13 @@ def alexa_links_ins_scanner(website):
     # ...
     bins = [10000, 7500, 5000, 2500, 1000, 500, 0]
     links_in = website.alexa_links_in
-    return ScannerAttribute('alexa_links_in', links_in, bin_numeric(bins, links_in), bins)
+    return ScannerAttribute('alexa_links_in', links_in, bin_numeric_desc(bins, links_in), bins)
 
 def alexa_lang_scanner(website):
     bins = ['dk', 'en', 'sv', 'no', 'de', 'fr']
     lang = website.alexa_lang
     return ScannerAttribute('alexa_lang', lang, bin_fuzzy_text(bins, lang), bins)
+
+def alexa_has_adult_content(website):
+    has_adult_content = website.alexa_adult_content
+    return ScannerAttribute('alexa_has_adult_content', int(has_adult_content), int(has_adult_content), [0, 1])

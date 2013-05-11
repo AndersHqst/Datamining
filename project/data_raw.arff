@@ -1,5 +1,6 @@
 @RELATION data
 
+@ATTRIBUTE alexa_has_adult_content string
 @ATTRIBUTE alexa_lang string
 @ATTRIBUTE alexa_links_in string
 @ATTRIBUTE alexa_load_time string
@@ -15,6 +16,7 @@
 @ATTRIBUTE html5_tags string
 @ATTRIBUTE img_count string
 @ATTRIBUTE internal_links_count string
+@ATTRIBUTE page_rank string
 @ATTRIBUTE server string
 @ATTRIBUTE title_tag string
 @ATTRIBUTE twitter_share string
@@ -22,28 +24,103 @@
 @ATTRIBUTE xhtml string
 
 @DATA
-da-DK,55,2609,694474,?,UNKNOWN,0,0,0,0,0,1,0,1,0,'APACHE/2.2.3 (CENTOS)',1,0,http://www.hkhkronprinsen.dk,0
-da-DK,59,1161,896564,?,UNKNOWN,0,0,0,0,0,0,0,0,0,?,0,0,http://www.gamebits.dk,0
-en,9,?,1829176,7748,UNKNOWN,172,0,1,1,1,1,7,44,4,NGINX,1,0,http://www.loftet.dk,0
-?,4,?,1252359,2149,UNKNOWN,0,0,0,0,0,0,0,0,0,?,0,0,http://www.kjeld-klit.dk,0
-?,4,?,1273351,4228,UNKNOWN,0,0,0,0,0,0,0,0,0,?,0,0,http://www.pekkart.dk,0
-?,41,?,414091,1114,UNKNOWN,90,0,0,1,0,0,0,25,7,MICROSOFT-IIS/8.0,1,0,http://www.fusionsport.dk,0
-?,86,2110,464371,2853,WORDPRESS,16,0,1,0,0,1,212,74,229,LITESPEED,1,0,http://www.fashionforum.dk,0
-?,15,?,669629,3299,WORDPRESS,3,1,1,0,0,1,23,22,70,APACHE,1,0,http://www.dotdotlab.dk,0
-en,8369,1469,430900,?,UNKNOWN,42,1,1,1,1,1,0,7,1,APACHE,1,0,http://www.cmsimple.dk,0
-da-DK,33,?,797843,4028,UNKNOWN,88,0,1,0,0,1,24,10,3,MICROSOFT-IIS/7.5,1,0,http://www.aleris.dk,0
-da-DK,54,2696,942999,3508,UNKNOWN,310,0,0,0,0,1,3,182,0,MICROSOFT-IIS/7.5,1,0,http://www.lastbilmagasinet.dk,0
-da-DK,200,741,857352,3112,UNKNOWN,159,0,1,0,0,0,0,38,11,MICROSOFT-IIS/6.0,1,0,http://www.socialdemokraterne.dk,0
-?,31,668,421179,2034,UNKNOWN,93,0,0,1,1,0,0,8,13,APACHE,1,0,http://www.volkswagendanmark.dk,1
-?,681,1420,260385,878,UNKNOWN,81,0,1,0,1,0,0,18,5,MICROSOFT-IIS/6.0,1,0,http://www.naturstyrelsen.dk,0
-da-DK,429,1977,458378,1966,TYPO3,25,0,1,1,0,0,0,4,0,'APACHE/2.0.63 (CENTOS)',1,0,http://www.goldenplanet.dk,0
-da-DK,715,4065,628337,2431,UNKNOWN,106,0,1,1,0,0,0,15,13,MICROSOFT-IIS/7.5,1,0,http://www.dgi.dk,0
-?,180,?,532203,?,WORDPRESS,37,0,1,1,0,1,0,24,28,APACHE,1,1,http://www.tedxcopenhagen.dk,0
-?,39,1952,1210256,?,WORDPRESS,27,0,1,1,0,1,3,15,7,'APACHE/2.2.22 (UNIX) PHP/5.3.10',1,0,http://www.blucher-media.dk,0
-da-DK,114,916,436367,1730,UNKNOWN,0,0,0,0,0,0,0,0,0,?,0,0,http://www.diba.dk,0
-da-DK,84,?,859100,3914,UNKNOWN,0,0,0,0,0,0,0,0,0,?,0,0,http://www.danguitar.dk,0
-?,11,?,1349986,3329,UNKNOWN,0,0,0,0,0,0,0,0,0,?,0,0,http://www.strikkekunsten.dk,0
-?,35,1231,212972,827,UNKNOWN,136,0,1,1,1,0,0,17,3,MICROSOFT-IIS/6.0,1,0,http://www.just-half-price.dk,0
-da-DK,134,1733,788180,3119,UNKNOWN,17,0,1,1,1,0,0,62,132,APACHE,1,0,http://www.dancenter.dk,0
-da-DK,71,1453,460415,2778,UNKNOWN,47,0,1,1,1,0,0,22,28,MICROSOFT-IIS/7.5,1,0,http://www.billigsport24.dk,0
-?,64,1228,29156,262,UNKNOWN,0,0,1,1,1,1,1,0,0,MICROSOFT-IIS/7.5,1,0,http://www.moviestarplanet.dk,0
+0,?,17,?,676883,5323,WORDPRESS,4,0,1,0,0,1,0,9,78,2,APACHE,1,0,http://www.frh-kajakklub.dk,0
+0,?,335,5890,582719,?,UNKNOWN,43,0,1,1,1,0,0,30,0,0,MICROSOFT-IIS/7.0,1,0,http://www.eat-buddy.dk,0
+0,da-DK,1004,2033,60635,231,UNKNOWN,221,0,1,1,1,0,0,102,70,6,'CONCEALED BY JUNIPER NETWORKS DX R.NO',1,0,http://www.computerworld.dk,0
+0,?,95,?,202728,673,WORDPRESS,1,0,1,1,0,1,7,11,26,2,APACHE,1,0,http://www.onlineeffekt.dk,0
+0,?,8,?,827086,3940,UNKNOWN,0,0,0,0,0,0,0,0,0,5,?,0,0,http://www.freestylecruising.dk,0
+0,?,170,?,789067,6512,UNKNOWN,0,0,0,0,0,0,0,0,0,5,?,0,0,http://www.pokerlistings.dk,0
+0,?,59,2497,170515,696,UNKNOWN,0,0,0,0,0,0,0,0,0,0,?,0,0,http://www.traelastogbyggemarked.dk,0
+0,da-DK,107,1198,1222639,5883,UNKNOWN,13,0,1,1,1,1,2,31,43,3,APACHE,1,0,http://www.newastro.dk,0
+0,?,56,?,427017,?,UNKNOWN,59,0,0,1,0,0,0,34,101,5,APACHE,1,0,http://www.bigfishgames.dk,0
+0,?,11,?,1032784,?,UNKNOWN,29,0,1,1,1,0,0,11,18,1,'APACHE/2.2.22 (UNIX) PHP/5.3.23',1,1,http://www.verido.dk,0
+0,en,862,4757,12993,35,UNKNOWN,316,0,1,1,0,0,0,137,205,6,APACHE-COYOTE/1.1,1,0,http://www.epn.dk,0
+0,?,37,874,308017,1821,UNKNOWN,8,0,1,1,0,0,0,1,0,3,'APACHE/2.2.17 (UNIX) MOD_SSL/2.2.17 OPENSSL/0.9.8M DAV/2 MOD_AUTH_PASSTHROUGH/2.1 MOD_BWLIMITED/1.4 FRONTPAGE/5.0.2.2635',1,0,http://www.urlspion.dk,0
+0,en,778,1214,483631,?,UNKNOWN,34,0,1,1,1,1,3,0,1,6,APACHE,1,0,http://www.kvadrat.dk,0
+0,da-DK,223,510,441452,2785,UNKNOWN,0,0,0,0,0,0,0,0,0,4,?,0,0,http://www.med24.dk,0
+0,da-DK,48,539,1402328,6124,UNKNOWN,42,0,1,1,1,0,0,19,3,5,MICROSOFT-IIS/6.0,1,0,http://www.naturbutikken.dk,0
+0,en,114,538,368510,3323,UNKNOWN,109,0,1,1,1,0,0,33,129,4,APACHE,1,0,http://www.xboxlife.dk,0
+0,?,489,1833,122825,567,UNKNOWN,18,0,0,1,1,0,0,6,87,7,'ORACLE-APPLICATION-SERVER-10G/10.1.2.2.0 ORACLE-HTTP-SERVER ORACLEAS-WEB-CACHE-10G/10.1.2.3.0 (N;ECID=163289581171,2) ORACLEAS-WEB-CACHE-10G/10.1.2.3.0 (N;ECID=163289581171,0)',1,0,http://www.startvaekst.dk,1
+0,da-DK,150,528,1150255,4492,UNKNOWN,90,0,1,1,1,1,0,9,5,5,?,1,0,http://www.statoil.dk,0
+0,en,34,?,1139886,5087,UNKNOWN,0,0,0,0,0,0,0,0,0,2,?,0,0,http://www.mbn.dk,0
+0,da-DK,442,1400,91522,302,UNKNOWN,0,0,0,0,0,0,0,0,0,6,?,0,0,http://www.sol.dk,0
+0,da-DK,650,1297,147796,655,UNKNOWN,53,0,1,1,1,0,0,25,3,7,MICROSOFT-IIS/8.0,1,0,http://www.jobbank.dk,0
+0,en,107,1108,563070,5174,DYNAMICWEB,33,0,0,1,1,0,0,3,0,4,MICROSOFT-IIS/7.5,1,0,http://www.kab-bolig.dk,0
+0,?,13,2036,899621,?,WORDPRESS,50,1,1,1,1,1,4,15,0,1,CLOUDFLARE-NGINX,1,1,http://www.amivox.dk,0
+0,?,152,?,649413,4432,WORDPRESS,17,0,1,1,0,1,6,17,21,1,APACHE,1,0,http://www.seofolk.dk,0
+0,?,33,460,446389,2266,WORDPRESS,8,0,0,1,1,1,0,9,19,5,'APACHE/2.2.14 (UBUNTU)',1,0,http://www.bornholmerflyet.dk,0
+0,da-DK,95,1018,524804,3063,UNKNOWN,40,0,1,1,1,0,0,12,0,4,MICROSOFT-IIS/7.5,1,0,http://www.dk-tv.dk,0
+0,da-DK,604,576,174489,895,UNKNOWN,64,0,1,1,1,0,0,11,0,7,MICROSOFT-IIS/6.0,1,0,http://www.sa.dk,0
+0,da-DK,310,?,748563,3742,UNKNOWN,85,1,0,1,1,1,0,28,8,5,MICROSOFT-IIS/6.0,1,0,http://www.ultimate-web.dk,0
+0,?,187,?,486587,1878,UNKNOWN,0,0,0,0,0,0,0,0,0,3,?,0,0,http://www.coolpriser.dk,0
+0,?,56,1048,370906,3233,UNKNOWN,30,0,1,1,0,1,11,1,10,5,NGINX,1,0,http://www.firmafon.dk,0
+0,?,53,2100,723124,?,UNKNOWN,1,0,0,0,0,0,0,2,2,1,'APACHE/2.2.22 (UNIX) PHP/5.3.23',1,0,http://www.dream-zone.dk,0
+0,da-DK,16,?,1800613,?,DYNAMICWEB,24,0,1,0,0,1,3,34,54,2,MICROSOFT-IIS/7.5,1,0,http://www.rask-cykler.dk,0
+0,da-DK,56,782,470909,1393,UNKNOWN,0,0,0,0,0,0,0,0,0,3,?,0,0,http://www.husavisen.dk,0
+0,da-DK,107,884,327718,?,WORDPRESS,6,0,1,1,1,0,0,15,50,3,'APACHE/2.2.9 (DEBIAN) DAV/2 SVN/1.5.1 MOD_RUBY/1.2.6 RUBY/1.8.7(2008-08-11) MOD_SSL/2.2.9 OPENSSL/0.9.8G',1,0,http://www.getbig.dk,0
+0,en,290,428,747183,8840,UNKNOWN,23,0,1,1,1,0,0,5,0,6,'APACHE/2.2.3 (DEBIAN) PHP/5.2.6-0.DOTDEB.1 WITH SUHOSIN-PATCH MOD_SSL/2.2.3 OPENSSL/0.9.8C',1,0,http://www.dat.dk,0
+0,?,37,?,963220,?,UNKNOWN,59,0,1,1,1,0,0,25,2,2,NGINX,1,0,http://www.accedo.dk,0
+0,da-DK,144,2557,761701,3993,UNKNOWN,0,0,0,0,0,0,0,0,0,4,?,1,0,http://www.downloadcentral.dk,0
+0,da-DK,124,1021,363769,2007,UNKNOWN,24,0,1,1,0,1,0,1,1,?,MICROSOFT-IIS/7.5,1,0,http://www.oline.dk,0
+0,?,27,?,1197896,7174,UNKNOWN,30,0,1,1,1,0,0,6,11,3,MICROSOFT-IIS/6.0,1,0,http://www.fotosjov.dk,0
+0,?,8,?,777181,3504,DRUPAL,30,0,0,0,0,0,0,4,0,3,APACHE/2.2,1,0,http://www.kundeunivers.dk,1
+0,?,10,3282,1013743,?,UNKNOWN,0,0,0,0,0,0,0,0,0,?,?,0,0,http://www.ecigaret-tilbud.dk,0
+0,da-DK,104,893,261460,1693,UNKNOWN,0,0,0,0,0,0,0,0,1,4,MICROSOFT-IIS/6.0,1,0,http://www.mercedes-benz.dk,0
+0,?,224,1988,157258,548,UNKNOWN,59,0,0,1,1,0,0,20,111,4,NGINX/1.2.7,1,1,http://www.findeopskrifter.dk,0
+0,da-DK,66,?,895877,1447,UNKNOWN,159,0,0,0,0,1,2,55,4,4,'APACHE/2.2.15 (CENTOS)',1,0,http://www.sdf.dk,0
+0,da-DK,27,?,826669,1465,UNKNOWN,7,0,1,1,1,0,0,12,4,3,MICROSOFT-IIS/7.0,1,0,http://www.mail-online.dk,0
+0,da-DK,147,?,885517,6280,UMBRACO,12,0,1,1,0,1,34,12,30,5,MICROSOFT-IIS/7.5,1,0,http://www.novicell.dk,0
+0,en,70,5278,398997,2358,UNKNOWN,117,0,1,1,1,0,0,210,108,5,?,1,0,http://www.hotel.dk,0
+0,?,151,?,430215,1644,WORDPRESS,34,0,1,1,1,1,45,27,174,4,CLOUDFLARE-NGINX,1,0,http://www.gastromand.dk,0
+0,en,129,483,515375,?,UNKNOWN,11,0,0,1,1,0,0,2,0,3,APACHE,1,0,http://www.kreacom.dk,0
+0,da-DK,22,?,1418344,2941,UNKNOWN,0,0,0,0,0,0,0,0,0,4,?,0,0,http://www.sparthy.dk,0
+0,da-DK,362,1104,200164,758,UNKNOWN,144,0,1,1,1,0,0,23,124,6,'APACHE/2.2.3 (RED HAT)',1,0,http://www.hk.dk,0
+0,da-DK,42,942,448910,6023,UNKNOWN,31,0,0,1,1,0,0,9,0,4,MICROSOFT-IIS/8.0,1,0,http://www.mercell.dk,0
+0,?,41,764,178450,445,UNKNOWN,234,0,1,1,1,0,0,32,1,2,'APACHE/2.2.22 (UBUNTU)',1,0,http://www.delupe.dk,0
+0,da-DK,1829,1345,60148,299,UNKNOWN,29,0,1,1,1,0,0,9,8,5,APACHE,1,1,http://www.surftown.dk,0
+0,da-DK,133,1722,583378,2535,UNKNOWN,9,0,1,1,1,0,0,37,124,6,'APACHE/2.2.14 (UBUNTU)',1,0,http://www.komputer.dk,0
+0,da-DK,89,431,558312,2324,UNKNOWN,0,0,0,0,0,0,0,0,0,4,?,0,0,http://www.metro.dk,0
+0,?,11,?,583168,3247,TYPO3,76,0,0,1,1,0,0,76,0,5,'APACHE/2.2.16 (DEBIAN)',1,0,http://www.matchoffice.dk,0
+0,en,209,2371,274036,?,UNKNOWN,21,0,1,0,0,0,0,23,17,5,'APACHE/2.2.9 (DEBIAN) PHP/5.3.3-7+SQUEEZE7 WITH SUHOSIN-PATCH MOD_SSL/2.2.9 OPENSSL/0.9.8O',1,0,http://www.seriousgames.dk,0
+0,en,193,1706,108662,516,UNKNOWN,57,0,0,1,1,0,0,22,137,6,APACHE-COYOTE/1.1,1,0,http://www.ebay.dk,0
+0,?,1310,5760,83277,?,WORDPRESS,31,0,1,1,1,0,0,14,112,6,'APACHE/2.2.22 (UNIX) PHP/5.3.23',1,0,http://www.w3blog.dk,0
+0,?,9,757,493217,5224,UNKNOWN,0,0,0,0,0,0,0,0,0,?,?,0,0,http://www.muzzic.dk,0
+0,da-DK,260,1847,41459,163,UNKNOWN,269,0,1,1,1,0,0,189,11,5,?,1,0,http://www.euroinvestor.dk,0
+0,da,31,?,633787,3912,UNKNOWN,48,0,1,0,1,0,0,7,0,4,MICROSOFT-IIS/7.5,1,0,http://www.weightlifting.dk,1
+0,da-DK,64,766,644979,?,UNKNOWN,94,0,1,0,1,0,0,17,1,3,'APACHE/2.2.22 (UBUNTU)',1,0,http://www.jupitercykler.dk,0
+0,?,98,1636,233540,924,UNKNOWN,402,0,1,1,0,0,0,233,56,3,APACHE,1,0,http://www.cykelpartner.dk,0
+0,no-NO,666,4056,154962,646,UNKNOWN,20,0,1,1,1,0,0,100,296,6,'APACHE/2.2.14 (UBUNTU)',1,0,http://www.iform.dk,0
+0,da-DK,176,828,404485,1106,UNKNOWN,18,0,1,0,0,0,0,9,6,5,?,1,0,http://www.mols-linien.dk,0
+0,?,13,?,688545,4292,UNKNOWN,23,0,0,1,1,0,0,11,0,2,MICROSOFT-IIS/7.0,1,0,http://www.valkyrien-koege.dk,0
+0,da-DK,47,1140,753246,4341,UNKNOWN,81,1,0,0,1,0,0,109,0,3,APACHE,1,0,http://www.pc-lager.dk,0
+0,en,50,307,408421,4564,UNKNOWN,0,0,0,0,0,0,0,0,0,2,?,0,0,http://www.parameter.dk,0
+0,?,206,?,779025,?,UNKNOWN,0,0,0,0,0,0,0,0,0,0,?,1,0,http://www.nikefreerun-store.dk,0
+0,?,12,?,1683962,?,UNKNOWN,16,0,1,1,0,1,2,0,0,?,AMAZONS3,1,0,http://www.alfre.dk,0
+0,?,60,?,294991,1087,UNKNOWN,11,0,1,1,1,1,0,7,0,3,MICROSOFT-IIS/7.0,1,0,http://www.valutaomregneren.dk,0
+0,en,269,2469,560675,2764,UNKNOWN,0,0,0,0,0,0,0,0,0,7,MICROSOFT-IIS/6.0,1,0,http://www.statistikbanken.dk,0
+0,da-DK,35,1292,2086986,?,UNKNOWN,70,0,0,1,1,1,10,27,4,1,APACHE,1,0,http://www.scanheat.dk,0
+0,?,15,?,961106,5572,UNKNOWN,16,0,1,1,1,0,0,7,3,4,MICROSOFT-IIS/7.5,1,0,http://www.gallupforum.dk,0
+0,en,130,1531,362795,1613,UNKNOWN,90,0,1,1,1,0,0,11,5,4,LOTUS-DOMINO,1,0,http://www.vestjyskbank.dk,0
+0,da-DK,446,2275,100010,282,TYPO3,406,0,1,1,1,0,0,57,5,6,'APACHE/2.2.16 (DEBIAN)',1,0,http://www.bolius.dk,0
+1,?,34,2157,1099610,?,UNKNOWN,0,0,0,0,0,0,0,0,0,2,?,0,0,http://www.xxxvideos.dk,0
+0,da-DK,43,4620,271922,796,UNKNOWN,0,0,0,0,0,0,0,0,0,2,?,0,0,http://www.tilbudsservice.dk,0
+0,?,5,?,1121409,?,UNKNOWN,9,0,0,0,0,0,0,2,0,0,'APACHE/2.2.16 (DEBIAN)',1,0,http://www.abode.dk,0
+0,da-DK,438,1679,30915,58,UNKNOWN,12,0,1,1,0,0,0,2,15,7,MICROSOFT-IIS/6.0,1,0,http://www.jobnet.dk,0
+0,da-DK,215,2579,317679,1697,UNKNOWN,165,1,1,1,0,1,0,44,3,6,NGINX/1.2.8,1,0,http://www.penge.dk,0
+0,?,41,4584,526472,1982,UNKNOWN,45,0,0,1,1,0,0,19,0,5,'MICROSOFT-IIS/6.0, WEBSPHERE APPLICATION SERVER/5.1',1,0,http://www.westernunion.dk,0
+0,?,15,?,639528,4165,WORDPRESS,4,0,0,1,0,1,11,13,71,4,APACHE,1,0,http://www.kvinderifilosofi.dk,0
+0,?,17,1751,445908,1844,UNKNOWN,36,0,1,0,0,0,0,31,3,1,?,1,0,http://www.mindst50procent.dk,0
+0,?,94,1583,1140075,?,UNKNOWN,18,0,1,0,0,0,0,9,1,3,APACHE,1,0,http://www.humoer.dk,0
+0,?,34,?,955235,10723,UNKNOWN,131,0,1,1,1,1,1,46,28,4,'APACHE/2.0.63 (UNIX) MOD_SSL/2.0.63 OPENSSL/0.9.8E-FIPS-RHEL5 MOD_AUTH_PASSTHROUGH/2.1 MOD_BWLIMITED/1.4 FRONTPAGE/5.0.2.2635 PHP/5.2.9',1,0,http://www.jobview.dk,0
+0,?,32,?,901327,8493,UNKNOWN,33,0,0,1,1,0,0,13,6,4,MICROSOFT-IIS/7.5,1,0,http://www.edcerhverv.dk,0
+0,?,50,1573,542470,2092,UNKNOWN,0,0,0,0,0,0,0,0,0,3,?,0,0,http://www.vaiva.dk,0
+1,da-DK,42,9267,769653,3256,UNKNOWN,259,0,1,1,1,0,0,17,3,3,'APACHE/2.2.22 (EL)',1,0,http://www.gratis6.dk,0
+0,da-DK,37,1117,667704,1344,UNKNOWN,118,1,1,1,0,1,14,24,1,4,MICROSOFT-IIS/7.5,1,0,http://www.cellbes.dk,0
+0,?,46,?,995155,2425,UNKNOWN,0,0,0,0,0,0,0,0,0,2,?,0,0,http://www.nettoparts.dk,0
+0,?,46,473,259405,1246,UNKNOWN,80,0,1,0,0,0,0,49,0,1,APACHE,1,0,http://www.eroleg.dk,0
+0,?,35,?,191496,774,WORDPRESS,9,0,0,1,0,0,0,36,129,4,APACHE,1,0,http://www.e-universe.dk,0
+0,?,20,?,613113,1495,WORDPRESS,4,0,1,1,0,1,2,4,19,5,APACHE/2.2.23,1,0,http://www.tv3sport.dk,0
+0,?,34,1710,1241809,?,UNKNOWN,0,0,0,0,0,0,0,0,0,1,?,1,0,http://www.pcitservice.dk,0
+0,?,62,676,793091,3385,UNKNOWN,11,0,0,0,0,0,0,5,0,6,'APACHE/2.2.3 (RED HAT)',1,0,http://www.tinglysning.dk,0
+0,?,57,?,635438,4117,UMBRACO,177,0,0,1,0,1,18,21,8,4,MICROSOFT-IIS/7.0,1,0,http://www.optimera.dk,0
+0,?,287,794,747062,3506,UNKNOWN,72,0,0,0,1,0,0,15,8,6,MICROSOFT-IIS/7.5,1,0,http://www.danskerhverv.dk,0
