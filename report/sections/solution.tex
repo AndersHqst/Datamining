@@ -1,12 +1,29 @@
 \section{Solution}
 \label{sec:solution}
+
 We now present our solution, which primarily deals with collection and preprocessing the data. We have implemented a small preprocessing library that uses a plugin architecture that allows us to add, remove, and alter parser/scanners.
 
 \subsection{Preprocessing}
 \label{subsec:preprocessing}
+
 Class-like diagram showing analyser, scanners, website, scraper, calls to alexa.
 
 \subsection{Weka}
 \label{subsec:weka}
-How is data fed to weka. Problems?
+
+% How is data fed to weka. Problems?
+
+We decided to use Weka for the actual data analysis. In order to do so, we developed the preprocessing library (refer to section \ref{subsec:preprocessing}) such that they could output the data set in the \texttt{ARFF} format used by Weka.
+
+Three versions of the data set were created:
+
+\begin{itemize}
+\item A version containing the raw values from the data set.
+\item A version in which every value was discretised/binned.
+\item A combination of the former two, in which only a select few attributes were binned\footnote{The binned attributes were all nominal by nature. Hence, these were simply distributed into a reduced number of bins.}.
+\end{itemize}
+
+It turned out that the combined version was easiest to work with, and was thus chosen for the actual data analysis.
+
+Although the data set had already been preprocessed, we performed a few extra preprocessing steps using Weka. In order to secure consistency in any distance measures, the numeric attributes were normalised into the domain $[0, 1]$. Further, irrelevant attributes were removed from the dataset\footnote{In the upcoming discussion, we will explicitly state which attributes were used for each specific analysis.}.
 

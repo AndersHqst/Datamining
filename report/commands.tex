@@ -1,0 +1,59 @@
+% Quotes
+\newcommand{\qu}[1]{\begin{quote} #1 \end{quote}}
+
+% Parentheses
+\newcommand{\br}[1]{\left\lbrace #1 \right\rbrace }
+\newcommand{\pa}[1]{\left( #1 \right) }
+\newcommand{\hp}[1]{\left[ #1\right]  }
+
+% Underline
+\newcommand{\ul}[1]{\underline{#1}}
+\newcommand{\uul}[1]{\underline{\underline{#1}}}
+
+% Equations
+\newcommand{\neqn}[1]{\begin{equation*}#1\end{equation*}}
+\newcommand{\eqn}[1]{\begin{equation}#1\end{equation}}
+\newcommand{\ieqn}[1]{$#1$}
+\newcommand{\aeqn}[1]{\begin{align}#1\end{align}}
+\newcommand{\naeqn}[1]{\begin{align*}#1\end{align*}}
+
+% Various math
+\newcommand{\bmat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\ve}[1]{\mathrm{\textbf{#1}}}
+\newcommand{\mr}[1]{\mathrm{#1}}
+
+% SI siunitx package must be used
+\newcommand{\SIU}[4]{\pa{#1 \pm #2} \times 10^{#3} \, \si{#4}}
+\newcommand{\SIUU}[3]{\pa{#1 \pm #2} \, \si{#3}}
+
+% Page numbering
+\newcommand{\nopagenumber}{\thispagestyle{empty}}
+\newcommand{\setfirstpage}{\setcounter{page}{1}}
+
+% Figures
+\newcommand{\fig}[4]{\begin{figure} \centering \includegraphics[width=#2\textwidth]{#1} \caption{#3} \label{#4} \end{figure}}
+\newcommand{\hfig}[4]{\begin{figure}[h] \centering \includegraphics[width=#2\textwidth]{#1} \caption{#3} \label{#4} \end{figure}}
+\newcommand{\tfig}[4]{\begin{figure}[t] \centering \includegraphics[width=#2\textwidth]{#1} \caption{#3} \label{#4} \end{figure}}
+\newcommand{\bfig}[4]{\begin{figure}[b] \centering \includegraphics[width=#2\textwidth]{#1} \caption{#3} \label{#4} \end{figure}}
+\newcommand{\pfig}[4]{\begin{figure}[p] \centering \includegraphics[width=#2\textwidth]{#1} \caption{#3} \label{#4} \end{figure}}
+\newcommand{\hhfig}[4]{\begin{figure}[h!] \centering \includegraphics[width=#2\textwidth]{#1} \caption{#3} \label{#4} \end{figure}}
+\newcommand{\dfig}[6]{\begin{figure}[h!] \begin{minipage}[b]{0.475\textwidth} \centering \includegraphics[width=\textwidth]{#1} \caption{#2} \label{#3} \end{minipage} \hspace{0.05\textwidth} \begin{minipage}[b]{0.475\textwidth} \centering \includegraphics[width=\textwidth]{#4} \caption{#5} \label{#6} \end{minipage} \end{figure}}
+\newcommand{\ddfig}[6]{\begin{figure}[h!] \begin{minipage}[b]{0.46\textwidth} \centering \includegraphics[width=\textwidth]{#1} \caption{#2} \label{#3} \end{minipage} \hspace{0.05\textwidth} \begin{minipage}[b]{0.49\textwidth} \centering \includegraphics[width=\textwidth]{#4} \caption{#5} \label{#6} \end{minipage} \end{figure}}
+
+% Tables
+\newcommand{\hhtab}[4]{\begin{table}[h!] \begin{center} \caption{#3 \label{#4}} \vspace{0.2cm} \begin{tabular}{#1} #2 \end{tabular} \end{center} \end{table}}
+\newcommand{\htab}[4]{\begin{table}[h] \begin{center} \caption{#3 \label{#4}} \vspace{0.2cm} \begin{tabular}{#1} #2 \end{tabular} \end{center} \end{table}}
+\newcommand{\ttab}[4]{\begin{table}[t] \begin{center} \caption{#3 \label{#4}} \vspace{0.2cm} \begin{tabular}{#1} #2 \end{tabular} \end{center} \end{table}}
+\newcommand{\bhtab}[4]{\begin{table}[b] \begin{center} \caption{#3 \label{#4}} \vspace{0.2cm} \begin{tabular}{#1} #2 \end{tabular} \end{center} \end{table}}
+\newcommand{\phtab}[4]{\begin{table}[p] \begin{center} \caption{#3 \label{#4}} \vspace{0.2cm} \begin{tabular}{#1} #2 \end{tabular} \end{center} \end{table}}
+\newcommand{\tab}[4]{\begin{table} \begin{center} \caption{#3 \label{#4}} \vspace{0.2cm} \begin{tabular}{#1} #2 \end{tabular} \end{center} \end{table}}
+
+% Begin/end document
+\newcommand{\startdoc}{\begin{document}}
+\newcommand{\stopdoc}{\end{document}}
+
+% x^th, x^nd etc.
+\newcommand{\dath}[1]{#1$^{\mathrm{th}}$}
+\newcommand{\dast}[1]{#1$^{\mathrm{st}}$}
+\newcommand{\dand}[1]{#1$^{\mathrm{nd}}$}
+\newcommand{\dard}[1]{#1$^{\mathrm{rd}}$}

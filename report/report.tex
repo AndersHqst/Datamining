@@ -11,6 +11,12 @@
 \usepackage{todonotes} % remove later - this is for TODO notes
 \usepackage{float}
 
+% Nicer tabs
+\usepackage{booktabs}
+
+% Nicer verbatim and texttt
+\usepackage{inconsolata}
+
 \usepackage{enumitem}
 \usepackage[T1]{fontenc} % Fixed missing font warning for \maketitle
 %\usepackage[margin=1.5in]{geometry}
@@ -27,6 +33,12 @@
 % \urlstyle{leo}
 
 \bibliographystyle{plain}
+
+% Remove paragraph indentation -> I really hate paragraph indentation!
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+
+\input{commands}
 \begin{document}
 % insert the table of contents if want, it is not required
 % llncs says: "If you are the author of a single contribution you
