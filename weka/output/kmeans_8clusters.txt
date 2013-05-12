@@ -1,0 +1,168 @@
+=== Run information ===
+
+Scheme:weka.clusterers.SimpleKMeans -N 8 -A "weka.core.EuclideanDistance -R first-last" -I 1000 -S 10
+Relation:     data-weka.filters.unsupervised.attribute.RemoveType-Tstring-weka.filters.unsupervised.attribute.RemoveUseless-M99.0-weka.filters.unsupervised.attribute.RemoveUseless-M95.0-weka.filters.unsupervised.attribute.Normalize-S1.0-T0.0-weka.filters.unsupervised.attribute.Normalize-S1.0-T0.0
+Instances:    2425
+Attributes:   36
+              alexa_has_adult_content
+              alexa_links_in
+              alexa_load_time
+              alexa_rank
+              alexa_rank_dk
+              external_links_count
+              facebook_share
+              has_analytics
+              has_content_business
+              has_content_film
+              has_content_food
+              has_content_games
+              has_content_health
+              has_content_music
+              has_content_news
+              has_content_shop
+              has_content_sport
+              has_content_technology
+              has_content_transport
+              has_content_xxx
+              has_description
+              has_js_backbone
+              has_js_dojo
+              has_js_jquery
+              has_js_modernizr
+              has_js_mootools
+              has_js_prototype
+              has_keywords
+              html5
+              html5_tags
+              img_count
+              internal_links_count
+              page_rank
+              title_tag
+              twitter_share
+              xhtml
+Test mode:split 66% train, remainder test
+
+=== Model and evaluation on training set ===
+
+
+kMeans
+======
+
+Number of iterations: 6
+Within cluster sum of squared errors: 6460.720014608614
+Missing values globally replaced with mean/mode
+
+Cluster centroids:
+                                       Cluster#
+Attribute                  Full Data          0          1          2          3          4          5          6          7
+                              (2425)      (291)      (583)      (184)      (290)      (136)      (343)      (302)      (296)
+============================================================================================================================
+alexa_has_adult_content            0          0          0          0          0          0          0          0          0
+alexa_links_in                0.0175     0.0093     0.0131     0.0265     0.0151     0.0266     0.0239     0.0115     0.0253
+alexa_load_time               0.0813     0.0722     0.0797     0.0798     0.0774     0.0697     0.0789     0.0806     0.1069
+alexa_rank                     0.255     0.2768     0.2842     0.2304     0.2941     0.1968     0.2168     0.2857     0.1925
+alexa_rank_dk                 0.2541     0.2506     0.2719     0.2259     0.2791     0.1935     0.2341     0.2979      0.222
+external_links_count            0.07     0.0416     0.0027     0.0798       0.06      0.036     0.1003     0.0783     0.2066
+facebook_share                     0          0          0          0          0          0          0          0          0
+has_analytics                      1          1          0          0          1          0          1          1          1
+has_content_business               0          0          0          1          0          0          1          0          0
+has_content_film                   0          0          0          0          0          0          0          0          1
+has_content_food                   0          0          0          0          0          0          0          0          0
+has_content_games                  0          0          0          0          0          0          0          0          0
+has_content_health                 0          0          0          0          0          0          0          0          1
+has_content_music                  0          0          0          0          0          0          0          0          1
+has_content_news                   1          1          0          1          1          1          1          1          1
+has_content_shop                   0          0          0          0          0          0          1          1          1
+has_content_sport                  0          0          0          0          0          0          0          0          1
+has_content_technology             0          0          0          0          0          0          0          0          1
+has_content_transport              1          0          0          1          1          0          1          1          1
+has_content_xxx                    0          0          0          0          0          0          0          0          0
+has_description                    1          1          0          1          0          1          1          1          1
+has_js_backbone                    0          0          0          0          0          0          0          0          0
+has_js_dojo                        0          0          0          0          0          0          0          0          0
+has_js_jquery                      0          0          0          0          1          0          0          1          0
+has_js_modernizr                   0          0          0          0          0          0          0          0          0
+has_js_mootools                    0          0          0          0          0          0          0          0          0
+has_js_prototype                   0          0          0          0          0          0          0          0          0
+has_keywords                       0          1          0          1          0          1          0          1          1
+html5                              0          0          0          0          1          1          0          1          0
+html5_tags                    0.0048     0.0002          0     0.0036       0.01     0.0076     0.0057      0.005     0.0116
+img_count                     0.0404     0.0343     0.0021     0.0356     0.0365     0.0222     0.0582     0.0515     0.1049
+internal_links_count          0.0315     0.0171     0.0009     0.0283     0.0327     0.0156     0.0407     0.0426     0.0921
+page_rank                     0.4664     0.3567     0.4061     0.5713     0.4663     0.4823     0.5485     0.4549     0.5374
+title_tag                          1          1          0          1          1          1          1          1          1
+twitter_share                      0          0          0          0          0          0          0          0          0
+xhtml                              0          0          0          0          0          0          0          0          0
+
+
+
+
+Time taken to build model (full training data) : 0.22 seconds
+
+=== Model and evaluation on test split ===
+
+kMeans
+======
+
+Number of iterations: 11
+Within cluster sum of squared errors: 4413.097791982528
+Missing values globally replaced with mean/mode
+
+Cluster centroids:
+                                       Cluster#
+Attribute                  Full Data          0          1          2          3          4          5          6          7
+                              (1600)      (144)      (214)      (501)      (162)      (150)      (268)       (93)       (68)
+============================================================================================================================
+alexa_has_adult_content            0          0          0          0          0          0          0          0          0
+alexa_links_in                0.0176     0.0283     0.0123     0.0165     0.0163       0.03     0.0182     0.0105     0.0031
+alexa_load_time               0.0788     0.0794     0.0727     0.0783     0.0807     0.1057     0.0664     0.0815     0.0819
+alexa_rank                     0.252      0.204     0.2439     0.2534     0.1629     0.1651      0.313     0.2589     0.5244
+alexa_rank_dk                  0.248     0.2445     0.2444     0.2561     0.1725     0.1808     0.2646     0.2897     0.4142
+external_links_count          0.0709     0.0951     0.0662     0.0773      0.001     0.2669      0.025          0     0.0003
+facebook_share                     0          0          0          0          0          0          0          0          0
+has_analytics                      1          0          1          1          0          1          0          0          0
+has_content_business               0          1          0          0          0          1          0          0          0
+has_content_film                   0          1          0          0          0          1          0          0          0
+has_content_food                   0          0          0          0          0          0          0          0          0
+has_content_games                  0          0          0          0          0          1          0          0          0
+has_content_health                 0          0          0          0          0          1          0          0          0
+has_content_music                  0          0          0          0          0          1          0          0          0
+has_content_news                   1          1          1          1          0          1          1          0          0
+has_content_shop                   0          1          1          1          0          1          0          0          0
+has_content_sport                  0          0          0          0          0          1          0          0          0
+has_content_technology             0          0          0          0          0          0          0          0          0
+has_content_transport              1          1          1          1          0          1          0          0          0
+has_content_xxx                    0          0          0          0          0          0          0          0          0
+has_description                    1          1          0          1          0          1          0          0          0
+has_js_backbone                    0          0          0          0          0          0          0          0          0
+has_js_dojo                        0          0          0          0          0          0          0          0          0
+has_js_jquery                      0          0          1          0          0          0          0          0          0
+has_js_modernizr                   0          0          0          0          0          0          0          0          0
+has_js_mootools                    0          0          0          0          0          0          0          0          0
+has_js_prototype                   0          0          0          0          0          0          0          0          0
+has_keywords                       0          0          0          1          0          0          0          0          0
+html5                              0          1          0          0          0          0          0          0          0
+html5_tags                     0.005     0.0135     0.0055     0.0028          0      0.018     0.0031          0          0
+img_count                     0.0393     0.0462     0.0385     0.0458     0.0004     0.1287     0.0214          0     0.0002
+internal_links_count          0.0316     0.0489     0.0295     0.0385     0.0004     0.0949     0.0134          0          0
+page_rank                     0.4622     0.5715     0.4816     0.4658     0.5085     0.5608     0.3938     0.2298     0.4033
+title_tag                          1          1          1          1          0          1          1          0          0
+twitter_share                      0          0          0          0          0          0          0          0          0
+xhtml                              0          0          0          0          0          0          0          0          0
+
+
+
+
+Time taken to build model (percentage split) : 0.22 seconds
+
+Clustered Instances
+
+0       67 (  8%)
+1      116 ( 14%)
+2      261 ( 32%)
+3       74 (  9%)
+4       77 (  9%)
+5      136 ( 16%)
+6       34 (  4%)
+7       60 (  7%)
+

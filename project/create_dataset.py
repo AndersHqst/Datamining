@@ -1,4 +1,5 @@
 import time
+from collections import namedtuple
 from os import listdir
 from os.path import isfile, join
 from arff_writer import ArffWriter
@@ -124,6 +125,58 @@ writer = ArffWriter(attribute_rows, filename='dataset/data_binned.arff')
 writer.write()
 
 writer = ArffWriter(attribute_rows, filename='dataset/data_raw.arff', output_raw=True)
+writer.write()
+
+Info = namedtuple('Info', ['type', 'use_binned', 'exclude'])
+attribute_info = {
+    'alexa_has_adult_content': Info('nominal', True, False),
+    'alexa_lang': Info('nominal', True, False),
+    'alexa_links_in': Info('numeric', False, False),
+    'alexa_load_time': Info('numeric', False, False),
+    'alexa_rank': Info('numeric', False, False),
+    'alexa_rank_dk': Info('numeric', False, False),
+    'cms': Info('nominal', True, False),
+    'external_links_count': Info('numeric', False, False),
+    'facebook_share': Info('nominal', True, False),
+    'has_analytics': Info('nominal', True, False),
+    'has_content_business': Info('nominal', True, False),
+    'has_content_film': Info('nominal', True, False),
+    'has_content_food': Info('nominal', True, False),
+    'has_content_games': Info('nominal', True, False),
+    'has_content_health': Info('nominal', True, False),
+    'has_content_music': Info('nominal', True, False),
+    'has_content_news': Info('nominal', True, False),
+    'has_content_shop': Info('nominal', True, False),
+    'has_content_sport': Info('nominal', True, False),
+    'has_content_technology': Info('nominal', True, False),
+    'has_content_transport': Info('nominal', True, False),
+    'has_content_xxx': Info('nominal', True, False),
+    'has_description': Info('nominal', True, False),
+    'has_js_angular': Info('nominal', True, False),
+    'has_js_backbone': Info('nominal', True, False),
+    'has_js_dojo': Info('nominal', True, False),
+    'has_js_ember': Info('nominal', True, False),
+    'has_js_handlebars': Info('nominal', True, False),
+    'has_js_jquery': Info('nominal', True, False),
+    'has_js_knockout': Info('nominal', True, False),
+    'has_js_modernizr': Info('nominal', True, False),
+    'has_js_mootools': Info('nominal', True, False),
+    'has_js_prototype': Info('nominal', True, False),
+    'has_js_underscore': Info('nominal', True, False),
+    'has_keywords': Info('nominal', True, False),
+    'html5': Info('nominal', True, False),
+    'html5_tags': Info('numeric', False, False),
+    'img_count': Info('numeric', False, False),
+    'internal_links_count': Info('numeric', False, False),
+    'page_rank': Info('numeric', False, False),
+    'server': Info('nominal', True, False),
+    'title_tag': Info('nominal', True, False),
+    'twitter_share': Info('nominal', True, False),
+    'url': Info('string', True, True),
+    'xhtml': Info('nominal', True, False)
+}
+
+writer = ArffWriter(attribute_rows, attribute_info=attribute_info, filename='dataset/data_mixed.arff')
 writer.write()
 
 # Write stats

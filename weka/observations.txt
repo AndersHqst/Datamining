@@ -1,0 +1,8 @@
+Preprocessing:
+
+Clustering with K-means:
+	- We started with mixed dataset
+	- Removed URL tag
+	- Normalized numeric attributes
+	- Removed useless attributes
+		- (more than 99% have the same value)

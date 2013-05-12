@@ -1,13 +1,14 @@
 
 class ArffWriter:
 
-    def __init__(self, attribute_rows, filename=None, separator=',', include_header=True, surround_symbol="'", dataset_name='data', output_raw=False):
+    def __init__(self, attribute_rows, attribute_info=None, filename=None, separator=',', include_header=True, surround_symbol="'", dataset_name='data', output_raw=False):
         self.separator = separator
         self.attribute_rows = attribute_rows
         self.include_header = include_header
         self.surround_symbol = surround_symbol
         self.dataset_name = dataset_name
         self.output_raw = output_raw
+        self.attribute_info = attribute_info
 
         if filename is None:
             self.filename = 'data.arff'
@@ -31,11 +32,25 @@ class ArffWriter:
 
         for key in keys:
             attribute = attributes[key]
-            if not self.output_raw and attribute.bins is not None:
+
+            if self.attribute_info is not None and self.attribute_info.has_key(key):
+                info = self.attribute_info[key]
+                
+                if info.exclude:
+                    continue
+
+                header += '@ATTRIBUTE %s ' % key
+                if info.use_binned:
+                    header += '{' + ','.join([str(i) for i in range(len(attribute.bins))]) + '}\n'
+                else:
+                    header += '%s\n' % info.type
+
+            elif not self.output_raw and attribute.bins is not None:
                 header += '@ATTRIBUTE %s ' % key
                 header += '{' + ','.join([str(i) for i in range(len(attribute.bins))]) + '}\n'
             else:
-                header += '@ATTRIBUTE %s string\n' % key
+                header += '@ATTRIBUTE %s ' % key
+                header += 'string\n'
 
         header += '\n@DATA\n'
 
@@ -51,7 +66,15 @@ class ArffWriter:
             attribute = attributes[key]
 
             # Get raw or binned value
-            if not self.output_raw and attribute.binned_value is not None:
+            if self.attribute_info is not None and self.attribute_info.has_key(key):
+                info = self.attribute_info[key]
+                if info.exclude:
+                    continue
+                if info.use_binned:
+                    value = str(attribute.binned_value)
+                else:
+                    value = str(attribute.raw_value) 
+            elif not self.output_raw and attribute.binned_value is not None:
                 value = str(attribute.binned_value)
             else:
                 value = str(attribute.raw_value)
