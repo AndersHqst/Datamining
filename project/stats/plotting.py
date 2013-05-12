@@ -4,6 +4,8 @@ from pandas import DataFrame, Series
 from matplotlib.pyplot import savefig
 import matplotlib.gridspec as gridspec
 import scipy.stats
+import create_dataframe
+import re
 
 def cms_barh(plt, frame):
     cms_frame = frame['cms'].value_counts()
@@ -33,7 +35,9 @@ def numeric_attribute_histogram(plt, frame, title, num=10, interquantile=False, 
     fig = plt.figure(1, figsize=(8, 6))
 
     #image file name, and plot title are similar
-    file_name = title.lower().replace(' ', '_').replace('\n', '_')
+    file_name = title.lower().replace(' ', '_')
+    # Remove bad characters
+    file_name = "".join([c for c in file_name if re.match(r'\w', c)])
 
     # Remove missing values
     clean_frame = frame[frame.notnull()]
@@ -114,6 +118,7 @@ def numeric_attribute_histogram(plt, frame, title, num=10, interquantile=False, 
 
 def build_column_table(frame, col_text):
     """Build a one colum latex table.
+
     :param frame: mx1 pandas dataframe with column values
     :param col_text: header text for column
     """
@@ -129,11 +134,42 @@ def build_column_table(frame, col_text):
     print "table string: ", table
     return table
 
+
+def discrete_attribute_plot(plt, serie, title, total_sites=0, left_space=0.3):
+    """Plot bar histogram of discretized values
+
+    :param plt: plot
+    :param serie: pandas Series
+    :param title: title for the plot
+    :param total_sites: if sites have been removed, total sites can be displayed
+    :param left_space: add space to the left of the plot for long names
+    """
+    plt.close()
+    fig = plt.gcf()
+    #image file name, and plot title are similar
+    file_name = title.lower().replace(' ', '_')
+    # Remove bad characters
+    file_name = "".join([c for c in file_name if re.match(r'\w', c)])
+
+    # Approximate adjustment
+    plt.subplots_adjust(left=left_space)
+
+    # Plot
+    title += "\nSites %d" % serie.sum()
+    if total_sites != 0:
+        title += " out of: %d" % total_sites
+    # fig.text(0.75, 0.75, text, bbox={'facecolor': 'white', 'alpha': 1., 'pad': 8})
+    plt.title(title)
+    serie.plot(kind='barh')
+    savefig("./figures/" + file_name + "_discrete.png")
+
+
 # For fast plotting test
 def generate_page_rank(plt, frame):
     f = frame['page_rank']
     numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title())
     numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), interquantile=True)
+
 
 def generate_plots(plt, frame):
     """Generic creation of all numeric and binary plots"""

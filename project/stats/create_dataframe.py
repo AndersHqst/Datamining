@@ -1,6 +1,7 @@
 import pandas
 from pandas import DataFrame
 import numpy as np
+import re
 
 def url_index(row):
     for index, data in enumerate(row):
@@ -54,15 +55,34 @@ def default_frame():
     fd.close()
     return frame
 
+def plot_value_counts(plt, serie, title):
+    """Create vertical plot of discrete values and their corresponding count
+
+    :param plt: plot
+    :param serie: pandas Series
+    :param title: title of the plot
+    """
+    plt.close()
+    plt.figure(1)
+    plt.grid(True)
+    plt.title = title
+    plt.yticks(np.arange(len(serie)), serie.index)
+    plt.barh(np.arange(len(serie)), serie, align='center')
+    plt.show()
+
+def _bin(bins, x):
+    if not isinstance(x, basestring):
+        return "UNKNOWN"
+    for bin in bins:
+        if bin.lower() in x.lower():
+            return bin.upper()
+    return 'UNKNOWN'
 
 def bin(serie, bins):
     """Bin a serie of string values to bin. A value in the serie is set to a corresponding bin, if the value
     contains the bin string - ignoring case.
     ex frame['binned_servers'] = bin(frame['server'], ['Apache', 'IIS'])
+
     :return a binned serie
     """
-    if len(bins) == 0:
-        return 'UNKNOWN'
-    else:
-        bin_ = bins.pop()
-        return np.where(serie.str.contains(re.compile(bin_, re.IGNORECASE)), bin_.upper(), bin(serie, bins))
+    return serie.apply(lambda x: _bin(bins, x))
