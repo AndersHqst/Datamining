@@ -12,6 +12,7 @@ def cms_barh(plt, frame):
 
 def numeric_attribute_histogram(plt, frame, title, num=10, interquantile=False, mmm=True, binary=False):
     """Plot a histogram of an attribute in a DataFrame
+        Expects matplotlib.rc('text', usetex=True) in interactive environment
 
     :param plt: plot
     :param frame: pandas DataFrame
@@ -21,12 +22,12 @@ def numeric_attribute_histogram(plt, frame, title, num=10, interquantile=False, 
     :param mmm: plot text with min, max, mean
     :param binary: mmm and interquantile cannot be True, and num is 2, histogram bars have a legend is added
     """
-
     # Assert values for binary - an exception might be better
     if binary:
         num = 2
         interquantile = False
         mmm = False
+    print "Create plot: %s num=%d interquantile=%s mmm=%s binary=%s" % (title, num, interquantile, mmm, binary)
 
     plt.close() #Not sure if this is clever, but easier unless we plot more things on top of eachother
     fig = plt.figure(1, figsize=(8, 6))
@@ -52,6 +53,7 @@ def numeric_attribute_histogram(plt, frame, title, num=10, interquantile=False, 
 
         min_ = vals[0]
         max_ = vals[-1]
+        print "mix=%d max=%d" % (min_, max_)
 
         # Create a gridspec with 2 rows and one column. GridSpec allows plot resizing
         gs = gridspec.GridSpec(2, 1, height_ratios=[3, 1])
@@ -62,6 +64,7 @@ def numeric_attribute_histogram(plt, frame, title, num=10, interquantile=False, 
         # ax1.set_xlabel('data')
 
         bins = np.linspace(min_, max_, num=num)
+        print "bins=%s" % bins
         ax1.set_xticks(bins)
 
         # General statistical figures
@@ -114,12 +117,24 @@ def build_column_table(frame, col_text):
     :param frame: mx1 pandas dataframe with column values
     :param col_text: header text for column
     """
-    table = '\\begin{tabular}{ l | l } & %s' % col_text
+    max_site_name_length = 27
+    table = '\\begin{tabular}{ p{140pt} | p{60pt} |} Site & %s\\\\' % col_text
     for index, val in enumerate(frame):
-        table+= '\\\\\\hline %s & %s' % (frame.index[index].strip('http://'), val)
+        site = frame.index[index].strip('http://www.')
+        if max_site_name_length < len(site):
+            chunks = list(site)
+            site = ''.join(chunks[:max_site_name_length]) + '...'
+        print 'site name length: ', len(site)
+        table += '\\hline %s & %s\\\\' % (site, val)
     table += '\\end{tabular}'
+    print "table string: ", table
     return table
 
+# For fast plotting test
+def generate_page_rank(plt, frame):
+    f = frame['page_rank']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title())
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), interquantile=True)
 
 def generate_plots(plt, frame):
     """Generic creation of all numeric and binary plots"""
@@ -136,8 +151,8 @@ def generate_plots(plt, frame):
     numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title())
     numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), interquantile=True)
     f = frame['alexa_rank_dk']
-    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title())
-    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), interquantile=True)
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title().replace('Dk', 'DK'))
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title().replace('Dk', 'DK'), interquantile=True)
     f = frame['external_links_count']
     numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title())
     numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), interquantile=True)
@@ -147,6 +162,13 @@ def generate_plots(plt, frame):
     f = frame['internal_links_count']
     numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title())
     numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), interquantile=True)
+    f = frame['page_rank']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title())
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), interquantile=True)
+    f = frame['html5_tags']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title())
+    # Removed interquantile for html_5 tags - it is all 0
+    # numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), interquantile=True)
     f = frame['page_rank']
     numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title())
     numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), interquantile=True)
@@ -163,15 +185,11 @@ def generate_plots(plt, frame):
     numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), binary=True)
     f = frame['html5']
     numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), binary=True)
-    f = frame['page_rank']
-    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), binary=True)
     f = frame['title_tag']
     numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), binary=True)
     f = frame['twitter_share']
     numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), binary=True)
     f = frame['xhtml']
-    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), binary=True)
-    f = frame['html5_tags']
     numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), binary=True)
 
 
