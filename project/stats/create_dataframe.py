@@ -20,7 +20,7 @@ def create_dataframe(file_descriptior):
             row = line.rstrip().rstrip(',').split(',')
 
             # url is not set
-            if URL_INDEX = -1:
+            if URL_INDEX == -1:
                 URL_INDEX = url_index(row)
 
             url = row.pop(URL_INDEX)
@@ -49,7 +49,20 @@ def create_dataframe(file_descriptior):
     return frame.T
 
 def default_frame():
-    fd = open('../data_raw.arff', 'r')
+    fd = open('../dataset_02/data_raw.arff', 'r')
     frame = create_dataframe(fd)
     fd.close()
     return frame
+
+
+def bin(serie, bins):
+    """Bin a serie of string values to bin. A value in the serie is set to a corresponding bin, if the value
+    contains the bin string - ignoring case.
+    ex frame['binned_servers'] = bin(frame['server'], ['Apache', 'IIS'])
+    :return a binned serie
+    """
+    if len(bins) == 0:
+        return 'UNKNOWN'
+    else:
+        bin_ = bins.pop()
+        return np.where(serie.str.contains(re.compile(bin_, re.IGNORECASE)), bin_.upper(), bin(serie, bins))

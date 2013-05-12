@@ -124,7 +124,6 @@ def build_column_table(frame, col_text):
         if max_site_name_length < len(site):
             chunks = list(site)
             site = ''.join(chunks[:max_site_name_length]) + '...'
-        print 'site name length: ', len(site)
         table += '\\hline %s & %s\\\\' % (site, val)
     table += '\\end{tabular}'
     print "table string: ", table
@@ -138,6 +137,7 @@ def generate_page_rank(plt, frame):
 
 def generate_plots(plt, frame):
     """Generic creation of all numeric and binary plots"""
+
     f = frame['external_links_count']
     numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title())
     numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), interquantile=True)
@@ -191,6 +191,69 @@ def generate_plots(plt, frame):
     numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), binary=True)
     f = frame['xhtml']
     numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), binary=True)
+
+    f = frame['xhtml']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), binary=True)
+    f = frame['xhtml']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), binary=True)
+    f = frame['xhtml']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), binary=True)
+    f = frame['xhtml']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), binary=True)
+    f = frame['xhtml']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), binary=True)
+    f = frame['xhtml']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), binary=True)
+    f = frame['xhtml']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), binary=True)
+
+    f = frame['has_content_business']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), binary=True)
+    f = frame['has_content_film']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), binary=True)
+    f = frame['has_content_food']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), binary=True)
+    f = frame['has_content_games']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), binary=True)
+    f = frame['has_content_health']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), binary=True)
+    f = frame['has_content_music']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), binary=True)
+    f = frame['has_content_news']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), binary=True)
+    f = frame['has_content_shop']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), binary=True)
+    f = frame['has_content_sport']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), binary=True)
+    f = frame['has_content_technology']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), binary=True)
+    f = frame['has_content_transport']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), binary=True)
+    f = frame['has_content_xxx']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title(), binary=True)
+    f = frame['has_js_angular']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title().replace('Js', 'JS'), binary=True)
+    f = frame['has_js_backbone']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title().replace('Js', 'JS'), binary=True)
+    f = frame['has_js_dojo']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title().replace('Js', 'JS'), binary=True)
+    f = frame['has_js_ember']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title().replace('Js', 'JS'), binary=True)
+    f = frame['has_js_handlebars']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title().replace('Js', 'JS'), binary=True)
+    f = frame['has_js_jquery']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title().replace('Js', 'JS').replace('Jquery', 'JQuery'), binary=True)
+    f = frame['has_js_knockout']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title().replace('Js', 'JS'), binary=True)
+    f = frame['has_js_modernizr']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title().replace('Js', 'JS'), binary=True)
+    f = frame['has_js_mootools']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title().replace('Js', 'JS'), binary=True)
+    f = frame['has_js_prototype']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title().replace('Js', 'JS'), binary=True)
+    f = frame['has_js_underscore']
+    numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title().replace('Js', 'JS'), binary=True)
+
 
 
 
