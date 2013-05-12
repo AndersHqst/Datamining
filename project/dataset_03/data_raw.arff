@@ -1,50 +1,50 @@
 @RELATION data
 
-@ATTRIBUTE alexa_has_adult_content {0, 1}
+@ATTRIBUTE alexa_has_adult_content string
 @ATTRIBUTE alexa_lang string
-@ATTRIBUTE alexa_links_in numeric
-@ATTRIBUTE alexa_load_time numeric
-@ATTRIBUTE alexa_rank numeric
-@ATTRIBUTE alexa_rank_dk numeric
+@ATTRIBUTE alexa_links_in string
+@ATTRIBUTE alexa_load_time string
+@ATTRIBUTE alexa_rank string
+@ATTRIBUTE alexa_rank_dk string
 @ATTRIBUTE cms string
-@ATTRIBUTE external_links_count numeric
-@ATTRIBUTE facebook_share {0, 1}
-@ATTRIBUTE has_analytics {0, 1}
-@ATTRIBUTE has_content_business {0, 1}
-@ATTRIBUTE has_content_film {0, 1}
-@ATTRIBUTE has_content_food {0, 1}
-@ATTRIBUTE has_content_games {0, 1}
-@ATTRIBUTE has_content_health {0, 1}
-@ATTRIBUTE has_content_music {0, 1}
-@ATTRIBUTE has_content_news {0, 1}
-@ATTRIBUTE has_content_shop {0, 1}
-@ATTRIBUTE has_content_sport {0, 1}
-@ATTRIBUTE has_content_technology {0, 1}
-@ATTRIBUTE has_content_transport {0, 1}
-@ATTRIBUTE has_content_xxx {0, 1}
-@ATTRIBUTE has_description {0, 1}
-@ATTRIBUTE has_js_angular {0, 1}
-@ATTRIBUTE has_js_backbone {0, 1}
-@ATTRIBUTE has_js_dojo {0, 1}
-@ATTRIBUTE has_js_ember {0, 1}
-@ATTRIBUTE has_js_handlebars {0, 1}
-@ATTRIBUTE has_js_jquery {0, 1}
-@ATTRIBUTE has_js_knockout {0, 1}
-@ATTRIBUTE has_js_modernizr {0, 1}
-@ATTRIBUTE has_js_mootools {0, 1}
-@ATTRIBUTE has_js_prototype {0, 1}
-@ATTRIBUTE has_js_underscore {0, 1}
-@ATTRIBUTE has_keywords {0, 1}
-@ATTRIBUTE html5 {0, 1}
-@ATTRIBUTE html5_tags numeric
-@ATTRIBUTE img_count numeric
-@ATTRIBUTE internal_links_count numeric
-@ATTRIBUTE page_rank numeric
+@ATTRIBUTE external_links_count string
+@ATTRIBUTE facebook_share string
+@ATTRIBUTE has_analytics string
+@ATTRIBUTE has_content_business string
+@ATTRIBUTE has_content_film string
+@ATTRIBUTE has_content_food string
+@ATTRIBUTE has_content_games string
+@ATTRIBUTE has_content_health string
+@ATTRIBUTE has_content_music string
+@ATTRIBUTE has_content_news string
+@ATTRIBUTE has_content_shop string
+@ATTRIBUTE has_content_sport string
+@ATTRIBUTE has_content_technology string
+@ATTRIBUTE has_content_transport string
+@ATTRIBUTE has_content_xxx string
+@ATTRIBUTE has_description string
+@ATTRIBUTE has_js_angular string
+@ATTRIBUTE has_js_backbone string
+@ATTRIBUTE has_js_dojo string
+@ATTRIBUTE has_js_ember string
+@ATTRIBUTE has_js_handlebars string
+@ATTRIBUTE has_js_jquery string
+@ATTRIBUTE has_js_knockout string
+@ATTRIBUTE has_js_modernizr string
+@ATTRIBUTE has_js_mootools string
+@ATTRIBUTE has_js_prototype string
+@ATTRIBUTE has_js_underscore string
+@ATTRIBUTE has_keywords string
+@ATTRIBUTE html5 string
+@ATTRIBUTE html5_tags string
+@ATTRIBUTE img_count string
+@ATTRIBUTE internal_links_count string
+@ATTRIBUTE page_rank string
 @ATTRIBUTE server string
-@ATTRIBUTE title_tag {0, 1}
-@ATTRIBUTE twitter_share {0, 1}
+@ATTRIBUTE title_tag string
+@ATTRIBUTE twitter_share string
 @ATTRIBUTE url string
-@ATTRIBUTE xhtml {0, 1}
+@ATTRIBUTE xhtml string
 
 @DATA
 0,da-DK,55,2609,694474,?,UNKNOWN,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,7,'APACHE/2.2.3 (CENTOS)',1,0,http://www.hkhkronprinsen.dk,0
