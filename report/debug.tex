@@ -1,0 +1,52 @@
+% Declare debug variable
+\newif\ifdebug
+
+% =========== Toggle debug on and off =============
+\debugtrue
+%\debugfalse
+% =================================================
+
+% Todo framework
+\newcounter{todocount}
+\setcounter{todocount}{1}
+\ifdebug
+	\newcommand{\dbgtodo}[1]{\textcolor{red}{\{\arabic{todocount}\}}\marginpar{\raggedright \textcolor{red}{{\footnotesize TODO} \{\arabic{todocount}\}}: \\ {\footnotesize #1}}\stepcounter{todocount}}
+\else
+	\newcommand{\dbgtodo}[1]{}
+\fi
+
+% Note framework
+\newcounter{notecount}
+\setcounter{notecount}{1}
+\ifdebug
+	\newcommand{\dbgnote}[1]{\textcolor{blue}{\{\arabic{notecount}\}}\marginpar{\raggedright \textcolor{blue}{{\footnotesize NOTE} \{\arabic{notecount}\}}: \\ {\footnotesize #1}}\stepcounter{notecount}}
+\else
+	\newcommand{\dbgnote}[1]{}
+\fi
+
+% Figure pending framework
+\newcounter{figpendingcount}
+\setcounter{figpendingcount}{1}
+\newcommand{\dbgfig}{\begingroup \catcode`_=12 \dofigpend}
+\ifdebug
+	\newcommand{\dofigpend}[4]{
+	\refstepcounter{figure}
+	\label{#4}
+	\begin{center}
+	\fbox{
+		\parbox{0.8\linewidth}{
+		\textcolor{red}{FIGURE \arabic{figure} PENDING \{\arabic{todocount}\}} \\ 
+		\textbf{Path}: \texttt{#1} \\
+		\textbf{Width}: \texttt{#2\%} \\ 
+		\textbf{Caption}: #3 \\
+		\textbf{Label}: #4
+		}
+	}
+	\marginpar{\raggedright \textcolor{red}{{\footnotesize TODO} \{\arabic{todocount}\}}: \\ {\footnotesize Figure pending}}\stepcounter{todocount}
+	\end{center}
+	\endgroup
+	}
+\else
+	\newcommand{\dofigpend}[4]{}
+\fi
+

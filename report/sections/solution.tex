@@ -1,12 +1,22 @@
 \section{Solution}
 \label{sec:solution}
 
-We now present our solution, which primarily deals with collection and preprocessing the data. We have implemented a small preprocessing library that uses a plugin architecture that allows us to add, remove, and alter parser/scanners.
+We now present our solution, which primarily deals with collection and preprocessing of the data. We have implemented a small preprocessing library that uses a plugin architecture which allows us to add, remove, and alter the way in which we extract features.
 
 \subsection{Preprocessing}
 \label{subsec:preprocessing}
 
-Class-like diagram showing analyser, scanners, website, scraper, calls to alexa.
+% Class-like diagram showing analyser, scanners, website, scraper, calls to alexa.
+
+As mentioned in section \ref{subsec:scraping}, a script was created to download and scrape the websites of interest. The scraped websites (and auxiliary information) were stored on disk for easy access, using a simple and easy to parse data format.
+
+Apart from the websites themselves, auxiliary information was fetched from Alexa and Google. Similar scripts were created to fetch and parse this data. Please refer to the actual source code for more information on this.
+
+A small library was developed to process the raw data (including \texttt{HTML}, \texttt{HTTP} headers, Alexa information, Google PageRank) into a finite set of well defined attributes, which could be used for subsequent data analysis.
+
+A high-level view of the architecture of this preprocessor library can be seen in figure \ref{fig:preprocess}. A specific class (\texttt{Website}) was used to hold the information belonging to each website (including both the raw and parsed \texttt{HTML}). In order to easily extract the desired features, we introduced the concept of \textit{scanners}. Given a \texttt{Website} object, each scanner can extract and preprocess a specific feature from the raw data. This was implemented in a pluggable way, such that scanners could be added/removed as needed. A list of implemented scanners can be found in appendix \ref{app:scanners}\todo{Create this appendix...}.
+
+\dbgfig{preprocess.pdf}{0.9}{A high-level overview of the preprocessing library.}{fig:preprocess}
 
 \subsection{Weka}
 \label{subsec:weka}
