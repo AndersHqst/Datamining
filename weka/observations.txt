@@ -6,3 +6,6 @@ Clustering with K-means:
 	- Normalized numeric attributes
 	- Removed useless attributes
 		- (more than 99% have the same value)
+	- Test on 34%
+
+

@@ -1,5 +1,9 @@
 *.py[cod]
 *.dat
+report/*.pdf
+report/*.aux
+report/*.log
+report/*.synctex.gz
 
 # C extensions
 *.so

@@ -8,25 +8,31 @@ Based on the interests and data of Statistico introduced in secton \ref{sec:intr
 In addition, we want to investigate if it is possible to derive interesting correlations or patterns in the meta-data.With Aprior we can try and detect frequent patterns in the meta-data, and we will try to answer if there is anything interesting to say about the frequent patterns that we can get from the scraped data.
 A very important measure for any website is its Alexa-rank or page-rank on Google. We will see if we can predict these values based on the limited data we get. It seems unlikely, or at least not intuitive, that we should be able to derive these numbers from a data mining process that is essentially a simplification of what Alexa and Google's crawlers do, but non the less, the results could be interesting in that it could indicate a small set of parameters to be important for getting a high rank.
 
-\begin{tabular}{ p{130pt} | p{50pt} }
-Site & Bottom 5\\
-\hline border-shop.dk & 3\\
-\hline dotseo.dk & 3\\
-\hline c-lager.dk & 3\\
-\hline kreacom.dk & 3\\
-\hline grafical.dk & 3\\
-\hline\end{tabular}
+\hhtab{p{130pt}p{50pt}}
+{
+\toprule
+Site & Bottom 5 \\
+\midrule
+border-shop.dk & 3 \\
+dotseo.dk & 3 \\
+c-lager.dk & 3 \\
+kreacom.dk & 3 \\
+grafical.dk & 3 \\
+\bottomrule
+}{Some caption}{tab:bottom5}
 
-
-\begin{tabular}{ p{130pt} | p{.09\textwidth} }
-Site & Top 5\\
-\hline www & 5\\
-\hline www.medk & 5\\
-\hline www.aiu.dk & 5\\
-\hline www.mcdonalds.dk & 5\\
-\hline www.mcb.dk & 5\\
-\hline
-\end{tabular}
+\hhtab{p{130pt}p{50pt}}
+{
+\toprule
+Site & Top 5 \\
+\midrule
+www & 5 \\
+www.medk & 5 \\
+www.aiu.dk & 5 \\
+www.mcdonalds.dk & 5 \\
+www.mcb.dk & 5 \\
+\bottomrule
+}{Some caption}{tab:top5}
 
 \subsection{Meta data}
 \label{subsec:meta_data}
@@ -42,8 +48,9 @@ Statistico uses Solr. How it is used - ie their idea. Why we probably do not wan
 
 \subsection{Scraping}
 \label{subsec:scraping}
-HTML parser in Python is crap. Explain issue - HTML is extremely noisy. Present beautiful soup with lxml, our contribution to others trying to do the same.
 
+% HTML parser in Python is crap. Explain issue - HTML is extremely noisy. Present beautiful soup with lxml, our contribution to others trying to do the same.
 
+The actual data set was created by scraping the most popular \texttt{dk} domains (according to Alexa). In order to this as successfully as possible, the created script injected various headers, such as to fool the webservers into believing that the script was an actual browser (Firefox). Further, \texttt{HTTP} redirects were followed whenever present. In spite of this, however, a few sites could not be downloaded correctly due to server errors. If possible, the script stored both the \texttt{HTML} and the \texttt{HTTP} response headers.
 
-
+After the websites had been downloaded (along with the remaining data), the \texttt{HTML} belonging to the various websites were parsed, such that it could be easily queried. Due to the inconsistent nature of most \texttt{HTML}, a specific \texttt{HTML}-parser (Beautiful Soup) was used for this.
