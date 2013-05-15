@@ -1,14 +1,54 @@
-\section{Evaluation}
-\label{sec:evaluation}
-\todo{I imagine this is our prime section.}
-Diagrams and numbers. Evaluate and reflect upon all results. Can we say anything?
+\section{Analysis}
+\label{sec:analysis}
+
+% \todo{I imagine this is our prime section.}
+% Diagrams and numbers. Evaluate and reflect upon all results. Can we say anything?
+
+Obviously, generating the data set is not that interesting in itself. Hence, basic statistical data was extracted, such as to provide a general overview of the most interesting information, including popular websites, choices of CMS and so forth. 
+
+Further, clustering algorithms were used to try and identify any obvious clusters in the data. Classification/prediction algorithms were also tested, but proved less useful due to the noisy nature of the data. 
+
+\subsection{Statistics}
+\label{subsec:statistics}
+
+Some statistics here please :)
 
 \subsection{Clustering}
 \label{subsec:clustering}
 
-Clustering is the only thing that seems to make the slightest sense :(
+The data was clustered using three different clustering algorithms:
 
-Explain the results
+\begin{itemize}
+\item K-Means
+\item K-Medoids
+\item DBSCAN
+\end{itemize}
+
+K-Means and K-Medoids were configured to look for 8 clusters\footnote{The choice of 8 clusters were based on experimentation and seemed to yield the most defined clusters.}. A mixed distance measure was used, similar to the one described in the course book \cite{book}. DBSCAN was configured to look for a minimum of 5 points using $\varepsilon = 1.0$.
+
+Three different subsets of attributes were used for the clustering. One subset was chosen to represent the attributes that might influence the ranking of the websites. A second subset focused on the technological attributes. Finally, one subset was created to represent the content of the websites. The specific attributes can be seen in table \ref{tab:cluster_attributes}.
+
+\hhtab{l l}
+{
+\toprule
+Subset & Attributes in subset\\
+\midrule
+Rank subset & \texttt{alexa\_load\_time}, \texttt{alexa\_rank}, \texttt{alexa\_rank\_dk}, \\ 
+& \texttt{alexa\_links\_in}, \texttt{internal\_links\_count}, \\ 
+& \texttt{external\_links\_count}, \texttt{page\_rank}, \texttt{title\_tag}, \\ 
+& \texttt{has\_description}, \texttt{has\_keywords}, \texttt{img\_count} \\
+\midrule
+Technology subset & \texttt{html5}, \texttt{html5\_tags}, \texttt{has\_js\_jquery}, \\
+& \texttt{server}, \texttt{cms}, \texttt{has\_analytics} \\
+\midrule
+Content subset & \texttt{has\_content\_business}, \texttt{has\_content\_film}, \\ 
+& \texttt{has\_content\_food}, \texttt{has\_content\_games}, \\ 
+& \texttt{has\_content\_health}, \texttt{has\_content\_music}, \\
+& \texttt{has\_content\_news}, \texttt{has\_content\_shop}, \\ 
+& \texttt{has\_content\_sport}, \texttt{has\_content\_technology}, \\
+& \texttt{has\_content\_transport}, \texttt{has\_content\_xxx} \\
+\bottomrule
+}{The different subsets used for in clustering process.}{tab:cluster_attributes}
 
 \subsection{Prediction and classification}
 \label{subsec:predictclassify}

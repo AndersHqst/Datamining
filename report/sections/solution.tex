@@ -18,34 +18,21 @@ A high-level view of the architecture of this preprocessor library can be seen i
 
 \dbgfig{preprocess.pdf}{0.9}{A high-level overview of the preprocessing library.}{fig:preprocess}
 
-\subsection{Weka}
+\subsection{Datamining tools}
 \label{subsec:weka}
-
-\hhtab{p{130pt}p{50pt}}
-{
-\toprule
-Site & Bottom 5 \\
-\midrule
-border-shop.dk & 3 \\
-dotseo.dk & 3 \\
-c-lager.dk & 3 \\
-kreacom.dk & 3 \\
-grafical.dk & 3 \\
-\bottomrule
-}{Some caption}{tab:bottom5}
-
-
 
 % How is data fed to weka. Problems?
 
-We decided to use Weka for the actual data analysis. In order to do so, we developed the preprocessing library (refer to section \ref{subsec:preprocessing}) such that they could output the data set in the \texttt{ARFF} format used by Weka.
+We decided to use Weka and Rapidminer for the actual data analysis. Weka was used for the initial experimentation, but the richer feature set found in Rapidminer was used for the results presented here. 
 
-Three versions of the data set were created:
+In order to use both these tools, the preprocessing library (refer to section \ref{subsec:preprocessing}) was developed such that it could output the data set in the \texttt{ARFF} format, which can be read by both Weka and Rapidminer.
+
+Three versions of the data set were created, in order to support all potential use cases:
 
 \begin{itemize}
 \item A version containing the raw values from the data set.
 \item A version in which every value was discretised/binned.
-\item A combination of the former two, in which only a select few attributes were binned\footnote{The binned attributes were all nominal by nature. Hence, these were simply distributed into a reduced number of bins.}.
+\item A combination of the former two, in which only a select few attributes were binned\footnote{These binned attributes were all nominal. In other words, we reduced the number of bins belonging to these attributes. For instance, we grouped all versions of the Apache webserver, instead of considering the specific versions.}.
 \end{itemize}
 
 It turned out that the combined version was easiest to work with, and was thus chosen for the actual data analysis.

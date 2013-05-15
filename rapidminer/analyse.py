@@ -7,7 +7,11 @@ def split_csvline(line):
     return [attribute.replace('"', '').replace('\n', '') for attribute in line.split(';')]
 
 
-def analyze(in_filename, out_filename):
+def analyze(filename):
+    in_filename = filename + '.csv'
+    summary_filename = filename + '_summary.csv'
+    plottable_filename = filename + '_plottable.csv'
+
     with open(in_filename, 'r') as f:
         csvlines = f.readlines()
 
@@ -19,7 +23,6 @@ def analyze(in_filename, out_filename):
     for line in csvlines[1:]:
         attributes = split_csvline(line)
         cluster_key = attributes[-1]
-        #print cluster_key
 
         if not clusters.has_key(cluster_key):
             clusters[cluster_key] = {}
@@ -39,6 +42,7 @@ def analyze(in_filename, out_filename):
             except Exception:
                 cluster[header].append(float(attribute))
 
+    # Output cluster data summary
     attribute_keys = sorted(headers[:-1])
     output = ''
     for cluster_key in sorted(clusters.keys()):
@@ -69,10 +73,40 @@ def analyze(in_filename, out_filename):
         output += ';'.join(modes) + '\n'
         output += ';'.join(stddevs) + '\n'
 
-    with open(out_filename, 'w') as f:
+    with open(summary_filename, 'w') as f:
         f.write(output)
-    print 'Output written to: %s' % out_filename
+    print 'Summary written to: %s' % summary_filename
 
-analyze('kmeans_cluster_data.csv', 'kmeans_cluster_data_analysis.csv')
-analyze('kmedoids_cluster_data.csv', 'kmedoids_cluster_data_analysis.csv')
-analyze('dbscan_cluster_data.csv', 'dbscan_cluster_data_analysis.csv')
+    # Output cluster data as plottable
+    output = ''
+    
+    for attribute_key in attribute_keys:
+        output += attribute_key + ';;;;'
+    output += '\n'
+
+    for attribute_key in attribute_keys:
+        output += 'sum;mean;mode;stddev;'
+    output += '\n'
+
+    for cluster_key in sorted(clusters.keys()):
+        cluster = clusters[cluster_key]
+
+        for attribute_key in attribute_keys:
+            attribute_list = np.array(cluster[attribute_key])
+
+            su = np.sum(attribute_list)
+            mn = np.average(attribute_list)
+            mo = mode(attribute_list)[0][0]
+            sd = np.std(attribute_list)
+
+            output += '%s;%s;%s;%s;'% (su, mn, mo, sd)
+        output += '\n'
+
+    with open(plottable_filename, 'w') as f:
+        f.write(output)
+    print 'Plottable data written to: %s' % plottable_filename
+
+
+analyze('output/kmeans_cluster_data')
+analyze('output/kmedoids_cluster_data')
+analyze('output/dbscan_cluster_data')
