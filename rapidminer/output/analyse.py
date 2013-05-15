@@ -54,8 +54,9 @@ def analyze(in_filename, out_filename):
         for attribute_key in attribute_keys:
             attribute_list = np.array(cluster[attribute_key])
 
+            su = np.sum(attribute_list)
             mn = np.average(attribute_list)
-            mo = mode(attribute_list)[0]
+            mo = mode(attribute_list)[0][0]
             sd = np.std(attribute_list)
 
             sums.append(str(su))
