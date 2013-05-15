@@ -2,15 +2,51 @@ import pandas
 from pandas import DataFrame
 import numpy as np
 import re
+import csv
+from urlparse import urlparse
+
+def valid(url):
+    """Returns true if this is a valid url"""
+    return 0 < len(urlparse(url)[1])
 
 def url_index(row):
     for index, data in enumerate(row):
-        if 'www' in data or 'http' in data:
+        if 0 < len(urlparse(data)[1]) and 'www' in data or 'http' in data:
             return index
 
+def row_from_chunks(chunks):
+    """Returns a list of row values. It expects a list of chunks crated from splitting a file line with csv's, where
+    commas in between quotes have been chunked up. This method merges them back together.
+
+    :param row: list of row chunks
+    """
+    # Some values migh have commas in then. In that case we re-concatenate chunks between quotes
+    merging = False
+    merged_value = ''
+    quote = None # Record quote as '\'' and look for this as the end quote also.
+    row = []
+    for chunk in chunks:
+        # Important that we are not already merging, i do not restart - this is an edge case actually gives an error in our data..
+        if chunk.startswith('\'') and not merging:
+            merging = True
+            quote = chunk[0]
+            merged_value += chunk
+        elif merging:
+            merged_value += chunk
+        else:
+            row.append(chunk)
+
+        # If the chunk ends with a quote, append the merged value to the row, and stop mergin
+        # At this point, if merging is True, quote should not be None, if so, we would just like
+        # things to blow up here
+        if merging and chunk.endswith(quote):
+                merging = False
+                quote = None
+                row.append(merged_value)
+    return row
 
 def create_dataframe(file_descriptior):
-    """Creates and returns a pandas data frame from a Weka arff file"""
+    """Creates and returns a pandas data frame from a Weka arff file."""
     attributes = []
     is_data = False
     data = {}
@@ -18,13 +54,21 @@ def create_dataframe(file_descriptior):
     for line in file_descriptior.readlines():
 
         if is_data:
-            row = line.rstrip().rstrip(',').split(',')
+            chunks = line.rstrip().rstrip(',').split(',')
+            row = row_from_chunks(chunks)
 
             # url is not set
             if URL_INDEX == -1:
                 URL_INDEX = url_index(row)
 
             url = row.pop(URL_INDEX)
+            if url.startswith('www'):
+                url = 'http://' + url
+
+            # Clean by deletion if the url is not valid
+            if not valid(url):
+                continue
+
             pairs = zip(attributes, row)
             data[url] = {}
             for attr, val in pairs:
@@ -50,7 +94,7 @@ def create_dataframe(file_descriptior):
     return frame.T
 
 def default_frame():
-    fd = open('../dataset_02/data_raw.arff', 'r')
+    fd = open('../dataset_03/data_raw.arff', 'rb')
     frame = create_dataframe(fd)
     fd.close()
     return frame
