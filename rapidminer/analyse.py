@@ -23,7 +23,6 @@ def analyze(filename):
     for line in csvlines[1:]:
         attributes = split_csvline(line)
         cluster_key = attributes[-1]
-        #print cluster_key
 
         if not clusters.has_key(cluster_key):
             clusters[cluster_key] = {}
