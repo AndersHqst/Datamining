@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<process version="5.3.008">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="5.3.008" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="read_arff" compatibility="5.3.008" expanded="true" height="60" name="Read ARFF" width="90" x="45" y="210">
+        <parameter key="data_file" value="C:\ITU\Projects\data_mining\project\dataset_03\data_mixed.arff"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+        <list key="data_set_meta_data_information"/>
+        <parameter key="attribute_names_already_defined" value="false"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+      </operator>
+      <operator activated="true" class="multiply" compatibility="5.3.008" expanded="true" height="94" name="Multiply (2)" width="90" x="179" y="210"/>
+      <operator activated="false" class="select_attributes" compatibility="5.3.008" expanded="true" height="76" name="Content Attributes" width="90" x="380" y="300">
+        <parameter key="attribute_filter_type" value="subset"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value="|has_content_business|has_content_film|has_content_food|has_content_games|has_content_health|has_content_music|has_content_news|has_content_shop|has_content_sport|has_content_technology|has_content_transport|has_content_xxx|page_rank"/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="select_attributes" compatibility="5.3.008" expanded="true" height="76" name="Tech Attributes" width="90" x="380" y="210">
+        <parameter key="attribute_filter_type" value="subset"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value="|html5_tags|html5|has_js_jquery|server|cms|has_analytics"/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+      </operator>
+      <operator activated="false" class="select_attributes" compatibility="5.3.008" expanded="true" height="76" name="Rank Attributes" width="90" x="380" y="120">
+        <parameter key="attribute_filter_type" value="subset"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value="|alexa_load_time|alexa_rank|alexa_rank_dk|alexa_links_in|internal_links_count|external_links_count|page_rank|title_tag|has_description|has_keywords|img_count"/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="replace_missing_values" compatibility="5.3.008" expanded="true" height="94" name="Replace Missing Values" width="90" x="514" y="210">
+        <parameter key="return_preprocessing_model" value="false"/>
+        <parameter key="create_view" value="false"/>
+        <parameter key="attribute_filter_type" value="all"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value=""/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+        <parameter key="default" value="average"/>
+        <list key="columns"/>
+      </operator>
+      <operator activated="true" class="normalize" compatibility="5.3.008" expanded="true" height="94" name="Normalize" width="90" x="648" y="210">
+        <parameter key="return_preprocessing_model" value="false"/>
+        <parameter key="create_view" value="false"/>
+        <parameter key="attribute_filter_type" value="all"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value=""/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="numeric"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="real"/>
+        <parameter key="block_type" value="value_series"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_series_end"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+        <parameter key="method" value="range transformation"/>
+        <parameter key="min" value="0.0"/>
+        <parameter key="max" value="1.0"/>
+      </operator>
+      <operator activated="true" class="multiply" compatibility="5.3.008" expanded="true" height="112" name="Multiply" width="90" x="782" y="210"/>
+      <operator activated="true" class="dbscan" compatibility="5.3.008" expanded="true" height="76" name="DBSCAN" width="90" x="983" y="300">
+        <parameter key="epsilon" value="1.0"/>
+        <parameter key="min_points" value="5"/>
+        <parameter key="add_cluster_attribute" value="true"/>
+        <parameter key="add_as_label" value="false"/>
+        <parameter key="remove_unlabeled" value="false"/>
+        <parameter key="measure_types" value="MixedMeasures"/>
+        <parameter key="mixed_measure" value="MixedEuclideanDistance"/>
+        <parameter key="nominal_measure" value="NominalDistance"/>
+        <parameter key="numerical_measure" value="EuclideanDistance"/>
+        <parameter key="divergence" value="GeneralizedIDivergence"/>
+        <parameter key="kernel_type" value="radial"/>
+        <parameter key="kernel_gamma" value="1.0"/>
+        <parameter key="kernel_sigma1" value="1.0"/>
+        <parameter key="kernel_sigma2" value="0.0"/>
+        <parameter key="kernel_sigma3" value="2.0"/>
+        <parameter key="kernel_degree" value="3.0"/>
+        <parameter key="kernel_shift" value="1.0"/>
+        <parameter key="kernel_a" value="1.0"/>
+        <parameter key="kernel_b" value="0.0"/>
+      </operator>
+      <operator activated="true" class="write_csv" compatibility="5.3.008" expanded="true" height="76" name="Write CSV (3)" width="90" x="1117" y="300">
+        <parameter key="csv_file" value="C:\ITU\Projects\data_mining\rapidminer\output\dbscan_cluster_data.csv"/>
+        <parameter key="column_separator" value=";"/>
+        <parameter key="write_attribute_names" value="true"/>
+        <parameter key="quote_nominal_values" value="true"/>
+        <parameter key="format_date_attributes" value="true"/>
+        <parameter key="append_to_file" value="false"/>
+        <parameter key="encoding" value="UTF-8"/>
+      </operator>
+      <operator activated="true" class="k_medoids" compatibility="5.3.008" expanded="true" height="76" name="K-Medoids" width="90" x="983" y="210">
+        <parameter key="add_cluster_attribute" value="true"/>
+        <parameter key="add_as_label" value="false"/>
+        <parameter key="remove_unlabeled" value="false"/>
+        <parameter key="k" value="8"/>
+        <parameter key="max_runs" value="10"/>
+        <parameter key="max_optimization_steps" value="100"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+        <parameter key="measure_types" value="MixedMeasures"/>
+        <parameter key="mixed_measure" value="MixedEuclideanDistance"/>
+        <parameter key="nominal_measure" value="NominalDistance"/>
+        <parameter key="numerical_measure" value="EuclideanDistance"/>
+        <parameter key="divergence" value="GeneralizedIDivergence"/>
+        <parameter key="kernel_type" value="radial"/>
+        <parameter key="kernel_gamma" value="1.0"/>
+        <parameter key="kernel_sigma1" value="1.0"/>
+        <parameter key="kernel_sigma2" value="0.0"/>
+        <parameter key="kernel_sigma3" value="2.0"/>
+        <parameter key="kernel_degree" value="3.0"/>
+        <parameter key="kernel_shift" value="1.0"/>
+        <parameter key="kernel_a" value="1.0"/>
+        <parameter key="kernel_b" value="0.0"/>
+      </operator>
+      <operator activated="true" class="write_csv" compatibility="5.3.008" expanded="true" height="76" name="Write CSV (2)" width="90" x="1117" y="210">
+        <parameter key="csv_file" value="C:\ITU\Projects\data_mining\rapidminer\output\kmedoids_cluster_data.csv"/>
+        <parameter key="column_separator" value=";"/>
+        <parameter key="write_attribute_names" value="true"/>
+        <parameter key="quote_nominal_values" value="true"/>
+        <parameter key="format_date_attributes" value="true"/>
+        <parameter key="append_to_file" value="false"/>
+        <parameter key="encoding" value="UTF-8"/>
+      </operator>
+      <operator activated="true" class="k_means" compatibility="5.3.008" expanded="true" height="76" name="K-Means" width="90" x="983" y="120">
+        <parameter key="add_cluster_attribute" value="true"/>
+        <parameter key="add_as_label" value="false"/>
+        <parameter key="remove_unlabeled" value="false"/>
+        <parameter key="k" value="8"/>
+        <parameter key="max_runs" value="100"/>
+        <parameter key="determine_good_start_values" value="false"/>
+        <parameter key="measure_types" value="MixedMeasures"/>
+        <parameter key="mixed_measure" value="MixedEuclideanDistance"/>
+        <parameter key="nominal_measure" value="NominalDistance"/>
+        <parameter key="numerical_measure" value="EuclideanDistance"/>
+        <parameter key="divergence" value="SquaredEuclideanDistance"/>
+        <parameter key="kernel_type" value="radial"/>
+        <parameter key="kernel_gamma" value="1.0"/>
+        <parameter key="kernel_sigma1" value="1.0"/>
+        <parameter key="kernel_sigma2" value="0.0"/>
+        <parameter key="kernel_sigma3" value="2.0"/>
+        <parameter key="kernel_degree" value="3.0"/>
+        <parameter key="kernel_shift" value="1.0"/>
+        <parameter key="kernel_a" value="1.0"/>
+        <parameter key="kernel_b" value="0.0"/>
+        <parameter key="max_optimization_steps" value="100"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+      </operator>
+      <operator activated="true" class="write_csv" compatibility="5.3.008" expanded="true" height="76" name="Write CSV" width="90" x="1117" y="120">
+        <parameter key="csv_file" value="C:\ITU\Projects\data_mining\rapidminer\output\kmeans_cluster_data.csv"/>
+        <parameter key="column_separator" value=";"/>
+        <parameter key="write_attribute_names" value="true"/>
+        <parameter key="quote_nominal_values" value="true"/>
+        <parameter key="format_date_attributes" value="true"/>
+        <parameter key="append_to_file" value="false"/>
+        <parameter key="encoding" value="UTF-8"/>
+      </operator>
+      <connect from_op="Read ARFF" from_port="output" to_op="Multiply (2)" to_port="input"/>
+      <connect from_op="Multiply (2)" from_port="output 1" to_op="Tech Attributes" to_port="example set input"/>
+      <connect from_op="Tech Attributes" from_port="example set output" to_op="Replace Missing Values" to_port="example set input"/>
+      <connect from_op="Replace Missing Values" from_port="example set output" to_op="Normalize" to_port="example set input"/>
+      <connect from_op="Normalize" from_port="example set output" to_op="Multiply" to_port="input"/>
+      <connect from_op="Multiply" from_port="output 1" to_op="K-Means" to_port="example set"/>
+      <connect from_op="Multiply" from_port="output 2" to_op="K-Medoids" to_port="example set"/>
+      <connect from_op="Multiply" from_port="output 3" to_op="DBSCAN" to_port="example set"/>
+      <connect from_op="DBSCAN" from_port="clustered set" to_op="Write CSV (3)" to_port="input"/>
+      <connect from_op="K-Medoids" from_port="clustered set" to_op="Write CSV (2)" to_port="input"/>
+      <connect from_op="K-Means" from_port="clustered set" to_op="Write CSV" to_port="input"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+    </process>
+  </operator>
+</process>
