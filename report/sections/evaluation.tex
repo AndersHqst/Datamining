@@ -52,11 +52,19 @@ Content subset & \texttt{has\_content\_business}, \texttt{has\_content\_film}, \
 
 \subsubsection{Clustering the rank attributes}
 
+First, we clustered on the rank attributes. Using either of the used algorithms, it was quite easy to spot a few significant clusters. The discussion is based on the clusters found by K-Medoids, but similar pictures could be found using the other algorithms. The two most interesting clusters are analysed below:
+
+\paragraph{The search-engine optimized top sites} This cluster has the best average Alexa rank and a very good PageRank. These websites contains both the keyword and description meta tags. The fact that time has been spent on SEO could indicate that this cluster represents websites which use the web as their main platform. This cluster contains sites such as \verb|www.krak.dk|, \verb|www.dba.dk| og \verb|www.amino.dk|.
+
+\paragraph{The unoptimized top sites} This cluster has a very good Alexa Rank and PageRank. However, less time has been spent on SEO, which indicates that these websites are the ones that have become popular through some other media and/or do not need this optimization as much as the former cluster. This cluster includes \verb|www.google.dk|, \verb|www.ekstrabladet.dk| og \verb|www.bt.dk|. Obviously, SEO is less important for Google itself.
+
+Similar clusters can found for the less popular sites, but this will not be discussed any further here.
+
 \subsubsection{Clustering the technology attributes}
 
 \subsubsection{Clustering the content attributes}
 
-Clustering the content resulted in a few prominent clusters. The most extreme of these clusters were websites without any content (according to our measure of content, that is) and the websites which satisfied almost all of our content criteria. During this clustering, we noted that the content rich websites had a better Google PageRank.
+Clustering on the content resulted in a few prominent clusters. The most extreme of these clusters were websites without any content (according to our measure of content, that is) and the websites which satisfied almost all of our content criteria. During this clustering, we noted that the content rich websites had a better Google PageRank.
 
 Due to this, we tried to compare the amount of content in the clusters to their assigned PageRank. This comparison was made by plotting the average PageRanks of the clusters versus the average of the content attributes\footnote{Although these attributes are actually binary, they were treated as numeric, as the average is more useful than the mode in this particular case.}. 
 
