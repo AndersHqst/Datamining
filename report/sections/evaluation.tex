@@ -81,7 +81,7 @@ The output of the neural net model indicates that the Alexa links in attribute i
 
 \dbgfig{../figures/neural_nets.png}{0.9}{Importance of a connection between neurones in the neural net are indicated by the boldness of the connection. The Alexa links in is in the input layer 7th from the top, the bias is at the bottom. The net on the left is the outcome of learning rate of 0.2 over 500 epocs, and the net on the right is from model with learning rate 0.002 over 5000 epocs.}{fig:neural_net}
 
-The correlation coefficient between page rank and and Alexa links in is 0.2054 with a p value of 0.1808 which supports the above indications. As this is somewhat an undesired conclusion, the above models for prediction are test against a sub set of the Rank subset minus attributes from Alexa as seen in table \ref{tab:rank_no_alexa}, which yields the results seen in table \ref{tab:rank_no_alexa_prediction}
+The correlation coefficient between page rank and and Alexa links in is 0.2054 with a p value of 0.1808 which supports the above indications. This result is not very surprising, so it could be interesting to see the outcome of models without the Alexa related attributes. We choose the Rank subset minus Alexa related attributes as listed in table \ref{tab:rank_no_alexa}, which yields the results seen in table \ref{tab:rank_no_alexa_prediction}
 
 \hhtab{l l}
 {
@@ -104,6 +104,6 @@ Neural Net & Rank subset set & 2.924\\
 \bottomrule
 }{Prediction errors using the subset from table \ref{tab:rank_no_alexa}.}{tab:rank_no_alexa_prediction}
 
-As table \ref{tab:rank_no_alexa_prediction} shows, error has gone up by removing the Alexa related attributes, and shows that we can predict a page rank in the \(\sqrt{2.875} = 1.6955\) range. The interesting thing to say about this is, that its actually not a bad prediction considering the scarce information used. We guess that the connection here is simply, that sites that rank well on Google also manage their websites well, and thus have the above attributes.
+As table \ref{tab:rank_no_alexa_prediction} shows, error has gone up by removing the Alexa related attributes, and shows that we can predict a page rank in the \(\sqrt{2.875} = 1.6955\) range. The interesting thing to say about this is, that its actually not a bad prediction considering the scarce information used. We believe that the connection here is simply, that sites that rank well on Google also manage their websites well, and thus have the above attributes - and not the other way around.
 
 \todo{Try with a classifier on binned page rank}
