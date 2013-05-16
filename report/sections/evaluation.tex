@@ -60,11 +60,11 @@ Clustering the content resulted in a few prominent clusters. The most extreme of
 
 Due to this, we tried to compare the amount of content in the clusters to their assigned PageRank. This comparison was made by plotting the average PageRanks of the clusters versus the average of the content attributes\footnote{Although these attributes are actually binary, they were treated as numeric, as the average is more useful than the mode in this particular case.}. 
 
-As it turns out, there seem to be a relationship between the average amount of content in the cluster and the assigned PageRank. This tendency can be seen in figure \ref{fig:cluster_content}. Obviously, it must be noted that the exact relationship is still somewhat unclear, but the tendency is definitely present.
+As it turns out, there seem to be a relationship between the average amount of content in the cluster and the assigned PageRank. This tendency can be seen in figure \ref{fig:cluster_content} for K-Medoids and in appendix \ref{app:content_pagerank} for K-Means and DBSCAN. Obviously, it must be noted that the exact relationship is still somewhat unclear, but the tendency is definitely present.
 
-\dbgfig{cluster_content.png}{1}{The content attributes clustered using K-Means, K-Medoids and DBSCAN. It is seen, that a large amount of content tends to result in a better PageRank.}{fig:cluster_content}
+\fig{figures/kmedoids_content_pagerank.png}{0.8}{The content attributes clustered using K-Medoids. It is seen, that a large amount of content tends to result in a better PageRank. THIS FIGURE WILL BE IMPROVED IN THE FINAL REPORT.}{fig:cluster_content}
 
-One could also plot the unclustered content attributes against the PageRank. This turned out to give a much more noisy picture, although the same tendencies was found (on average).
+One could also plot the unclustered content attributes against the PageRank. This turned out to give a much more noisy picture, although the same tendencies were found (on average). If course, it should also be noted that the clustering does not really provide any insight which could not be found from the original dataset. However, the clustering helped us \textit{spot} the tendency.
 
 \subsection{Prediction and classification}
 \label{subsec:predictclassify}
