@@ -1,78 +1,23 @@
-\section{Analysis}
-\label{sec:analysis}
-
-% \todo{I imagine this is our prime section.}
-% Diagrams and numbers. Evaluate and reflect upon all results. Can we say anything?
-
-Obviously, generating the data set is not that interesting in itself. Hence, basic statistical data was extracted, such as to provide a general overview of the most interesting information, including popular websites, choices of CMS and so forth.
-
-Further, clustering algorithms were used to try and identify any obvious clusters in the data. Classification/prediction algorithms were also tested, but proved less useful due to the noisy nature of the data.
-
-\subsection{Statistics}
-\label{subsec:statistics}
-
-Some statistics here please :)
-
-\subsection{Clustering}
-\label{subsec:clustering}
-
-The data was clustered using three different clustering algorithms:
-
-\begin{itemize}
-\item K-Means
-\item K-Medoids
-\item DBSCAN
-\end{itemize}
-
-K-Means and K-Medoids were configured to look for 8 clusters\footnote{The choice of 8 clusters were based on experimentation and seemed to yield the most defined clusters.}. A mixed distance measure was used, similar to the one described in the course book \cite{book}. DBSCAN was configured to look for a minimum of 5 points using $\varepsilon = 1.0$.
-
-Three different subsets of attributes were used for the clustering. One subset was chosen to represent the attributes that might influence the ranking of the websites. A second subset focused on the technological attributes. Finally, one subset was created to represent the content of the websites. The specific attributes can be seen in table \ref{tab:cluster_attributes}.
-
-\hhtab{l l}
-{
-\toprule
-Subset & Attributes in subset\\
-\midrule
-Rank subset & \texttt{alexa\_load\_time}, \texttt{alexa\_rank}, \texttt{alexa\_rank\_dk}, \\
-& \texttt{alexa\_links\_in}, \texttt{internal\_links\_count}, \\
-& \texttt{external\_links\_count}, \texttt{page\_rank}, \texttt{title\_tag}, \\
-& \texttt{has\_description}, \texttt{has\_keywords}, \texttt{img\_count} \\
-\midrule
-Technology subset & \texttt{html5}, \texttt{html5\_tags}, \texttt{has\_js\_jquery}, \\
-& \texttt{server}, \texttt{cms}, \texttt{has\_analytics} \\
-\midrule
-Content subset & \texttt{has\_content\_business}, \texttt{has\_content\_film}, \\
-& \texttt{has\_content\_food}, \texttt{has\_content\_games}, \\
-& \texttt{has\_content\_health}, \texttt{has\_content\_music}, \\
-& \texttt{has\_content\_news}, \texttt{has\_content\_shop}, \\
-& \texttt{has\_content\_sport}, \texttt{has\_content\_technology}, \\
-& \texttt{has\_content\_transport}, \texttt{has\_content\_xxx} \\
-\bottomrule
-}{The different subsets used for in clustering process.}{tab:cluster_attributes}
-
-\subsection{Prediction and classification}
-\label{subsec:predictclassify}
-
 \subsection{Predicting Page Rank}
 \label{subsec:predection}
 For experimenting with predicting values in the data, we have used the data mining software RapidMiner\footnote{RapidMiner is freely available at http://rapid-i.com/}. RapidMiner provides much of the same functionality as Weka\footnote{Weka is freely available http://www.cs.waikato.ac.nz/ml/weka/}, but in our experience, RapidMiner seems much more user-friendly and does a better job providing documentation and quick help from the workbench.
 
 We want to see if we can predict the page rank of a website, and for this we have set up a process that models linear and polynomial regression, and a neural network\footnote{Appendix \ref{apn:rapidminer_setup} shows examples of the RapidMinerGUI for setting up a data mining process.}. For this process we have used the mixed data set, and replaced missing values with the average of a given attribute. The data set has a total of 2332 missing values with is 2.18\% of the entire set, so we would expect these to have little to no influence on the generalization of our results. Table \ref{tab:prediction_results} lists the results of running predictions on both the Rank subset related subset, and the full set.
 
-\todo{Linear regression Full set CMS 1,3,7,9 had positive coefficients - interesting?}
-\hhtab{p{80pt}p{80pt}p{50pt}p{50pt}}
+\todo{Consider delete of the comment column.}
+\hhtab{p{80pt}p{50pt}p{50pt}p{50pt}}
 {
 \toprule
-Model & Data & Error\\
+Model & Data & Error & Comment\\
 \midrule
-Linear Regression & Rank subset & 1.573  \\
-Linear Regression & Content subset & 2.640 \\
-Linear Regression & Technology subset & 2.510 \\
-Linear Regression & Full set & 2.170 \\
-Neural Net & Rank subset & 2.875 \\
-Neural Net & Technology subset & 2.722 \\
-Neural Net & Content subset & 3.036 \\
-Neural Net & Full set & 4.587 \\
+Linear Regression & Rank subset & 1.573 & -  \\
+Linear Regression & Content subset & 2.640 & - \\
+Linear Regression & Technology subset & 2.510 & - \\
+Linear Regression & Full set & 2.170 & CMS 1,3,7,9 had positive coefficients\\
+Neural Net & Rank subset & 2.875 & - Standard settings gave best results: Learning rate: 0.3, momentum: 0.2, 500 epocs\\
+Neural Net & Technology subset & 2.722 & -
+Neural Net & Content subset & 3.036 & Even impact of neurones \\
+Neural Net & Full set & 4.587 & - Learning rate: 0.3, momentum: 0.2\\
 \bottomrule
 }{Overview of model predicting with Page Rank as the target value. The Error is the average squared error after cross validation. Target value is in its original scale.}{tab:prediction_results}
 
@@ -94,15 +39,15 @@ Rank subset & \texttt{external\_links\_count}, \texttt{page\_rank}, \texttt{titl
 \bottomrule
 }{Rank subset without Alexa attributes.}{tab:rank_no_alexa}
 
-\hhtab{p{80pt}p{80pt}p{50pt}p{50pt}}
+\hhtab{p{80pt}p{50pt}p{50pt}p{50pt}}
 {
 \toprule
-Model & Data & Error\\
+Model & Data & Error & Comment\\
 \midrule
-Linear Regression & Rank subset set & 2.808  \\
-Neural Net & Rank subset set & 2.924\\
+Linear Regression & Rank subset set & 2.808 & -  \\
+Neural Net & Rank subset set & 2.924 & - Learning rate: 0.3, momentum: 0.2, 500 epocs\\
 \bottomrule
-}{Prediction errors using the subset from table \ref{tab:rank_no_alexa}.}{tab:rank_no_alexa_prediction}
+}{Overview of model predicting with Page Rank as the target value. The Error is the average squared error after cross validation. Target value is in its original scale.}{tab:rank_no_alexa_prediction}
 
 As table \ref{tab:rank_no_alexa_prediction} shows, error has gone up by removing the Alexa related attributes, and shows that we can predict a page rank in the \(\sqrt{2.875} = 1.6955\) range. The interesting thing to say about this is, that its actually not a bad prediction considering the scarce information used. We guess that the connection here is simply, that sites that rank well on Google also manage their websites well, and thus have the above attributes.
 

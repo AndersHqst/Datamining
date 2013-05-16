@@ -10,9 +10,14 @@ def valid(url):
     return 0 < len(urlparse(url)[1])
 
 def url_index(row):
+    """Return index of the url if any, and -2 otherwise to indicate that we use labels and that we have tried to fin a url index"""
     for index, data in enumerate(row):
         if 0 < len(urlparse(data)[1]) and 'www' in data or 'http' in data:
             return index
+
+    # No url was found, so we use id
+    return -2
+
 
 def row_from_chunks(chunks):
     """Returns a list of row values. It expects a list of chunks crated from splitting a file line with csv's, where
@@ -45,13 +50,14 @@ def row_from_chunks(chunks):
                 row.append(merged_value)
     return row
 
-def create_dataframe(file_descriptior):
+def create_dataframe(file_descriptior, binned=False):
     """Creates and returns a pandas data frame from a Weka arff file."""
     attributes = []
     is_data = False
     data = {}
     URL_INDEX = -1
-    for line in file_descriptior.readlines():
+    id_index = -1 # If no urls in the data, we label the index with a ascending id
+    for index, line in enumerate(file_descriptior.readlines()):
 
         if is_data:
             chunks = line.rstrip().rstrip(',').split(',')
@@ -61,13 +67,17 @@ def create_dataframe(file_descriptior):
             if URL_INDEX == -1:
                 URL_INDEX = url_index(row)
 
-            url = row.pop(URL_INDEX)
-            if url.startswith('www'):
-                url = 'http://' + url
+            if URL_INDEX == -2:
+                url = index
+            else:
+                #Use url for indexing
+                url = row.pop(URL_INDEX)
 
-            # Clean by deletion if the url is not valid
-            if not valid(url):
-                continue
+                #Clean url string and check that the url is valid
+                if url.startswith('www'):
+                    url = 'http://' + url
+                    if not valid(url):
+                        continue # Effectively deletes the sample from the frame
 
             pairs = zip(attributes, row)
             data[url] = {}
@@ -90,14 +100,21 @@ def create_dataframe(file_descriptior):
 
     #replace missing values with np.nan
     frame = DataFrame(data)
-    frame[frame == '?'] = np.nan
+    if not binned:
+        frame[frame == '?'] = np.nan
     return frame.T
 
-def default_frame():
-    fd = open('../dataset_03/data_raw.arff', 'rb')
-    frame = create_dataframe(fd)
+def default_frame(arff_file='../dataset_03/data_raw.arff', binned=False):
+    fd = open(arff_file, 'rb')
+    frame = create_dataframe(fd, binned=binned)
     fd.close()
     return frame
+
+def mixed_dataset():
+    return default_frame('../dataset_03/data_mixed.arff', binned=True)
+
+def binned_dataset():
+    return default_frame('../dataset_03/data_binned.arff', binned=True)
 
 def plot_value_counts(plt, serie, title):
     """Create vertical plot of discrete values and their corresponding count
