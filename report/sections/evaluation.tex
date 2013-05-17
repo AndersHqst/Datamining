@@ -59,32 +59,58 @@ K-Means and K-Medoids were configured to look for 8 clusters\footnote{The choice
 
 Three different subsets of attributes were used for the clustering. One subset was chosen to represent the attributes that might influence the ranking of the websites. A second subset focused on the technological attributes. Finally, one subset was created to represent the content of the websites. The specific attributes can be seen in table \ref{tab:cluster_attributes}.
 
-\hhtab{l l}
+\htab{l l}
 {
 \toprule
 Subset & Attributes in subset\\
 \midrule
-Rank subset & \texttt{alexa\_load\_time}, \texttt{alexa\_rank}, \texttt{alexa\_rank\_dk}, \\
-& \texttt{alexa\_links\_in}, \texttt{internal\_links\_count}, \\
-& \texttt{external\_links\_count}, \texttt{page\_rank}, \texttt{title\_tag}, \\
+Rank subset & \texttt{alexa\_load\_time}, \texttt{alexa\_rank}, \texttt{alexa\_rank\_dk}, \\ 
+& \texttt{alexa\_links\_in}, \texttt{internal\_links\_count}, \\ 
+& \texttt{external\_links\_count}, \texttt{page\_rank}, \texttt{title\_tag}, \\ 
 & \texttt{has\_description}, \texttt{has\_keywords}, \texttt{img\_count} \\
 \midrule
 Technology subset & \texttt{html5}, \texttt{html5\_tags}, \texttt{has\_js\_jquery}, \\
 & \texttt{server}, \texttt{cms}, \texttt{has\_analytics} \\
 \midrule
-Content subset & \texttt{has\_content\_business}, \texttt{has\_content\_film}, \\
-& \texttt{has\_content\_food}, \texttt{has\_content\_games}, \\
+Content subset & \texttt{has\_content\_business}, \texttt{has\_content\_film}, \\ 
+& \texttt{has\_content\_food}, \texttt{has\_content\_games}, \\ 
 & \texttt{has\_content\_health}, \texttt{has\_content\_music}, \\
-& \texttt{has\_content\_news}, \texttt{has\_content\_shop}, \\
+& \texttt{has\_content\_news}, \texttt{has\_content\_shop}, \\ 
 & \texttt{has\_content\_sport}, \texttt{has\_content\_technology}, \\
 & \texttt{has\_content\_transport}, \texttt{has\_content\_xxx} \\
 \bottomrule
 }{The different subsets used for in clustering process.}{tab:cluster_attributes}
 
+\subsubsection{Clustering the rank attributes}
+
+First, we clustered on the rank attributes. Using either of the used algorithms, it was quite easy to spot a few significant clusters. The discussion is based on the clusters found by K-Medoids, but similar pictures could be found using the other algorithms. The two most interesting clusters are analysed below:
+
+\paragraph{The search-engine optimized top sites} This cluster has the best average Alexa rank and a very good PageRank. These websites contains both the keyword and description meta tags. The fact that time has been spent on SEO could indicate that this cluster represents websites which use the web as their main platform. This cluster contains sites such as \verb|www.krak.dk|, \verb|www.dba.dk| og \verb|www.amino.dk|.
+
+\paragraph{The unoptimized top sites} This cluster has a very good Alexa Rank and PageRank. However, less time has been spent on SEO, which indicates that these websites are the ones that have become popular through some other media and/or do not need this optimization as much as the former cluster. This cluster includes \verb|www.google.dk|, \verb|www.ekstrabladet.dk| og \verb|www.bt.dk|. Obviously, SEO is less important for Google itself.
+
+Similar clusters can found for the less popular sites, but this will not be discussed any further here.
+
+\subsubsection{Clustering the technology attributes}
+
+This section will be added.
+
+\subsubsection{Clustering the content attributes}
+
+Clustering on the content resulted in a few prominent clusters. The most extreme of these clusters were websites without any content (according to our measure of content, that is) and the websites which satisfied almost all of our content criteria. During this clustering, we noted that the content rich websites had a better Google PageRank.
+
+Due to this, we tried to compare the amount of content in the clusters to their assigned PageRank. This comparison was made by plotting the average PageRanks of the clusters versus the average of the content attributes\footnote{Although these attributes are actually binary, they were treated as numeric, as the average is more useful than the mode in this particular case.}. 
+
+As it turns out, there seem to be a relationship between the average amount of content in the cluster and the assigned PageRank. This tendency can be seen in figure \ref{fig:cluster_content} for K-Medoids and in appendix \ref{app:content_pagerank} for K-Means and DBSCAN. Obviously, it must be noted that the exact relationship is still somewhat unclear, but the tendency is definitely present.
+
+\fig{figures/kmedoids_content_pagerank.png}{0.8}{The content attributes clustered using K-Medoids. It is seen, that a large amount of content tends to result in a better PageRank. THIS FIGURE WILL BE IMPROVED IN THE FINAL REPORT.}{fig:cluster_content}
+
+One could also plot the unclustered content attributes against the PageRank. This turned out to give a much more noisy picture, although the same tendencies were found (on average). If course, it should also be noted that the clustering does not really provide any insight which could not be found from the original dataset. However, the clustering helped us \textit{spot} the tendency.
+
 \subsection{Prediction and classification}
 \label{subsec:predictclassify}
 
-\subsection{Predicting Page Rank}
+\subsection{Predicting PageRank}
 \label{subsec:predection}
 For experimenting with predicting values in the data, we have used the data mining software RapidMiner\footnote{RapidMiner is freely available at http://rapid-i.com/}. RapidMiner provides much of the same functionality as Weka\footnote{Weka is freely available http://www.cs.waikato.ac.nz/ml/weka/}, but in our experience, RapidMiner seems much more user-friendly and does a better job providing documentation and quick help from the workbench.
 
