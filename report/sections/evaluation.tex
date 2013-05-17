@@ -64,18 +64,18 @@ Three different subsets of attributes were used for the clustering. One subset w
 \toprule
 Subset & Attributes in subset\\
 \midrule
-Rank subset & \texttt{alexa\_load\_time}, \texttt{alexa\_rank}, \texttt{alexa\_rank\_dk}, \\ 
-& \texttt{alexa\_links\_in}, \texttt{internal\_links\_count}, \\ 
-& \texttt{external\_links\_count}, \texttt{page\_rank}, \texttt{title\_tag}, \\ 
+Rank subset & \texttt{alexa\_load\_time}, \texttt{alexa\_rank}, \texttt{alexa\_rank\_dk}, \\
+& \texttt{alexa\_links\_in}, \texttt{internal\_links\_count}, \\
+& \texttt{external\_links\_count}, \texttt{page\_rank}, \texttt{title\_tag}, \\
 & \texttt{has\_description}, \texttt{has\_keywords}, \texttt{img\_count} \\
 \midrule
 Technology subset & \texttt{html5}, \texttt{html5\_tags}, \texttt{has\_js\_jquery}, \\
 & \texttt{server}, \texttt{cms}, \texttt{has\_analytics} \\
 \midrule
-Content subset & \texttt{has\_content\_business}, \texttt{has\_content\_film}, \\ 
-& \texttt{has\_content\_food}, \texttt{has\_content\_games}, \\ 
+Content subset & \texttt{has\_content\_business}, \texttt{has\_content\_film}, \\
+& \texttt{has\_content\_food}, \texttt{has\_content\_games}, \\
 & \texttt{has\_content\_health}, \texttt{has\_content\_music}, \\
-& \texttt{has\_content\_news}, \texttt{has\_content\_shop}, \\ 
+& \texttt{has\_content\_news}, \texttt{has\_content\_shop}, \\
 & \texttt{has\_content\_sport}, \texttt{has\_content\_technology}, \\
 & \texttt{has\_content\_transport}, \texttt{has\_content\_xxx} \\
 \bottomrule
@@ -99,7 +99,7 @@ This section will be added.
 
 Clustering on the content resulted in a few prominent clusters. The most extreme of these clusters were websites without any content (according to our measure of content, that is) and the websites which satisfied almost all of our content criteria. During this clustering, we noted that the content rich websites had a better Google PageRank.
 
-Due to this, we tried to compare the amount of content in the clusters to their assigned PageRank. This comparison was made by plotting the average PageRanks of the clusters versus the average of the content attributes\footnote{Although these attributes are actually binary, they were treated as numeric, as the average is more useful than the mode in this particular case.}. 
+Due to this, we tried to compare the amount of content in the clusters to their assigned PageRank. This comparison was made by plotting the average PageRanks of the clusters versus the average of the content attributes\footnote{Although these attributes are actually binary, they were treated as numeric, as the average is more useful than the mode in this particular case.}.
 
 As it turns out, there seem to be a relationship between the average amount of content in the cluster and the assigned PageRank. This tendency can be seen in figure \ref{fig:cluster_content} for K-Medoids and in appendix \ref{app:content_pagerank} for K-Means and DBSCAN. Obviously, it must be noted that the exact relationship is still somewhat unclear, but the tendency is definitely present.
 
@@ -136,7 +136,7 @@ Neural Net & Full set & 4.587 \\
 Page rank predictions are based on the cross-validation building-block in RapidMiner, which provides a few strategies like {\it leave-one-out} and and some randomized approaches. As our data is already in a random order we have simply used a linear sampling that separates a standard 10\% as test data, and thus performs 10 runs. As table \ref{tab:prediction_results} indicates we seem to be able to predict the page rank within \(\sqrt{1.573} = 1.2541\) which is also what we would expect, as the Alexa Rank and links related attributes are provided. The above predictions have also been tested with RapidMiner's build in M5 for automatic feature selection, but the results were virtually the same. It seems only a few of the JavaScript related features are excluded.
 The output of the neural net model indicates that the Alexa links in attribute is the most important in deciding the page rank. This can be seen by inspecting the importance, or strength, that each attributes has on the outcome of the neural net. The visualization is show in figure \ref{fig:neural_net}
 
-\dbgfig{../figures/neural_nets.png}{0.9}{Importance of a connection between neurones in the neural net are indicated by the boldness of the connection. The Alexa links in is in the input layer 7th from the top, the bias is at the bottom. The net on the left is the outcome of learning rate of 0.2 over 500 epocs, and the net on the right is from model with learning rate 0.002 over 5000 epocs.}{fig:neural_net}
+\fig{figures/neural_nets.png}{0.9}{Importance of a connection between neurones in the neural net are indicated by the boldness of the connection. The Alexa links in is in the input layer 7th from the top, the bias is at the bottom. The net on the left is the outcome of learning rate of 0.2 over 500 epocs, and the net on the right is from model with learning rate 0.002 over 5000 epocs.}{fig:neural_net}
 
 The correlation coefficient between page rank and and Alexa links in is 0.2054 with a p value of 0.1808 which supports the above indications. This result is not very surprising, so it could be interesting to see the outcome of models without the Alexa related attributes. We choose the Rank subset minus Alexa related attributes as listed in table \ref{tab:rank_no_alexa}, which yields the results seen in table \ref{tab:rank_no_alexa_prediction}
 
