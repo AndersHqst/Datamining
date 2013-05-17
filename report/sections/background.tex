@@ -6,70 +6,23 @@ In this section we present the problem statement, which is based on some interes
 \label{subsec:problem_statement}
 Based on the interests and data of Statistico introduced in secton \ref{sec:introduction}, we want to find out how well we can extract general statistics on websites in the .dk domain. We want to be able to give an overview of the distribution of CMS, server software, and SEO related figures. SEO related data could be related to link counts or presence of certain \texttt{HTML} tags.
 
-In addition, we want to investigate if it is possible to derive interesting correlations or patterns in the meta-data. With Aprior we can try and detect frequent patterns in the meta-data, and we will try to answer if there is anything interesting to say about the frequent patterns that we can get from the scraped data.
-A very important measure for any website is its Alexa-rank or page-rank on Google. We will see if we can predict these values based on the limited data we get. It seems unlikely, or at least not intuitive, that we should be able to derive these numbers from a data mining process that is essentially a simplification of what Alexa and Google's crawlers do, but non the less, the results could be interesting in that it could indicate a small set of parameters to be important for getting a high rank.
+In addition, we want to investigate if it is possible to derive interesting correlations or patterns in the meta-data. We will use data mining software to experiment with different clustering algorithms, and see if we can derive any meaningful correlations in the data.
 
-\hhtab{p{130pt}p{50pt}}
-{
-\toprule
-Site & Bottom 5 \\
-\midrule
-border-shop.dk & 3 \\
-dotseo.dk & 3 \\
-c-lager.dk & 3 \\
-kreacom.dk & 3 \\
-grafical.dk & 3 \\
-\bottomrule
-}{Some caption}{tab:bottom5}
-
-\hhtab{p{130pt}p{50pt}}
-{
-\toprule
-Site & Top 5 \\
-\midrule
-www & 5 \\
-www.medk & 5 \\
-www.aiu.dk & 5 \\
-www.mcdonalds.dk & 5 \\
-www.mcb.dk & 5 \\
-\bottomrule
-}{Some caption}{tab:top5}
-
-\hhtab{p{130pt}p{50pt}}
-{
-\toprule
-Site & Rank\\
-\midrule
-s3-spil.dk & 2373057\\
-lasertandplejeren.dk & 2349661\\
-clubsyd.dk & 2300194\\
-blsinvest.dk & 2297863\\
-grapevine.dk & 2272158\\
-seniorshop.dk & 2210674\\
-nicetrend.dk & 2154267\\
-jyfo.dk & 2151307\\
-jfp.dk & 2140631\\
-otelbalkastrand.dk & 2140439\\
-\bottomrule
-}{Top 10 Danish sites on the Alexa Rank}{tab:Alexa Rank op 10}
+A very important measure for any website is its Alexa-rank and page-rank on Google. We will see if we can predict these values based on the limited data we get. It seems unlikely, or at least not intuitive, that we should be able to derive these numbers from a data mining process that is essentially a simplification of what Alexa and Google's crawlers do, but non the less, the results could be interesting in that it could indicate a small set of parameters to be important for getting a high rank.
 
 \subsection{Meta data}
 \label{subsec:meta_data}
-Present meta data. What are we collecting and why. Justify these with either interest in SEO, or web statistics in general.
+We need to decide on a set of attributes that we want to collect from each website. In section \ref{sec:background} we will give an overview of these. Besides the data that we can get directly from the HTML of the websites, we can use Alexa\footnote{By Alexa we refer to Amazon's Alexa Web Information Service, which displays various data figures on websites around the world. http://aws.amazon.com/awis/} to enrich our data set with important figures such as back-link and page load time, which would be hard to get ourselves, but is easy to retrieve as a service.
 
-\subsection{Alexa}
-\label{subsec:alexa}
-Describe Alexa, grep the web, Statistico's \'big brother\', what data does Alexa provide.
-
-\subsection{Solr}
+\subsection{Accessing the index - Solr and Lucene}
 \label{subsec:solr}
-Statistico uses Solr. How it is used - ie their idea. Why we probably do not want to go that way. Solr is a search engine - schema layer just adds extra layer of complexity.
+As Statistico uses Solr, the idea has been to use the Solr querying api. Ideally this would give us a fast way of extracting information from the big data set. However, we decided midway in the process to abandon this idea. Without getting into too much detail, we found that the extra layer of Solr adds unnecessary complexity to the preprocessing step, and argue that have the search engine as a part of the process could ruin some confidence in the data integrity later in the process. As such, we have build our preprocessing up around scraping and parsing the raw HTML from a website. As Statistico stores all the raw HTML as well, our solution can just as easily interface with their data set.
 
-\subsection{Scraping}
+\subsection{Scraping and Parsing}
 \label{subsec:scraping}
 
 % HTML parser in Python is crap. Explain issue - HTML is extremely noisy. Present beautiful soup with lxml, our contribution to others trying to do the same.
 
 The actual data set was created by scraping the most popular \texttt{dk} domains (according to Alexa). In order to this as successfully as possible, the created script injected various headers, such as to fool the webservers into believing that the script was an actual browser (Firefox). Further, \texttt{HTTP} redirects were followed whenever present. In spite of this, however, a few sites could not be downloaded correctly due to server errors. If possible, the script stored both the \texttt{HTML} and the \texttt{HTTP} response headers.
 
-After the websites had been downloaded (along with the remaining data), the \texttt{HTML} belonging to the various websites had to be parsed, such that it could be easily queried. Due to the inconsistent nature of most \texttt{HTML}, a specific \texttt{HTML}-parser (Beautiful Soup) was used for this.
+After the websites had been downloaded (along with the remaining data), the \texttt{HTML} belonging to the various websites had to be parsed, such that it could be easily queried. Due to the inconsistent and noisy nature of most \texttt{HTML}, we found that Python's build in HTML parser is not good enough. The HTMLParser library is simply too fragile and breaks on various cases. In the hope that we will spare others some headaches, we found that the Beautiful Soup\footnote{Beautiful Soup builds a tree like object of HTML and provides fast search and easy lookup in the \texttt{HTML} http://www.crummy.com/software/BeautifulSoup/bs4/doc/} with the lxml\footnote{The lxml parser can be found at: http://lxml.de/parsing.html} \texttt{HTML}-parser is much more robust.

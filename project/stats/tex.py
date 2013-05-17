@@ -25,7 +25,7 @@ def generate_table(serie, col_text, title, caption):
             site = ''.join(chunks[:max_site_name_length]) + '...'
         table += '%s & %s' % (site, val) + "\\\\\n"
     table += "\\bottomrule\n"
-    table += "}{" + caption + "}{tab:" + title + "}"
+    table += "}{" + caption + "}{tab:" + title.replace(' ', '_').replace('-', '_').lower() + "}"
     print "table string: ", table
 
     #file name
@@ -124,12 +124,28 @@ def generate_tables(frame):
     files = os.listdir('./tables/')
     tex_file = open('tables_appendix.tex', 'w')
     tex_file.truncate()
+    section = "\\section{Tables}\n \\label{apx:tables}\n"
+    tex_file.write(section)
     for fn in files:
         path = './tables/' + fn
         fd = open(path)
         tex_file.write(fd.read() + '\n\n')
         fd.close()
         os.remove(path)
+    tex_file.close()
+
+def generate_figures():
+    """Generate figures for every figure in the figures folder"""
+    figs = os.listdir('./figures/')
+    tex_file = open('appendix_basic_statistics.tex', 'w')
+    tex_file.truncate()
+    section = "\\section{Basic statistics}\n \\label{apx:basic_statistics}\n\n"
+    tex_file.write(section)
+    for index, fig in enumerate(figs):
+        tex_fig = "\\hfig{figures/basic_statistics/" + fig + "}{0.8}{" + fig.replace('\\figures','').replace('_', ' ').replace('.png', '').title().replace('Dk', 'DK').replace('Jquery', 'JQuery') + "}{fig:" + fig.replace('\\figures','') + "}"
+        tex_file.write(tex_fig + '\n\n')
+        if index % 2 == 0:
+            tex_file.write('\\clearpage\n\n')
     tex_file.close()
 
 
