@@ -12,19 +12,21 @@ from scanner_attribute import ScannerAttribute
 """
 
 DOTNETNUKE = 'DOTNETNUKE'
-UMBRACO    = 'UMBRACO'
-EPISERVER  = 'EPISERVER'
+UMBRACO = 'UMBRACO'
+EPISERVER = 'EPISERVER'
 SHAREPOINT = 'SHAREPOINT'
-SITECORE   = 'SITECORE'
+SITECORE = 'SITECORE'
 DYNAMICWEB = 'DYNAMICWEB'
-WORDPRESS  = 'WORDPRESS'
-TYPO3      = 'TYPO3'
-PHPNUKE    = 'PHPNUKE'
-DRUPAL     = 'DRUPAL'
-JOOMLA     = 'JOOMLA'
-UNKNOWN    = 'UNKNOWN'
+WORDPRESS = 'WORDPRESS'
+TYPO3 = 'TYPO3'
+PHPNUKE = 'PHPNUKE'
+DRUPAL = 'DRUPAL'
+JOOMLA = 'JOOMLA'
+UNKNOWN = 'UNKNOWN'
+
 
 class CMSScannerException(Exception):
+
     def __init__(self, *args, **kwargs):
         super(Exception, self).__init__(*args, **kwargs)
 
@@ -45,8 +47,10 @@ def bins():
         UNKNOWN
     ]
 
+
 def found(cms):
     return ScannerAttribute('cms', cms, index_of_discrete_bin(bins(), cms), bins())
+
 
 def cms_scanner(website):
     soup = website.soup
@@ -55,92 +59,100 @@ def cms_scanner(website):
         if website == None:
             print 'CMS scanner. Website was: ', website
 
-
-        #Assert that data is there
+        # Assert that data is there
         if soup == None or soup.get_text().isspace():
             print 'CMS scanner. soup was: ', soup
             raise CMSScannerException()
 
-        #See if some cms is simply mentioned in the header
+        # See if some cms is simply mentioned in the header
         drupal = 'drupal'
         umbraco = 'umbraco'
         for key in website.headers.keys():
 
-            #Drupal
+            # Drupal
             if drupal in website.headers[key].lower() or drupal in key.lower():
                 return found(DRUPAL)
 
-            #Umbraco
+            # Umbraco
             if umbraco in website.headers[key].lower() or umbraco in key.lower():
                 return found(UMBRACO)
         # return ('cms', -1)
 
-        #See if a certain path name occurs
-        #DotNetNuke
+        # See if a certain path name occurs
+        # DotNetNuke
         dnn_path = '/Portals/_default/'
         if dnn_path in soup.get_text():
             return found(DOTNETNUKE)
 
-        #Umbraco
+        # Umbraco
         umbraco_path = '/umbraco/'
         if umbraco_path in soup.get_text():
             return found(UMBRACO)
 
-        #Drupal
+        # Drupal
         if 'var Drupal = Drupal' in soup.get_text():
             return found(DRUPAL)
 
-        #Sitecore
-        #TODO does this need to be on the entire source? Why not just do it onr src|href like below?
+        # Sitecore
+        # TODO does this need to be on the entire source? Why not just do it
+        # onr src|href like below?
         sitecore_content_path = 'sitecore/content/'
         sitecore_util_path = 'http://www.sitecore.net/webutil'
         if sitecore_content_path in soup.get_text() or sitecore_util_path in soup.get_text():
             return found(SITECORE)
 
-
-        #Wordpress url in any href or src
-        if soup.find_all(href=re.compile('wp-content', re.IGNORECASE)) or soup.find_all(href=re.compile('wp-include', re.IGNORECASE)):
+        # Wordpress url in any href or src
+        if soup.find_all(href=re.compile('wp-content', re.IGNORECASE)) 
+                or soup.find_all(href=re.compile('wp-include', re.IGNORECASE)):
             return found(WORDPRESS)
 
-        #Type3 in script source
+        # Type3 in script source
         if soup.find_all('script', src=re.compile('typo3', re.IGNORECASE)):
             return found(TYPO3)
 
-        #Joomla in script source
+        # Joomla in script source
         if soup.find_all('script', src=re.compile('joomla', re.IGNORECASE)):
             return found(JOOMLA)
 
-        #DotNetNuke in script source
+        # DotNetNuke in script source
         if soup.find_all('script', src=re.compile('(dnn.js|dnncore.js)', re.IGNORECASE)):
             return found(DOTNETNUKE)
 
-        #SharePoint in script source
+        # SharePoint in script source
         if soup.find_all('script', src=re.compile('(core.js|msstring.js)', re.IGNORECASE)):
             return found(SHAREPOINT)
 
-        comments = soup.find_all(text=lambda text:isinstance(text, Comment))
+        comments = soup.find_all(text=lambda text: isinstance(text, Comment))
 
-        #Check for Typo3 in comment text
-        txt = ['This website is powered by TYPO3', 'TYPO3 is a free open source Content Management Framework']
+        # Check for Typo3 in comment text
+        txt = ['This website is powered by TYPO3',
+               'TYPO3 is a free open source Content Management Framework']
         if any(txt[0].lower() in x.lower() or txt[1].lower() in x.lower() for x in comments):
             return found(TYPO3)
 
-
-        #Meta tags
-        #PHP-Nuke
-        if soup.find_all('meta', attrs={'name': re.compile('generator', re.IGNORECASE),'content': re.compile('PHP-Nuke', re.IGNORECASE)}):
+        # Meta tags
+        # PHP-Nuke
+        if soup.find_all('meta', attrs={
+                'name': re.compile('generator', re.IGNORECASE), 
+                'content': re.compile('PHP-Nuke', re.IGNORECASE)}):
             return found(PHPNUKE)
 
-        #EpiServer
-        if soup.find_all('meta', attrs={'name': re.compile('generator', re.IGNORECASE),'content': re.compile('episerver', re.IGNORECASE)}):
+        # EpiServer
+        if soup.find_all('meta', attrs={
+                'name': re.compile('generator', re.IGNORECASE), 
+                'content': re.compile('episerver', re.IGNORECASE)}):
             return found(EPISERVER)
 
-        #SharePoint
-        if soup.find_all('meta', attrs={'name': re.compile('generator', re.IGNORECASE),'content': re.compile('microsoft sharepoint', re.IGNORECASE)}):
+        # SharePoint
+        if soup.find_all('meta', attrs={
+                'name': re.compile('generator', re.IGNORECASE), 
+                'content': re.compile('microsoft sharepoint', re.IGNORECASE)}):
             return found(SHAREPOINT)
 
-        #Dynamic web
-        if soup.find_all('meta', attrs={'name': re.compile('generator', re.IGNORECASE),'content': re.compile('dynamicweb', re.IGNORECASE)}):
+        # Dynamic web
+        if soup.find_all('meta', attrs={
+                'name': re.compile('generator', re.IGNORECASE), 
+                'content': re.compile('dynamicweb', re.IGNORECASE)}):
             return found(DYNAMICWEB)
 
     except Exception as e:

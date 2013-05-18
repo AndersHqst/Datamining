@@ -89,8 +89,9 @@ scanners = [
 # Get all websites
 start_time = time.time()
 
-filenames = [join(website_dir,fn) for fn in listdir(website_dir) if isfile(join(website_dir,fn))]
-#filenames = filenames[:50]
+filenames = [join(website_dir, fn)
+             for fn in listdir(website_dir) if isfile(join(website_dir, fn))]
+# filenames = filenames[:50]
 websites = []
 
 print 'Files loaded: ', len(filenames)
@@ -102,7 +103,7 @@ for i in range(len(filenames)):
     with open(fn) as f:
         website = Website(f)
         websites.append(website)
-    print 'Parsed (%i of %i): %s' % (i+1, len(filenames), website.url)
+    print 'Parsed (%i of %i): %s' % (i + 1, len(filenames), website.url)
 
 print 'Websites parsed'
 
@@ -114,7 +115,7 @@ for i in range(len(websites)):
     website = websites[i]
     attributes = analyze(website, scanners)
     attribute_rows.append(attributes)
-    print 'Analyzed (%i of %i): %s' % (i+1, len(websites), website.url)
+    print 'Analyzed (%i of %i): %s' % (i + 1, len(websites), website.url)
 
 print 'Websites analyzed'
 
@@ -124,7 +125,8 @@ analyze_time = time.time()
 writer = ArffWriter(attribute_rows, filename='dataset/data_binned.arff')
 writer.write()
 
-writer = ArffWriter(attribute_rows, filename='dataset/data_raw.arff', output_raw=True)
+writer = ArffWriter(
+    attribute_rows, filename='dataset/data_raw.arff', output_raw=True)
 writer.write()
 
 Info = namedtuple('Info', ['type', 'use_binned', 'exclude'])
@@ -176,7 +178,8 @@ attribute_info = {
     'xhtml': Info('nominal', True, False)
 }
 
-writer = ArffWriter(attribute_rows, attribute_info=attribute_info, filename='dataset/data_mixed.arff')
+writer = ArffWriter(
+    attribute_rows, attribute_info=attribute_info, filename='dataset/data_mixed.arff')
 writer.write()
 
 # Write stats
@@ -185,6 +188,7 @@ with open('dataset/stats.log', 'w') as f:
     time_to_parse = 'Time, parsing: %s' % str(parse_time - load_time)
     time_to_analyze = 'Time, analyzing: %s' % str(analyze_time - parse_time)
     time_total = 'Time, total: %s' % str(analyze_time - start_time)
-    output = '%s\n%s\n%s\n%s' % (time_to_load, time_to_parse, time_to_analyze, time_total)
+    output = '%s\n%s\n%s\n%s' % (
+        time_to_load, time_to_parse, time_to_analyze, time_total)
     print output
     f.write(output)

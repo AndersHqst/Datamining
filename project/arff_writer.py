@@ -1,8 +1,9 @@
 
 class ArffWriter:
 
-    def __init__(self, attribute_rows, attribute_info=None, filename=None, separator=',', 
-	        include_header=True, surround_symbol="'", dataset_name='data', output_raw=False):
+    def __init__(
+        self, attribute_rows, attribute_info=None, filename=None, separator=',',
+            include_header=True, surround_symbol="'", dataset_name='data', output_raw=False):
         self.separator = separator
         self.attribute_rows = attribute_rows
         self.include_header = include_header
@@ -36,19 +37,21 @@ class ArffWriter:
 
             if self.attribute_info is not None and self.attribute_info.has_key(key):
                 info = self.attribute_info[key]
-                
+
                 if info.exclude:
                     continue
 
                 header += '@ATTRIBUTE %s ' % key
                 if info.use_binned:
-                    header += '{' + ','.join([str(i) for i in range(len(attribute.bins))]) + '}\n'
+                    header += '{' + ','.join([str(i)
+                                             for i in range(len(attribute.bins))]) + '}\n'
                 else:
                     header += '%s\n' % info.type
 
             elif not self.output_raw and attribute.bins is not None:
                 header += '@ATTRIBUTE %s ' % key
-                header += '{' + ','.join([str(i) for i in range(len(attribute.bins))]) + '}\n'
+                header += '{' + ','.join([str(i)
+                                         for i in range(len(attribute.bins))]) + '}\n'
             else:
                 header += '@ATTRIBUTE %s ' % key
                 header += 'string\n'
@@ -74,7 +77,7 @@ class ArffWriter:
                 if info.use_binned:
                     value = str(attribute.binned_value)
                 else:
-                    value = str(attribute.raw_value) 
+                    value = str(attribute.raw_value)
             elif not self.output_raw and attribute.binned_value is not None:
                 value = str(attribute.binned_value)
             else:
