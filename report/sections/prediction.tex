@@ -1,30 +1,28 @@
 \subsection{Predicting Page Rank}
 \label{subsec:predection}
-For experimenting with predicting values in the data, we have used the data mining software RapidMiner\footnote{RapidMiner is freely available at http://rapid-i.com/}. RapidMiner provides much of the same functionality as Weka\footnote{Weka is freely available http://www.cs.waikato.ac.nz/ml/weka/}, but in our experience, RapidMiner seems much more user-friendly and does a better job providing documentation and quick help from the workbench.
-
 We want to see if we can predict the page rank of a website, and for this we have set up a process that models linear and polynomial regression, and a neural network\footnote{Appendix \ref{apn:rapidminer_setup} shows examples of the RapidMinerGUI for setting up a data mining process.}. For this process we have used the mixed data set, and replaced missing values with the average of a given attribute. The data set has a total of 2332 missing values with is 2.18\% of the entire set, so we would expect these to have little to no influence on the generalization of our results. Table \ref{tab:prediction_results} lists the results of running predictions on both the Rank subset related subset, and the full set.
 
 \todo{Consider delete of the comment column.}
 \hhtab{p{80pt}p{50pt}p{50pt}p{50pt}}
 {
 \toprule
-Model & Data & Error & Comment\\
+Model & Data & Error \\
 \midrule
-Linear Regression & Rank subset & 1.573 & -  \\
-Linear Regression & Content subset & 2.640 & - \\
-Linear Regression & Technology subset & 2.510 & - \\
-Linear Regression & Full set & 2.170 & CMS 1,3,7,9 had positive coefficients\\
-Neural Net & Rank subset & 2.875 & - Standard settings gave best results: Learning rate: 0.3, momentum: 0.2, 500 epocs\\
-Neural Net & Technology subset & 2.722 & -
-Neural Net & Content subset & 3.036 & Even impact of neurones \\
-Neural Net & Full set & 4.587 & - Learning rate: 0.3, momentum: 0.2\\
+Linear Regression & Rank subset &  1.2541\\
+Linear Regression & Content subset & 1.6248 \\
+Linear Regression & Technology subset & 1.5842\\
+Linear Regression & Full set & 1.4730\\
+Neural Net & Rank subset & 1.6955 \\
+Neural Net & Technology subset & 1.6498\\
+Neural Net & Content subset & 1.7424 \\
+Neural Net & Full set & 2.141 \\
 \bottomrule
-}{Overview of model predicting with Page Rank as the target value. The Error is the average squared error after cross validation. Target value is in its original scale.}{tab:prediction_results}
+}{Overview of model predicting with Page Rank as the target value. The Error is the root mean squared error (RMSE) after cross validation. Target value is in its original scale.}{tab:prediction_results}
 
 Page rank predictions are based on the cross-validation building-block in RapidMiner, which provides a few strategies like {\it leave-one-out} and and some randomized approaches. As our data is already in a random order we have simply used a linear sampling that separates a standard 10\% as test data, and thus performs 10 runs. As table \ref{tab:prediction_results} indicates we seem to be able to predict the page rank within \(\sqrt{1.573} = 1.2541\) which is also what we would expect, as the Alexa Rank and links related attributes are provided. The above predictions have also been tested with RapidMiner's build in M5 for automatic feature selection, but the results were virtually the same. It seems only a few of the JavaScript related features are excluded.
-The output of the neural net model indicates that the Alexa links in attribute is the most important in deciding the page rank. This can be seen by inspecting the importance, or strength, that each attributes has on the outcome of the neural net. The visualization is show in figure \ref{fig:neural_net}
+The output of the neural net model indicates that the Alexa links in attribute is the most important in deciding the page rank. This can be seen by inspecting the importance, or strength, that each attributes has on the outcome of the neural net. The visualization is show in figure \ref{fig:neural_net}. It is a bit surprising that the the neural net cannot produce a result closer to the linear regression linear regression. We have used parameter optimization in RapidMiner and experimented with 50, 500, and 5000 epocs, and the best resutl is as listed in table \ref{tab:prediction_results}
 
-\dbgfig{../figures/neural_nets.png}{0.9}{Importance of a connection between neurones in the neural net are indicated by the boldness of the connection. The Alexa links in is in the input layer 7th from the top, the bias is at the bottom. The net on the left is the outcome of learning rate of 0.2 over 500 epocs, and the net on the right is from model with learning rate 0.002 over 5000 epocs.}{fig:neural_net}
+\dbgfig{../figures/neural_nets.png}{0.9}{Importance of a connection between neurones in the neural net are indicated by the boldness of the connection. The Alexa links in is in the input layer 7th from the top, the bias is at the bottom.
 
 The correlation coefficient between page rank and and Alexa links in is 0.2054 with a p value of 0.1808 which supports the above indications. As this is somewhat an undesired conclusion, the above models for prediction are test against a sub set of the Rank subset minus attributes from Alexa as seen in table \ref{tab:rank_no_alexa}, which yields the results seen in table \ref{tab:rank_no_alexa_prediction}
 
@@ -51,4 +49,4 @@ Neural Net & Rank subset set & 2.924 & - Learning rate: 0.3, momentum: 0.2, 500 
 
 As table \ref{tab:rank_no_alexa_prediction} shows, error has gone up by removing the Alexa related attributes, and shows that we can predict a page rank in the \(\sqrt{2.875} = 1.6955\) range. The interesting thing to say about this is, that its actually not a bad prediction considering the scarce information used. We guess that the connection here is simply, that sites that rank well on Google also manage their websites well, and thus have the above attributes.
 
-\todo{Try with a classifier on binned page rank}
+As a final remark, we do not run any classifiers. We could have tried seeing the \texttt{PageRank} as different classes and benchmark the accuracy of a neural network, a support vector machin (SVM), or some other model, but we argue that regression makes most sense in this case, as \texttt{PageRank}

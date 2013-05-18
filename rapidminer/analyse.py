@@ -73,13 +73,15 @@ def analyze(filename):
         output += ';'.join(modes) + '\n'
         output += ';'.join(stddevs) + '\n'
 
+
+
     with open(summary_filename, 'w') as f:
         f.write(output)
     print 'Summary written to: %s' % summary_filename
 
     # Output cluster data as plottable
     output = ''
-    
+
     for attribute_key in attribute_keys:
         output += attribute_key + ';;;;'
     output += '\n'
@@ -88,9 +90,11 @@ def analyze(filename):
         output += 'sum;mean;mode;stddev;'
     output += '\n'
 
+    totals = []
+    page_ranks = []
     for cluster_key in sorted(clusters.keys()):
         cluster = clusters[cluster_key]
-
+        total = 0
         for attribute_key in attribute_keys:
             attribute_list = np.array(cluster[attribute_key])
 
@@ -99,12 +103,20 @@ def analyze(filename):
             mo = mode(attribute_list)[0][0]
             sd = np.std(attribute_list)
 
+            if attribute_key == 'page_rank':
+                page_ranks.append(mn)
+            elif attribute_key.startswith('has_content'):
+                total += mn
+
             output += '%s;%s;%s;%s;'% (su, mn, mo, sd)
+        totals.append(total / float(len(attribute_keys) - 2))
         output += '\n'
 
     with open(plottable_filename, 'w') as f:
         f.write(output)
     print 'Plottable data written to: %s' % plottable_filename
+
+    return np.array([totals, page_ranks])
 
 
 analyze('output/kmeans_cluster_data')
