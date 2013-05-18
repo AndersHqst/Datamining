@@ -3,12 +3,40 @@ from scanner_attribute import ScannerAttribute
 
 """Find server type from the HTTP header."""
 
+
 class ServerStopException(Exception):
+
     def __init__(self, *args, **kwargs):
         super(Exception, self).__init__(*args, **kwargs)
 
+
 def bins():
-    return ['NGINX', 'MICROSOFT-IIS', 'MEEBOX', 'APACHE', 'LWS', 'GNOL', 'LITESPEED', 'LIGHTTPD', 'CONCEALED BY JUNIPER NETWORKS DX', 'IBE', 'GWS', 'OVERSEE TURING', 'WP ENGINE', 'IBM_HTTP_SERVER', 'ORACLE', 'ZOPE', 'DEMANDWARE ECOMMERCE SERVER', 'LOTUS-DOMINO', 'MARVIN', 'VARNISH', 'MOJOLICIOUS', 'GSE', 'UNKNOWN']
+    return [
+        'NGINX',
+        'MICROSOFT-IIS',
+        'MEEBOX',
+        'APACHE',
+        'LWS',
+        'GNOL',
+        'LITESPEED',
+        'LIGHTTPD',
+        'CONCEALED BY JUNIPER NETWORKS DX',
+        'IBE',
+        'GWS',
+        'OVERSEE TURING',
+        'WP ENGINE',
+        'IBM_HTTP_SERVER',
+        'ORACLE',
+        'ZOPE',
+        'DEMANDWARE ECOMMERCE SERVER',
+        'LOTUS-DOMINO',
+        'MARVIN',
+        'VARNISH',
+        'MOJOLICIOUS',
+        'GSE',
+        'UNKNOWN'
+    ]
+
 
 def server_scanner(website):
     server = ''

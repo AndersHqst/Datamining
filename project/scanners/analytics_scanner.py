@@ -1,8 +1,10 @@
 from scanner_attribute import ScannerAttribute
 """True is a website using google analytics"""
 
+
 def bins():
     return [0, 1]
+
 
 def analytics_scanner(website):
     has_analytics = False

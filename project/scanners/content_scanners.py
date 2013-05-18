@@ -3,6 +3,7 @@
 
 from scanner_attribute import create_binary_attribute
 
+
 def has_topic(website, topics):
     threshold = 3
     count = 0
@@ -32,62 +33,83 @@ def has_topic(website, topics):
 
     return count >= threshold
 
+
 def content_news_scanner(website):
     key = 'has_content_news'
     topic = ['nyheder', 'news', 'avis', '']
     return create_binary_attribute(key, has_topic(website, topic))
 
+
 def content_sport_scanner(website):
     key = 'has_content_sport'
-    topic = ['sport', 'bold', 'ball', 'spiller', 'tennis', 'cykling', 'boksning', 'gold', 'motion']
+    topic = ['sport', 'bold', 'ball', 'spiller',
+             'tennis', 'cykling', 'boksning', 'gold', 'motion']
     return create_binary_attribute(key, has_topic(website, topic))
+
 
 def content_games_scanner(website):
     key = 'has_content_games'
     topic = ['game', 'spil', 'xbox', 'playstation', 'wii']
     return create_binary_attribute(key, has_topic(website, topic))
 
+
 def content_technology_scanner(website):
     key = 'has_content_technology'
-    topic = ['computer', 'pc', 'mac', 'phone', 'tablet', 'hardware', 'software', u'bærbar', 'laptop', 'notebook']
+    topic = ['computer', 'pc', 'mac', 'phone', 'tablet',
+             'hardware', 'software', u'bærbar', 'laptop', 'notebook']
     return create_binary_attribute(key, has_topic(website, topic))
+
 
 def content_xxx_scanner(website):
     key = 'has_content_xxx'
-    topic = ['xxx', 'porn', 'erotic', 'sex', 'naked', 'nude', u'nøgen', u'fræk']
+    topic = ['xxx', 'porn', 'erotic', 'sex',
+             'naked', 'nude', u'nøgen', u'fræk']
     return create_binary_attribute(key, has_topic(website, topic))
+
 
 def content_music_scanner(website):
     key = 'has_content_music'
     topic = ['music', 'musik', 'lyd', 'audio', 'song', 'sang', 'pop', 'rock']
     return create_binary_attribute(key, has_topic(website, topic))
 
+
 def content_shop_scanner(website):
     key = 'has_content_shop'
-    topic = ['shop', 'butik', u'køb', 'buy', 'bestil', 'order', 'basket', 'kurv', 'cart', 'sell', u'sælg']
+    topic = ['shop', 'butik', u'køb', 'buy', 'bestil',
+             'order', 'basket', 'kurv', 'cart', 'sell', u'sælg']
     return create_binary_attribute(key, has_topic(website, topic))
+
 
 def content_transport_scanner(website):
     key = 'has_content_transport'
-    topic = ['transport', 'bus', 'bil', 'car', 'bike', 'bicycle', 'cykel', 'vej', 'road', 'tog', 'train', 'metro']
+    topic = ['transport', 'bus', 'bil', 'car', 'bike',
+             'bicycle', 'cykel', 'vej', 'road', 'tog', 'train', 'metro']
     return create_binary_attribute(key, has_topic(website, topic))
+
 
 def content_food_scanner(website):
     key = 'has_content_food'
-    topic = ['food', 'mad', 'opskrift', 'recipe', 'frokost', 'brunch', 'restaurant', 'cafe']
+    topic = ['food', 'mad', 'opskrift', 'recipe',
+             'frokost', 'brunch', 'restaurant', 'cafe']
     return create_binary_attribute(key, has_topic(website, topic))
+
 
 def content_film_scanner(website):
     key = 'has_content_film'
-    topic = ['film', 'movie', 'biograf', 'cinema', 'dvd', 'bluray', u'skærm', 'screen', 'tv', 'fjernsyn']
+    topic = ['film', 'movie', 'biograf', 'cinema', 'dvd',
+             'bluray', u'skærm', 'screen', 'tv', 'fjernsyn']
     return create_binary_attribute(key, has_topic(website, topic))
+
 
 def content_health_scanner(website):
     key = 'has_content_health'
-    topic = ['sundhed', 'health', 'motion', 'diet', 'kur', 'slank', u'vægt', 'weight', u'træning', 'workout']
+    topic = ['sundhed', 'health', 'motion', 'diet', 'kur',
+             'slank', u'vægt', 'weight', u'træning', 'workout']
     return create_binary_attribute(key, has_topic(website, topic))
+
 
 def content_business_scanner(website):
     key = 'has_content_business'
-    topic = ['business', 'arbejde', u'økonomi', 'economi', 'work', 'money', 'penge', 'finance', 'finans', 'aktie', 'stock']
+    topic = ['business', 'arbejde', u'økonomi', 'economi', 'work',
+             'money', 'penge', 'finance', 'finans', 'aktie', 'stock']
     return create_binary_attribute(key, has_topic(website, topic))

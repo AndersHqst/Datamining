@@ -1,13 +1,16 @@
-﻿import time
+import time
 import urllib2
+
 
 def store_site(name, contents):
     with open('top_sites/%s' % name, 'w') as f:
         f.write(contents)
 
+
 def log_error(message):
     with open('errors.log', 'a') as f:
         f.write(message + '\n')
+
 
 def fetch_site(url, rank):
     contents = '### URL: %s\n\n' % url
@@ -21,8 +24,9 @@ def fetch_site(url, rank):
         opener = urllib2.build_opener()
         opener.addheaders = [('User-agent', 'Mozilla/5.0')]
 
-        response = opener.open(request, timeout = 10)
-        headers = '\n'.join(['%s: %s' % (h, response.headers.get(h)) for h in response.headers])
+        response = opener.open(request, timeout=10)
+        headers = '\n'.join(['%s: %s' % (h, response.headers.get(h))
+                            for h in response.headers])
         page_contents = response.read()
 
         download_time = time.time() - start_time
@@ -31,11 +35,12 @@ def fetch_site(url, rank):
         headers = page_contents
         download_time = 0
         log_error('Error in: #%s, %s' % (rank, url))
-    
+
     contents += '### TIME: %.4f\n\n' % download_time
     contents += '### HEADERS: \n%s\n\n' % headers
     contents += '### HTML: \n%s\n\n' % page_contents
     return contents
+
 
 def fetch_sites(top_sites, start, stop):
     for i in range(start, stop):

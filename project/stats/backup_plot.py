@@ -10,7 +10,9 @@ def numeric_attribute_histogram(plt, frame, title, num=10, interquantile=False, 
     :param binary: mmm cannot be True, and num is 2, histogram bars are a legend is added
     """
 
-    plt.close() #Not sure if this is clever, but easier unless we plot more things on top of eachother
+    plt.close()
+              # Not sure if this is clever, but easier unless we plot more
+              # things on top of eachother
     fig = plt.figure(1)
 
     if interquantile:
@@ -45,7 +47,8 @@ def numeric_attribute_histogram(plt, frame, title, num=10, interquantile=False, 
     if not binary:
         # Build tables displaying top and bottom values
         bottom_ten_table = build_column_table(clean_frame[:10], "Bottom 10")
-        # Top 10 is the end of the list - revesed to have the higheset at the top
+        # Top 10 is the end of the list - revesed to have the higheset at the
+        # top
         top_ten_table = build_column_table(clean_frame[-10:][::-1], "Top 10")
 
         # Plot tables
@@ -55,21 +58,24 @@ def numeric_attribute_histogram(plt, frame, title, num=10, interquantile=False, 
 
         # General statistical figures
         mean = np.mean(vals)
-        mode = scipy.stats.mode(vals) #mode, and occurances
+        mode = scipy.stats.mode(vals)  # mode, and occurances
         median = vals[len(vals) / 2]
 
         # Build string
-        text = "Stat: \n$min=" + str(min_) + "$\n" + "$max=" + str(max_) + "$\n"
+        text = "Stat: \n$min=" + str(
+            min_) + "$\n" + "$max=" + str(max_) + "$\n"
         text += "$\mu=%.2f$\n" % mean
-        text += "$mode=%d (%d)$\n" % (mode[0], mode[1]) #mode, and occurances
+        text += "$mode=%d (%d)$\n" % (mode[0], mode[1])  # mode, and occurances
         text += "$median=%d$" % median
 
         # Plot
-        fig.text(0.75, 0.75, text, bbox={'facecolor':'white', 'alpha':1., 'pad':8})
+        fig.text(0.75, 0.75, text, bbox={
+                 'facecolor': 'white', 'alpha': 1., 'pad': 8})
         plt.hist(vals, bins=bins)
 
-    else: # Binary plot
-        plt.hist(vals, bins=bins, histtype='bar', color=['red', 'blue'], label=['No', 'Yes'])
+    else:  # Binary plot
+        plt.hist(vals, bins=bins, histtype='bar', color=[
+                 'red', 'blue'], label=['No', 'Yes'])
 
     title = title.lower().replace(' ', '_').replace('\n', '_')
     savefig("./figures/" + title.lower().replace(' ', '_') + ".png")

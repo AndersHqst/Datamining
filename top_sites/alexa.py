@@ -2,30 +2,35 @@ from time import gmtime, strftime
 import hmac
 import hashlib
 import base64
-import urllib, urllib2
+import urllib
+import urllib2
 import json
 import os
 from lxml import etree
 
-#Keys
+# Keys
 ACCESS_KEY = 'AKIAJFMSXA4TJN2S3DCA'
 SECRET_ACCESS_KEY = '/ktoB3igoqzssIc6opgiEtf+pIkGSqwtZtUto3CI'
 
-#Simply modify these to execute other queries.
-#Examples: http://docs.aws.amazon.com/AlexaWebInfoService/latest/
-ACTION_NAME = "UrlInfo";
-RESPONSE_GROUP_NAME = "RelatedLinks,Categories,Rank,RankByCountry,RankByCity,UsageStats,ContactInfo,AdultContent,Speed,Language,Keywords,OwnedDomains,LinksInCount,SiteData,LinksInCount";
+# Simply modify these to execute other queries.
+# Examples: http://docs.aws.amazon.com/AlexaWebInfoService/latest/
+ACTION_NAME = "UrlInfo"
+RESPONSE_GROUP_NAME = "RelatedLinks,Categories,Rank,RankByCountry,RankByCity,UsageStats,ContactInfo,"
+    + "AdultContent,Speed,Language,Keywords,OwnedDomains,LinksInCount,SiteData,LinksInCount"
 
-#service
-SERVICE_HOST = "awis.amazonaws.com";
-AWS_BASE_URL = "http://" + SERVICE_HOST + "/?";
-DATEFORMAT_AWS = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
-HASH_ALGORITHM = "HmacSHA256";
+# service
+SERVICE_HOST = "awis.amazonaws.com"
+AWS_BASE_URL = "http://" + SERVICE_HOST + "/?"
+DATEFORMAT_AWS = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+HASH_ALGORITHM = "HmacSHA256"
 OUTPUT_DIR = "output/"
 
+
 def generate_signature(data):
-    dig = hmac.new(b'' + SECRET_ACCESS_KEY, msg=data, digestmod=hashlib.sha256).digest()
+    dig = hmac.new(b'' + SECRET_ACCESS_KEY,
+                   msg=data, digestmod=hashlib.sha256).digest()
     return base64.b64encode(dig).decode()
+
 
 def build_query(time_stamp, action, response_group_name, url):
     """Builds the query. Not all orders are valid."""
@@ -38,20 +43,24 @@ def build_query(time_stamp, action, response_group_name, url):
     query += "&Url=" + url
     return query
 
+
 def execute(site, action=ACTION_NAME, response_group_name=RESPONSE_GROUP_NAME):
-    #Not completely correct time stamp, last zero in miliseconds is just inserted, not sure how to get it
+    # Not completely correct time stamp, last zero in miliseconds is just
+    # inserted, not sure how to get it
     time_stamp = strftime("%Y-%m-%dT%H:%M:%S.123Z", gmtime())
     query = build_query(time_stamp, action, response_group_name, site)
-    sign = "GET\n" + SERVICE_HOST + "\n/\n" + query;
+    sign = "GET\n" + SERVICE_HOST + "\n/\n" + query
     signature = generate_signature(sign)
-    uri = AWS_BASE_URL + query + "&" + urllib.urlencode({"Signature": signature});
+    uri = AWS_BASE_URL + query + "&" + \
+        urllib.urlencode({"Signature": signature})
 
-    #Send request
+    # Send request
     resp = urllib2.urlopen(uri)
 
     lines = resp.readlines()
     xml = ''.join(lines)
     return xml
+
 
 def get_xml_value_or_default(element, default):
     if element is None or element.text is None:
@@ -60,12 +69,13 @@ def get_xml_value_or_default(element, default):
         value = element.text
     return value
 
+
 def get_alexa_data(url):
     # Fix URL format
     url = url.replace('http://', '')
 
     # Remove stupid namespaces
-    xml = execute(url).replace('aws:','')
+    xml = execute(url).replace('aws:', '')
     root = etree.fromstring(xml)
 
     content_data = root.find('.//ContentData')
@@ -81,7 +91,8 @@ def get_alexa_data(url):
     load_time = int(get_xml_value_or_default(load_time_elem, -1))
 
     has_adult_content_elem = content_data.find('AdultContent')
-    has_adult_content = get_xml_value_or_default(has_adult_content_elem, 'no') == 'yes'
+    has_adult_content = get_xml_value_or_default(
+        has_adult_content_elem, 'no') == 'yes'
 
     langauge_elem = content_data.find('Language/Locale')
     langauge = get_xml_value_or_default(langauge_elem, '')

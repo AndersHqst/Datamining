@@ -21,7 +21,7 @@
 \usepackage{minted}
 %\usemintedstyle{colorful}
 \newminted{python}{}
-\newcommand{\pythonfile}[1]{\inputminted[xleftmargin=-3cm]{python}{#1}}
+\newcommand{\pythonfile}[1]{\inputminted[xleftmargin=-3cm, linenos, numbersep=5pt]{python}{#1}}
 %\newminted{python}{xleftmargin=-2cm, xrightmargin=-2cm}
 
 %\usepackage{amsmath}
@@ -88,10 +88,10 @@
 
 \clearpage %To ensure pagebreak before appendices
 \appendix
-%\input{sections/appendix/appendix_rapidminer}
+\input{sections/appendix/appendix_rapidminer}
 \input{sections/appendix/appendix_figures}
-%\input{sections/appendix/appendix_basic_statistics}
+\input{sections/appendix/appendix_basic_statistics}
 \input{sections/appendix/appendix_code}
-%\input{../project/stats/tables_appendix}
+\input{../project/stats/tables_appendix}
 
 \end{document}

@@ -7,6 +7,7 @@ from pagerank import GooglePageRank
 from alexa import get_alexa_data
 from data_builder import DataBuilder
 
+
 class DataFetcher:
 
     def __init__(self, sites, output_dir='output', output_log='output.log', error_log='errors.log'):
@@ -17,7 +18,8 @@ class DataFetcher:
 
     def fetch(self, start=None, stop=None):
         start = start if start is not None else 0
-        stop = min(stop, len(self.sites)) if stop is not None else len(self.sites)
+        stop = min(stop, len(
+            self.sites)) if stop is not None else len(self.sites)
 
         for i in range(start, stop):
             url = self.sites[i]
@@ -32,7 +34,8 @@ class DataFetcher:
             self.fetch_pagerank(builder, url)
 
             self.write_output_file(name, builder.generate())
-            self.log_output('Fetched (%s in range %i to %i): %s' % (str(i + 1), start, stop, url))
+            self.log_output('Fetched (%s in range %i to %i): %s' % (
+                str(i + 1), start, stop, url))
 
     def fetch_site(self, builder, url):
         try:
@@ -48,16 +51,18 @@ class DataFetcher:
             ]
 
             # Get response
-            response = opener.open(request, timeout = 20)
+            response = opener.open(request, timeout=20)
 
             # Headers
-            headers = '\n'.join(['%s: %s' % (h, response.headers.get(h)) for h in response.headers])
+            headers = '\n'.join(['%s: %s' % (h, response.headers.get(h))
+                                for h in response.headers])
 
-            encoding = 'latin-1' if response.info().get('Content-Type').find('8859-1') >= 0 else 'utf-8'
+            encoding = 'latin-1' if response.info().get(
+                'Content-Type').find('8859-1') >= 0 else 'utf-8'
 
             # Contents
             if response.info().get('Content-Encoding') == 'gzip':
-                buf = StringIO( response.read())
+                buf = StringIO(response.read())
                 f = gzip.GzipFile(fileobj=buf)
                 page_contents = f.read().decode(encoding)
             else:
@@ -69,7 +74,7 @@ class DataFetcher:
             headers = page_contents
             download_time = 0
             self.log_error(url, e)
-        
+
         builder.append('MEASURED_TIME', '%.4f' % download_time)
         builder.append('HEADERS', headers, multiline=True)
         builder.append('HTML', page_contents, multiline=True)
@@ -83,7 +88,8 @@ class DataFetcher:
             builder.append('ALEXA_TITLE', data['title'])
             builder.append('ALEXA_LANG', data['langauge'])
             builder.append('ALEXA_LINKS_IN', data['links_in'])
-            builder.append('ALEXA_HAS_ADULT_CONTENT', data['has_adult_content'])
+            builder.append('ALEXA_HAS_ADULT_CONTENT', data[
+                           'has_adult_content'])
             builder.append('ALEXA_LOAD_TIME', data['load_time'])
         except Exception as e:
             self.log_error(url, e)
@@ -91,12 +97,12 @@ class DataFetcher:
     def fetch_robots(self, builder, url):
         try:
             request = urllib2.Request(url + '/robots.txt')
-            response = urllib2.urlopen(request, timeout = 20)
+            response = urllib2.urlopen(request, timeout=20)
             robots = response.read().decode('utf-8')
         except Exception as e:
             robots = ''
             self.log_error(url, 'Error when fetching robots.txt: %s' % e)
-        
+
         builder.append('ROBOTS', robots, multiline=True)
 
     def fetch_pagerank(self, builder, url):
