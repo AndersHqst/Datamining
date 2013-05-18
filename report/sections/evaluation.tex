@@ -83,17 +83,37 @@ Content subset & \texttt{has\_content\_business}, \texttt{has\_content\_film}, \
 
 \subsubsection{Clustering the rank attributes}
 
-First, we clustered on the rank attributes. Using either of the used algorithms, it was quite easy to spot a few significant clusters. The discussion is based on the clusters found by K-Medoids, but similar pictures could be found using the other algorithms. The two most interesting clusters are analysed below:
+First, we clustered on the rank attributes. Using either of the used algorithms, it was quite easy to spot a few significant clusters. This discussion is based on the clusters found by K-Medoids, but similar pictures could be found using the other algorithms. The two most interesting clusters are analysed below:
 
-\paragraph{The search-engine optimized top sites} This cluster has the best average Alexa rank and a very good PageRank. These websites contains both the keyword and description meta tags. The fact that time has been spent on SEO could indicate that this cluster represents websites which use the web as their main platform. This cluster contains sites such as \verb|www.krak.dk|, \verb|www.dba.dk| og \verb|www.amino.dk|.
+\paragraph{The search-engine optimized top websites} 
 
-\paragraph{The unoptimized top sites} This cluster has a very good Alexa Rank and PageRank. However, less time has been spent on SEO, which indicates that these websites are the ones that have become popular through some other media and/or do not need this optimization as much as the former cluster. This cluster includes \verb|www.google.dk|, \verb|www.ekstrabladet.dk| og \verb|www.bt.dk|. Obviously, SEO is less important for Google itself.
+This cluster has the best average Alexa rank and a very good PageRank. These websites contains both the keyword and description meta tags. The fact that time has been spent on SEO could indicate that this cluster represents websites which use the web as their main platform. This cluster contains sites such as \verb|www.krak.dk|, \verb|www.dba.dk| og \verb|www.amino.dk|.
 
-Similar clusters can found for the less popular sites, but this will not be discussed any further here.
+\paragraph{The unoptimized top websites} 
+
+This cluster has a very good Alexa Rank and PageRank. However, less time has been spent on SEO, which indicates that these websites are the ones that have become popular through some other media and/or do not need this optimization as much as the former cluster. This cluster includes \verb|www.google.dk|, \verb|www.ekstrabladet.dk| og \verb|www.bt.dk|. Obviously, SEO is less important for Google itself.
+
+\paragraph{Other observations} Other clusters can found for the less popular sites, but these were not as distinctly defined as the above mentioned clusters.
 
 \subsubsection{Clustering the technology attributes}
 
-This section will be added.
+Clustering on the technology related attributes also showed some very distinct clusters. The most interesting clusters are discussed below. Again, the discussion is based on the results of K-Medoids.
+
+\paragraph{High-tech websites}
+
+This cluster primarily consists of the websites which use both \texttt{HTML5} and the JQuery JavaScript library. Although \texttt{HTML5} and JavaScript libraries such as JQuery are becoming more and more common, these websites are the ones that have readily embraced these technologies.
+
+\paragraph{Websites using a CMS}
+
+A specific CMS cluster was found. Although, the CMS usage data in our data set is somewhat underestimated, a very clear grouping of CMS systems was found. Wordpress, Sharepoint and Drupal websites are the most dominant CMS's in this clusters. Further, Google Analytics is used in most of these websites.
+
+\paragraph{Low-tech websites}
+
+Finally, we have the websites which do not use either \texttt{HTML5} or JQuery. K-Medoids actually grouped these websites into two different clusters - a cluster containing low-tech sites running on Microsoft servers and a cluster containing the remaining low-tech sites. The major difference between these is the fact that the Microsoft low-tech cluster still makes use of Google Analytics, whereas this is not the case for the other cluster.
+
+\paragraph{Other observations} 
+
+One interesting observation is the fact that the use of Google Analytics does not seem to be correlated with the general use of technology on the websites. However, this might be due to the fact, that using Google Analytics (or similar services) is often a management decision, whereas management might be somewhat oblivious to the choice technology.
 
 \subsubsection{Clustering the content attributes}
 
