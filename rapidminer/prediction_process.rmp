@@ -14,8 +14,8 @@
     <parameter key="process_duration_for_mail" value="30"/>
     <parameter key="encoding" value="SYSTEM"/>
     <process expanded="true">
-      <operator activated="true" class="retrieve" compatibility="5.3.008" expanded="true" height="60" name="Retrieve" width="90" x="45" y="30">
-        <parameter key="repository_entry" value="../data/data_mixed"/>
+      <operator activated="true" class="retrieve" compatibility="5.3.008" expanded="true" height="60" name="Retrieve" width="90" x="45" y="165">
+        <parameter key="repository_entry" value="//Local Repository/data/data_mixed"/>
       </operator>
       <operator activated="false" class="select_attributes" compatibility="5.3.008" expanded="true" height="76" name="Select Attributes" width="90" x="179" y="30">
         <parameter key="attribute_filter_type" value="subset"/>
@@ -31,7 +31,7 @@
         <parameter key="invert_selection" value="false"/>
         <parameter key="include_special_attributes" value="false"/>
       </operator>
-      <operator activated="false" class="read_arff" compatibility="5.3.008" expanded="true" height="60" name="Read ARFF" width="90" x="45" y="480">
+      <operator activated="false" class="read_arff" compatibility="5.3.008" expanded="true" height="60" name="Read ARFF" width="90" x="45" y="390">
         <parameter key="data_file" value="/Users/ahkj/data_mining/project/dataset_03/data_mixed.arff"/>
         <parameter key="encoding" value="SYSTEM"/>
         <parameter key="read_not_matching_values_as_missings" value="true"/>
@@ -41,65 +41,10 @@
         <parameter key="grouped_digits" value="false"/>
         <parameter key="grouping_character" value=","/>
       </operator>
-      <operator activated="false" class="store" compatibility="5.3.008" expanded="true" height="60" name="Store" width="90" x="179" y="480">
+      <operator activated="false" class="store" compatibility="5.3.008" expanded="true" height="60" name="Store" width="90" x="179" y="390">
         <parameter key="repository_entry" value="//Local Repository/data/data_mixed"/>
       </operator>
-      <operator activated="false" class="x_validation" compatibility="5.0.000" expanded="true" height="112" name="Validation" width="90" x="313" y="480">
-        <description>A cross-validation evaluating a decision tree model.</description>
-        <parameter key="create_complete_model" value="false"/>
-        <parameter key="average_performances_only" value="true"/>
-        <parameter key="leave_one_out" value="false"/>
-        <parameter key="number_of_validations" value="10"/>
-        <parameter key="sampling_type" value="2"/>
-        <parameter key="use_local_random_seed" value="false"/>
-        <parameter key="local_random_seed" value="1992"/>
-        <process expanded="true">
-          <operator activated="false" class="polynomial_regression" compatibility="5.3.008" expanded="true" height="76" name="Polynomial Regression" width="90" x="45" y="30">
-            <parameter key="max_iterations" value="5000"/>
-            <parameter key="replication_factor" value="1"/>
-            <parameter key="max_degree" value="5"/>
-            <parameter key="min_coefficient" value="-100.0"/>
-            <parameter key="max_coefficient" value="100.0"/>
-            <parameter key="use_local_random_seed" value="false"/>
-            <parameter key="local_random_seed" value="1992"/>
-          </operator>
-          <operator activated="false" class="linear_regression" compatibility="5.3.008" expanded="true" height="94" name="Linear Regression" width="90" x="45" y="165">
-            <parameter key="feature_selection" value="none"/>
-            <parameter key="alpha" value="0.05"/>
-            <parameter key="max_iterations" value="10"/>
-            <parameter key="forward_alpha" value="0.05"/>
-            <parameter key="backward_alpha" value="0.05"/>
-            <parameter key="eliminate_colinear_features" value="true"/>
-            <parameter key="min_tolerance" value="0.05"/>
-            <parameter key="use_bias" value="true"/>
-            <parameter key="ridge" value="1.0E-8"/>
-          </operator>
-          <connect from_port="training" to_op="Linear Regression" to_port="training set"/>
-          <connect from_op="Linear Regression" from_port="model" to_port="model"/>
-          <portSpacing port="source_training" spacing="0"/>
-          <portSpacing port="sink_model" spacing="0"/>
-          <portSpacing port="sink_through 1" spacing="0"/>
-        </process>
-        <process expanded="true">
-          <operator activated="false" class="apply_model" compatibility="5.0.000" expanded="true" height="76" name="Apply Model" width="90" x="45" y="30">
-            <list key="application_parameters"/>
-            <parameter key="create_view" value="false"/>
-          </operator>
-          <operator activated="false" class="performance" compatibility="5.0.000" expanded="true" height="76" name="Performance" width="90" x="179" y="30">
-            <parameter key="use_example_weights" value="true"/>
-          </operator>
-          <connect from_port="model" to_op="Apply Model" to_port="model"/>
-          <connect from_port="test set" to_op="Apply Model" to_port="unlabelled data"/>
-          <connect from_op="Apply Model" from_port="labelled data" to_op="Performance" to_port="labelled data"/>
-          <connect from_op="Performance" from_port="performance" to_port="averagable 1"/>
-          <portSpacing port="source_model" spacing="0"/>
-          <portSpacing port="source_test set" spacing="0"/>
-          <portSpacing port="source_through 1" spacing="0"/>
-          <portSpacing port="sink_averagable 1" spacing="0"/>
-          <portSpacing port="sink_averagable 2" spacing="0"/>
-        </process>
-      </operator>
-      <operator activated="false" class="select_attributes" compatibility="5.3.008" expanded="true" height="76" name="Select Attributes (2)" width="90" x="45" y="300">
+      <operator activated="false" class="select_attributes" compatibility="5.3.008" expanded="true" height="76" name="Select Attributes (2)" width="90" x="179" y="300">
         <parameter key="attribute_filter_type" value="subset"/>
         <parameter key="attribute" value=""/>
         <parameter key="attributes" value="has_content_business|has_content_film|has_content_food|has_content_games|has_content_health|has_content_music|has_content_news|has_content_shop|has_content_sport|has_content_technology|has_content_transport|has_content_xxx|page_rank"/>
@@ -113,7 +58,12 @@
         <parameter key="invert_selection" value="false"/>
         <parameter key="include_special_attributes" value="false"/>
       </operator>
-      <operator activated="true" class="select_attributes" compatibility="5.3.008" expanded="true" height="76" name="Select Attributes (3)" width="90" x="179" y="345">
+      <operator activated="true" class="generate_attributes" compatibility="5.3.008" expanded="true" height="76" name="Generate Attributes" width="90" x="313" y="300">
+        <list key="function_descriptions"/>
+        <parameter key="use_standard_constants" value="true"/>
+        <parameter key="keep_all" value="true"/>
+      </operator>
+      <operator activated="true" class="select_attributes" compatibility="5.3.008" expanded="true" height="76" name="Select Attributes (3)" width="90" x="179" y="165">
         <parameter key="attribute_filter_type" value="subset"/>
         <parameter key="attribute" value=""/>
         <parameter key="attributes" value="cms|has_analytics|has_js_jquery|html5|html5_tags|server|page_rank"/>
@@ -164,12 +114,12 @@
         <parameter key="min" value="0.0"/>
         <parameter key="max" value="1.0"/>
       </operator>
-      <operator activated="true" class="set_role" compatibility="5.3.008" expanded="true" height="76" name="Set Role" width="90" x="45" y="165">
+      <operator activated="true" class="set_role" compatibility="5.3.008" expanded="true" height="76" name="Set Role" width="90" x="313" y="165">
         <parameter key="attribute_name" value="page_rank"/>
         <parameter key="target_role" value="label"/>
         <list key="set_additional_roles"/>
       </operator>
-      <operator activated="true" class="nominal_to_numerical" compatibility="5.3.008" expanded="true" height="94" name="Nominal to Numerical" width="90" x="179" y="165">
+      <operator activated="true" class="nominal_to_numerical" compatibility="5.3.008" expanded="true" height="94" name="Nominal to Numerical" width="90" x="447" y="165">
         <parameter key="return_preprocessing_model" value="false"/>
         <parameter key="create_view" value="false"/>
         <parameter key="attribute_filter_type" value="all"/>
@@ -190,77 +140,106 @@
         <parameter key="unexpected_value_handling" value="all 0 and warning"/>
         <parameter key="use_underscore_in_name" value="false"/>
       </operator>
-      <operator activated="true" class="x_validation" compatibility="5.0.000" expanded="true" height="112" name="Validation (2)" width="90" x="380" y="165">
-        <description>A cross-validation evaluating a linear regression model.</description>
-        <parameter key="create_complete_model" value="false"/>
-        <parameter key="average_performances_only" value="true"/>
-        <parameter key="leave_one_out" value="false"/>
-        <parameter key="number_of_validations" value="10"/>
-        <parameter key="sampling_type" value="linear sampling"/>
-        <parameter key="use_local_random_seed" value="false"/>
-        <parameter key="local_random_seed" value="1992"/>
+      <operator activated="true" class="optimize_parameters_grid" compatibility="5.3.008" expanded="true" height="112" name="Optimize Parameters (Grid)" width="90" x="581" y="75">
+        <list key="parameters">
+          <parameter key="Neural Net.momentum" value="[0.1;0.9;10;linear]"/>
+          <parameter key="Neural Net.learning_rate" value="[0.1;0.9;10;linear]"/>
+          <parameter key="Neural Net.training_cycles" value="[10;1510;3;linear]"/>
+        </list>
         <process expanded="true">
-          <operator activated="false" class="neural_net" compatibility="5.3.008" expanded="true" height="76" name="Neural Net" width="90" x="45" y="30">
-            <list key="hidden_layers"/>
-            <parameter key="training_cycles" value="500"/>
-            <parameter key="learning_rate" value="0.1"/>
-            <parameter key="momentum" value="0.02"/>
-            <parameter key="decay" value="false"/>
-            <parameter key="shuffle" value="true"/>
-            <parameter key="normalize" value="true"/>
-            <parameter key="error_epsilon" value="1.0E-5"/>
+          <operator activated="true" class="x_validation" compatibility="5.3.008" expanded="true" height="112" name="Validation (2)" width="90" x="112" y="75">
+            <description>A cross-validation evaluating a linear regression model.</description>
+            <parameter key="create_complete_model" value="false"/>
+            <parameter key="average_performances_only" value="true"/>
+            <parameter key="leave_one_out" value="false"/>
+            <parameter key="number_of_validations" value="10"/>
+            <parameter key="sampling_type" value="linear sampling"/>
             <parameter key="use_local_random_seed" value="false"/>
             <parameter key="local_random_seed" value="1992"/>
+            <process expanded="true">
+              <operator activated="true" class="neural_net" compatibility="5.3.008" expanded="true" height="76" name="Neural Net" width="90" x="45" y="30">
+                <list key="hidden_layers"/>
+                <parameter key="training_cycles" value="510"/>
+                <parameter key="learning_rate" value="0.33999999999999997"/>
+                <parameter key="momentum" value="0.1"/>
+                <parameter key="decay" value="false"/>
+                <parameter key="shuffle" value="true"/>
+                <parameter key="normalize" value="true"/>
+                <parameter key="error_epsilon" value="1.0E-5"/>
+                <parameter key="use_local_random_seed" value="false"/>
+                <parameter key="local_random_seed" value="1992"/>
+              </operator>
+              <operator activated="false" class="linear_regression" compatibility="5.3.008" expanded="true" height="94" name="Linear Regression (2)" width="90" x="45" y="120">
+                <parameter key="feature_selection" value="none"/>
+                <parameter key="alpha" value="0.05"/>
+                <parameter key="max_iterations" value="10"/>
+                <parameter key="forward_alpha" value="0.05"/>
+                <parameter key="backward_alpha" value="0.05"/>
+                <parameter key="eliminate_colinear_features" value="true"/>
+                <parameter key="min_tolerance" value="0.05"/>
+                <parameter key="use_bias" value="true"/>
+                <parameter key="ridge" value="1.0E-8"/>
+              </operator>
+              <connect from_port="training" to_op="Neural Net" to_port="training set"/>
+              <connect from_op="Neural Net" from_port="model" to_port="model"/>
+              <portSpacing port="source_training" spacing="0"/>
+              <portSpacing port="sink_model" spacing="0"/>
+              <portSpacing port="sink_through 1" spacing="0"/>
+            </process>
+            <process expanded="true">
+              <operator activated="true" class="apply_model" compatibility="5.3.008" expanded="true" height="76" name="Apply Model (2)" width="90" x="45" y="30">
+                <list key="application_parameters"/>
+                <parameter key="create_view" value="false"/>
+              </operator>
+              <operator activated="true" class="performance_regression" compatibility="5.3.008" expanded="true" height="76" name="Performance (2)" width="90" x="161" y="30">
+                <parameter key="main_criterion" value="first"/>
+                <parameter key="root_mean_squared_error" value="true"/>
+                <parameter key="absolute_error" value="false"/>
+                <parameter key="relative_error" value="false"/>
+                <parameter key="relative_error_lenient" value="false"/>
+                <parameter key="relative_error_strict" value="false"/>
+                <parameter key="normalized_absolute_error" value="false"/>
+                <parameter key="root_relative_squared_error" value="false"/>
+                <parameter key="squared_error" value="true"/>
+                <parameter key="correlation" value="false"/>
+                <parameter key="squared_correlation" value="false"/>
+                <parameter key="prediction_average" value="true"/>
+                <parameter key="spearman_rho" value="false"/>
+                <parameter key="kendall_tau" value="false"/>
+                <parameter key="skip_undefined_labels" value="true"/>
+                <parameter key="use_example_weights" value="true"/>
+              </operator>
+              <connect from_port="model" to_op="Apply Model (2)" to_port="model"/>
+              <connect from_port="test set" to_op="Apply Model (2)" to_port="unlabelled data"/>
+              <connect from_op="Apply Model (2)" from_port="labelled data" to_op="Performance (2)" to_port="labelled data"/>
+              <connect from_op="Performance (2)" from_port="performance" to_port="averagable 1"/>
+              <portSpacing port="source_model" spacing="0"/>
+              <portSpacing port="source_test set" spacing="0"/>
+              <portSpacing port="source_through 1" spacing="0"/>
+              <portSpacing port="sink_averagable 1" spacing="0"/>
+              <portSpacing port="sink_averagable 2" spacing="0"/>
+            </process>
           </operator>
-          <operator activated="true" class="linear_regression" compatibility="5.3.008" expanded="true" height="94" name="Linear Regression (2)" width="90" x="45" y="210">
-            <parameter key="feature_selection" value="none"/>
-            <parameter key="alpha" value="0.05"/>
-            <parameter key="max_iterations" value="10"/>
-            <parameter key="forward_alpha" value="0.05"/>
-            <parameter key="backward_alpha" value="0.05"/>
-            <parameter key="eliminate_colinear_features" value="true"/>
-            <parameter key="min_tolerance" value="0.05"/>
-            <parameter key="use_bias" value="true"/>
-            <parameter key="ridge" value="1.0E-8"/>
+          <operator activated="true" class="log" compatibility="5.3.008" expanded="true" height="76" name="Log" width="90" x="313" y="120">
+            <list key="log">
+              <parameter key="learning rate" value="operator.Neural Net.parameter.learning_rate"/>
+              <parameter key="momentum" value="operator.Neural Net.parameter.momentum"/>
+              <parameter key="epocs" value="operator.Neural Net.parameter.training_cycles"/>
+              <parameter key="performance " value="operator.Performance (2).value.root_mean_squared_error"/>
+            </list>
+            <parameter key="sorting_type" value="none"/>
+            <parameter key="sorting_k" value="100"/>
+            <parameter key="persistent" value="false"/>
           </operator>
-          <connect from_port="training" to_op="Linear Regression (2)" to_port="training set"/>
-          <connect from_op="Linear Regression (2)" from_port="model" to_port="model"/>
-          <portSpacing port="source_training" spacing="0"/>
-          <portSpacing port="sink_model" spacing="0"/>
-          <portSpacing port="sink_through 1" spacing="0"/>
-        </process>
-        <process expanded="true">
-          <operator activated="true" class="apply_model" compatibility="5.0.000" expanded="true" height="76" name="Apply Model (2)" width="90" x="45" y="30">
-            <list key="application_parameters"/>
-            <parameter key="create_view" value="false"/>
-          </operator>
-          <operator activated="true" class="performance_regression" compatibility="5.3.008" expanded="true" height="76" name="Performance (2)" width="90" x="179" y="30">
-            <parameter key="main_criterion" value="first"/>
-            <parameter key="root_mean_squared_error" value="true"/>
-            <parameter key="absolute_error" value="false"/>
-            <parameter key="relative_error" value="false"/>
-            <parameter key="relative_error_lenient" value="false"/>
-            <parameter key="relative_error_strict" value="false"/>
-            <parameter key="normalized_absolute_error" value="false"/>
-            <parameter key="root_relative_squared_error" value="false"/>
-            <parameter key="squared_error" value="true"/>
-            <parameter key="correlation" value="false"/>
-            <parameter key="squared_correlation" value="false"/>
-            <parameter key="prediction_average" value="true"/>
-            <parameter key="spearman_rho" value="false"/>
-            <parameter key="kendall_tau" value="false"/>
-            <parameter key="skip_undefined_labels" value="true"/>
-            <parameter key="use_example_weights" value="true"/>
-          </operator>
-          <connect from_port="model" to_op="Apply Model (2)" to_port="model"/>
-          <connect from_port="test set" to_op="Apply Model (2)" to_port="unlabelled data"/>
-          <connect from_op="Apply Model (2)" from_port="labelled data" to_op="Performance (2)" to_port="labelled data"/>
-          <connect from_op="Performance (2)" from_port="performance" to_port="averagable 1"/>
-          <portSpacing port="source_model" spacing="0"/>
-          <portSpacing port="source_test set" spacing="0"/>
-          <portSpacing port="source_through 1" spacing="0"/>
-          <portSpacing port="sink_averagable 1" spacing="0"/>
-          <portSpacing port="sink_averagable 2" spacing="0"/>
+          <connect from_port="input 1" to_op="Validation (2)" to_port="training"/>
+          <connect from_op="Validation (2)" from_port="model" to_port="result 1"/>
+          <connect from_op="Validation (2)" from_port="averagable 1" to_op="Log" to_port="through 1"/>
+          <connect from_op="Log" from_port="through 1" to_port="performance"/>
+          <portSpacing port="source_input 1" spacing="0"/>
+          <portSpacing port="source_input 2" spacing="0"/>
+          <portSpacing port="sink_performance" spacing="0"/>
+          <portSpacing port="sink_result 1" spacing="0"/>
+          <portSpacing port="sink_result 2" spacing="0"/>
         </process>
       </operator>
       <connect from_op="Retrieve" from_port="output" to_op="Select Attributes (3)" to_port="example set input"/>
@@ -268,10 +247,10 @@
       <connect from_op="Replace Missing Values" from_port="example set output" to_op="Normalize" to_port="example set input"/>
       <connect from_op="Normalize" from_port="example set output" to_op="Set Role" to_port="example set input"/>
       <connect from_op="Set Role" from_port="example set output" to_op="Nominal to Numerical" to_port="example set input"/>
-      <connect from_op="Nominal to Numerical" from_port="example set output" to_op="Validation (2)" to_port="training"/>
-      <connect from_op="Validation (2)" from_port="model" to_port="result 1"/>
-      <connect from_op="Validation (2)" from_port="training" to_port="result 3"/>
-      <connect from_op="Validation (2)" from_port="averagable 1" to_port="result 2"/>
+      <connect from_op="Nominal to Numerical" from_port="example set output" to_op="Optimize Parameters (Grid)" to_port="input 1"/>
+      <connect from_op="Optimize Parameters (Grid)" from_port="performance" to_port="result 1"/>
+      <connect from_op="Optimize Parameters (Grid)" from_port="parameter" to_port="result 3"/>
+      <connect from_op="Optimize Parameters (Grid)" from_port="result 1" to_port="result 2"/>
       <portSpacing port="source_input 1" spacing="0"/>
       <portSpacing port="sink_result 1" spacing="0"/>
       <portSpacing port="sink_result 2" spacing="0"/>
