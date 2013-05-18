@@ -14,9 +14,9 @@ Apart from the websites themselves, auxiliary information was fetched from Alexa
 
 A small library was developed to process the raw data (including \texttt{HTML}, \texttt{HTTP} headers, Alexa information, Google PageRank) into a finite set of well defined attributes, which could be used for subsequent data analysis.
 
-A high-level view of the architecture of this preprocessor library can be seen in figure \ref{fig:preprocess}. A specific class (\texttt{Website}) was used to hold the information belonging to each website (including both the raw and parsed \texttt{HTML}). In order to easily extract the desired features, we introduced the concept of \textit{scanners}. Given a \texttt{Website} object, each scanner can extract and preprocess a specific feature from the raw data. This was implemented in a pluggable way, such that scanners could be added/removed as needed. A list of implemented scanners can be found in appendix \ref{app:scanners}\todo{Create this appendix...}.
+A high-level view of the architecture of this preprocessor library can be seen in figure \ref{fig:preprocess}. A specific class (\texttt{Website}) was used to hold the information belonging to each website (including both the raw and parsed \texttt{HTML}). In order to easily extract the desired features, we introduced the concept of \textit{scanners}. Given a \texttt{Website} object, each scanner can extract and preprocess a specific feature from the raw data. This was implemented in a pluggable way, such that scanners could be added/removed as needed. One scanner is implemented for each attribute described in section \ref{subsec:attributes}.
 
-\dbgfig{preprocess.pdf}{0.9}{A high-level overview of the preprocessing library.}{fig:preprocess}
+\hfig{figures/architecture.pdf}{0.9}{A high-level overview of the preprocessing library. Data is fetched from the internet (or potentially Statistico) and stored in a specific data format. These data files are then converted into \texttt{Website} objects which are analysed using several different scanners. The result is saved as an \texttt{ARFF} file.}{fig:preprocess}
 
 \subsection{Datamining tools}
 \label{subsec:weka}
@@ -42,37 +42,63 @@ Although the data set had already been preprocessed, we performed a few extra pr
 \subsection{Attributes}
 \label{subsec:attributes}
 
-The complete list of attributes in the data set can be found in table \ref{tab:all_attributes}.
+The complete list of attributes in the data set can be found in table \ref{tab:all_attributes}. The attributes with the \texttt{alexa} prefix have been downloaded from Alexa and includes the language of the websites, the number of incoming links, the average load time and the global and Danish rank of the websites\footnote{The Alexa rank is an estimate of the actual visitor count rank of the website. For instance, a global Alexa rank of 1 is assigned the most visited website.}. Attributes with the \texttt{has\_content} prefix, indicate whether or not the website contains some specific content (such as technological content). The \texttt{has\_js} attributes indicate whether or not various JavaScript libraries are used. For a description of the remaining attributes, please refer to the table.
 
-\htab{p{4.2cm} p{1.6cm} p{3.6cm} l}
+\newpage
+
+\hhtab{p{4.2cm} p{1.6cm} l}
 {
 \toprule
-Attribute & Type & Attribute & Type\\
+Attribute & Type & Description \\
 \midrule
-\texttt{alexa\_has\_adult\_content} & binary & \texttt{has\_description} & binary \\
-\texttt{alexa\_lang} & nominal & \texttt{has\_js\_angular} & binary \\
-\texttt{alexa\_links\_in} & numeric & \texttt{has\_js\_backbone} & binary \\
-\texttt{alexa\_load\_time} & numeric & \texttt{has\_js\_dojo} & binary \\
-\texttt{alexa\_rank} & numeric & \texttt{has\_js\_ember} & binary \\
-\texttt{alexa\_rank\_dk} & numeric & \texttt{has\_js\_handlebars} & binary \\
-\texttt{cms} & nominal & \texttt{has\_js\_jquery} & binary \\
-\texttt{external\_links\_count} & numeric & \texttt{has\_js\_knockout} & binary \\
-\texttt{facebook\_share} & binary & \texttt{has\_js\_modernizr} & binary \\
-\texttt{has\_analytics} & binary & \texttt{has\_js\_mootools} & binary \\
-\texttt{has\_content\_business} & binary & \texttt{has\_js\_prototype} & binary \\
-\texttt{has\_content\_film} & binary & \texttt{has\_js\_underscore} & binary \\
-\texttt{has\_content\_food} & binary & \texttt{has\_keywords} & binary \\
-\texttt{has\_content\_games} & binary & \texttt{html5} & binary \\
-\texttt{has\_content\_health} & binary & \texttt{html5\_tags} & numeric \\
-\texttt{has\_content\_music} & binary & \texttt{img\_count} & numeric \\
-\texttt{has\_content\_news} & binary & \texttt{internal\_links\_count} & numeric \\
-\texttt{has\_content\_shop} & binary & \texttt{page\_rank} & numeric \\
-\texttt{has\_content\_sport} & binary & \texttt{server} & nominal \\
-\texttt{has\_content\_technology} & binary & \texttt{title\_tag} & binary \\
-\texttt{has\_content\_transport} & binary & \texttt{twitter\_share} & binary \\
-\texttt{has\_content\_xxx} & binary & \texttt{xhtml} & binary \\
+\texttt{alexa\_has\_adult\_content} & binary & Website has erotic content.  \\
+\texttt{alexa\_lang} & nominal & The language of the website. \\
+\texttt{alexa\_links\_in} & numeric & Number of incoming links. \\
+\texttt{alexa\_load\_time} & numeric & Average load time.  \\
+\texttt{alexa\_rank} & numeric & Global rank estimate.  \\
+\texttt{alexa\_rank\_dk} & numeric & Danish rank estimate.  \\
+\texttt{cms} & nominal & Used content-management system.  \\
+\texttt{external\_links\_count} & numeric & Number of outgoing links. \\
+\texttt{facebook\_share} & binary & Website has a Facebook share button.  \\
+\texttt{has\_analytics} & binary & Website uses Google Analytics.  \\
+\texttt{has\_content\_business} & binary & Website has business related content.  \\
+\texttt{has\_content\_film} & binary & Website has film related content.  \\
+\texttt{has\_content\_food} & binary & Website has food related content.  \\
+\texttt{has\_content\_games} & binary & Website has games related content.  \\
+\texttt{has\_content\_health} & binary & Website has health related content.  \\
+\texttt{has\_content\_music} & binary & Website has music related content.  \\
+\texttt{has\_content\_news} & binary & Website has news related content. \\
+\texttt{has\_content\_shop} & binary & Website has shop related content. \\
+\texttt{has\_content\_sport} & binary & Website has sport related content. \\
+\texttt{has\_content\_technology} & binary & Website has technology related content.  \\
+\texttt{has\_content\_transport} & binary & Website has transport related content.  \\
+\texttt{has\_content\_xxx} & binary & Website has erotic content. \\
+\texttt{has\_description} & binary & Website has a description meta tag.  \\
+\texttt{has\_js\_angular} & binary & Website uses \texttt{AngularJS}.  \\
+\texttt{has\_js\_backbone} & binary & Website uses \texttt{Backbone.js}.  \\
+\texttt{has\_js\_dojo} & binary & Website uses \texttt{Dojo Toolkit}.  \\
+\texttt{has\_js\_ember} & binary & Website uses \texttt{Ember.js}.  \\
+\texttt{has\_js\_handlebars} & binary & Website uses \texttt{handebars.js}.  \\
+\texttt{has\_js\_jquery} & binary & Website uses \texttt{jQuery}.  \\
+\texttt{has\_js\_knockout} & binary & Website uses \texttt{Knockout}.  \\
+\texttt{has\_js\_modernizr} & binary & Website uses \texttt{Modernizr}. \\
+\texttt{has\_js\_mootools} & binary & Website uses \texttt{MooTools}.  \\
+\texttt{has\_js\_prototype} & binary & Website uses \texttt{Prototype}.  \\
+\texttt{has\_js\_underscore} & binary & Website uses \texttt{underscore.js}.  \\
+\texttt{has\_keywords} & binary & Website has a keywords meta tag.  \\
+\texttt{html5} & binary & Website uses \texttt{HTML5}.  \\
+\texttt{html5\_tags} & numeric & Number of \texttt{HTML5} specific tags.  \\
+\texttt{img\_count} & numeric & Number of image tags. \\
+\texttt{internal\_links\_count} & numeric & Number of internal links. \\
+\texttt{page\_rank} & numeric & Google PageRank. \\
+\texttt{server} & nominal & The used webserver. \\
+\texttt{title\_tag} & binary & Website has a title tag. \\
+\texttt{twitter\_share} & binary & Website has a Twitter share button.  \\
+\texttt{xhtml} & binary & Website is valid \texttt{XHTML}. \\
 \bottomrule
-}{All the attributes in the initial version of the data set.}{tab:all_attributes}
+}{All attributes in the initial version of the data set.}{tab:all_attributes}
+
+\newpage
 
 As mentioned earlier, irrelevant attributes were removed from the data set, in order to render an analysis possible. Hence, attributes which were more or less static across the whole dataset were removed, as these provided no further insight about the websites. The selection process was performed manually, as this made it possible to individually asses the importance of the different attributes.
 
