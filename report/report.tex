@@ -11,6 +11,19 @@
 \usepackage{todonotes} % remove later - this is for TODO notes
 \usepackage{float}
 
+\usepackage{keyval}
+\usepackage{fancyvrb}
+\usepackage{xcolor}
+%\usepackage{float}
+\usepackage{ifthen}
+\usepackage{calc}
+\usepackage{ifplatform}
+\usepackage{minted}
+%\usemintedstyle{colorful}
+\newminted{python}{}
+\newcommand{\pythonfile}[1]{\inputminted[xleftmargin=-3cm]{python}{#1}}
+%\newminted{python}{xleftmargin=-2cm, xrightmargin=-2cm}
+
 %\usepackage{amsmath}
 %\usepackage{amsfonts}
 %\usepackage{amssymb}
@@ -76,9 +89,9 @@
 \clearpage %To ensure pagebreak before appendices
 \appendix
 %\input{sections/appendix/appendix_rapidminer}
-%\input{sections/appendix/figures_appendix}
+\input{sections/appendix/appendix_figures}
 %\input{sections/appendix/appendix_basic_statistics}
-%\input{sections/appendix/appendix_code}
+\input{sections/appendix/appendix_code}
 %\input{../project/stats/tables_appendix}
 
 \end{document}

@@ -1,7 +1,8 @@
 
 class ArffWriter:
 
-    def __init__(self, attribute_rows, attribute_info=None, filename=None, separator=',', include_header=True, surround_symbol="'", dataset_name='data', output_raw=False):
+    def __init__(self, attribute_rows, attribute_info=None, filename=None, separator=',', 
+	        include_header=True, surround_symbol="'", dataset_name='data', output_raw=False):
         self.separator = separator
         self.attribute_rows = attribute_rows
         self.include_header = include_header
