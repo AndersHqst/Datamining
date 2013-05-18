@@ -10,7 +10,7 @@ We now present our solution, which primarily deals with collection and preproces
 
 As mentioned in section \ref{subsec:scraping}, a script was created to download and scrape the websites of interest. The scraped websites (and auxiliary information) were stored on disk for easy access, using a simple and easy to parse data format.
 
-Apart from the websites themselves, auxiliary information was fetched from Alexa and Google. Similar scripts were created to fetch and parse this data. Please refer to the actual source code for more information on this.
+Apart from the websites themselves, auxiliary information was fetched from Alexa and Google. Similar scripts were created to fetch and parse this data. Please refer to the actual source code for more information on this. Further, a list of the actual attributes in the data set can be found in table \ref{tab:all_attributes}.
 
 A small library was developed to process the raw data (including \texttt{HTML}, \texttt{HTTP} headers, Alexa information, Google PageRank) into a finite set of well defined attributes, which could be used for subsequent data analysis.
 
@@ -23,9 +23,9 @@ A high-level view of the architecture of this preprocessor library can be seen i
 
 % How is data fed to weka. Problems?
 
-We decided to use Weka and Rapidminer for the actual data analysis. Weka was used for the initial experimentation, but the richer feature set found in Rapidminer was used for the results presented here. 
+We decided to use Weka and RapidMiner for the actual data analysis. Weka was used for the initial experimentation, but the richer feature set found in Rapidminer was used for the results presented here. 
 
-In order to use both these tools, the preprocessing library (refer to section \ref{subsec:preprocessing}) was developed such that it could output the data set in the \texttt{ARFF} format, which can be read by both Weka and Rapidminer.
+In order to use both these tools, the preprocessing library (refer to section \ref{subsec:preprocessing}) was developed such that it could output the data set in the \texttt{ARFF} format, which can be read by both Weka and RapidMiner.
 
 Three versions of the data set were created, in order to support all potential use cases:
 
@@ -37,5 +37,65 @@ Three versions of the data set were created, in order to support all potential u
 
 It turned out that the combined version was easiest to work with, and was thus chosen for the actual data analysis.
 
-Although the data set had already been preprocessed, we performed a few extra preprocessing steps using Weka. In order to secure consistency in any distance measures, the numeric attributes were normalised into the domain $[0, 1]$. Further, irrelevant attributes were removed from the dataset\footnote{In the upcoming discussion, we will explicitly state which attributes were used for each specific analysis.}.
+Although the data set had already been preprocessed, we performed a few extra preprocessing steps using RapidMiner. In order to secure consistency in any distance measures, the numeric attributes were normalised into the domain $[0, 1]$. Further, irrelevant attributes were removed from the data set (please refer to section \ref{subsec:attributes}).
 
+\subsection{Attributes}
+\label{subsec:attributes}
+
+The complete list of attributes in the data set can be found in table \ref{tab:all_attributes}.
+
+\htab{p{4.2cm} p{1.6cm} p{3.6cm} l}
+{
+\toprule
+Attribute & Type & Attribute & Type\\
+\midrule
+\texttt{alexa\_has\_adult\_content} & binary & \texttt{has\_description} & binary \\
+\texttt{alexa\_lang} & nominal & \texttt{has\_js\_angular} & binary \\
+\texttt{alexa\_links\_in} & numeric & \texttt{has\_js\_backbone} & binary \\
+\texttt{alexa\_load\_time} & numeric & \texttt{has\_js\_dojo} & binary \\
+\texttt{alexa\_rank} & numeric & \texttt{has\_js\_ember} & binary \\
+\texttt{alexa\_rank\_dk} & numeric & \texttt{has\_js\_handlebars} & binary \\
+\texttt{cms} & nominal & \texttt{has\_js\_jquery} & binary \\
+\texttt{external\_links\_count} & numeric & \texttt{has\_js\_knockout} & binary \\
+\texttt{facebook\_share} & binary & \texttt{has\_js\_modernizr} & binary \\
+\texttt{has\_analytics} & binary & \texttt{has\_js\_mootools} & binary \\
+\texttt{has\_content\_business} & binary & \texttt{has\_js\_prototype} & binary \\
+\texttt{has\_content\_film} & binary & \texttt{has\_js\_underscore} & binary \\
+\texttt{has\_content\_food} & binary & \texttt{has\_keywords} & binary \\
+\texttt{has\_content\_games} & binary & \texttt{html5} & binary \\
+\texttt{has\_content\_health} & binary & \texttt{html5\_tags} & numeric \\
+\texttt{has\_content\_music} & binary & \texttt{img\_count} & numeric \\
+\texttt{has\_content\_news} & binary & \texttt{internal\_links\_count} & numeric \\
+\texttt{has\_content\_shop} & binary & \texttt{page\_rank} & numeric \\
+\texttt{has\_content\_sport} & binary & \texttt{server} & nominal \\
+\texttt{has\_content\_technology} & binary & \texttt{title\_tag} & binary \\
+\texttt{has\_content\_transport} & binary & \texttt{twitter\_share} & binary \\
+\texttt{has\_content\_xxx} & binary & \texttt{xhtml} & binary \\
+\bottomrule
+}{All the attributes in the initial version of the data set.}{tab:all_attributes}
+
+As mentioned earlier, irrelevant attributes were removed from the data set, in order to render an analysis possible. Hence, attributes which were more or less static across the whole dataset were removed, as these provided no further insight about the websites. The selection process was performed manually, as this made it possible to individually asses the importance of the different attributes.
+
+Further, the reduced data set was grouped into three logical subsets, each accounting for some specific aspect of the websites. These final subsets can be seen in table \ref{tab:cluster_attributes}. These subsets were used for the actual analysis.
+
+\htab{l l}
+{
+\toprule
+Subset & Attributes in subset\\
+\midrule
+Rank subset & \texttt{alexa\_load\_time}, \texttt{alexa\_rank}, \texttt{alexa\_rank\_dk}, \\
+& \texttt{alexa\_links\_in}, \texttt{internal\_links\_count}, \\
+& \texttt{external\_links\_count}, \texttt{page\_rank}, \texttt{title\_tag}, \\
+& \texttt{has\_description}, \texttt{has\_keywords}, \texttt{img\_count} \\
+\midrule
+Technology subset & \texttt{html5}, \texttt{html5\_tags}, \texttt{has\_js\_jquery}, \\
+& \texttt{server}, \texttt{cms}, \texttt{has\_analytics} \\
+\midrule
+Content subset & \texttt{has\_content\_business}, \texttt{has\_content\_film}, \\
+& \texttt{has\_content\_food}, \texttt{has\_content\_games}, \\
+& \texttt{has\_content\_health}, \texttt{has\_content\_music}, \\
+& \texttt{has\_content\_news}, \texttt{has\_content\_shop}, \\
+& \texttt{has\_content\_sport}, \texttt{has\_content\_technology}, \\
+& \texttt{has\_content\_transport}, \texttt{has\_content\_xxx} \\
+\bottomrule
+}{The different subsets used for in clustering process.}{tab:cluster_attributes}
