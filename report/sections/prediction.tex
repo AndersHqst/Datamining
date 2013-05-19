@@ -1,7 +1,7 @@
 \subsection{Predicting Page Rank}
 \label{subsec:predection}
-We want to see if we can predict the page rank of a website, by using a model linear regression, and a neural network in RapidMiner\footnote{Appendix \ref{apn:rapidminer_setup} shows examples of the RapidMinerGUI for setting up a data mining process.}. The prediction results are from performing cross-validation with linear sampling with 10\% of the data as test data. For the neural network, we use one hidden layer, and the cross validation is done in combination with parameter optimization targeting learning rate and momentum. RapidMiner makes this possible by providing an operator for specifying what parametersm and in what ranges, we want to run the optimization. As such our results are the best picks. For the neural network we set up 3 machines, each dedicated to one attribute subset, and ran the process on 10, 250, and 500 epochs. Table \ref{tab:prediction_results} lists the results of running predictions on both the Rank subset related subset, and the full set. We use \(l\) for learning rate, \(e\) for epochs, and \(m\) for momentum.
-\todo{fix talbe width}
+To predict the page rank of a website, we use a model for linear regression and a neural network in RapidMiner \footnote{Appendix \ref{apn:rapidminer_setup} shows examples of the setup in the RapidMinerGUI.}. The prediction results are the results of running cross-validation, with linear sampling, and using 10\% of the data as test data. For the neural network, we use one hidden layer, and the cross validation is done in combination with parameter optimization targeting learning rate and momentum. \texttt{RapidMiner} makes this possible by providing an operator for specifying what parameters, and in what ranges, we want for the optimization grid. For the neural network we set up 3 machines, each dedicated to one attribute subset, and ran the process on 10, 250, and 500 epochs. The latter could of course also have been automated with the parameter optimization, but in our experience this will make \texttt{RapidMiner} freeze, so we did it manually. Table \ref{tab:prediction_results} lists the results of running predictions on the three attribute subsets, and the full set. We use \(l\) for learning rate, \(e\) for epochs, and \(m\) for momentum.
+
 \todo{Consider delete of the comment column.}
 \hhtab{p{80pt}p{80pt}p{50pt}l}
 {
@@ -18,15 +18,15 @@ Neural Net & Content subset & 1.602 & \(e\)=10, \(l\)=0.1, \(m\)=0.34\\
 Neural Net & Full set & 2.141 & \(e\)=250, \(l\)=0.1 \(m\)=0.34\\
 ZeroR baseline & Full set & 1.686 & -\\
 \bottomrule
-}{Overview of model predicting with Page Rank as the target value. The Error is the root mean squared error (RMSE) after cross validation. Target value is in its original scale.}{tab:prediction_results}
+}{Overview of model predicting with Page Rank as the target value. The Error is the root mean squared error (RMSE) after cross validation. Target value is in its original scale, so the error is in \texttt{PageRank} units.}{tab:prediction_results}
 
-As table \ref{tab:prediction_results} indicates we seem to be able to predict the page rank within \(1.254\) which we find is quite a good prediction considering the limited information, while not being exceptional considering the base line. Still, it is a bit surprising that the the neural net cannot produce a result better or similar to the linear regression. We believe the answer to this could be that the neural net simply over-fits the data too easily, and thus not generalizes well. The results also tell us that a linear model may be a good model for regression on our kind of data.
+As table \ref{tab:prediction_results} shows, we are able to predict the page rank with a \(1.254\) error, which we is quite good considering the limited information. Still it is not being exceptional if we compare with the base line. It is a bit surprising, however, that the the neural net cannot at least produce a result similar to the linear regression. We believe the answer to this is, that the neural net over-fits the data too easily, and thus not generalize well. A partial conclusion on these results is, that a linear model may be a good model, for regression on our kind of data.
 
-In the results from the neural net models, we found that the \texttt{Alexa Rank} and links related attributes provided, are the most important attributes. This can be seen by looking at \texttt{RapidMiner}'s output from the neural net model, that shows that the \texttt{alexa\_links\_in} attribute is the attribute that is given most weight in the model. The visualization of this is show in figure \ref{fig:neural_net}.
+In the results from the neural net, we found that the \texttt{alexa\_links\_in} is the most important attribute. This can be seen by looking at \texttt{RapidMiner}'s model output, that shows that the \texttt{alexa\_links\_in} attribute is the attribute that is given most important in determining the prediction. The visualization of this is show in figure \ref{fig:neural_net}.
 
 \hfig{figures/neural_nets.png}{0.9}{Importance of a connection between neurones in the neural net are indicated by the boldness of the connection. The Alexa links in is in the input layer 7th from the top, the bias is at the bottom.}{fig:neural_net}
 
-The correlation coefficient between page rank and and Alexa links in is \(0.2054\) which supports the above indications. As this is somewhat trivial conclusion, we can try with models for prediction against the Rank subset minus attributes from \texttt{Alexa} as seen in table \ref{tab:rank_no_alexa}, which yields the results seen in table \ref{tab:rank_no_alexa_prediction}
+The correlation coefficient between page rank and and \texttt{alexa\_links\_in} is \(0.2054\) which supports the above indications. As this is somewhat unsatisfactory conclusion, we have decided to try running the prediction against the Rank subset minus all \texttt{Alexa} related attributes. The set is listed in table \ref{tab:rank_no_alexa}, which yields the results seen in table \ref{tab:rank_no_alexa_prediction}
 
 \hhtab{l l}
 {
@@ -39,14 +39,14 @@ Rank subset & \texttt{external\_links\_count}, \texttt{page\_rank}, \texttt{titl
 \bottomrule
 }{Rank subset without Alexa attributes.}{tab:rank_no_alexa}
 
-\hhtab{p{80pt}p{50pt}p{50pt}p{50pt}}
+\hhtab{p{80pt}p{80pt}p{50pt}l}
 {
 \toprule
-Model & Data & Error & Comment\\
+Model & Data & Error & Parameters\\
 \midrule
-Linear Regression & Rank subset set & 1.6955 & -  \\
-Neural Net & Rank subset set & 1.709 & - Best from before\\
+Linear Regression & Rank subset & 1.695 & -  \\
+Neural Net & Rank subset & 1.709 & Best params from Table \ref{tab:prediction_results}\\
 \bottomrule
 }{Overview of model predicting with Page Rank as the target value. The Error is the average squared error after cross validation. Target value is in its original scale.}{tab:rank_no_alexa_prediction}
 
-As table \ref{tab:rank_no_alexa_prediction} shows, the error has gone up by removing the \texttt{Alexa} related attributes, and shows that we can predict a page rank in the \(1.6955\) range. As this is not better than our baseline, it supports our conjecture that the \texttt{alexa\_links\_in} attribute is the one allowing an interesting prediction.
+As table \ref{tab:rank_no_alexa_prediction} shows, the error has gone up by removing the \texttt{Alexa} related attributes, and shows that we can predict a page rank in the \(1.695\) range. As this is not better than our baseline, it supports our conjecture that the \texttt{Alexa} related attributes, and in particular the \texttt{alexa\_links\_in} attribute, are the ones allowing an interesting prediction.
