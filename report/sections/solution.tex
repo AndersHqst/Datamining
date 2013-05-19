@@ -1,49 +1,44 @@
 \section{Solution}
 \label{sec:solution}
 
-We now present our solution, which primarily deals with collection and preprocessing of the data. We have implemented a small preprocessing library that uses a plugin architecture which allows us to add, remove, and alter the way in which we extract features.
+In this section we give a technical overview of our solution.
 
-\subsection{Scraping and parsing}
+\subsection{Data collection and parsing}
 \label{subsec:scraping}
 
-% HTML parser in Python is crap. Explain issue - HTML is extremely noisy. Present beautiful soup with lxml, our contribution to others trying to do the same.
+We have implemented a script for collecting the data. It scrapes the most popular\footnote{According to Alexa} sites in the \texttt{dk} domain. To make this as robust as possible, we send request with various Firefox browser headers injected, such as to fool the web-servers to give useful responses. Also we make sure to deal with \texttt{HTTP} redirects whenever present. In spite of this, some sites fail to be downloaded correctly because of \texttt{HTTP} errors. However, it is rather random when this happens, or for what sites, so it should not have contaminated our data in any way. With successful responses, we store both the raw \texttt{HTML} and the \texttt{HTTP} response headers.
 
-The actual data set was created by scraping the most popular \texttt{dk} domains (according to Alexa). In order to this as successfully as possible, the created script injected various headers, such as to fool the webservers into believing that the script was an actual browser (Firefox). Further, \texttt{HTTP} redirects were followed whenever present. In spite of this, however, a few sites could not be downloaded correctly due to server errors. If possible, the script stored both the \texttt{HTML} and the \texttt{HTTP} response headers.
-
-After the websites had been downloaded (along with the remaining data), the \texttt{HTML} belonging to the various websites had to be parsed, such that it could be easily queried. Due to the inconsistent and noisy nature of most \texttt{HTML}, we found that Python's build in HTML parser is not good enough. The HTMLParser library is simply too fragile and breaks on various cases. In the hope that we will spare others some headaches, we found that the Beautiful Soup\footnote{Beautiful Soup builds a tree like object of HTML and provides fast search and easy lookup in the \texttt{HTML} http://www.crummy.com/software/BeautifulSoup/bs4/doc/} with the lxml\footnote{The lxml parser can be found at: http://lxml.de/parsing.html} \texttt{HTML}-parser is much more robust.
+After the website data has been download, we store and parse the \texttt{HTML} into data structures that makes it easier to query. For the inconsistent and noisy nature of most \texttt{HTML} data, we found that Python's build in \texttt{HTMLParser} is surprisingly fragile. It does not handle the noise and inconsistencies in \texttt{HTML} very well, and breaks on various cases, resulting in substantial data loss. In the hope that we can spare others some headaches, we found that the Beautiful Soup\cite{beautiful_soup} library combined the lxml\cite{lxml} \texttt{HTML}-parser is much more robust, and have not caused us to loss any data in this step.
 
 \subsection{Preprocessing}
 \label{subsec:preprocessing}
 
-% Class-like diagram showing analyser, scanners, website, scraper, calls to alexa.
+With the process described in \ref{subsec:scraping}, we can process an object oriented representation of the collected websites.
 
-As mentioned in section \ref{subsec:scraping}, a script was created to download and scrape the websites of interest. The scraped websites (and auxiliary information) were stored on disk for easy access, using a simple and easy to parse data format.
+Apart from the data from the websites themselves, we enrich our data set with information from Alexa and Google on general web-statistics. These numbers are easily accessible, and simply too relevant too be ignored. A complete list of the attributes and their meaning can be found in table \ref{tab:all_attributes} in Appendix \ref{apx:attributes}.
 
-Apart from the websites themselves, auxiliary information was fetched from Alexa and Google. Similar scripts were created to fetch and parse this data. Please refer to the actual source code for more information on this. Further, a list of the actual attributes in the data set can be found in table \ref{tab:all_attributes}.
+A high-level view of the architecture of the preprocessing library can be seen in figure \ref{fig:preprocess}. The (\texttt{Website}) class encapsulates the information belonging to each website. To easily extract the desired attributes, we use the concept of \textit{scanners}. Provided  a \texttt{Website} object, a scanner knows how to extract, and possibly bin, a given attribute from the raw website data. The design with scanners is made pluggable so that scanners can be added and removed as desired. As such, one scanner corresponds to one attribute.
 
-A small library was developed to process the raw data (including \texttt{HTML}, \texttt{HTTP} headers, Alexa information, Google PageRank) into a finite set of well defined attributes, which could be used for subsequent data analysis.
-
-A high-level view of the architecture of this preprocessor library can be seen in figure \ref{fig:preprocess}. A specific class (\texttt{Website}) was used to hold the information belonging to each website (including both the raw and parsed \texttt{HTML}). In order to easily extract the desired features, we introduced the concept of \textit{scanners}. Given a \texttt{Website} object, each scanner can extract and preprocess a specific feature from the raw data. This was implemented in a pluggable way, such that scanners could be added/removed as needed. One scanner is implemented for each attribute described in section \ref{subsec:attributes}.
-
-\hfig{figures/architecture.pdf}{0.7}{A high-level overview of the preprocessing library. Data is fetched from the internet (or potentially Statistico) and stored in a specific data format. These data files are then converted into \texttt{Website} objects which are analysed using several different scanners. The result is saved as an \texttt{ARFF} file.}{fig:preprocess}
+\hfig{figures/architecture.pdf}{0.7}{A high-level overview of the preprocessing library. Data is fetched from the internet, or potentially Statistico, and stored. The raw data is then then converted into \texttt{Website} objects which are processed using a set of scanners. The processed data is eventually stored in the \texttt{ARFF} file format.}{fig:preprocess}
 
 \subsection{Datamining tools}
 \label{subsec:weka}
 
-% How is data fed to weka. Problems?
+For creating basic statistics and plots of the data, we have used MatplotLib\cite{matplotlib} and Pandas\cite{pandas} in Pyhton. Results will be discussed in Section\ref{sec:statistics} and the full output can be found in Appendix \ref{apx:basic_statistics}.
 
-We decided to use Weka and RapidMiner for the actual data analysis. Weka was used for the initial experimentation, but the richer feature set found in Rapidminer was used for the results presented here. 
+For the remaining data mining process we have used RapidMiner\cite{rapidminer}. This is as an alternative to Weka\cite{weka}, that we think delivers a much better user experience and powerful work flow. In RapidMiner one sets up a so called {\it process} that consists of operators, and possibly {\it building blocks} consisting of other operators. Our results are discussed in Section \ref{sev:analysis}.
 
-In order to use both these tools, the preprocessing library (refer to section \ref{subsec:preprocessing}) was developed such that it could output the data set in the \texttt{ARFF} format, which can be read by both Weka and RapidMiner.
+\todo{Mangler der noet her? Jeg har udkommenteret en hel del i latex'en herefter...}
+% In order to use both these tools, the preprocessing library (refer to section \ref{subsec:preprocessing}) was developed such that it could output the data set in the \texttt{ARFF} format, which can be read by both Weka and RapidMiner.
 
-Three versions of the data set were created, in order to support all potential use cases:
+% Three versions of the data set were created, in order to support all potential use cases:
 
-\begin{itemize}
-\item A version containing the raw values from the data set.
-\item A version in which every value was discretised/binned.
-\item A combination of the former two, in which only a select few attributes were binned\footnote{These binned attributes were all nominal. In other words, we reduced the number of bins belonging to these attributes. For instance, we grouped all versions of the Apache webserver, instead of considering the specific versions.}.
-\end{itemize}
+% \begin{itemize}
+% \item A version containing the raw values from the data set.
+% \item A version in which every value was discretised/binned.
+% \item A combination of the former two, in which only a select few attributes were binned\footnote{These binned attributes were all nominal. In other words, we reduced the number of bins belonging to these attributes. For instance, we grouped all versions of the Apache webserver, instead of considering the specific versions.}.
+% \end{itemize}
 
-It turned out that the combined version was easiest to work with, and was thus chosen for the actual data analysis.
+% It turned out that the combined version was easiest to work with, and was thus chosen for the actual data analysis.
 
-Although the data set had already been preprocessed, we performed a few extra preprocessing steps using RapidMiner. In order to secure consistency in any distance measures, the numeric attributes were normalised into the domain $[0, 1]$. Further, irrelevant attributes were removed from the data set (please refer to section \ref{subsec:attributes}).
+% Although the data set is already been preprocessed, we performed a few extra preprocessing steps using RapidMiner. In order to secure consistency in any distance measures, the numeric attributes were normalised into the domain $[0, 1]$. Further, irrelevant attributes were removed from the data set (please refer to section \ref{subsec:attributes}).
