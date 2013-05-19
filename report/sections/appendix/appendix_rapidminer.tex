@@ -1,10 +1,67 @@
 \appendix
 
+\section{Attributes}
+\label{apx:attributes}
+
+\hhtab{p{4.2cm} p{1.6cm} l}
+{
+\toprule
+Attribute & Type & Description \\
+\midrule
+\texttt{alexa\_has\_adult\_content} & binary & Website has erotic content.  \\
+\texttt{alexa\_lang} & nominal & The language of the website. \\
+\texttt{alexa\_links\_in} & numeric & Number of incoming links. \\
+\texttt{alexa\_load\_time} & numeric & Average load time.  \\
+\texttt{alexa\_rank} & numeric & Global rank estimate.  \\
+\texttt{alexa\_rank\_dk} & numeric & Danish rank estimate.  \\
+\texttt{cms} & nominal & Used content-management system.  \\
+\texttt{external\_links\_count} & numeric & Number of outgoing links. \\
+\texttt{facebook\_share} & binary & Website has a Facebook share button.  \\
+\texttt{has\_analytics} & binary & Website uses Google Analytics.  \\
+\texttt{has\_content\_business} & binary & Website has business related content.  \\
+\texttt{has\_content\_film} & binary & Website has film related content.  \\
+\texttt{has\_content\_food} & binary & Website has food related content.  \\
+\texttt{has\_content\_games} & binary & Website has games related content.  \\
+\texttt{has\_content\_health} & binary & Website has health related content.  \\
+\texttt{has\_content\_music} & binary & Website has music related content.  \\
+\texttt{has\_content\_news} & binary & Website has news related content. \\
+\texttt{has\_content\_shop} & binary & Website has shop related content. \\
+\texttt{has\_content\_sport} & binary & Website has sport related content. \\
+\texttt{has\_content\_technology} & binary & Website has technology related content.  \\
+\texttt{has\_content\_transport} & binary & Website has transport related content.  \\
+\texttt{has\_content\_xxx} & binary & Website has erotic content. \\
+\texttt{has\_description} & binary & Website has a description meta tag.  \\
+\texttt{has\_js\_angular} & binary & Website uses \texttt{AngularJS}.  \\
+\texttt{has\_js\_backbone} & binary & Website uses \texttt{Backbone.js}.  \\
+\texttt{has\_js\_dojo} & binary & Website uses \texttt{Dojo Toolkit}.  \\
+\texttt{has\_js\_ember} & binary & Website uses \texttt{Ember.js}.  \\
+\texttt{has\_js\_handlebars} & binary & Website uses \texttt{handebars.js}.  \\
+\texttt{has\_js\_jquery} & binary & Website uses \texttt{jQuery}.  \\
+\texttt{has\_js\_knockout} & binary & Website uses \texttt{Knockout}.  \\
+\texttt{has\_js\_modernizr} & binary & Website uses \texttt{Modernizr}. \\
+\texttt{has\_js\_mootools} & binary & Website uses \texttt{MooTools}.  \\
+\texttt{has\_js\_prototype} & binary & Website uses \texttt{Prototype}.  \\
+\texttt{has\_js\_underscore} & binary & Website uses \texttt{underscore.js}.  \\
+\texttt{has\_keywords} & binary & Website has a keywords meta tag.  \\
+\texttt{html5} & binary & Website uses \texttt{HTML5}.  \\
+\texttt{html5\_tags} & numeric & Number of \texttt{HTML5} specific tags.  \\
+\texttt{img\_count} & numeric & Number of image tags. \\
+\texttt{internal\_links\_count} & numeric & Number of internal links. \\
+\texttt{page\_rank} & numeric & Google PageRank. \\
+\texttt{server} & nominal & The used webserver. \\
+\texttt{title\_tag} & binary & Website has a title tag. \\
+\texttt{twitter\_share} & binary & Website has a Twitter share button.  \\
+\texttt{xhtml} & binary & Website is valid \texttt{XHTML}. \\
+\bottomrule
+}{All attributes in the initial version of the data set.}{tab:all_attributes}
+
+\newpage
+
 \section{RapidMiner}
 \label{apx:rapidminer}
 
-\hhfig{figures/rapidminer_process}{1}{RapidMiner process setup. Attribute subsets selection. Replace missing values. Labelling (set role), Parameter optimization}{fig:rapidminer}
+\hhfig{figures/rapidminer_process}{0.7}{RapidMiner process setup. Attribute subsets selection. Replace missing values. Labelling (set role), Parameter optimization}{fig:rapidminer}
 
-\hhfig{figures/rapidminer_validation.png}{1}{RapidMiner cross-validation building block.}{fig:rapidminer_validation}
+\hhfig{figures/rapidminer_validation.png}{0.7}{RapidMiner cross-validation building block.}{fig:rapidminer_validation}
 
-\hhfig{figures/rapidminer_optimize_parameters_buildingblock.png}{1}{RapidMiner cross validation bulding block. Log operator lets us track to parameter optimization more closely.}{fig:rapidminer_validation}
+\hhfig{figures/rapidminer_optimize_parameters_buildingblock.png}{0.7}{RapidMiner cross validation bulding block. Log operator lets us track to parameter optimization more closely.}{fig:rapidminer_validation}

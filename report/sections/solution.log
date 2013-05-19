@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.30)  18 MAY 2013 16:57
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.30)  19 MAY 2013 11:46
 entering extended mode
 **solution.tex
 (C:\ITU\Projects\data_mining\report\sections\solution.tex
@@ -1576,7 +1576,7 @@ Overfull \hbox (10.86105pt too wide) in paragraph at lines 17--18
 
 ! Undefined control sequence.
 l.19 \hfig
-          {figures/architecture.pdf}{0.9}{A high-level overview of the prepr...
+          {figures/architecture.pdf}{0.7}{A high-level overview of the prepr...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1591,7 +1591,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.19 \hfig{f
-            igures/architecture.pdf}{0.9}{A high-level overview of the prepr...
+            igures/architecture.pdf}{0.7}{A high-level overview of the prepr...
 
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1622,7 +1622,7 @@ Missing character: There is no d in font nullfont!
 Missing character: There is no f in font nullfont!
 Missing character: There is no 0 in font nullfont!
 Missing character: There is no . in font nullfont!
-Missing character: There is no 9 in font nullfont!
+Missing character: There is no 7 in font nullfont!
 Missing character: There is no A in font nullfont!
 Missing character: There is no h in font nullfont!
 Missing character: There is no i in font nullfont!
@@ -1696,6 +1696,31 @@ Missing character: There is no r in font nullfont!
 Missing character: There is no n in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no t in font nullfont!
+Missing character: There is no ( in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no y in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no ) in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no n in font nullfont!
 Missing character: There is no d in font nullfont!
@@ -3344,7 +3369,7 @@ Missing character: There is no e in font nullfont!
 <write> ... `tab:all_attributes' on page \thepage 
                                                   \space undefined\on@line .
 l.45 ...be found in table \ref{tab:all_attributes}
-                                                  . The attributes with the ...
+                                                   in appendix \ref{apx:attr...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -3354,6 +3379,30 @@ and I'll forget about whatever was undefined.
 
 LaTeX Warning: Reference `tab:all_attributes' on page  undefined on input line 
 45.
+
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no x in font nullfont!
+! Undefined control sequence.
+<write> ...ence `apx:attributes' on page \thepage 
+                                                  \space undefined\on@line .
+l.45 ...tributes} in appendix \ref{apx:attributes}
+                                                  . The attributes with the ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `apx:attributes' on page  undefined on input line 45.
 
 Missing character: There is no . in font nullfont!
 Missing character: There is no T in font nullfont!
@@ -3382,6 +3431,607 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no f in font nullfont!
 Missing character: There is no i in font nullfont!
 Missing character: There is no x in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no w in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no A in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no w in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no D in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no w in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+! Undefined control sequence.
+\@footnotetext ...tins {\reset@font \footnotesize 
+                                                  \interlinepenalty \interfo...
+l.45 ...f 1 is assigned the most visited website.}
+                                                  . Attributes with the \tex...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@footnotetext ...}\color@begingroup \@makefntext 
+                                                  {\rule \z@ \footnotesep \i...
+l.45 ...f 1 is assigned the most visited website.}
+                                                  . Attributes with the \tex...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (17.22224pt too wide) in paragraph at lines 45--45
+[][]\OT1/cmr/m/n/10 The
+ []
+
+
+Overfull \hbox (25.00006pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 Alexa
+ []
+
+
+Overfull \hbox (19.75006pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 rank
+ []
+
+
+Overfull \hbox (6.72223pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 is
+ []
+
+
+Overfull \hbox (10.55559pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 an
+ []
+
+
+Overfull \hbox (11.72221pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 es-
+ []
+
+
+Overfull \hbox (10.00002pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 ti-
+ []
+
+
+Overfull \hbox (21.66672pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 mate
+ []
+
+
+Overfull \hbox (8.05559pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 of
+ []
+
+
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 the
+ []
+
+
+Overfull \hbox (12.77779pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 ac-
+ []
+
+
+Overfull \hbox (17.22227pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 tual
+ []
+
+
+Overfull \hbox (15.33336pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 vis-
+ []
+
+
+Overfull \hbox (6.11111pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 i-
+ []
+
+
+Overfull \hbox (12.80559pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 tor
+ []
+
+
+Overfull \hbox (24.16672pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 count
+ []
+
+
+Overfull \hbox (19.75006pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 rank
+ []
+
+
+Overfull \hbox (8.05559pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 of
+ []
+
+
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 the
+ []
+
+
+Overfull \hbox (20.27779pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 web-
+ []
+
+
+Overfull \hbox (17.83336pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 site.
+ []
+
+
+Overfull \hbox (14.61115pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 For
+ []
+
+
+Overfull \hbox (11.66669pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 in-
+ []
+
+
+Overfull \hbox (30.0556pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 stance,
+ []
+
+
+Overfull \hbox (5.00002pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 a
+ []
+
+
+Overfull \hbox (26.11119pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 global
+ []
+
+
+Overfull \hbox (25.00006pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 Alexa
+ []
+
+
+Overfull \hbox (19.75006pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 rank
+ []
+
+
+Overfull \hbox (8.05559pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 of
+ []
+
+
+Overfull \hbox (5.00002pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 1
+ []
+
+
+Overfull \hbox (6.72223pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 is
+ []
+
+
+Overfull \hbox (12.27779pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 as-
+ []
+
+
+Overfull \hbox (27.27783pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 signed
+ []
+
+
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 the
+ []
+
+
+Overfull \hbox (21.16672pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 most
+ []
+
+
+Overfull \hbox (15.33336pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 vis-
+ []
+
+
+Overfull \hbox (16.6667pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 ited
+ []
+
+
+Overfull \hbox (20.27779pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 web-
+ []
+
+
+Overfull \hbox (17.83336pt too wide) in paragraph at lines 45--45
+\OT1/cmr/m/n/10 site.| 
+ []
+
+Missing character: There is no . in font nullfont!
+Missing character: There is no A in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no w in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no w in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no w in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no ( in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no ) in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no T in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no w in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no J in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no F in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no . in font nullfont!
 
 Overfull \hbox (20.0pt too wide) in paragraph at lines 45--46
 []
@@ -3393,1369 +4043,28 @@ Overfull \hbox (10.86105pt too wide) in paragraph at lines 45--46
  []
 
 
-Overfull \hbox (30.02972pt too wide) in paragraph at lines 45--46
-\OT1/cmtt/m/n/10 alexa[]
- []
-
-! Undefined control sequence.
-l.47 \htab
-          {p{4.2cm} p{1.6cm} p{3.6cm} l}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-Missing character: There is no p in font nullfont!
-Missing character: There is no 4 in font nullfont!
-Missing character: There is no . in font nullfont!
-Missing character: There is no 2 in font nullfont!
-Missing character: There is no c in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no 1 in font nullfont!
-Missing character: There is no . in font nullfont!
-Missing character: There is no 6 in font nullfont!
-Missing character: There is no c in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no 3 in font nullfont!
-Missing character: There is no . in font nullfont!
-Missing character: There is no 6 in font nullfont!
-Missing character: There is no c in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no l in font nullfont!
-! Undefined control sequence.
-l.49 \toprule
-             
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-Missing character: There is no A in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no b in font nullfont!
-Missing character: There is no u in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no e in font nullfont!
-! Misplaced alignment tab character &.
-l.50 Attribute &
-                 Type & Attribute & Type\\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no T in font nullfont!
-Missing character: There is no y in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no e in font nullfont!
-! Misplaced alignment tab character &.
-l.50 Attribute & Type &
-                        Attribute & Type\\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no A in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no b in font nullfont!
-Missing character: There is no u in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no e in font nullfont!
-! Misplaced alignment tab character &.
-l.50 Attribute & Type & Attribute &
-                                    Type\\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no T in font nullfont!
-Missing character: There is no y in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no e in font nullfont!
-! Undefined control sequence.
-<recently read> \midrule 
-                         
-l.51 \midrule
-             
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Misplaced alignment tab character &.
-l.52 \texttt{alexa\_has\_adult\_content} &
-                                           binary & \texttt{has\_description...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.52 ...ttt{alexa\_has\_adult\_content} & binary &
-                                                   \texttt{has\_description}...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-l.52 ...nt} & binary & \texttt{has\_description} &
-                                                   binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.53 \texttt{alexa\_lang} &
-                            nominal & \texttt{has\_js\_angular} & binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no n in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no l in font nullfont!
-! Misplaced alignment tab character &.
-l.53 \texttt{alexa\_lang} & nominal &
-                                      \texttt{has\_js\_angular} & binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-l.53 ...g} & nominal & \texttt{has\_js\_angular} &
-                                                   binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.54 \texttt{alexa\_links\_in} &
-                                 numeric & \texttt{has\_js\_backbone} & bina...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no n in font nullfont!
-Missing character: There is no u in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no c in font nullfont!
-! Misplaced alignment tab character &.
-l.54 \texttt{alexa\_links\_in} & numeric &
-                                           \texttt{has\_js\_backbone} & bina...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-l.54 ...} & numeric & \texttt{has\_js\_backbone} &
-                                                   binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.55 \texttt{alexa\_load\_time} &
-                                  numeric & \texttt{has\_js\_dojo} & binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no n in font nullfont!
-Missing character: There is no u in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no c in font nullfont!
-! Misplaced alignment tab character &.
-l.55 \texttt{alexa\_load\_time} & numeric &
-                                            \texttt{has\_js\_dojo} & binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-l.55 ...time} & numeric & \texttt{has\_js\_dojo} &
-                                                   binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.56 \texttt{alexa\_rank} &
-                            numeric & \texttt{has\_js\_ember} & binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no n in font nullfont!
-Missing character: There is no u in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no c in font nullfont!
-! Misplaced alignment tab character &.
-l.56 \texttt{alexa\_rank} & numeric &
-                                      \texttt{has\_js\_ember} & binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-l.56 ...ank} & numeric & \texttt{has\_js\_ember} &
-                                                   binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.57 \texttt{alexa\_rank\_dk} &
-                                numeric & \texttt{has\_js\_handlebars} & bin...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no n in font nullfont!
-Missing character: There is no u in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no c in font nullfont!
-! Misplaced alignment tab character &.
-l.57 \texttt{alexa\_rank\_dk} & numeric &
-                                          \texttt{has\_js\_handlebars} & bin...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-l.57 ...& numeric & \texttt{has\_js\_handlebars} &
-                                                   binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.58 \texttt{cms} &
-                    nominal & \texttt{has\_js\_jquery} & binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no n in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no l in font nullfont!
-! Misplaced alignment tab character &.
-l.58 \texttt{cms} & nominal &
-                              \texttt{has\_js\_jquery} & binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-l.58 ...ms} & nominal & \texttt{has\_js\_jquery} &
-                                                   binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.59 \texttt{external\_links\_count} &
-                                       numeric & \texttt{has\_js\_knockout} ...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no n in font nullfont!
-Missing character: There is no u in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no c in font nullfont!
-! Misplaced alignment tab character &.
-l.59 \texttt{external\_links\_count} & numeric &
-                                                 \texttt{has\_js\_knockout} ...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-l.59 ...} & numeric & \texttt{has\_js\_knockout} &
-                                                   binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.60 \texttt{facebook\_share} &
-                                binary & \texttt{has\_js\_modernizr} & binar...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.60 \texttt{facebook\_share} & binary &
-                                         \texttt{has\_js\_modernizr} & binar...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-l.60 ...} & binary & \texttt{has\_js\_modernizr} &
-                                                   binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.61 \texttt{has\_analytics} &
-                               binary & \texttt{has\_js\_mootools} & binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.61 \texttt{has\_analytics} & binary &
-                                        \texttt{has\_js\_mootools} & binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-l.61 ...s} & binary & \texttt{has\_js\_mootools} &
-                                                   binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.62 \texttt{has\_content\_business} &
-                                       binary & \texttt{has\_js\_prototype} ...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.62 \texttt{has\_content\_business} & binary &
-                                                \texttt{has\_js\_prototype} ...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-l.62 ...} & binary & \texttt{has\_js\_prototype} &
-                                                   binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.63 \texttt{has\_content\_film} &
-                                   binary & \texttt{has\_js\_underscore} & b...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.63 \texttt{has\_content\_film} & binary &
-                                            \texttt{has\_js\_underscore} & b...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-l.63 ... & binary & \texttt{has\_js\_underscore} &
-                                                   binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.64 \texttt{has\_content\_food} &
-                                   binary & \texttt{has\_keywords} & binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.64 \texttt{has\_content\_food} & binary &
-                                            \texttt{has\_keywords} & binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-l.64 ..._food} & binary & \texttt{has\_keywords} &
-                                                   binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.65 \texttt{has\_content\_games} &
-                                    binary & \texttt{html5} & binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.65 \texttt{has\_content\_games} & binary &
-                                             \texttt{html5} & binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-l.65 ...ontent\_games} & binary & \texttt{html5} &
-                                                   binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.66 \texttt{has\_content\_health} &
-                                     binary & \texttt{html5\_tags} & numeric \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.66 \texttt{has\_content\_health} & binary &
-                                              \texttt{html5\_tags} & numeric \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-l.66 ..._health} & binary & \texttt{html5\_tags} &
-                                                   numeric \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no n in font nullfont!
-Missing character: There is no u in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no c in font nullfont!
-! Misplaced alignment tab character &.
-l.67 \texttt{has\_content\_music} &
-                                    binary & \texttt{img\_count} & numeric \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.67 \texttt{has\_content\_music} & binary &
-                                             \texttt{img\_count} & numeric \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-l.67 ...t\_music} & binary & \texttt{img\_count} &
-                                                   numeric \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no n in font nullfont!
-Missing character: There is no u in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no c in font nullfont!
-! Misplaced alignment tab character &.
-l.68 \texttt{has\_content\_news} &
-                                   binary & \texttt{internal\_links\_count} ...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.68 \texttt{has\_content\_news} & binary &
-                                            \texttt{internal\_links\_count} ...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-l.68 ...binary & \texttt{internal\_links\_count} &
-                                                   numeric \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no n in font nullfont!
-Missing character: There is no u in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no c in font nullfont!
-! Misplaced alignment tab character &.
-l.69 \texttt{has\_content\_shop} &
-                                   binary & \texttt{page\_rank} & numeric \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.69 \texttt{has\_content\_shop} & binary &
-                                            \texttt{page\_rank} & numeric \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-l.69 ...nt\_shop} & binary & \texttt{page\_rank} &
-                                                   numeric \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no n in font nullfont!
-Missing character: There is no u in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no c in font nullfont!
-! Misplaced alignment tab character &.
-l.70 \texttt{has\_content\_sport} &
-                                    binary & \texttt{server} & nominal \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.70 \texttt{has\_content\_sport} & binary &
-                                             \texttt{server} & nominal \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-l.70 ...ntent\_sport} & binary & \texttt{server} &
-                                                   nominal \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no n in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no l in font nullfont!
-! Misplaced alignment tab character &.
-l.71 \texttt{has\_content\_technology} &
-                                         binary & \texttt{title\_tag} & bina...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.71 \texttt{has\_content\_technology} & binary &
-                                                  \texttt{title\_tag} & bina...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-l.71 ...chnology} & binary & \texttt{title\_tag} &
-                                                   binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.72 \texttt{has\_content\_transport} &
-                                        binary & \texttt{twitter\_share} & b...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.72 \texttt{has\_content\_transport} & binary &
-                                                 \texttt{twitter\_share} & b...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-l.72 ...port} & binary & \texttt{twitter\_share} &
-                                                   binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.73 \texttt{has\_content\_xxx} &
-                                  binary & \texttt{xhtml} & binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Misplaced alignment tab character &.
-l.73 \texttt{has\_content\_xxx} & binary &
-                                           \texttt{xhtml} & binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-l.73 ..._content\_xxx} & binary & \texttt{xhtml} &
-                                                   binary \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
-! Undefined control sequence.
-<recently read> \bottomrule 
-                            
-l.74 \bottomrule
-                
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-Missing character: There is no A in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no h in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no b in font nullfont!
-Missing character: There is no u in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no h in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no v in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no f in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no h in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no d in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no . in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no b in font nullfont!
-Missing character: There is no : in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no l in font nullfont!
-! Missing $ inserted.
-<inserted text> 
-                $
-l.75 ...initial version of the data set.}{tab:all_
-                                                  attributes}
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-l.75 ...sion of the data set.}{tab:all_attributes}
-                                                  
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.76 
-     
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-Overfull \hbox (20.0pt too wide) in paragraph at lines 47--76
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 45--46
 []
  []
 
 
-Overfull \hbox (116.33894pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 alexa[]has[]adult[]content
+Overfull \hbox (26.24977pt too wide) in paragraph at lines 45--46
+\OT1/cmtt/m/n/10 alexa
  []
 
 
-Overfull \hbox (77.27931pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 has[]description
+Overfull \hbox (4.48613pt too wide) in paragraph at lines 45--46
+[]
  []
 
 
-Overfull \hbox (51.02954pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 alexa[]lang
+Overfull \hbox (56.2795pt too wide) in paragraph at lines 45--46
+\OT1/cmtt/m/n/10 has[]content
  []
 
 
-Overfull \hbox (70.55936pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 has[]js[]angular
- []
-
-
-Overfull \hbox (70.55936pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 alexa[]links[]in
- []
-
-
-Overfull \hbox (75.80931pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 has[]js[]backbone
- []
-
-
-Overfull \hbox (75.80931pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 alexa[]load[]time
- []
-
-
-Overfull \hbox (54.8095pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 has[]js[]dojo
- []
-
-
-Overfull \hbox (51.02954pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 alexa[]rank
- []
-
-
-Overfull \hbox (60.05945pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 has[]js[]ember
- []
-
-
-Overfull \hbox (65.3094pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 alexa[]rank[]dk
- []
-
-
-Overfull \hbox (86.30922pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 has[]js[]handlebars
- []
-
-
-Overfull \hbox (15.74986pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 cms
- []
-
-
-Overfull \hbox (65.3094pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 has[]js[]jquery
- []
-
-
-Overfull \hbox (102.05908pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 external[]links[]count
- []
-
-
-Overfull \hbox (75.80931pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 has[]js[]knockout
- []
-
-
-Overfull \hbox (72.02936pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 facebook[]share
- []
-
-
-Overfull \hbox (81.05927pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 has[]js[]modernizr
- []
-
-
-Overfull \hbox (66.7794pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 has[]analytics
- []
-
-
-Overfull \hbox (75.80931pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 has[]js[]mootools
- []
-
-
-Overfull \hbox (102.05908pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 has[]content[]business
- []
-
-
-Overfull \hbox (81.05927pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 has[]js[]prototype
- []
-
-
-Overfull \hbox (81.05927pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 has[]content[]film
- []
-
-
-Overfull \hbox (86.30922pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 has[]js[]underscore
- []
-
-
-Overfull \hbox (81.05927pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 has[]content[]food
- []
-
-
-Overfull \hbox (61.52945pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 has[]keywords
- []
-
-
-Overfull \hbox (86.30922pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 has[]content[]games
- []
-
-
-Overfull \hbox (26.24977pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 html5
- []
-
-
-Overfull \hbox (91.55917pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 has[]content[]health
- []
-
-
-Overfull \hbox (51.02954pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 html5[]tags
- []
-
-
-Overfull \hbox (86.30922pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 has[]content[]music
- []
-
-
-Overfull \hbox (45.77959pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 img[]count
- []
-
-
-Overfull \hbox (81.05927pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 has[]content[]news
- []
-
-
-Overfull \hbox (102.05908pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 internal[]links[]count
- []
-
-
-Overfull \hbox (81.05927pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 has[]content[]shop
- []
-
-
-Overfull \hbox (45.77959pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 page[]rank
- []
-
-
-Overfull \hbox (86.30922pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 has[]content[]sport
- []
-
-
-Overfull \hbox (31.49973pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 server
- []
-
-
-Overfull \hbox (112.55899pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 has[]content[]technology
- []
-
-
-Overfull \hbox (45.77959pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 title[]tag
- []
-
-
-Overfull \hbox (107.30904pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 has[]content[]transport
- []
-
-
-Overfull \hbox (66.7794pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 twitter[]share
- []
-
-
-Overfull \hbox (75.80931pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 has[]content[]xxx
- []
-
-
-Overfull \hbox (26.24977pt too wide) in paragraph at lines 47--76
-\OT1/cmtt/m/n/10 xhtml
- []
-
-
-Overfull \hbox (43.26549pt too wide) in paragraph at lines 47--76
-$[]\OML/cmm/m/it/10 ttributes$ 
+Overfull \hbox (30.02972pt too wide) in paragraph at lines 45--46
+\OT1/cmtt/m/n/10 has[]js
  []
 
 Missing character: There is no A in font nullfont!
@@ -5097,7 +4406,7 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 77--78
+Overfull \hbox (20.0pt too wide) in paragraph at lines 47--48
 []
  []
 
@@ -5245,7 +4554,7 @@ Missing character: There is no e in font nullfont!
 ! Undefined control sequence.
 <write> ...b:cluster_attributes' on page \thepage 
                                                   \space undefined\on@line .
-l.79 ...seen in table \ref{tab:cluster_attributes}
+l.49 ...seen in table \ref{tab:cluster_attributes}
                                                   . These subsets were used ...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -5255,7 +4564,7 @@ and I'll forget about whatever was undefined.
 
 
 LaTeX Warning: Reference `tab:cluster_attributes' on page  undefined on input l
-ine 79.
+ine 49.
 
 Missing character: There is no . in font nullfont!
 Missing character: There is no T in font nullfont!
@@ -5300,82 +4609,17 @@ Missing character: There is no i in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 79--80
+Overfull \hbox (20.0pt too wide) in paragraph at lines 49--50
 []
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 79--80
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 49--50
 []
  []
 
-
-! LaTeX Error: The font size command \normalsize is not defined:
-               there is probably something wrong with the class file.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.80 
-     
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-[1
 ! Undefined control sequence.
-<write> \newlabel{sec:solution}{{}{\thepage 
-                                            }}
-l.80 
-     
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-\newlabel{sec:solution}{{}{}}
-! Undefined control sequence.
-<write> ...abel{subsec:preprocessing}{{}{\thepage 
-                                                  }}
-l.80 
-     
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-\newlabel{subsec:preprocessing}{{}{}}
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
-! Undefined control sequence.
-<write> \newlabel{subsec:weka}{{}{\thepage 
-                                           }}
-l.80 
-     
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-\newlabel{subsec:weka}{{}{}}
-! Undefined control sequence.
-<write> \newlabel{subsec:attributes}{{}{\thepage 
-                                                 }}
-l.80 
-     
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-\newlabel{subsec:attributes}{{}{}}
-]
-! Undefined control sequence.
-l.81 \htab
+l.51 \htab
           {l l}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -5386,7 +4630,7 @@ and I'll forget about whatever was undefined.
 Missing character: There is no l in font nullfont!
 Missing character: There is no l in font nullfont!
 ! Undefined control sequence.
-l.83 \toprule
+l.53 \toprule
              
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -5401,7 +4645,7 @@ Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no t in font nullfont!
 ! Misplaced alignment tab character &.
-l.84 Subset &
+l.54 Subset &
               Attributes in subset\\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -5431,7 +4675,7 @@ Missing character: There is no t in font nullfont!
 ! Undefined control sequence.
 <recently read> \midrule 
                          
-l.85 \midrule
+l.55 \midrule
              
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -5450,7 +4694,7 @@ Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no t in font nullfont!
 ! Misplaced alignment tab character &.
-l.86 Rank subset &
+l.56 Rank subset &
                    \texttt{alexa\_load\_time}, \texttt{alexa\_rank}, \texttt...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -5465,7 +4709,7 @@ Missing character: There is no , in font nullfont!
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.87 &
+l.57 &
        \texttt{alexa\_links\_in}, \texttt{internal\_links\_count}, \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -5479,7 +4723,7 @@ Missing character: There is no , in font nullfont!
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.88 &
+l.58 &
        \texttt{external\_links\_count}, \texttt{page\_rank}, \texttt{title\_...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -5494,7 +4738,7 @@ Missing character: There is no , in font nullfont!
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.89 &
+l.59 &
        \texttt{has\_description}, \texttt{has\_keywords}, \texttt{img\_count...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -5508,7 +4752,7 @@ Missing character: There is no , in font nullfont!
 ! Undefined control sequence.
 <recently read> \midrule 
                          
-l.90 \midrule
+l.60 \midrule
              
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -5533,7 +4777,7 @@ Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no t in font nullfont!
 ! Misplaced alignment tab character &.
-l.91 Technology subset &
+l.61 Technology subset &
                          \texttt{html5}, \texttt{html5\_tags}, \texttt{has\_...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -5548,7 +4792,7 @@ Missing character: There is no , in font nullfont!
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.92 &
+l.62 &
        \texttt{server}, \texttt{cms}, \texttt{has\_analytics} \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -5562,7 +4806,7 @@ Missing character: There is no , in font nullfont!
 ! Undefined control sequence.
 <recently read> \midrule 
                          
-l.93 \midrule
+l.63 \midrule
              
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -5584,7 +4828,7 @@ Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no t in font nullfont!
 ! Misplaced alignment tab character &.
-l.94 Content subset &
+l.64 Content subset &
                       \texttt{has\_content\_business}, \texttt{has\_content\...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -5598,7 +4842,7 @@ Missing character: There is no , in font nullfont!
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.95 &
+l.65 &
        \texttt{has\_content\_food}, \texttt{has\_content\_games}, \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -5612,7 +4856,7 @@ Missing character: There is no , in font nullfont!
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.96 &
+l.66 &
        \texttt{has\_content\_health}, \texttt{has\_content\_music}, \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -5626,7 +4870,7 @@ Missing character: There is no , in font nullfont!
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.97 &
+l.67 &
        \texttt{has\_content\_news}, \texttt{has\_content\_shop}, \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -5640,7 +4884,7 @@ Missing character: There is no , in font nullfont!
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.98 &
+l.68 &
        \texttt{has\_content\_sport}, \texttt{has\_content\_technology}, \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -5654,7 +4898,7 @@ Missing character: There is no , in font nullfont!
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.99 &
+l.69 &
        \texttt{has\_content\_transport}, \texttt{has\_content\_xxx} \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -5667,8 +4911,8 @@ Missing character: There is no , in font nullfont!
 ! Undefined control sequence.
 <recently read> \bottomrule 
                             
-l.100 \bottomrule
-                 
+l.70 \bottomrule
+                
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -5735,13 +4979,13 @@ Missing character: There is no r in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.101 ... for in clustering process.}{tab:cluster_
+l.71 ...d for in clustering process.}{tab:cluster_
                                                   attributes}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Extra }, or forgotten $.
-l.101 ...stering process.}{tab:cluster_attributes}
+l.71 ...ustering process.}{tab:cluster_attributes}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -5757,11 +5001,11 @@ deleted material, e.g., by typing `I$}'.
 
  
 Here is how much of TeX's memory you used:
- 29 strings out of 493921
- 510 string characters out of 3144878
- 56031 words of memory out of 3000000
- 3417 multiletter control sequences out of 15000+200000
+ 28 strings out of 493921
+ 504 string characters out of 3144878
+ 55031 words of memory out of 3000000
+ 3418 multiletter control sequences out of 15000+200000
  4462 words of font info for 17 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 24i,5n,19p,685b,147s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 24i,5n,19p,870b,147s stack positions out of 5000i,500n,10000p,200000b,50000s
 !  ==> Fatal error occurred, no output PDF file produced!
