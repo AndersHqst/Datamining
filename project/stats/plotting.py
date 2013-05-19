@@ -32,7 +32,7 @@ def numeric_attribute_histogram(plt, frame, title, num=10, interquartile=False,
         num = 2
         interquartile = False
         mmm = False
-    print "Create plot: %s num=%d interquartile=%s mmm=%s binary=%s" 
+    print "Create plot: %s num=%d interquartile=%s mmm=%s binary=%s" \
         % (title, num, interquartile, mmm, binary)
 
     plt.close()
@@ -338,7 +338,7 @@ def generate_plots(plt, frame):
         '_', ' ').title().replace('Js', 'JS'), binary=True)
     f = frame['has_js_jquery']
     numeric_attribute_histogram(plt, f, f.name.replace('_', ' ').title().replace(
-        'Js', 'JS').replace('Jquery', 'JQuery'), binary=True)
+        'Js', 'JS').replace('Jquery', 'jQuery'), binary=True)
     f = frame['has_js_knockout']
     numeric_attribute_histogram(plt, f, f.name.replace(
         '_', ' ').title().replace('Js', 'JS'), binary=True)

@@ -176,11 +176,9 @@ def generate_figures():
     section = "\\section{Basic statistics}\n \\label{apx:basic_statistics}\n\n"
     tex_file.write(section)
     for index, fig in enumerate(figs):
-        tex_fig = "\\hfig{figures/basic_statistics/" + fig + "}{0.8}{" + 
+        tex_fig = "\\hfig{figures/basic_statistics/" + fig + "}{0.8}{" +  \
             fig.replace('\\figures', '').replace('_', ' ').replace(
-            '.png', '').title().replace('Dk', 'DK').replace('Jquery', 'JQuery') + 
+            '.png', '').title().replace('Dk', 'DK').replace('Jquery', 'JQuery') +  \
             "}{fig:" + fig.replace('\\figures', '') + "}"
         tex_file.write(tex_fig + '\n\n')
-        if index % 2 == 0:
-            tex_file.write('\\clearpage\n\n')
     tex_file.close()
