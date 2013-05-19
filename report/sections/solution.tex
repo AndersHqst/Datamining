@@ -3,6 +3,15 @@
 
 We now present our solution, which primarily deals with collection and preprocessing of the data. We have implemented a small preprocessing library that uses a plugin architecture which allows us to add, remove, and alter the way in which we extract features.
 
+\subsection{Scraping and parsing}
+\label{subsec:scraping}
+
+% HTML parser in Python is crap. Explain issue - HTML is extremely noisy. Present beautiful soup with lxml, our contribution to others trying to do the same.
+
+The actual data set was created by scraping the most popular \texttt{dk} domains (according to Alexa). In order to this as successfully as possible, the created script injected various headers, such as to fool the webservers into believing that the script was an actual browser (Firefox). Further, \texttt{HTTP} redirects were followed whenever present. In spite of this, however, a few sites could not be downloaded correctly due to server errors. If possible, the script stored both the \texttt{HTML} and the \texttt{HTTP} response headers.
+
+After the websites had been downloaded (along with the remaining data), the \texttt{HTML} belonging to the various websites had to be parsed, such that it could be easily queried. Due to the inconsistent and noisy nature of most \texttt{HTML}, we found that Python's build in HTML parser is not good enough. The HTMLParser library is simply too fragile and breaks on various cases. In the hope that we will spare others some headaches, we found that the Beautiful Soup\footnote{Beautiful Soup builds a tree like object of HTML and provides fast search and easy lookup in the \texttt{HTML} http://www.crummy.com/software/BeautifulSoup/bs4/doc/} with the lxml\footnote{The lxml parser can be found at: http://lxml.de/parsing.html} \texttt{HTML}-parser is much more robust.
+
 \subsection{Preprocessing}
 \label{subsec:preprocessing}
 
@@ -38,34 +47,3 @@ Three versions of the data set were created, in order to support all potential u
 It turned out that the combined version was easiest to work with, and was thus chosen for the actual data analysis.
 
 Although the data set had already been preprocessed, we performed a few extra preprocessing steps using RapidMiner. In order to secure consistency in any distance measures, the numeric attributes were normalised into the domain $[0, 1]$. Further, irrelevant attributes were removed from the data set (please refer to section \ref{subsec:attributes}).
-
-\subsection{Attributes}
-\label{subsec:attributes}
-
-The complete list of attributes in the data set can be found in table \ref{tab:all_attributes} in appendix \ref{apx:attributes}. The attributes with the \texttt{alexa} prefix have been downloaded from Alexa and includes the language of the websites, the number of incoming links, the average load time and the global and Danish rank of the websites\footnote{The Alexa rank is an estimate of the actual visitor count rank of the website. For instance, a global Alexa rank of 1 is assigned the most visited website.}. Attributes with the \texttt{has\_content} prefix, indicate whether or not the website contains some specific content (such as technological content). The \texttt{has\_js} attributes indicate whether or not various JavaScript libraries are used. For a description of the remaining attributes, please refer to the table.
-
-As mentioned earlier, irrelevant attributes were removed from the data set, in order to render an analysis possible. Hence, attributes which were more or less static across the whole dataset were removed, as these provided no further insight about the websites. The selection process was performed manually, as this made it possible to individually asses the importance of the different attributes.
-
-Further, the reduced data set was grouped into three logical subsets, each accounting for some specific aspect of the websites. These final subsets can be seen in table \ref{tab:cluster_attributes}. These subsets were used for the actual analysis.
-
-\htab{l l}
-{
-\toprule
-Subset & Attributes in subset\\
-\midrule
-Rank subset & \texttt{alexa\_load\_time}, \texttt{alexa\_rank}, \texttt{alexa\_rank\_dk}, \\
-& \texttt{alexa\_links\_in}, \texttt{internal\_links\_count}, \\
-& \texttt{external\_links\_count}, \texttt{page\_rank}, \texttt{title\_tag}, \\
-& \texttt{has\_description}, \texttt{has\_keywords}, \texttt{img\_count} \\
-\midrule
-Technology subset & \texttt{html5}, \texttt{html5\_tags}, \texttt{has\_js\_jquery}, \\
-& \texttt{server}, \texttt{cms}, \texttt{has\_analytics} \\
-\midrule
-Content subset & \texttt{has\_content\_business}, \texttt{has\_content\_film}, \\
-& \texttt{has\_content\_food}, \texttt{has\_content\_games}, \\
-& \texttt{has\_content\_health}, \texttt{has\_content\_music}, \\
-& \texttt{has\_content\_news}, \texttt{has\_content\_shop}, \\
-& \texttt{has\_content\_sport}, \texttt{has\_content\_technology}, \\
-& \texttt{has\_content\_transport}, \texttt{has\_content\_xxx} \\
-\bottomrule
-}{The different subsets used for in clustering process.}{tab:cluster_attributes}
