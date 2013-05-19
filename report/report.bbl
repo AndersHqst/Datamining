@@ -1,0 +1,16 @@
+\begin{thebibliography}{1}
+
+\bibitem{alexa}
+Alexa is a proprietary web-service developed by amazon that provides meta data
+  and statistics on websites.
+\newblock http://aws.amazon.com/awis/.
+
+\bibitem{lucene}
+Lucene is under apace and is a widely for building indices.
+\newblock http://lucene.apache.org/core/.
+
+\bibitem{solr}
+Solr is a server for sending text based queries to the lucene index.
+\newblock http://lucene.apache.org/solr/.
+
+\end{thebibliography}

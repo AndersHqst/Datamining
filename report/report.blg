@@ -1,0 +1,14 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: report.aux
+The style file: plain.bst
+Database file #1: sections/bibliography.bib
+Warning--entry type for "solr" isn't style-file defined
+--line 29 of file sections/bibliography.bib
+Warning--entry type for "lucene" isn't style-file defined
+--line 35 of file sections/bibliography.bib
+Warning--entry type for "alexa" isn't style-file defined
+--line 41 of file sections/bibliography.bib
+Warning--I didn't find a database entry for "book"
+Warning--to sort, need author or key in lucene
+Warning--to sort, need author or key in solr
+Warning--to sort, need author or key in alexa
+(There were 7 warnings)
