@@ -1,7 +1,7 @@
 \subsection{Predicting Page Rank}
 \label{subsec:predection}
 We want to see if we can predict the page rank of a website, by using a model linear regression, and a neural network in RapidMiner\footnote{Appendix \ref{apn:rapidminer_setup} shows examples of the RapidMinerGUI for setting up a data mining process.}. The prediction results are from performing cross-validation with linear sampling with 10\% of the data as test data. For the neural network, the cross validation is done in combination with parameter optimization targeting learning rate and momentum. RapidMiner makes this by providing an operator for specifying what and in what ranges we want to run the optimization. As such our results are the best picks. For the neural network we set up 3 machines, each dedicated to one attribute subset, and ran the process on 10, 250, and 500 epochs. Table \ref{tab:prediction_results} lists the results of running predictions on both the Rank subset related subset, and the full set. We use \(l\) for learning rate and \(m\) for momentum.
-
+\tpdo{fix talbe width}
 \todo{Consider delete of the comment column.}
 \hhtab{p{80pt}p{50pt}p{50pt}p{50pt}}
 {
@@ -27,6 +27,7 @@ In the results from running the neural nets, we have found that the \texttt{Alex
 
 The correlation coefficient between page rank and and Alexa links in is \(0.2054\) which supports the above indications. As this is somewhat an undesired conclusion, the above models for prediction are test against a sub set of the Rank subset minus attributes from Alexa as seen in table \ref{tab:rank_no_alexa}, which yields the results seen in table \ref{tab:rank_no_alexa_prediction}
 
+\todo{rename to indicate no alexa}
 \hhtab{l l}
 {
 \toprule

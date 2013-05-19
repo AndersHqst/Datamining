@@ -4,26 +4,24 @@
 
 \subsection{Problem statement}
 \label{subsec:problem_statement}
-Based on the interests and data of Statistico introduced in secton \ref{sec:introduction}, we want to find out how well we can extract general statistics on websites in the .dk domain. We want to be able to give an overview of the distribution of CMS, server software, and SEO related figures. SEO related data could be related to link counts or presence of certain \texttt{HTML} tags.
+Based on Statistico's business model and data introduced in secton \ref{sec:introduction}, we want to find out how well we can extract basic statistics from website \texttt{HTML}. We want to be able to give an overview of the distribution of content management systems (\texttt{CMS}), server software, and search engin optimization \texttt{SEO} related figures.
 
-In addition, we want to investigate if it is possible to derive interesting correlations or patterns in the meta-data. We will use data mining software to experiment with different clustering algorithms, and see if we can derive any meaningful correlations in the data.
+In addition, we want to investigate if it is possible to derive interesting correlations or patterns in the meta-data. We will use data mining software to experiment with different clustering algorithms, and see if we can derive any meaningful clusters in the data.
 
-A very important measure for any website is its Alexa-rank and page-rank on Google. We will see if we can predict these values based on the limited data we get. It seems unlikely, or at least not intuitive, that we should be able to derive these numbers from a data mining process that is essentially a simplification of what Alexa and Google's crawlers do, but non the less, the results could be interesting in that it could indicate a small set of parameters to be important for getting a high rank.
+A very important measure for any website is its \texttt{PageRank}\footnote{PageRank is a qualitative grade given to websites by Google, affecting a sites exposure on their search engine.}. We want to investigate if it is possible to predict these values based on a relatively small number of features, compared to the complex feature set used by Google to calculate the \texttt{PageRank}. It seems unlikely, or at least not intuitive, that we should be able to derive these numbers from a data mining process that is essentially a simplification of what Google does, but non the less, the results could be interesting.
 
 %\subsection{Meta data}
 %\label{subsec:meta_data}
 %We need to decide on a set of attributes that we want to collect from each website. In section \ref{sec:background} we will give an overview of these. Besides the data that we can get directly from the HTML of the websites, we can use Alexa\footnote{By Alexa we refer to Amazon's Alexa Web Information Service, which displays various data figures on websites around the world. http://aws.amazon.com/awis/} to enrich our data set with important figures such as back-link and page load time, which would be hard to get ourselves, but is easy to retrieve as a service.
 
-%\subsection{Accessing the index - Solr and Lucene}
-%\label{subsec:solr}
-%As Statistico uses Solr, the idea has been to use the Solr querying api. Ideally this would give us a fast way of extracting information from the big data set. However, we decided midway in the process to abandon this idea. Without getting into too much detail, we found that the extra layer of Solr adds unnecessary complexity to the preprocessing step, and argue that have the search engine as a part of the process could ruin some confidence in the data integrity later in the process. As such, we have build our preprocessing up around scraping and parsing the raw HTML from a website. As Statistico stores all the raw HTML as well, our solution can just as easily interface with their data set.
-
 \subsection{Attributes}
 \label{subsec:attributes}
 
-The complete list of attributes in the data set can be found in table \ref{tab:all_attributes} in appendix \ref{apx:attributes}. The attributes with the \texttt{alexa} prefix have been downloaded from Alexa and includes the language of the websites, the number of incoming links, the average load time and the global and Danish rank of the websites\footnote{The Alexa rank is an estimate of the actual visitor count rank of the website. For instance, a global Alexa rank of 1 is assigned the most visited website.}. Attributes with the \texttt{has\_content} prefix, indicate whether or not the website contains some specific content (such as technological content). The \texttt{has\_js} attributes indicate whether or not various JavaScript libraries are used. For a description of the remaining attributes, please refer to the table.
+The complete list of attributes in the data set can be found in table \ref{tab:all_attributes} in appendix \ref{apx:attributes}. Note that we have enriched the data set, with website meta-data and statistics from Amazon's Alexa\cite{alexa} service. These attributes carry an \texttt{alexa} prefix.
 
-As mentioned earlier, irrelevant attributes were removed from the data set, in order to render an analysis possible. Hence, attributes which were more or less static across the whole dataset were removed, as these provided no further insight about the websites. The selection process was performed manually, as this made it possible to individually asses the importance of the different attributes.
+ Attributes with the \texttt{has\_content} prefix, indicate whether a website contains content pertaining to a certain category such as {\it technology} or {\it sports}. The \texttt{has\_js} attributes indicate whether a given JavaScript libraries is used by a website. For a description of the remaining attributes, please refer to table \ref{tab:all_attributes}.
+
+In the preprocessed data, we found that certain attributes were almost static across the whole dataset and decided to exclude these from the actual mining process, as these provided no further insight about the websites. This selection process was performed manually, and reduced the final data set to 29 attributes, which gives 70325 values with 1874, or 2.55\%, missing.
 
 Further, the reduced data set was grouped into three logical subsets, each accounting for some specific aspect of the websites. These final subsets can be seen in table \ref{tab:cluster_attributes}. These subsets were used for the actual analysis.
 
