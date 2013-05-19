@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 from pandas import DataFrame, Series
 from matplotlib.pyplot import savefig
+from matplotlib import rcParams
 import matplotlib.gridspec as gridspec
 import scipy.stats
 import create_dataframe
@@ -112,17 +113,23 @@ def numeric_attribute_histogram(plt, frame, title, num=10, interquartile=False,
     else:  # Binary plot
         bins = [0, 1]
         # ax1.get_xaxis().set_visible(False)
-        plt.ylabel('sites')
+
+        rcParams.update({'font.size': 18})
+        plt.ylabel('sites', size=20)
         plt.hist([[0] * sum(vals == 0), [1] * sum(
             vals == 1)], bins=bins, histtype='bar', color=['r', 'b'], label=['No', 'Yes'])
         plt.legend()
 
     # Add some final info
-    title += "\nsites: " + str(len(vals))
+    title += " (sites: " + str(len(vals)) + ")" if binary else "\nsites: " + str(len(vals))
+
     # If any data was removed, we report this on the plot
     if missing_values != 0:
         title += ", removed sites: " + str(missing_values)
-    fig.suptitle(title, fontsize=14, fontweight='bold')
+    if binary:
+        fig.suptitle(title, fontsize=20, fontweight='bold')
+    else:
+        fig.suptitle(title, fontsize=14, fontweight='bold')
 
     # Save to file
     savefig("./figures/" + file_name + ".png")
