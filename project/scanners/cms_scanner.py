@@ -5,12 +5,9 @@ import re
 from bs4 import Comment
 from scanner_attribute import ScannerAttribute
 
-"""
-    Parse CMS system for a website
+"""Parse CMS system for a website"""
 
-    TODO: Use reg ex when searching for a specific string in the raw HTML text.
-"""
-
+# The various CMS systems
 DOTNETNUKE = 'DOTNETNUKE'
 UMBRACO = 'UMBRACO'
 EPISERVER = 'EPISERVER'
@@ -24,13 +21,7 @@ DRUPAL = 'DRUPAL'
 JOOMLA = 'JOOMLA'
 UNKNOWN = 'UNKNOWN'
 
-
-class CMSScannerException(Exception):
-
-    def __init__(self, *args, **kwargs):
-        super(Exception, self).__init__(*args, **kwargs)
-
-
+# The bins
 def bins():
     return [
         DOTNETNUKE,
@@ -49,20 +40,23 @@ def bins():
 
 
 def found(cms):
+    """Utility method which returns which CMS was found."""
     return ScannerAttribute('cms', cms, index_of_discrete_bin(bins(), cms), bins())
 
 
 def cms_scanner(website):
+    """Find out whether or not the website uses a CMS (and which)."""
+
     soup = website.soup
 
     try:
-        if website == None:
+        if website is None:
             print 'CMS scanner. Website was: ', website
 
         # Assert that data is there
-        if soup == None or soup.get_text().isspace():
+        if soup is None or soup.get_text().isspace():
             print 'CMS scanner. soup was: ', soup
-            raise CMSScannerException()
+            raise Exception()
 
         # See if some cms is simply mentioned in the header
         drupal = 'drupal'
@@ -76,7 +70,6 @@ def cms_scanner(website):
             # Umbraco
             if umbraco in website.headers[key].lower() or umbraco in key.lower():
                 return found(UMBRACO)
-        # return ('cms', -1)
 
         # See if a certain path name occurs
         # DotNetNuke
@@ -94,15 +87,13 @@ def cms_scanner(website):
             return found(DRUPAL)
 
         # Sitecore
-        # TODO does this need to be on the entire source? Why not just do it
-        # onr src|href like below?
         sitecore_content_path = 'sitecore/content/'
         sitecore_util_path = 'http://www.sitecore.net/webutil'
         if sitecore_content_path in soup.get_text() or sitecore_util_path in soup.get_text():
             return found(SITECORE)
 
         # Wordpress url in any href or src
-        if soup.find_all(href=re.compile('wp-content', re.IGNORECASE)) 
+        if soup.find_all(href=re.compile('wp-content', re.IGNORECASE))
                 or soup.find_all(href=re.compile('wp-include', re.IGNORECASE)):
             return found(WORDPRESS)
 
@@ -115,11 +106,11 @@ def cms_scanner(website):
             return found(JOOMLA)
 
         # DotNetNuke in script source
-        if soup.find_all('script', src=re.compile('(dnn.js|dnncore.js)', re.IGNORECASE)):
+        if soup.find_all('script', src=re.compile('(dnn\\.js|dnncore\\.js)', re.IGNORECASE)):
             return found(DOTNETNUKE)
 
         # SharePoint in script source
-        if soup.find_all('script', src=re.compile('(core.js|msstring.js)', re.IGNORECASE)):
+        if soup.find_all('script', src=re.compile('(core\\.js|msstring\\.js)', re.IGNORECASE)):
             return found(SHAREPOINT)
 
         comments = soup.find_all(text=lambda text: isinstance(text, Comment))
@@ -156,10 +147,9 @@ def cms_scanner(website):
             return found(DYNAMICWEB)
 
     except Exception as e:
-        if not isinstance(e, CMSScannerException):
-            print 'CMSScannerException: ', e
-            print 'site: ', website.url
-            if hasattr(e, 'read'):
-                print e.read()
+        print 'Exception: ', e
+        print 'site: ', website.url
+        if hasattr(e, 'read'):
+            print e.read()
 
     return found(UNKNOWN)

@@ -7,9 +7,15 @@ from website import Website
 from website_analyzer import analyze
 from scanners import *
 
+"""A script which creates the actual dataset.
+
+
+"""
+
 # Settings
 website_dir = 'top_sites_all'
 
+# A list of the used scanners
 scanners = [
     url_scanner,
     image_count_scanner,
@@ -70,34 +76,20 @@ scanners = [
     content_business_scanner
 ]
 
-# Test
-# scanners = [
-#     content_news_scanner,
-#     content_sport_scanner,
-#     content_games_scanner,
-#     content_technology_scanner,
-#     content_xxx_scanner,
-#     content_music_scanner,
-#     content_shop_scanner,
-#     content_transport_scanner,
-#     content_food_scanner,
-#     content_film_scanner,
-#     content_health_scanner,
-#     content_business_scanner
-# ]
-
 # Get all websites
-start_time = time.time()
 
+start_time = time.time() # We time how long it takes to generate the dataset.
+
+# Get a list of all the input data files
 filenames = [join(website_dir, fn)
              for fn in listdir(website_dir) if isfile(join(website_dir, fn))]
-# filenames = filenames[:50]
 websites = []
 
 print 'Files loaded: ', len(filenames)
 
 load_time = time.time()
 
+# Parse the data files into Website objects
 for i in range(len(filenames)):
     fn = filenames[i]
     with open(fn) as f:
@@ -109,7 +101,7 @@ print 'Websites parsed'
 
 parse_time = time.time()
 
-# Scan attributes
+# Use scanners to find all attributes for each website
 attribute_rows = []
 for i in range(len(websites)):
     website = websites[i]
@@ -122,13 +114,17 @@ print 'Websites analyzed'
 analyze_time = time.time()
 
 # Write to ARFF
+
+# Create a binned version of the dataset
 writer = ArffWriter(attribute_rows, filename='dataset/data_binned.arff')
 writer.write()
 
+# Create a raw version of the dataset
 writer = ArffWriter(
     attribute_rows, filename='dataset/data_raw.arff', output_raw=True)
 writer.write()
 
+# Create a mixed version of the dataset
 Info = namedtuple('Info', ['type', 'use_binned', 'exclude'])
 attribute_info = {
     'alexa_has_adult_content': Info('nominal', True, False),
