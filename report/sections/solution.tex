@@ -1,14 +1,14 @@
 \section{Solution}
 \label{sec:solution}
 
-In this section we give a technical overview of our solution. The \texttt{Python} programming language is throughout the solution and, unless stated otherwise, every script which we refer to from here on is implemented in \texttt{Python}.
+In this section we give a technical overview of our solution. The {Python} programming language is used throughout the solution and, unless stated otherwise, every script which we refer to from here on is implemented in {Python}.
 
 \subsection{Data collection and parsing}
 \label{subsec:scraping}
 
-We have implemented a script for collecting the data. It scrapes the most popular sites\footnote{According to Alexa.} in the \texttt{.dk} domain. To make this as robust as possible, we inject a Firefox \texttt{User-agent} header into all requests, such as to fool the web-servers into giving useful responses\footnote{It is quite common for websites to reject crawlers. By injecting a \texttt{User-agent} header, a browser identifies itself to the webserver.}. Also we make sure to deal with \texttt{HTTP} redirects whenever present. In spite of this, some sites fail to be downloaded correctly because of \texttt{HTTP}/server errors. However, these problems does not occur in any predictable patterns, and should not contaminate our data set greatly. Whenever we receive a successful response, we store both the raw \texttt{HTML} and the \texttt{HTTP} response headers.
+We have implemented a script for collecting the data. It scrapes the most popular sites\footnote{According to Alexa.} in the \texttt{.dk} domain. To make this as robust as possible, we inject a Firefox \texttt{User-agent} header into all requests, such as to fool the web-servers into giving useful responses\footnote{It is quite common for websites to reject crawlers. By injecting a \texttt{User-agent} header, a browser identifies itself to the webserver.}. Also, we make sure to deal with {HTTP} redirects whenever present. In spite of this, some sites fail to be downloaded correctly because of various {HTTP}/server errors. However, these problems does not occur in any predictable patterns, and should not contaminate our data set greatly. Whenever we receive a successful response, we store both the raw {HTML} and the {HTTP} response headers.
 
-When the website data has been downloaded, we store and parse the \texttt{HTML} into a data structure which makes it easier to query. We have found that \texttt{Python}'s built-in \texttt{HTMLParser} is surprisingly fragile to the noisy and inconsistent nature of malformed \texttt{HTML}. Hence, various parser errors occur, resulting in a substantial data loss. Instead, we found that the \texttt{Beautiful Soup} library combined with the \texttt{lxml} \texttt{HTML}-parser is much more robust, and has helped us avoid data loss during this step \cite{beautiful_soup, lxml}.
+When the website data has been downloaded, we store and parse the {HTML} into a data structure which makes it easier to query. We have found that {Python}'s built-in \texttt{HTMLParser} is surprisingly fragile to the noisy and inconsistent nature of malformed {HTML}. Hence, various parser errors occur, resulting in a substantial data loss. Instead, we found that the {Beautiful Soup} library combined with the {lxml} {HTML}-parser is much more robust, and has helped us avoid data loss during this step \cite{beautiful_soup, lxml}.
 
 \subsection{Preprocessing}
 \label{subsec:preprocessing}
@@ -17,18 +17,20 @@ With the process described in \ref{subsec:scraping}, we can process the raw data
 
 Apart from the raw website data itself, we enrich our data set with information from Alexa and Google on general web-statistics, as described in section \ref{subsec:attributes}. These numbers are easily accessible, and simply too relevant to be ignored. A complete list of the attributes and their meaning can be found in table \ref{tab:all_attributes} in Appendix \ref{apx:attributes}.
 
-A high-level view of the architecture of the preprocessing library can be seen in figure \ref{fig:preprocess}. The \texttt{Website} class encapsulates the information belonging to each website. To easily extract the desired attributes, we introduce the concept of \textit{scanners}. Provided  a \texttt{Website} object, a scanner knows how to extract, and possibly bin, a given attribute from the raw website data. As such, there is a one-to-one correspondence between scanners and attributes. This scanner-based design is made pluggable, such that scanners can be added and removed as desired.
+A high-level view of the architecture of the preprocessing library can be seen in figure \ref{fig:preprocess}. The \texttt{Website} class encapsulates the information belonging to each website. To easily extract the desired attributes, we introduce the concept of \textit{scanners}. Provided  a \texttt{Website} object, a scanner knows how to extract, and possibly bin/discretise, a given attribute from the raw website data. As such, there is a one-to-one correspondence between scanners and attributes. This scanner-based design is made pluggable, such that scanners can be added and removed as desired.
 
-\hfig{figures/architecture.pdf}{0.7}{A high-level overview of the preprocessing library. Data is fetched from the internet, or potentially Statistico, and stored. The raw data is then then converted into \texttt{Website} objects which are processed using a set of scanners. The processed data is eventually stored in the \texttt{ARFF} file format.}{fig:preprocess}
+\hfig{figures/architecture.pdf}{0.7}{A high-level overview of the preprocessing library. Data is fetched from the internet, or potentially Statistico, and stored. The raw data is then then converted into \texttt{Website} objects which are processed using a set of scanners. The processed data is eventually stored in the {ARFF} file format.}{fig:preprocess}
 
 Apart from generating the data set, we also perform a few extra preprocessing steps before we analyse the data. In order to secure consistency in any distance measures, numeric attributes are normalised into the domain $[0, 1]$. Further, irrelevant attributes are removed from the data set (please refer to section \ref{subsec:attributes}) and missing values are replaced by the mean (numeric attributes) or mode (nominal attributes).
+
+Finally, the data set was saved in the ARFF format, which can be read by most data mining tools available.
 
 \subsection{Datamining tools}
 \label{subsec:weka}
 
-For creating basic statistics and plots of the data, we have used the \texttt{Python} libraries \texttt{MatplotLib} and \texttt{Pandas} \cite{matplotlib, pandas}. The corresponding results will be discussed in Section \ref{sec:statistics} and the full output can be found in Appendix \ref{apx:basic_statistics}.
+For creating basic statistics and plots of the data, we have used the {Python} libraries {MatplotLib} and {Pandas} \cite{matplotlib, pandas}. The corresponding results will be discussed in section \ref{sec:statistics} and the full output can be found in appendix \ref{apx:basic_statistics}.
 
-For the remaining data mining process we have used RapidMiner \cite{rapidminer}. This is as an alternative to Weka, that we think delivers a much better user experience and a more powerful workflow \cite{weka}. In RapidMiner one sets up a so called \textit{process} that consists of operators, and possibly \textit{building blocks} consisting of other operators. Our results are discussed in Section \ref{sev:analysis}.
+For the remaining data mining process we have used RapidMiner \cite{rapidminer}. This is as an alternative to Weka, that we think delivers a much better user experience and a more powerful workflow \cite{weka}. In RapidMiner one sets up a so called \textit{process} that consists of operators, and possibly \textit{building blocks} consisting of other operators. Our results are discussed in section \ref{sev:analysis}.
 
 %\todo{Mangler der noet her? Jeg har udkommenteret en hel del i latex'en herefter...}
 % In order to use both these tools, the preprocessing library (refer to section \ref{subsec:preprocessing}) was developed such that it could output the data set in the \texttt{ARFF} format, which can be read by both Weka and RapidMiner.

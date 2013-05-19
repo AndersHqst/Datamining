@@ -1,26 +1,26 @@
 \section{Analysis}
 \label{sec:analysis}
 
-In this section we present our analysis of the obtained data set. We first discuss a few basic statistical results, that we find interesting. Next, we search for significant clusters in the data set. Finally, we describe how we tried to predict the \texttt{PageRank} from the data set.
+In this section we present our analysis of the obtained data set. We first discuss a few basic statistical results, that we find interesting. Next, we search for significant clusters in the data set. Finally, we describe how we tried to predict the {PageRank} from the data set.
 
 \subsection{Statistics}
 \label{subsec:statistics}
 
-To get a better understanding of the data set, we have created some scripts to extract basic statistical information about the data set. This has helped us in getting a general understanding of the data, and consequently removing certain attributes from the data as described in Section \ref{subsec:attributes}. We plot every attribute in a histogram, along with the minimum, maximum, mode, standard deviation and median for numerical values. All non binary attributes are plotted in bins containing 10\% of the data, and the top and bottom 5 values are listed along the plot. Numerical attributes are also plotted in their inter-quartile range, as outliers might give a skewed picture. All plots can be found in Appendix \ref{apn:basic_statistics}. We have found that the investigated JavaScript libraries are very uncomment, except for \texttt{jQuery} which is used by a third of the websites. Server usage seems to be distributed much as one could expect. The server usage is shown in Figure \ref{fig:servers_top_10_discrete_intext}, where we have grouped different versions of the same server together.
+To get a better understanding of the data set, we have created some scripts to extract basic statistical information about the data set. This has helped us in getting a general understanding of the data, and consequently removing certain attributes from the data as described in section \ref{subsec:attributes}. We plot every attribute in a histogram, along with the minimum, maximum, mode, standard deviation and median for numerical values. All non binary attributes are plotted in bins containing 10\% of the data, and the top and bottom 5 values are listed along the plot. Numerical attributes are also plotted in their interquartile range, as outliers might give a skewed picture. All plots can be found in appendix \ref{apn:basic_statistics}. We have found that the investigated JavaScript libraries are very uncomment, except for {jQuery} which is used by a third of the websites. Server usage seems to be distributed much as one could expect. The server usage is shown in figure \ref{fig:servers_top_10_discrete_intext}, where we have grouped different versions of the same server together.
 
 \hfig{figures/basic_statistics/servers_top_10_discrete.png}{0.7}{Top 10 most used servers.}{fig:servers_top_10_discrete_intext}
 
-It turns out that it is difficult to identify the \texttt{CMS} used by a given website, but as can be seen in Figure \ref{fig:cms_distribution_binned_discrete}, we still find a distribution that seems quite reasonable. The most doubtful outcome is Drupal, which is known to be very popular, but is very difficult to detect by the scanners.
+It turns out that it is difficult to identify the {CMS} used by a given website (if any), but as can be seen in figure \ref{fig:cms_distribution_binned_discrete}, we still find a distribution that seems quite reasonable. The most doubtful outcome is Drupal, which is known to be very popular, but is very difficult to detect by the scanners.
 
-\hfig{figures/basic_statistics/cms_distribution_binned_discrete.png}{0.65}{The distribution of \texttt{CMS}'s.}{fig:cms_distribution_binned_discrete}
+\hfig{figures/basic_statistics/cms_distribution_binned_discrete.png}{0.65}{The distribution of {CMS}'s.}{fig:cms_distribution_binned_discrete}
 
-If we look at the \texttt{external\_links\_count} attribute, that is, links from the website pointing to another site, figure \ref{fig:external_links_count} and \ref{fig:external_links_count_interquartile} show, that most sites have less than 106 external links, and the the decrease in the number of links is quite clear in figure \ref{fig:external_links_count_interquartile}
+If we look at the \texttt{external\_links\_count} attribute, that is, links from the website pointing to other sites, figures \ref{fig:external_links_count} and \ref{fig:external_links_count_interquartile} show that most sites have less than 106 external links. The decrease in the number of links is also quite clear from the figure.
 
 %\hfig{figures/basic_statistics/external_links_count.png}{0.8}{External Links Count}{fig:external_links_count}
 
 \hfig{figures/basic_statistics/external_links_count_interquartile.png}{0.8}{External Links Count Interquartile}{fig:external_links_count_interquartile}
 
-An interesting and important stat is the number of back-links to a given website. Table \ref{tab:alexa_links_in_back_links} shows that on the top 10 of sites with most back-links, 5 sites belong to educational institutions, with \texttt{ku.dk} surpassing even \texttt{google.dk}. A complete list of top and bottom 10 of the numerical attributes can be found in Appendix \ref{apx:tables}.
+An interesting and important stat is the number of back-links to a given website. Table \ref{tab:alexa_links_in_back_links} shows that 5 of the top 10 of sites with most back-links belong to educational institutions, with \texttt{ku.dk} surpassing even \texttt{google.dk}. A complete list of top 10 and bottom 10 of the numerical attributes can be found in appendix \ref{apx:tables}.
 
 \hhtab{p{130pt}p{50pt}}
 {
@@ -45,57 +45,57 @@ We find that most of the numbers we get from collecting these statistics, are mu
 \subsection{Clustering}
 \label{subsec:clustering}
 
-The data was clustered using \texttt{K-Means}, \texttt{K-Medoids}, and \texttt{DBSCAN}. We have experimented using \texttt{K-Means} and \texttt{K-Medoids} looking for 8 clusters\footnote{The choice of 8 clusters was based on experimentation and seemed to yield the most well-defined clusters.}, and we use a mixed distance measure as described in the course book \cite{book}. For \texttt{DBSCAN} we have sought for a minimum of 5 points using $\varepsilon = 1.0$.
+The data was clustered using {K-Means}, {K-Medoids}, and {DBSCAN}. We have experimented using {K-Means} and {K-Medoids} looking for 8 clusters\footnote{The choice of 8 clusters was based on experimentation and seemed to yield the most well-defined clusters.}, and we have used a mixed distance measure as described in the course book \cite{book}. For {DBSCAN} we have sought for a minimum of 5 points using $\varepsilon = 1.0$.
 
-Most of our clustering analysis is based on the \texttt{K-Medoids} clusters, as we experienced a few problems using the remaining two algorithms. Somehow, the \texttt{K-Means} implementation in \texttt{RapidMiner} returned less than 8 clusters. However, these clusters still seemed to be in good correspondence with the \texttt{K-Medoids} clusters, although somewhat less fine-grained. In some cases, using \texttt{DBSCAN} resulted in a very large number of clusters, which rendered further analysis very difficult. As the data set contains a lot of binary attributes, changing the value of $\varepsilon$ does not have much effect, as the usual result is a very rapid change of the number of clusters. Still, in the cases where \texttt{DBSCAN} did not produce an excessive amount of clusters, the clustering seemed to be in quite good agreement with the clusters we found using \texttt{K-Medoids}.
+Most of our clustering analysis is based on the {K-Medoids} clusters, as we experienced a few problems using the remaining two algorithms. Somehow, the {K-Means} implementation in {RapidMiner} returned less than 8 clusters. However, these clusters still seemed to be in good correspondence with the {K-Medoids} clusters, although somewhat less fine-grained. In some cases, using {DBSCAN} resulted in a very large number of clusters, which rendered further analysis very difficult. As the data set contains a lot of binary attributes, changing the value of $\varepsilon$ does not have much effect, as the usual result is a very rapid change of the number of clusters. Still, in the cases where {DBSCAN} did not produce an excessive amount of clusters, the clustering seemed to be in quite good agreement with the clusters we found using {K-Medoids}.
 
-The clustering has been done for each subset of the attributes listed in Table \ref{tab:cluster_attributes}.
+The clustering has been done for each subset of the attributes listed in table \ref{tab:cluster_attributes}.
 
 \subsubsection{Clustering the rank subset}
 
-For the rank subset, all three clustering algorithms manage to locate some well-defined clusters. Nevertheless, we will limit the following discussion to the results of \texttt{K-Medoids}. 
+For the rank subset, all three clustering algorithms manage to locate some well-defined clusters. Nevertheless, we will limit the following discussion to the results of {K-Medoids}. 
 
-\hhfig{figures/clusters.png}{1}{A visualisation of the \texttt{K-Medoids} clusters for a given set of attributes. Notice that binary attributes are represented as 0 (\texttt{false}) or 1 (\texttt{true}), and that the axes have been flipped in the last plot. Also, it is useful to remember that a small Alexa rank corresponds to a high popularity.}{fig:clusters}
+\hhfig{figures/clusters.png}{1}{A visualisation of the {K-Medoids} clusters for a given set of attributes. Notice that binary attributes are represented as 0 (\texttt{false}) or 1 (\texttt{true}), and that the axes have been flipped in the last plot. Also, it is useful to remember that a small Alexa rank corresponds to a high popularity.}{fig:clusters}
 
 Figure \ref{fig:clusters} visualises the found clusters, for a given set of attributes. Although, we cannot easily display the entire set of attributes in two dimensions, we are still able to see spot some of the clusters. Below we describe the most significant of these clusters.
 
 \paragraph{Cluster: The search-engine optimized top websites}
 
-This is the yellow cluster in Figure \ref{fig:clusters}. These websites have the best average \texttt{Alexa} rank and a very good \texttt{PageRank} as well. They contain both the keyword and description meta tags. The fact that time has been spent on these \texttt{SEO} related attributes, could indicate that this cluster represents websites which use the web as their main platform. This cluster contains sites such as \verb|www.krak.dk|, \verb|www.dba.dk| og \verb|www.amino.dk|.
+This is the yellow cluster in figure \ref{fig:clusters}. These websites have the best average {Alexa} rank and a very good {PageRank} as well. They contain both the keyword and description meta tags. The fact that time has been spent on these {SEO} related attributes, could indicate that this cluster represents websites which use the web as their main platform. This cluster contains sites such as \verb|www.krak.dk|, \verb|www.dba.dk| og \verb|www.amino.dk|.
 
 \paragraph{Cluster: The unoptimized top websites}
 
-This is the dark blue cluster in Figure \ref{fig:clusters}. These websites also have a very good \texttt{Alexa Rank} and \texttt{PageRank}. However, less time has been spent on \texttt{SEO}, which indicates that these websites are the ones that have become popular through some other media or do not need this optimization as much as the former cluster does. This cluster includes \verb|www.google.dk|, \verb|www.ekstrabladet.dk| and \verb|www.bt.dk|. Obviously, \texttt{SEO} is less important for Google itself.
+This is the dark blue cluster in figure \ref{fig:clusters}. These websites also have a very good {Alexa Rank} and {PageRank}. However, less time has been spent on {SEO}, which indicates that these websites are the ones that have become popular through some other media or do not need this optimization as much as the former cluster does. This cluster includes \verb|www.google.dk|, \verb|www.ekstrabladet.dk| and \verb|www.bt.dk|. Obviously, \texttt{SEO} is less important for Google itself.
 
-\paragraph{Other observations} We also notice that the light blue cluster in Figure \ref{fig:clusters} contains the websites which do even contain a title tag (one of the most important tags). Obviously, some other clusters can be seen as well, but these are not as distinctly defined as the previously mentioned clusters.
+\paragraph{Other observations} We also notice that the light blue cluster in figure \ref{fig:clusters} contains the websites which do even contain a title tag (one of the most important tags). Obviously, some other clusters can be seen as well, but these are not as distinctly defined as the previously mentioned clusters.
 
 \subsubsection{Clustering the technology subset}
 
-Clustering on the technology related attributes also showed some very distinct clusters. The most interesting clusters are discussed below. Again, the discussion is based on the results of \texttt{K-Medoids}.
+Clustering on the technology related attributes also showed some very distinct clusters. The most interesting clusters are discussed below. Again, the discussion is based on the results of {K-Medoids}.
 
 \paragraph{Cluster: High-tech websites}
 
-This cluster primarily consists of the websites which use both \texttt{HTML5} and the \texttt{jQuery} JavaScript library. Although \texttt{HTML5} and JavaScript libraries such as \texttt{jQuery} are becoming more and more common, these websites are the ones that have readily embraced these technologies.
+This cluster primarily consists of the websites which use both {HTML5} and the {jQuery} JavaScript library. Although {HTML5} and JavaScript libraries such as {jQuery} are becoming more and more common, these websites are the ones that have readily embraced these technologies.
 
 \paragraph{Cluster: Websites using a CMS}
 
-A specific \texttt{CMS} cluster was found. Although, the \texttt{CMS} usage data in our data set is somewhat underestimated, a very clear grouping of \texttt{CMS} systems was found. \texttt{Wordpress}, \texttt{Sharepoint} and \texttt{Drupal} websites are the most dominant \texttt{CMS}'s in this cluster. Further, \texttt{Google Analytics} is used in most of these websites.
+A specific {CMS} cluster was found. Although, the {CMS} usage data in our data set is somewhat underestimated, a very clear grouping of {CMS} systems was found. {Wordpress}, {SharePoint} and {Drupal} websites are the most dominant {CMS}'s in this cluster. Further, {Google Analytics} is used in most of these websites.
 
 \paragraph{Cluster: Low-tech websites}
 
-Finally, we have the websites which do not use either \texttt{HTML5} or \texttt{JQuery}. \texttt{K-Medoids} actually grouped these websites into two different clusters - a cluster containing low-tech sites running on \texttt{Microsoft} servers and a cluster containing the remaining low-tech sites. The major difference between these is the fact that the \texttt{Microsoft} low-tech cluster still makes use of \texttt{Google Analytics}, whereas this is not the case for the other cluster.
+Finally, we have the websites which do not use either {HTML5} or {jQuery}. {K-Medoids} actually grouped these websites into two different clusters - a cluster containing low-tech sites running on {Microsoft} servers and a cluster containing the remaining low-tech sites. The major difference between these is the fact that the {Microsoft} low-tech cluster still makes use of {Google Analytics}, whereas this is not the case for the other cluster.
 
 \paragraph{Other observations}
 
-One interesting observation is the fact that the use of \texttt{Google Analytics} does not seem to be correlated with the general use of technology on the websites. However, this might be due to the fact, that using \texttt{Google Analytics} or similar services, is often a management decision, whereas management might be somewhat oblivious to the choice technology.
+One interesting observation is the fact that the use of {Google Analytics} does not seem to be correlated with the general use of technology on the websites. However, this might be due to the fact, that using {Google Analytics} or similar services, is often a management decision, whereas management might be somewhat oblivious to the choice technology.
 
 \subsubsection{Clustering the content subset}
 
-Clustering on the content results in a few prominent clusters. The most extreme of these clusters are websites without any content\footnote{In this context, a website not having any content, really means that none the content scanners could categorize the website.} and the websites which satisfied almost all of our content criteria. For this clustering, we have noted that the content rich websites have a better \texttt{Google PageRank}.
+Clustering on the content results in a few prominent clusters. The most extreme of these clusters are websites without any content\footnote{In this context, a website not having any content, really means that none the content scanners could categorize the website.} and the websites which satisfied almost all of our content criteria. For this clustering, we have noted that the content rich websites have a better {Google PageRank}.
 
-Based on this observation, it makes sense to compare the amount of content in each clusters to its assigned \texttt{PageRank}. We make this comparison by plotting the average \texttt{PageRank} of each cluster versus its average of the content attributes\footnote{Although these attributes are actually binary, they were treated as numeric, as the average is more useful than the mode in this particular case.}.
+Based on this observation, it makes sense to compare the amount of content in each clusters to its assigned {PageRank}. We make this comparison by plotting the average {PageRank} of each cluster versus its average of the content attributes\footnote{Although these attributes are actually binary, they were treated as numeric, as the average is more useful than the mode in this particular case.}.
 
-As it turns out, there seem to be a relationship between the average amount of content in the cluster and the assigned \texttt{PageRank}. This tendency can be seen in figure \ref{fig:cluster_content} for \texttt{K-Medoids} and in appendix \ref{app:content_pagerank} for \texttt{K-Means} and \texttt{DBSCAN}. Obviously, it must be noted that the exact relationship is still somewhat unclear, but the tendency is definitely present.
+As it turns out, there seem to be a relationship between the average amount of content in the cluster and the assigned {PageRank}. This tendency can be seen in figure \ref{fig:cluster_content} for {K-Medoids} and in appendix \ref{app:content_pagerank} for {K-Means} and {DBSCAN}. Obviously, it must be noted that the exact relationship is still somewhat unclear, but the tendency is definitely present.
 
 \hfig{figures/kmedoids_content_pagerank.png}{0.5}{The content attributes clustered using K-Medoids. It is seen, that a large amount of content tends to result in a better PageRank.}{fig:cluster_content}
 
