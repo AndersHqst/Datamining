@@ -4,24 +4,23 @@ The top-level auxiliary file: report.aux
 The style file: plain.bst
 Database file #1: sections/bibliography.bib
 Warning--entry type for "rapidminer" isn't style-file defined
---line 17 of file sections/bibliography.bib
+--line 26 of file sections/bibliography.bib
 Warning--entry type for "weka" isn't style-file defined
---line 23 of file sections/bibliography.bib
+--line 32 of file sections/bibliography.bib
 Warning--entry type for "solr" isn't style-file defined
---line 29 of file sections/bibliography.bib
+--line 38 of file sections/bibliography.bib
 Warning--entry type for "lucene" isn't style-file defined
---line 35 of file sections/bibliography.bib
+--line 44 of file sections/bibliography.bib
 Warning--entry type for "alexa" isn't style-file defined
---line 41 of file sections/bibliography.bib
+--line 50 of file sections/bibliography.bib
 Warning--entry type for "beautiful_soup" isn't style-file defined
---line 47 of file sections/bibliography.bib
+--line 56 of file sections/bibliography.bib
 Warning--entry type for "lxml" isn't style-file defined
---line 53 of file sections/bibliography.bib
+--line 62 of file sections/bibliography.bib
 Warning--entry type for "matplotlib" isn't style-file defined
---line 59 of file sections/bibliography.bib
+--line 68 of file sections/bibliography.bib
 Warning--entry type for "pandas" isn't style-file defined
---line 65 of file sections/bibliography.bib
-Warning--I didn't find a database entry for "book"
+--line 74 of file sections/bibliography.bib
 Warning--to sort, need author or key in lucene
 Warning--to sort, need author or key in solr
 Warning--to sort, need author or key in alexa
@@ -31,45 +30,45 @@ Warning--to sort, need author or key in matplotlib
 Warning--to sort, need author or key in pandas
 Warning--to sort, need author or key in rapidminer
 Warning--to sort, need author or key in weka
-You've used 9 entries,
+You've used 10 entries,
             2118 wiz_defined-function locations,
-            524 strings with 4910 characters,
-and the built_in function-call counts, 1453 in all, are:
-= -- 135
-> -- 9
+            529 strings with 5062 characters,
+and the built_in function-call counts, 1757 in all, are:
+= -- 165
+> -- 27
 < -- 0
-+ -- 10
-- -- 0
-* -- 47
-:= -- 162
-add.period$ -- 18
-call.type$ -- 9
-change.case$ -- 27
++ -- 17
+- -- 6
+* -- 67
+:= -- 218
+add.period$ -- 22
+call.type$ -- 10
+change.case$ -- 33
 chr.to.int$ -- 0
-cite$ -- 18
-duplicate$ -- 63
-empty$ -- 208
-format.name$ -- 0
-if$ -- 361
+cite$ -- 19
+duplicate$ -- 75
+empty$ -- 230
+format.name$ -- 6
+if$ -- 425
 int.to.chr$ -- 0
-int.to.str$ -- 9
-missing$ -- 0
-newline$ -- 39
-num.names$ -- 0
-pop$ -- 72
+int.to.str$ -- 10
+missing$ -- 2
+newline$ -- 44
+num.names$ -- 2
+pop$ -- 79
 preamble$ -- 1
-purify$ -- 18
+purify$ -- 23
 quote$ -- 0
-skip$ -- 72
+skip$ -- 77
 stack$ -- 0
-substring$ -- 46
-swap$ -- 9
+substring$ -- 51
+swap$ -- 10
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 36
+type$ -- 38
 warning$ -- 9
-while$ -- 0
-width$ -- 10
-write$ -- 65
-(There were 19 warnings)
+while$ -- 2
+width$ -- 12
+write$ -- 77
+(There were 18 warnings)

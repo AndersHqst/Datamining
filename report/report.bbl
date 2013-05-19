@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{alexa}
 Alexa is a proprietary web-service developed by amazon that provides meta data
@@ -37,5 +37,11 @@ Solr is a server for sending text based queries to the lucene index.
 \bibitem{weka}
 Weka is freely available data mining software.
 \newblock http://www.cs.waikato.ac.nz/ml/weka/.
+
+\bibitem{book}
+Jiawei Han, Micheline Kamber, and Jian Pei.
+\newblock {\em Data Mining: Concepts and Techniques}.
+\newblock The Morgan Kaufmann Series in Data Management Systems. Morgan
+  Kaufmann, 3 edition, 2012.
 
 \end{thebibliography}

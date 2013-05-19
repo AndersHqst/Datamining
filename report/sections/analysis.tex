@@ -6,7 +6,7 @@ In this section we present our analysis of the obtained data set. We first discu
 \subsection{Statistics}
 \label{subsec:statistics}
 
-To get a better understanding of the data set, we have created some scripts to extract basic statistical information about the data set. This has helped us in getting a general understanding of the data, and consequently removing certain attributes from the data as described in section \ref{subsec:attributes}. We plot every attribute in a histogram, along with the minimum, maximum, mode, standard deviation and median for numerical values. All non binary attributes are plotted in bins containing 10\% of the data, and the top and bottom 5 values are listed along the plot. Numerical attributes are also plotted in their interquartile range, as outliers might give a skewed picture. All plots can be found in appendix \ref{apn:basic_statistics}. We have found that the investigated JavaScript libraries are very uncomment, except for {jQuery} which is used by a third of the websites. Server usage seems to be distributed much as one could expect. The server usage is shown in figure \ref{fig:servers_top_10_discrete_intext}, where we have grouped different versions of the same server together.
+To get a better understanding of the data set, we have created some scripts to extract basic statistical information about the data set. This has helped us in getting a general understanding of the data, and consequently removing certain attributes from the data as described in section \ref{subsec:attributes}. We plot every attribute in a histogram, along with the minimum, maximum, mode, standard deviation, and median for numerical values. All non binary attributes are plotted in bins containing 10\% of the data, and the top and bottom 5 values are listed along the plot. Numerical attributes are also plotted in their interquartile range, as outliers might give a skewed picture. All plots can be found in appendix \ref{apx:basic_statistics}. We have found that the investigated JavaScript libraries are very uncommon, except for {jQuery} which is used by a third of the websites. Server usage seems to be distributed much as one could expect. The server usage is shown in figure \ref{fig:servers_top_10_discrete_intext}, where we have grouped different versions of the same server together.
 
 \hfig{figures/basic_statistics/servers_top_10_discrete.png}{0.7}{Top 10 most used servers.}{fig:servers_top_10_discrete_intext}
 
@@ -14,7 +14,7 @@ It turns out that it is difficult to identify the {CMS} used by a given website 
 
 \hfig{figures/basic_statistics/cms_distribution_binned_discrete.png}{0.65}{The distribution of {CMS}'s.}{fig:cms_distribution_binned_discrete}
 
-If we look at the \texttt{external\_links\_count} attribute, that is, links from the website pointing to other sites, figures \ref{fig:external_links_count} and \ref{fig:external_links_count_interquartile} show that most sites have less than 106 external links. The decrease in the number of links is also quite clear from the figure.
+If we look at the \texttt{external\_links\_count} attribute, that is, links from the website pointing to another site, we find that some sites have an extreme amount of links, while most sites have below 106 external links. If we look at figure \ref{fig:external_links_count_interquartile} of the interquartile of the \texttt{external\_links\_count}, we can see that the number is slowly decreasing as we would expect.
 
 %\hfig{figures/basic_statistics/external_links_count.png}{0.8}{External Links Count}{fig:external_links_count}
 
@@ -53,7 +53,7 @@ The clustering has been done for each subset of the attributes listed in table \
 
 \subsubsection{Clustering the rank subset}
 
-For the rank subset, all three clustering algorithms manage to locate some well-defined clusters. Nevertheless, we will limit the following discussion to the results of {K-Medoids}. 
+For the rank subset, all three clustering algorithms manage to locate some well-defined clusters. Nevertheless, we will limit the following discussion to the results of {K-Medoids}.
 
 \hhfig{figures/clusters.png}{1}{A visualisation of the {K-Medoids} clusters for a given set of attributes. Notice that binary attributes are represented as 0 (\texttt{false}) or 1 (\texttt{true}), and that the axes have been flipped in the last plot. Also, it is useful to remember that a small Alexa rank corresponds to a high popularity.}{fig:clusters}
 

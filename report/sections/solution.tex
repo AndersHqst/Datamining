@@ -23,14 +23,14 @@ A high-level view of the architecture of the preprocessing library can be seen i
 
 Apart from generating the data set, we also perform a few extra preprocessing steps before we analyse the data. In order to secure consistency in any distance measures, numeric attributes are normalised into the domain $[0, 1]$. Further, irrelevant attributes are removed from the data set (please refer to section \ref{subsec:attributes}) and missing values are replaced by the mean (numeric attributes) or mode (nominal attributes).
 
-Finally, the data set was saved in the ARFF format, which can be read by most data mining tools available.
+Finally, the data set is saved in the ARFF format, which can be read by most data mining tools.
 
 \subsection{Datamining tools}
 \label{subsec:weka}
 
-For creating basic statistics and plots of the data, we have used the {Python} libraries {MatplotLib} and {Pandas} \cite{matplotlib, pandas}. The corresponding results will be discussed in section \ref{sec:statistics} and the full output can be found in appendix \ref{apx:basic_statistics}.
+For creating basic statistics and plots of the data, we have used the {Python} libraries {MatplotLib} and {Pandas} \cite{matplotlib, pandas}. The corresponding results will be discussed in section \ref{subsec:statistics} and the full output can be found in appendix \ref{apx:basic_statistics}.
 
-For the remaining data mining process we have used RapidMiner \cite{rapidminer}. This is as an alternative to Weka, that we think delivers a much better user experience and a more powerful workflow \cite{weka}. In RapidMiner one sets up a so called \textit{process} that consists of operators, and possibly \textit{building blocks} consisting of other operators. Our results are discussed in section \ref{sev:analysis}.
+For the remaining data mining process we have used RapidMiner \cite{rapidminer}. This is as an alternative to Weka, that we think delivers a much better user experience and a more powerful workflow \cite{weka}. In RapidMiner one sets up a so called \textit{process} that consists of operators, and possibly \textit{building blocks} consisting of other operators. Our results are discussed in section \ref{sec:analysis}.
 
 %\todo{Mangler der noet her? Jeg har udkommenteret en hel del i latex'en herefter...}
 % In order to use both these tools, the preprocessing library (refer to section \ref{subsec:preprocessing}) was developed such that it could output the data set in the \texttt{ARFF} format, which can be read by both Weka and RapidMiner.
