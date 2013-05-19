@@ -1,34 +1,33 @@
 \subsection{Predicting Page Rank}
 \label{subsec:predection}
-We want to see if we can predict the page rank of a website, by using a model linear regression, and a neural network in RapidMiner\footnote{Appendix \ref{apn:rapidminer_setup} shows examples of the RapidMinerGUI for setting up a data mining process.}. The prediction results are from performing cross-validation with linear sampling with 10\% of the data as test data. For the neural network, we use one hidden layer, and the cross validation is done in combination with parameter optimization targeting learning rate and momentum. RapidMiner makes this possible by providing an operator for specifying what parametersm and in what ranges, we want to run the optimization. As such our results are the best picks. For the neural network we set up 3 machines, each dedicated to one attribute subset, and ran the process on 10, 250, and 500 epochs. Table \ref{tab:prediction_results} lists the results of running predictions on both the Rank subset related subset, and the full set. We use \(l\) for learning rate and \(m\) for momentum.
+We want to see if we can predict the page rank of a website, by using a model linear regression, and a neural network in RapidMiner\footnote{Appendix \ref{apn:rapidminer_setup} shows examples of the RapidMinerGUI for setting up a data mining process.}. The prediction results are from performing cross-validation with linear sampling with 10\% of the data as test data. For the neural network, we use one hidden layer, and the cross validation is done in combination with parameter optimization targeting learning rate and momentum. RapidMiner makes this possible by providing an operator for specifying what parametersm and in what ranges, we want to run the optimization. As such our results are the best picks. For the neural network we set up 3 machines, each dedicated to one attribute subset, and ran the process on 10, 250, and 500 epochs. Table \ref{tab:prediction_results} lists the results of running predictions on both the Rank subset related subset, and the full set. We use \(l\) for learning rate, \(e\) for epochs, and \(m\) for momentum.
 \todo{fix talbe width}
 \todo{Consider delete of the comment column.}
-\hhtab{p{80pt}p{50pt}p{50pt}p{50pt}}
+\hhtab{p{80pt}p{80pt}p{50pt}l}
 {
 \toprule
 Model & Data & Error & Parameters\\
 \midrule
-Linear Regression & Rank subset & 1.2541 & - \\
-Linear Regression & Content subset & 1.6248 & - \\
-Linear Regression & Technology subset & 1.5842& - \\
-Linear Regression & Full set & 1.4730 & - \\
-Neural Net & Rank subset & 1.376 & epochs=500, \(l\)=0.1, \(m\)=0.34\\
-Neural Net & Technology subset & 1.589 & epochs=250 \(l\)=0.1, \(m\)=0.25\\
-Neural Net & Content subset & 1.602 & epochs=10, \(l\)=0.1, \(m\)=0.34\\
-Neural Net & Full set & 2.141 & epochs=250, \(l\)=0.1 \(m\)=0.34\\
-ZeroR baseline & 1.6866 & Also as root mean squared error\\
+Linear Regression & Rank subset & 1.254 & - \\
+Linear Regression & Content subset & 1.624 & - \\
+Linear Regression & Technology subset & 1.584& - \\
+Linear Regression & Full set & 1.473 & - \\
+Neural Net & Rank subset & 1.376 & \(e\)=500, \(l\)=0.1, \(m\)=0.34\\
+Neural Net & Technology subset & 1.589 & \(e\)=250 \(l\)=0.1, \(m\)=0.25\\
+Neural Net & Content subset & 1.602 & \(e\)=10, \(l\)=0.1, \(m\)=0.34\\
+Neural Net & Full set & 2.141 & \(e\)=250, \(l\)=0.1 \(m\)=0.34\\
+ZeroR baseline & Full set & 1.686 & -\\
 \bottomrule
 }{Overview of model predicting with Page Rank as the target value. The Error is the root mean squared error (RMSE) after cross validation. Target value is in its original scale.}{tab:prediction_results}
 
-As table \ref{tab:prediction_results} indicates we seem to be able to predict the page rank within \(1.2541\) which we find is quite a good prediction considering the limited information, while not being exceptional considering the base line. Still, it is a bit surprising that the the neural net cannot produce a result better or similar to the linear regression. We believe the answer to this could be that the neural net simply over-fits the data too easily, and thus not generalizes well. The results also tell us that a linear model may be a good model for regression on our kind of data.
+As table \ref{tab:prediction_results} indicates we seem to be able to predict the page rank within \(1.254\) which we find is quite a good prediction considering the limited information, while not being exceptional considering the base line. Still, it is a bit surprising that the the neural net cannot produce a result better or similar to the linear regression. We believe the answer to this could be that the neural net simply over-fits the data too easily, and thus not generalizes well. The results also tell us that a linear model may be a good model for regression on our kind of data.
 
-In the results from running the neural nets, we have found that the \texttt{Alexa Rank} and links related attributes provided, are the most important attributes. If we look at \texttt{RapidMiner}'s output of the neural net model, it shows that the \texttt{Alexa links in} attribute is the attribute that is given most weight when we build a model to predict the page rank. This can be seen by inspecting the importance, or strength, that each attributes has on the output of the neural net. The visualization is show in figure \ref{fig:neural_net}.
+In the results from the neural net models, we found that the \texttt{Alexa Rank} and links related attributes provided, are the most important attributes. This can be seen by looking at \texttt{RapidMiner}'s output from the neural net model, that shows that the \texttt{alexa\_links\_in} attribute is the attribute that is given most weight in the model. The visualization of this is show in figure \ref{fig:neural_net}.
 
-\dbgfig{../figures/neural_nets.png}{0.9}{Importance of a connection between neurones in the neural net are indicated by the boldness of the connection. The Alexa links in is in the input layer 7th from the top, the bias is at the bottom.}{fig:neural_net}
+\hfig{figures/neural_nets.png}{0.9}{Importance of a connection between neurones in the neural net are indicated by the boldness of the connection. The Alexa links in is in the input layer 7th from the top, the bias is at the bottom.}{fig:neural_net}
 
-The correlation coefficient between page rank and and Alexa links in is \(0.2054\) which supports the above indications. As this is somewhat an undesired conclusion, the above models for prediction are test against a sub set of the Rank subset minus attributes from \texttt{Alexa} as seen in table \ref{tab:rank_no_alexa}, which yields the results seen in table \ref{tab:rank_no_alexa_prediction}
+The correlation coefficient between page rank and and Alexa links in is \(0.2054\) which supports the above indications. As this is somewhat trivial conclusion, we can try with models for prediction against the Rank subset minus attributes from \texttt{Alexa} as seen in table \ref{tab:rank_no_alexa}, which yields the results seen in table \ref{tab:rank_no_alexa_prediction}
 
-\todo{rename to indicate no alexa}
 \hhtab{l l}
 {
 \toprule
@@ -50,4 +49,4 @@ Neural Net & Rank subset set & 1.709 & - Best from before\\
 \bottomrule
 }{Overview of model predicting with Page Rank as the target value. The Error is the average squared error after cross validation. Target value is in its original scale.}{tab:rank_no_alexa_prediction}
 
-As table \ref{tab:rank_no_alexa_prediction} shows, error has gone up by removing the \texttt{Alexa} related attributes, and shows that we can predict a page rank in the \(1.6955\) range, with this scarce set of attributes. As this is not better than our baseline, it supports our conjecture that the \texttt{Alexa} attributes are the ones allowing an interesting prediction.
+As table \ref{tab:rank_no_alexa_prediction} shows, the error has gone up by removing the \texttt{Alexa} related attributes, and shows that we can predict a page rank in the \(1.6955\) range. As this is not better than our baseline, it supports our conjecture that the \texttt{alexa\_links\_in} attribute is the one allowing an interesting prediction.
