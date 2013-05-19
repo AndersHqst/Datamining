@@ -9,15 +9,15 @@ Further, we have used clustering algorithms to try and identify any obvious clus
 \label{subsec:statistics}
 To get a better understanding of the data, we have automated to process of generating some basic statistics and overview of the data. We plot every attribute on histograms or bar charts, along the minimum, maximum, mode, standard deviation, and median for numerical values. All non binary attributes are plotted in bins of 10\% intervals of the data and top and bottom 10 values are listed along the plot. These are also plotted in their inter-quantile range as outliers often give a skewed picture. All plots can be found in Appendix \ref{apn:basic_statistics}. As an example we can see that the JavaScript libraries we look for are very uncommon, except JQuery which is on 1 out of 3 sites. And for servers we find that the distribution is much as we would expect, and that we are often able to identified these. Servers binned to ignore version numbers is show in figure \ref{fig:servers_top_10_discrete}.
 
-\hfig{figures/basic_statistics/servers_top_10_discrete.png}{0.8}{Servers Top 10 Discrete}{fig:servers_top_10_discrete}
+\hfig{figures/basic_statistics/servers_top_10_discrete.png}{0.7}{Servers Top 10 Discrete}{fig:servers_top_10_discrete}
 
 It turns out that is harder to identify the CMS used by a given site, but as can be seen in figure \ref{fig:cms_distribution_binned_discrete} we can get a distribution that seems very likely. The most doubtful outcome is Drupal, that is known to be very popular, but is often harder to detect by the scanners.
 
-\hfig{figures/basic_statistics/cms_distribution_binned_discrete.png}{0.8}{Cms Distribution Binned}{fig:cms_distribution_binned_discrete}
+\hfig{figures/basic_statistics/cms_distribution_binned_discrete.png}{0.65}{Cms Distribution Binned}{fig:cms_distribution_binned_discrete}
 
 Another example is the external links count, that is, links from the website pointing to another site. As figure \ref{fig:external_links_count} and \ref{fig:external_links_count_interquantile} show, most sites have less than 106 external links, and the the descending in the number of links is clear in figure \ref{fig:external_links_count_interquantile}
 
-\hfig{figures/basic_statistics/external_links_count.png}{0.8}{External Links Count}{fig:external_links_count}
+%\hfig{figures/basic_statistics/external_links_count.png}{0.8}{External Links Count}{fig:external_links_count}
 
 \hfig{figures/basic_statistics/external_links_count_interquantile.png}{0.8}{External Links Count Interquantile}{fig:external_links_count_interquantile}
 
@@ -103,7 +103,7 @@ Due to this, we tried to compare the amount of content in the clusters to their 
 
 As it turns out, there seem to be a relationship between the average amount of content in the cluster and the assigned PageRank. This tendency can be seen in figure \ref{fig:cluster_content} for K-Medoids and in appendix \ref{app:content_pagerank} for K-Means and DBSCAN. Obviously, it must be noted that the exact relationship is still somewhat unclear, but the tendency is definitely present.
 
-\hfig{figures/kmedoids_content_pagerank.png}{0.8}{The content attributes clustered using K-Medoids. It is seen, that a large amount of content tends to result in a better PageRank.}{fig:cluster_content}
+\hfig{figures/kmedoids_content_pagerank.png}{0.6}{The content attributes clustered using K-Medoids. It is seen, that a large amount of content tends to result in a better PageRank.}{fig:cluster_content}
 
 One could also plot the unclustered content attributes against the PageRank. This turned out to give a much more noisy picture, although the same tendencies were found (on average). If course, it should also be noted that the clustering does not really provide any insight which could not be found from the original dataset. However, the clustering helped us \textit{spot} the tendency.
 
@@ -136,9 +136,9 @@ Neural Net & Full set & 4.587 \\
 Page rank predictions are based on the cross-validation building-block in RapidMiner, which provides a few strategies like {\it leave-one-out} and and some randomized approaches. As our data is already in a random order we have simply used a linear sampling that separates a standard 10\% as test data, and thus performs 10 runs. As table \ref{tab:prediction_results} indicates we seem to be able to predict the page rank within \(\sqrt{1.573} = 1.2541\) which is also what we would expect, as the Alexa Rank and links related attributes are provided. The above predictions have also been tested with RapidMiner's build in M5 for automatic feature selection, but the results were virtually the same. It seems only a few of the JavaScript related features are excluded.
 The output of the neural net model indicates that the Alexa links in attribute is the most important in deciding the page rank. This can be seen by inspecting the importance, or strength, that each attributes has on the outcome of the neural net. The visualization is show in figure \ref{fig:neural_net}
 
-\fig{figures/neural_nets.png}{0.9}{Importance of a connection between neurones in the neural net are indicated by the boldness of the connection. The Alexa links in is in the input layer 7th from the top, the bias is at the bottom. The net on the left is the outcome of learning rate of 0.2 over 500 epocs, and the net on the right is from model with learning rate 0.002 over 5000 epocs.}{fig:neural_net}
+\hfig{figures/neural_nets.png}{0.8}{Importance of a connection between neurones in the neural net are indicated by the boldness of the connection. The Alexa links in is in the input layer 7th from the top, the bias is at the bottom. The net on the left is the outcome of learning rate of 0.2 over 500 epocs, and the net on the right is from model with learning rate 0.002 over 5000 epocs.}{fig:neural_net}
 
-The correlation coefficient between page rank and and Alexa links in is 0.2054 with a p value of 0.1808 which supports the above indications. This result is not very surprising, so it could be interesting to see the outcome of models without the Alexa related attributes. We choose the Rank subset minus Alexa related attributes as listed in table \ref{tab:rank_no_alexa}, which yields the results seen in table \ref{tab:rank_no_alexa_prediction}
+The correlation coefficient between page rank and and Alexa links in is 0.2054 with a p value of 0.1808 which supports the above indications. This result is not very surprising, so it could be interesting to see the outcome of models without the Alexa related attributes. We choose the Rank subset minus Alexa related attributes as listed in table \ref{tab:rank_no_alexa}, which yields the results seen in table \ref{tab:rank_no_alexa_prediction}.
 
 \hhtab{l l}
 {
