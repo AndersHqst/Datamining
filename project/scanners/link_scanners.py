@@ -6,6 +6,11 @@ from scanner_attribute import ScannerAttribute
 
 
 def links_count(website):
+    """Count internal and external links for a website
+
+    :param website: website to scan
+    :return int, int: internal_links, external_links
+    """
     internal_count = 0
     external_count = 0
     links = website.soup.find_all('a')
@@ -28,11 +33,11 @@ def bins():
 
 def external_links_scanner(website):
     internal_count, external_count = links_count(website)
-    return ScannerAttribute('external_links_count', external_count, 
+    return ScannerAttribute('external_links_count', external_count,
         index_of_interval_bin(bins(), external_count), bins())
 
 
 def internal_links_scanner(website):
     internal_count, external_count = links_count(website)
-    return ScannerAttribute('internal_links_count', internal_count, 
+    return ScannerAttribute('internal_links_count', internal_count,
         index_of_interval_bin(bins(), internal_count), bins())

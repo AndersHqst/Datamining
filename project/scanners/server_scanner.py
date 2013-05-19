@@ -4,12 +4,6 @@ from scanner_attribute import ScannerAttribute
 """Find server type from the HTTP header."""
 
 
-class ServerStopException(Exception):
-
-    def __init__(self, *args, **kwargs):
-        super(Exception, self).__init__(*args, **kwargs)
-
-
 def bins():
     return [
         'NGINX',
@@ -39,6 +33,11 @@ def bins():
 
 
 def server_scanner(website):
+    """Scan website for its server type
+
+    :param website: website to scan
+    :return ScannerAttribute:
+    """
     server = ''
     if website.headers.has_key('server'):
         server = website.headers['server'].strip().upper()

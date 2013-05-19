@@ -4,6 +4,11 @@ from scanner_attribute import ScannerAttribute
 
 
 def image_count_scanner(website):
+    """Scan website number of images
+
+    :param website: website to scan
+    :return ScannerAttribute:
+    """
     count = len(website.soup.find_all('img'))
     bins = [(0, 5), (5, 10), (10, 15), (15, 20), (20, sys.maxsize)]
     return ScannerAttribute('img_count', count, index_of_interval_bin(bins, count), bins)

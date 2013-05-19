@@ -8,6 +8,11 @@ def bins():
 
 
 def keyword_scanner(website):
+    """Scan website for using the keywords HTML meta tag
+
+    :param website: website to scan
+    :return ScannerAttribute:
+    """
     has_keywords = False
     meta_tags = website.soup.find_all('meta')
     for meta_tag in meta_tags:

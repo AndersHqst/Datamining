@@ -8,6 +8,10 @@ def bins():
 
 
 def description_scanner(website):
+    """Scan website for the description tag.
+
+    :param website: website to scan
+    """
     has_description = False
     meta_tags = website.soup.find_all('meta')
     for meta_tag in meta_tags:
