@@ -13,6 +13,11 @@ html5_tags = [
 
 
 def html5_scanner(website):
+    """Scan website for the using HTML 5.
+
+    :param website: website to scan
+    :return ScannerAttribute:
+    """
     is_found = False
     for tag in html5_tags:
         if len(website.soup.find_all(tag)) > 0:
@@ -25,6 +30,11 @@ def html5_scanner(website):
 
 
 def html5_tag_scanner(website):
+    """Scan website for the number of HTML 5 tags
+
+    :param website: website to scan
+    :return ScannerAttribute:
+    """
     count = 0
     for tag in html5_tags:
         count += len(website.soup.find_all(tag))
@@ -34,6 +44,11 @@ def html5_tag_scanner(website):
 
 
 def xhtml_scanner(website):
+    """Scan website for using XHTML
+
+    :param website: website to scan
+    :return ScannerAttribute:
+    """
     try:
         etree.XML(website.html)
         return ScannerAttribute('xhtml', 1, 1, [0, 1])

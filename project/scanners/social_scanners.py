@@ -2,6 +2,11 @@ from scanner_attribute import ScannerAttribute
 
 
 def twitter_share_scanner(website):
+    """Scan website for displaying a Twitter share
+
+    :param website: website to scan
+    :return ScannerAttribute:
+    """
     key = 'twitter_share'
     tw_classes = [
         'twitter-share-button',
@@ -16,6 +21,11 @@ def twitter_share_scanner(website):
 
 
 def facebook_share_scanner(website):
+    """Scan website for displaying a Facebook share
+
+    :param website: website to scan
+    :return ScannerAttribute:
+    """
     key = 'facebook_share'
     fb_classes = [
         'fb-like', 'fb-send',

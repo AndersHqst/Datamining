@@ -9,6 +9,12 @@ from scanner_attribute import create_binary_attribute
 
 
 def has_script(website, filename):
+    """Scan search for Javascript file name used as source for a script
+
+    :param website: website to scan
+    :param filename: filename to search for
+    :return bool: True if the filename is used
+    """
     for script in website.soup.find_all('script'):
         src = script.get('src')
         if src is not None:

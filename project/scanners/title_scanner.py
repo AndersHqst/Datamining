@@ -2,6 +2,10 @@ from scanner_attribute import ScannerAttribute
 
 
 def title_scanner(website):
+    """Scan website for using the title meta-tag
+
+    :param website: website to scan
+    :return ScannerAttribute: """
     key = 'title_tag'
     title = website.soup.title
 
