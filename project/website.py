@@ -3,6 +3,12 @@ from bs4 import BeautifulSoup
 
 class Website():
 
+    """Represents a parsed website data file.
+
+    Website containst all the information in the website data files.
+    Further, the parsed HTML is stored as well.
+    """
+
     def __init__(self, dat_file):
         self.url = ''
         self.headers = {}
@@ -28,6 +34,9 @@ class Website():
         self.parse()
 
     def parse(self):
+        """Parse a website data file into a Website object."""
+
+        # Read all lines and assign these to the correct variables
         line = self.dat_file.readline().decode('utf-8')
         while line:
             try:

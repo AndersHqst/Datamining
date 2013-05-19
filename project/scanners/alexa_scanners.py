@@ -4,6 +4,7 @@ from scanner_attribute import ScannerAttribute
 
 
 def alexa_rank_scanner(website):
+    """Return the Alexa global rank."""
     # Mapping:
     # 0 - 99: 0
     # 100 - 499: 1
@@ -14,18 +15,21 @@ def alexa_rank_scanner(website):
 
 
 def alexa_rank_dk_scanner(website):
+    """Return the Alexa Danish rank."""
     bins = [10, 50, 250, 1000, 5000, sys.maxsize]
     rank = website.alexa_rank_dk
     return ScannerAttribute('alexa_rank_dk', rank, bin_numeric(bins, rank), bins)
 
 
 def alexa_load_time_scanner(website):
+    """Return the Alexa everage load time."""
     bins = [500, 1000, 1500, 2000, 2500, sys.maxsize]
     load_time = website.alexa_load_time
     return ScannerAttribute('alexa_load_time', load_time, bin_numeric(bins, load_time), bins)
 
 
 def alexa_links_ins_scanner(website):
+    """Return the Alexa estimate of incoming links."""
     # Mapping:
     # 10001 - inf: 0
     # 7501 - 10000: 1
@@ -36,12 +40,14 @@ def alexa_links_ins_scanner(website):
 
 
 def alexa_lang_scanner(website):
+    """Return the language according to Alexa."""
     bins = ['dk', 'en', 'sv', 'no', 'de', 'fr']
     lang = website.alexa_lang
     return ScannerAttribute('alexa_lang', lang, bin_fuzzy_text(bins, lang), bins)
 
 
 def alexa_has_adult_content(website):
+    """Return the Alexa estimate of whether or not a page contains adult content."""
     has_adult_content = website.alexa_adult_content
     return ScannerAttribute('alexa_has_adult_content', 
         int(has_adult_content), int(has_adult_content), [0, 1])
