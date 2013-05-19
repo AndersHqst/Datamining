@@ -1,34 +1,36 @@
 \section{Solution}
 \label{sec:solution}
 
-In this section we give a technical overview of our solution.
+In this section we give a technical overview of our solution. The \texttt{Python} programming language is throughout the solution and, unless stated otherwise, every script which we refer to from here on is implemented in \texttt{Python}.
 
 \subsection{Data collection and parsing}
 \label{subsec:scraping}
 
-We have implemented a script for collecting the data. It scrapes the most popular\footnote{According to Alexa} sites in the \texttt{dk} domain. To make this as robust as possible, we send request with various Firefox browser headers injected, such as to fool the web-servers to give useful responses. Also we make sure to deal with \texttt{HTTP} redirects whenever present. In spite of this, some sites fail to be downloaded correctly because of \texttt{HTTP} errors. However, it is rather random when this happens, or for what sites, so it should not have contaminated our data in any way. With successful responses, we store both the raw \texttt{HTML} and the \texttt{HTTP} response headers.
+We have implemented a script for collecting the data. It scrapes the most popular sites\footnote{According to Alexa.} in the \texttt{.dk} domain. To make this as robust as possible, we inject a Firefox \texttt{User-agent} header into all requests, such as to fool the web-servers into giving useful responses\footnote{It is quite common for websites to reject crawlers. By injecting a \texttt{User-agent} header, a browser identifies itself to the webserver.}. Also we make sure to deal with \texttt{HTTP} redirects whenever present. In spite of this, some sites fail to be downloaded correctly because of \texttt{HTTP}/server errors. However, these problems does not occur in any predictable patterns, and should not contaminate our data set greatly. Whenever we receive a successful response, we store both the raw \texttt{HTML} and the \texttt{HTTP} response headers.
 
-After the website data has been download, we store and parse the \texttt{HTML} into data structures that makes it easier to query. For the inconsistent and noisy nature of most \texttt{HTML} data, we found that Python's build in \texttt{HTMLParser} is surprisingly fragile. It does not handle the noise and inconsistencies in \texttt{HTML} very well, and breaks on various cases, resulting in substantial data loss. In the hope that we can spare others some headaches, we found that the Beautiful Soup\cite{beautiful_soup} library combined the lxml\cite{lxml} \texttt{HTML}-parser is much more robust, and have not caused us to loss any data in this step.
+When the website data has been downloaded, we store and parse the \texttt{HTML} into a data structure which makes it easier to query. We have found that \texttt{Python}'s built-in \texttt{HTMLParser} is surprisingly fragile to the noisy and inconsistent nature of malformed \texttt{HTML}. Hence, various parser errors occur, resulting in a substantial data loss. Instead, we found that the \texttt{Beautiful Soup} library combined with the \texttt{lxml} \texttt{HTML}-parser is much more robust, and has helped us avoid data loss during this step \cite{beautiful_soup, lxml}.
 
 \subsection{Preprocessing}
 \label{subsec:preprocessing}
 
-With the process described in \ref{subsec:scraping}, we can process an object oriented representation of the collected websites.
+With the process described in \ref{subsec:scraping}, we can process the raw data into an object-oriented representation of the collected websites.
 
-Apart from the data from the websites themselves, we enrich our data set with information from Alexa and Google on general web-statistics. These numbers are easily accessible, and simply too relevant too be ignored. A complete list of the attributes and their meaning can be found in table \ref{tab:all_attributes} in Appendix \ref{apx:attributes}.
+Apart from the raw website data itself, we enrich our data set with information from Alexa and Google on general web-statistics, as described in section \ref{subsec:attributes}. These numbers are easily accessible, and simply too relevant to be ignored. A complete list of the attributes and their meaning can be found in table \ref{tab:all_attributes} in Appendix \ref{apx:attributes}.
 
-A high-level view of the architecture of the preprocessing library can be seen in figure \ref{fig:preprocess}. The (\texttt{Website}) class encapsulates the information belonging to each website. To easily extract the desired attributes, we use the concept of \textit{scanners}. Provided  a \texttt{Website} object, a scanner knows how to extract, and possibly bin, a given attribute from the raw website data. The design with scanners is made pluggable so that scanners can be added and removed as desired. As such, one scanner corresponds to one attribute.
+A high-level view of the architecture of the preprocessing library can be seen in figure \ref{fig:preprocess}. The \texttt{Website} class encapsulates the information belonging to each website. To easily extract the desired attributes, we introduce the concept of \textit{scanners}. Provided  a \texttt{Website} object, a scanner knows how to extract, and possibly bin, a given attribute from the raw website data. As such, there is a one-to-one correspondence between scanners and attributes. This scanner-based design is made pluggable, such that scanners can be added and removed as desired.
 
 \hfig{figures/architecture.pdf}{0.7}{A high-level overview of the preprocessing library. Data is fetched from the internet, or potentially Statistico, and stored. The raw data is then then converted into \texttt{Website} objects which are processed using a set of scanners. The processed data is eventually stored in the \texttt{ARFF} file format.}{fig:preprocess}
+
+Apart from generating the data set, we also perform a few extra preprocessing steps before we analyse the data. In order to secure consistency in any distance measures, numeric attributes are normalised into the domain $[0, 1]$. Further, irrelevant attributes are removed from the data set (please refer to section \ref{subsec:attributes}) and missing values are replaced by the mean (numeric attributes) or mode (nominal attributes).
 
 \subsection{Datamining tools}
 \label{subsec:weka}
 
-For creating basic statistics and plots of the data, we have used MatplotLib\cite{matplotlib} and Pandas\cite{pandas} in Pyhton. Results will be discussed in Section\ref{sec:statistics} and the full output can be found in Appendix \ref{apx:basic_statistics}.
+For creating basic statistics and plots of the data, we have used the \texttt{Python} libraries \texttt{MatplotLib} and \texttt{Pandas} \cite{matplotlib, pandas}. The corresponding results will be discussed in Section \ref{sec:statistics} and the full output can be found in Appendix \ref{apx:basic_statistics}.
 
-For the remaining data mining process we have used RapidMiner\cite{rapidminer}. This is as an alternative to Weka\cite{weka}, that we think delivers a much better user experience and powerful work flow. In RapidMiner one sets up a so called {\it process} that consists of operators, and possibly {\it building blocks} consisting of other operators. Our results are discussed in Section \ref{sev:analysis}.
+For the remaining data mining process we have used RapidMiner \cite{rapidminer}. This is as an alternative to Weka, that we think delivers a much better user experience and a more powerful workflow \cite{weka}. In RapidMiner one sets up a so called \textit{process} that consists of operators, and possibly \textit{building blocks} consisting of other operators. Our results are discussed in Section \ref{sev:analysis}.
 
-\todo{Mangler der noet her? Jeg har udkommenteret en hel del i latex'en herefter...}
+%\todo{Mangler der noet her? Jeg har udkommenteret en hel del i latex'en herefter...}
 % In order to use both these tools, the preprocessing library (refer to section \ref{subsec:preprocessing}) was developed such that it could output the data set in the \texttt{ARFF} format, which can be read by both Weka and RapidMiner.
 
 % Three versions of the data set were created, in order to support all potential use cases:

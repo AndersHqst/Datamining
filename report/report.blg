@@ -1,14 +1,32 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: report.aux
 The style file: plain.bst
 Database file #1: sections/bibliography.bib
+Warning--entry type for "rapidminer" isn't style-file defined
+--line 17 of file sections/bibliography.bib
+Warning--entry type for "weka" isn't style-file defined
+--line 23 of file sections/bibliography.bib
 Warning--entry type for "solr" isn't style-file defined
 --line 29 of file sections/bibliography.bib
 Warning--entry type for "lucene" isn't style-file defined
 --line 35 of file sections/bibliography.bib
 Warning--entry type for "alexa" isn't style-file defined
 --line 41 of file sections/bibliography.bib
+Warning--entry type for "beautiful_soup" isn't style-file defined
+--line 47 of file sections/bibliography.bib
+Warning--entry type for "lxml" isn't style-file defined
+--line 53 of file sections/bibliography.bib
+Warning--entry type for "matplotlib" isn't style-file defined
+--line 59 of file sections/bibliography.bib
+Warning--entry type for "pandas" isn't style-file defined
+--line 65 of file sections/bibliography.bib
 Warning--I didn't find a database entry for "book"
 Warning--to sort, need author or key in lucene
 Warning--to sort, need author or key in solr
 Warning--to sort, need author or key in alexa
-(There were 7 warnings)
+Warning--to sort, need author or key in beautiful_soup
+Warning--to sort, need author or key in lxml
+Warning--to sort, need author or key in matplotlib
+Warning--to sort, need author or key in pandas
+Warning--to sort, need author or key in rapidminer
+Warning--to sort, need author or key in weka
+(There were 19 warnings)

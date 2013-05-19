@@ -5,12 +5,37 @@ Alexa is a proprietary web-service developed by amazon that provides meta data
   and statistics on websites.
 \newblock http://aws.amazon.com/awis/.
 
+\bibitem{beautiful_soup}
+Beautiful soup builds a tree like object of html and provides fast search and
+  easy lookup in the html.
+\newblock http://www.crummy.com/software/BeautifulSoup/bs4/doc/.
+
 \bibitem{lucene}
 Lucene is under apace and is a widely for building indices.
 \newblock http://lucene.apache.org/core/.
 
+\bibitem{lxml}
+The lxml is an xml and html parser alternative for python.
+\newblock http://lxml.de/parsing.html.
+
+\bibitem{pandas}
+Pandas is a library for leveraging data analysis in python.
+\newblock http://pandas.pydata.org/.
+
+\bibitem{matplotlib}
+Python plotting library.
+\newblock http://matplotlib.org/.
+
+\bibitem{rapidminer}
+Rapidminer is freely available data mining software.
+\newblock http://rapid-i.com/.
+
 \bibitem{solr}
 Solr is a server for sending text based queries to the lucene index.
 \newblock http://lucene.apache.org/solr/.
+
+\bibitem{weka}
+Weka is freely available data mining software.
+\newblock http://www.cs.waikato.ac.nz/ml/weka/.
 
 \end{thebibliography}
