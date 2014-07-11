@@ -8,7 +8,8 @@ import json
 import os
 
 # Keys
-ACCESS_KEY = '
+ACCESS_KEY = ''
+SECRET_ACCESS_KEY= ''
 
 # Simply modify these to execute other queries.
 # Examples: http://docs.aws.amazon.com/AlexaWebInfoService/latest/
