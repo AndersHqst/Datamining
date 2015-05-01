@@ -1,4 +1,4 @@
-data_mining
+# Data mining project
 ===========
 
-Data mining repo for the statistico project
+Repo for a data mining project carried out at ITU. Contains pipeline of scripts for scraping and cleaning website meta data.
